@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'fdsymbol';
+  src: url('fonts/FdSymbol-Book.otf');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'fdsymbol';
+  src: url('fonts/FdSymbol-Regular.otf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'fdsymbol';
+  src: url('fonts/FdSymbol-Medium.otf');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'fdsymbol';
+  src: url('fonts/FdSymbol-Bold.otf');
+  font-weight: 700;
+}

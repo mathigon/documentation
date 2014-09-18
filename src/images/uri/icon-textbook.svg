@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px"
+	 height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+<g id="Layer_2" display="none">
+	<g display="inline">
+		
+			<image overflow="visible" opacity="0.3" width="36" height="36" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAACXBIWXMAAAsSAAALEgHS3X78AAAA
+GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAbNJREFUeNrsmFFPg0AMx7lxjAVd
+jNMHo774/b+X2YuLc5PI2DhL8j/SdYeyA5J74JJ/GEfW/tI20J6K2peKxl2mq1PF9tUIYIbBGAmm
+HL9nDg0RMeu4cqh5LoFq55qUMOkBoDjMkVQyHbF/BsRhUlJGuoFSBtUHyMIUpG8ox30DxdMUw/kt
+aUV6wHWJ/dizpmydnOB8R9qQPnDdY79+XmlROwmAHkmvpGdAZXg284xQhfTkgHiH3wNgSgApLVKW
+wPkKMG+kJ0Rp7pk2m64DorPGfg33Sfpido1uqSGbthrmhXRHWvQE+iFtsbeFj4v61OLPsrCXgLkX
+dXQtkK2fCBHJBEyztOOFaAs8QZpSaNETKIKdOWzHLDLKBSTfRxyOS3m+g2IB4Uy//udb1qZrV2cb
+syiwNQFNQBPQBDQBhQ6kO7SeUr5jTyc7+o+Gyl5PTD6ThxE2KuGjFcgIiJL1vAVrIfo0aAVslgLO
+tEWIjyo5emDbdg7Vwu4c489FhOTctMd0sGZt55BNPh9/zgZFCSRHFduQjzEGbXBfuibXYAbFYEfp
+4A4bgjyOCe7AKogjvV8BBgBt0dXTDirTbAAAAABJRU5ErkJggg==" transform="matrix(1 0 0 1 -5 -6)">
+		</image>
+		<g>
+			<rect fill="#B30469" width="24" height="24"/>
+		</g>
+	</g>
+</g>
+<g id="Layer_1">
+	<path fill="#FFFFFF" d="M6,9c1.5,0.2,2.3,0.5,4,1V9C9.2,8.7,8.7,8.1,6,8V9z"/>
+	<path fill="#FFFFFF" d="M6,11c1.5,0.2,2.3,0.5,4,1v-1c-0.8-0.3-1.3-0.9-4-1V11z"/>
+	<path fill="#FFFFFF" d="M6,13c1.5,0.2,2.3,0.5,4,1v-1c-0.8-0.3-1.3-0.9-4-1V13z"/>
+	<path fill="#FFFFFF" d="M6,15c1.5,0.2,2.3,0.5,4,1v-1c-0.8-0.3-1.3-0.9-4-1V15z"/>
+	<path fill="#FFFFFF" d="M5,7c2.3,0.1,4.5,0.3,6,1v9.6c-2.3-0.8-3.9-1.3-6-1.5V7 M3,5v13c2.4,0,5.9,0.7,8.5,2H13V7C11,5,6,5,3,5L3,5
+		z"/>
+	<path fill="#FFFFFF" d="M18,9c-1.5,0.2-2.3,0.5-4,1V9c0.8-0.3,1.3-0.9,4-1V9z"/>
+	<path fill="#FFFFFF" d="M18,11c-1.5,0.2-2.3,0.5-4,1v-1c0.8-0.3,1.3-0.9,4-1V11z"/>
+	<path fill="#FFFFFF" d="M18,13c-1.5,0.2-2.3,0.5-4,1v-1c0.8-0.3,1.3-0.9,4-1V13z"/>
+	<path fill="#FFFFFF" d="M18,15c-1.5,0.2-2.3,0.5-4,1v-1c0.8-0.3,1.3-0.9,4-1V15z"/>
+	<path fill="#FFFFFF" d="M19,7c-2.3,0.1-4.5,0.3-6,1v9.6c2.3-0.8,3.9-1.3,6-1.5V7 M21,5v13c-2.4,0-5.9,0.7-8.5,2H11V7
+		C13,5,18,5,21,5L21,5z"/>
+</g>
+</svg>
