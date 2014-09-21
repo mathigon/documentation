@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Mathigon | fermat.js</title>
+    <title>Mathigon | fusion.js</title>
     <meta name="description" content="">
     
     <!-- Settings -->
@@ -26,7 +26,7 @@
     <meta http-equiv="cleartype" content="on">
     
     <!-- Facebook Open Graph -->
-    <meta property="og:title"       content="Mathigon | fermat.js"/>
+    <meta property="og:title"       content="Mathigon | fusion.js"/>
     <meta property="og:description" content=""/>
     <meta property="og:image"       content="http://beta.mathigon.org/images/favicons/favicon-512.png"/>
     <meta property="og:type"        content="school"/>
@@ -34,7 +34,7 @@
     
     <!-- Twitter Cards -->
     <meta name="twitter:card"        content="summary_large_image">
-    <meta name="twitter:title"       content="Mathigon | fermat.js">
+    <meta name="twitter:title"       content="Mathigon | fusion.js">
     <meta name="twitter:description" content="">
     <meta name="twitter:image"       content="http://beta.mathigon.org/favicons/twitter.png">
     <meta name="twitter:site"        content="@MathigonProject">
@@ -52,7 +52,7 @@
     
   </head>
 
-  <body class="fermat">
+  <body class="fusion">
 
     <header>
       <nav row class="wrap">
@@ -67,7 +67,7 @@
 
     <div class="title">
       <div class="wrap">
-        <h1>fermat.js</h1>
+        <h1>fusion.js</h1>
         <div row>
           <p class="subtitle" grow style="margin-right: 20px; width: 260px">Library of countless high-performance mathematics functions and classes, ranging from number theory to statistics, numeric mathematics</p>
           <div style="width: 260px">
@@ -94,6 +94,24 @@
         <p>Most functions have no or very few dependencies, so it is easy to find and copy particular algorithms from the source code on GithHub.</p>
         <p class="warning">Core.js extends the native JavaScript Array prototype.</p>
         <p>Currently, fermat.js can only use JavaScript numbers, and is restricted to their size and precision. In the future, we will create BigNum and arbitrary precision number classes that work with all these functions.</p>
+
+
+
+        <h2>Arrays</h2>
+
+        <h3>M.tabulate</h3>
+        <p><code>M.tabulate(Function fn, Integer x1, Integer x2, ..., Integer xn)</code></p>
+        <p>creates an <code>n</code>-dimensional matrix that contains <code>fn(i1, i2, ..., in)</code> in cell <code>[i1][i2]...[in]</code>.</p>
+
+
+        <h3>M.list</h3>
+        <p><code>M.list(Integer a)</code></p>
+        <p>creates an array with values ranging from 0 to a (inclusive)</p>
+        <p>For example, M.list(5) = [0, 1, 2, 3, 4]</p>
+
+        <h3>M.shuffle</h3>
+        <p>More text</p>
+
 
         <h1 id="fermat-mathematics-tools">Fermat Mathematics Tools</h1>
         <h2 id="utilities">Utilities</h2>
@@ -247,6 +265,7 @@
         <p>returns an array of all possible permutations of an array <code>x</code>.</p>
         
         
+
 
         <footer>Footer</footer>
 

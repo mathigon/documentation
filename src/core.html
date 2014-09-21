@@ -2,27 +2,18 @@
 <html lang="en">
 
   <head>
-    <!--(bake templates/header.html title="Mathigon.io" description="")-->
-    <link rel="stylesheet" href="styles/io.css">
+    <!--(bake templates/header.html title="Mathigon | core.js" description="General purpose JavaScript library.")-->
   </head>
 
   <body class="core">
 
-    <header>
-      <nav row>
-        <a class="nav-link" id="nav-logo" style="width: 180px"></a>
-        <a grow class="nav-link" style="background: #B30469">core.js</a>
-        <a grow class="nav-link" style="background: #1F7AFF">fermat.js</a>
-        <a grow class="nav-link" style="background: #31B304">monet.js</a>
-        <a grow class="nav-link" style="background: #FF941F">browser.js</a>
-      </nav>
-    </header>
+    <!--(bake templates/nav.html)-->
 
     <div class="title">
-      <div class="title-wrap">
-        <h1>fermat.js</h1>
+      <div class="wrap">
+        <h1>core.js</h1>
         <div row>
-          <p class="subtitle" grow style="margin-right: 20px; width: 260px">Library of countless high-performance mathematics functions and classes, ranging from number theory to statistics, numeric mathematics</p>
+          <p class="subtitle" grow>General purpose JavaScript library.</p>
           <div style="width: 260px">
             <a class="link"><div class="link-download"></div>Download fermat.min.js</a>
             <a class="link"><div class="link-github"></div>Explore Source on GitHub</a>
@@ -31,7 +22,7 @@
       </div>
     </div>
 
-    <div class="body">
+    <div class="wrap" id="body">
 
       <div class="sidebar">
         <div class="sidebar-wrap"></div>
@@ -41,249 +32,12 @@
       <div class="content" id="api">
 
         <h2>Introduction</h2>
-        <p>All functions and methods are part of the <code>M</code> object. Classes are capitalised, but you don't need the <code>new</code> keyword to create instances.</p>
+        <p>All functions and methods are part of the <code>M</code> object.</p>
         <p>The Fermat library does no parameter and error checking. If you pass in invalid values the behaviour is undefined and functions may throw unpredictable errors.</p>
-        <p>The Fermat library requires Mathigon&rsquo;s <a>core.js</a>, which is already included in the minified build above.</p>
         <p>Most functions have no or very few dependencies, so it is easy to find and copy particular algorithms from the source code on GithHub.</p>
-        <p class="warning">Core.js extends the native JavaScript Array prototype.</p>
+        <p class="warning">Core.js extends JavaScript's native Array.prototype and String.prototype object. While often frowned upon, this should improve code length and readability, and not cause any problems unless you use Core.js with another library that extends native prototyoes (like prototype.js).</p>
 
-
-        <h2>Arrays</h2>
-
-        <h3>M.tabulate</h3>
-        <p><code>M.tabulate(Function fn, Integer x1, Integer x2, ..., Integer xn)</code></p>
-        <p>creates an <code>n</code>-dimensional matrix that contains <code>fn(i1, i2, ..., in)</code> in cell <code>[i1][i2]...[in]</code>.</p>
-
-
-        <h3>M.list</h3>
-        <p><code>M.list(Integer a)</code></p>
-        <p>creates an array with values ranging from 0 to a (inclusive)</p>
-        <p>For example, M.list(5) = [0, 1, 2, 3, 4]</p>
-
-        <h3>M.shuffle</h3>
-        <p>More text</p>
-
-
-        <h2>Arithmetic</h2>
-
-        <h3>M.equals</h3>
-        <p><code class="usage">M.equals(Number x, Number y, optional Number t)</code><br/>checks if two numbers <code>x</code> and <code>y</code> are equal, up to a tolerance <code>t</code> which defaults to 0.00001.</p>
-
-        <h3>M.sign</h3>
-        <p>More text</p>
-
-        <h3>M.square</h3>
-        <p>More text</p>
-
-        <h3>M.cube</h3>
-        <p>More text</p>
-
-        <h3>M.bound</h3>
-        <p>More text</p>
-
-        <h3>M.between</h3>
-        <p>More text</p>
-
-        <h3>M.numberFormat</h3>
-        <p>More text</p>
-
-        <h3>M.toOrdinal</h3>
-        <p>More text</p>
-
-        <h3>M.digits</h3>
-        <p>More text</p>
-
-        <h3>M.decimalDigits</h3>
-        <p>More text</p>
-
-        <h3>M.decimalPlaces</h3>
-        <p>More text</p>
-
-        <h3>M.roundTowardsZero</h3>
-        <p>More text</p>
-
-        <h3>M.round</h3>
-        <p>More text</p>
-
-        <h3>M.roundTo</h3>
-        <p>More text</p>
-
-        <h3>M.toFixed</h3>
-        <p>More text</p>
-
-        <h3>M.toFraction</h3>
-        <p>More text</p>
-
-        <h3>M.mod</h3>
-        <p>More text</p>
-
-        <h3>M.log</h3>
-        <p>More text</p>
-
-        <h3>M.log10</h3>
-        <p>More text</p>
-
-        <h3>M.log2</h3>
-        <p>More text</p>
-
-        <h3>M.cosh</h3>
-        <p>More text</p>
-
-        <h3>M.sinh</h3>
-        <p>More text</p>
-
-
-        <h2>Number Theory</h2>
-
-        <h3>M.gcd</h3>
-        <p>More text</p>
-
-        <h3>M.lcm</h3>
-        <p>More text</p>
-
-        <h3>M.isPrime</h3>
-        <p>More text</p>
-
-        <h3>M.isOdd</h3>
-        <p>More text</p>
-
-        <h3>M.isEven</h3>
-        <p>More text</p>
-
-        <h3>M.primeFactorization</h3>
-        <p>More text</p>
-
-        <h3>M.getFactors</h3>
-        <p>More text</p>
-
-        <h3>M.listPrimes</h3>
-        <p>More text</p>
-
-
-        <h2>Combinatorics</h2>
-
-        <h3>M.factorial</h3>
-        <p>More text</p>
-
-        <h3>M.binomial</h3>
-        <p>More text</p>
-
-        <h3>M.permutations</h3>
-        <p>More text</p>
-
-        <h3>M.subsets</h3>
-        <p>More text</p>
-
-        <h3>M.coinFlips</h3>
-        <p>More text</p>
-
-
-        <h2>Probability</h2>
-
-        <h3>M.random.integer</h3>
-        <p>More text</p>
-
-        <h3>M.random.integerArray</h3>
-        <p>More text</p>
-
-        <h3>M.random.bernoulli</h3>
-        <p>More text</p>
-
-        <h3>M.random.binomial</h3>
-        <p>More text</p>
-
-        <h3>M.random.poisson</h3>
-        <p>More text</p>
-
-        <h3>M.random.uniform</h3>
-        <p>More text</p>
-
-        <h3>M.random.normal</h3>
-        <p>More text</p>
-
-        <h3>M.random.exponential</h3>
-        <p>More text</p>
-
-        <h3>M.random.geometric</h3>
-        <p>More text</p>
-
-        <h3>M.random.cauchy</h3>
-        <p>More text</p>
-
-        <h3>M.normalPDF</h3>
-        <p>More text</p>
-
-
-        <h2>Statistics</h2>
-
-        <h3>M.mean</h3>
-        <p>More text</p>
-
-        <h3>M.median</h3>
-        <p>More text</p>
-
-        <h3>M.mode</h3>
-        <p>More text</p>
-
-        <h3>M.variance</h3>
-        <p>More text</p>
-
-        <h3>M.stdDev</h3>
-        <p>More text</p>
-
-        <h3>M.covarance</h3>
-        <p>More text</p>
-
-        <h3>M.correlation</h3>
-        <p>More text</p>
-
-        <h3>M.rSquared</h3>
-        <p>More text</p>
-
-        <h3>M.linearRegression</h3>
-        <p>More text</p>
-
-
-        <h2>Vectors</h2>
-
-        <h3>M.Vector</h3>
-        <p>More text</p>
-
-        <h3>M.Vector.total</h3>
-        <p>More text</p>
-
-        <h3>M.Vector.norm</h3>
-        <p>More text</p>
-
-
-        <h2>Matrices</h2>
-
-
-        <h2>Polynomials</h2>
-
-
-        <h2>Complex Numbers</h2>
-
-
-        <h2>Geometry</h2>
-
-
-        <h2>Numeric Mathematics</h2>
-
-
-        <h2>Cryptography</h2>
-
-        <h3>M.caesarCypher</h3>
-        <p>More text</p>
-
-        <h3>M.vigenereCypher</h3>
-        <p>More text</p>
-
-        <h3>M.letterFreqency</h3>
-        <p>More text</p>
-
-        <h3>M.cipherLetterFreq</h3>
-        <p>More text</p>
+        <!--(bake ../../tesla.js/dist/docs.html)-->
 
         <footer>Footer</footer>
 
@@ -291,106 +45,8 @@
 
     </div>
 
-    <!--(bake-start _if="dev")-->
-    <script type='text/javascript' src='scripts/prototype.js'></script>
-    <script type='text/javascript' src='scripts/fermat.js'></script>
-    <script type='text/javascript' src='scripts/browser.js'></script>
-    <!--(bake-end)-->
-
-    <script>
-
-      window.onload = function(){
-
-        var $sidebar = $C('sidebar-wrap')[0];
-        var $sidebarTopicWrap;
-
-        var posn = {};
-        M.resize(function() { posn = {}; });
-
-        $('api').find('h2, h3').each(function($el) {
-
-          var $sidebarEl;
-          var $topicWrap
-
-          if ($el.is('h2')) {
-            $sidebarEl = $N('div', { class: 'sidebar-h2', html: $el.html() }, $sidebar);
-            $sidebarTopicWrap = $topicWrap = $N('div', { style: 'display: none' }, $sidebar);
-          } else {
-            $sidebarEl = $N('div', { class: 'sidebar-h3', html: $el.html() }, $sidebarTopicWrap);
-            $topicWrap = $sidebarTopicWrap
-          }
-
-          var top = $el.$el.offsetTop;
-          posn[top] = [$sidebarEl, $topicWrap];
-
-          M.resize(function() {
-            top = $el.$el.offsetTop;
-            posn[top] = [$sidebarEl, $topicWrap];
-          });
-
-          $sidebarEl.click(function() { M.$body.scrollTo(top-75, 1000); });
-
-        });
-
-        var $sidebar = $C('sidebar')[0];
-        var bodyTop = $C('body')[0].$el.offsetTop - 40;
-        var $sidebarActive;
-        var $sidebarActiveBox;
-
-        var getActive = function(s) {
-          for (var i in posn) {
-            if (i > s) return posn[i];
-          }
-        }
-
-        M.$body.scroll({
-          move: function() {
-            var scroll = M.$body.$el.scrollTop;
-
-            $sidebar.setClass('fixed', scroll > bodyTop);
-
-            var active = getActive(scroll);
-
-            if (active[0] !== $sidebarActive) {
-              if ($sidebarActive) $sidebarActive.removeClass('active');
-              $sidebarActive = active[0];
-              $sidebarActive.addClass('active');
-            }
-
-            if (active[1] !== $sidebarActiveBox) {
-              if ($sidebarActiveBox) $sidebarActiveBox.hide();
-              $sidebarActiveBox = active[1];
-              if ($sidebarActiveBox) $sidebarActiveBox.show();
-            }
-
-          }
-        });
-
-      };
-
-    </script>
+    <script type='text/javascript' src='/scripts/mathigon.min.js'></script>
+    <script type='text/javascript' src='/scripts/docs.js'></script>
 
   </body>
 </html>
-
-
-
-<!-- ========== Social Media Buttons ==========
-
-<div id="fb-root"></div>
-<script>
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-</script>
-
-<script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
-
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-<script type="text/javascript" src="https://apis.google.com/js/platform.js"></script>
--->

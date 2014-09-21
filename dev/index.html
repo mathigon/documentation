@@ -42,6 +42,7 @@
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/styles/global.css">
+    <link rel="stylesheet" href="/styles/io.css">
     
     <!-- Webfonts -->
     <script src="//use.edgefonts.net/source-sans-pro:n3,i3,n4,i4,n6,i6,n7;source-code-pro:n4,n7.js"></script>
@@ -49,20 +50,20 @@
     <!-- Compatibility -->
     <!--[if lt IE 9]> <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
     
-    <link rel="stylesheet" href="styles/io.css">
   </head>
 
   <body class="home">
 
     <header>
       <nav row class="wrap">
-        <a href="/"             class="nav-link" id="nav-logo"></a>
-        <a href="/figaro"  grow class="nav-link" id="nav-core">core.js</a>
-        <a href="/fermat"  grow class="nav-link" id="nav-fermat">fermat.js</a>
-        <a href="/vermeer" grow class="nav-link" id="nav-monet">browser.js</a>
-        <a href="/browser" grow class="nav-link" id="nav-browser">fusion.js</a>
+        <a      href="/"       id="nav-logo"   class="nav-link"></a>
+        <a grow href="/core"   id="nav-core"   class="nav-link">core.js</a>
+        <a grow href="/fermat" id="nav-fermat" class="nav-link">fermat.js</a>
+        <a grow href="/xxx"    id="nav-xxx"    class="nav-link">xxx.js</a>
+        <a grow href="/fusion" id="nav-fusion" class="nav-link">fusion.js</a>
       </nav>
     </header>
+    
 
     <div class="title">
       <div class="wrap">
@@ -79,6 +80,7 @@
 
     <section>
       <div class="wrap">
+        <h2>Mathigon</h2>
         Here is Text
       </div>
     </section>
@@ -97,43 +99,51 @@
       </div>
     </section>
 
-    <section class="monet">
+    <section class="xxx">
       <div class="wrap">
         <h2>core.js</h2>
         <p>Here is Text</p>
       </div>
     </section>
 
-    <section class="browser">
+    <section class="fusion">
       <div class="wrap">
         <h2>core.js</h2>
         <p>Here is Text</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Contributing</h2>
+        Here is Text
       </div>
     </section>
 
     <footer><div class="wrap">© 2014 Mathigon, All Rights Reserved</div></footer>
+
+    <!-- ========== Social Media Buttons ========== -->
+
+    <div id="fb-root"></div>
+    <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
+
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    <script type="text/javascript" src="https://apis.google.com/js/platform.js"></script>
+
 
   </body>
 </html>
 
 
 
-<!-- ========== Social Media Buttons ==========
-
-<div id="fb-root"></div>
-<script>
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-</script>
-
-<script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
-
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-<script type="text/javascript" src="https://apis.google.com/js/platform.js"></script>
--->

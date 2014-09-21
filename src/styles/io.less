@@ -48,8 +48,8 @@ header {
 #nav-logo { background: url(/images/logo.png); background-size: 180px 40px; width: 180px; }
 #nav-core { background: @red ; }
 #nav-fermat { background: @blue ; }
-#nav-monet { background: @green ; }
-#nav-browser { background: @yellow ; }
+#nav-xxx { background: @green ; }
+#nav-fusion { background: @yellow ; }
 
 
 // =================================================================================================
@@ -63,10 +63,12 @@ header {
     margin-top: 40px;
 }
 
-.core    .title, section.core    { background: .3 * #FFF + .7 * @red; }
-.fermat  .title, section.fermat  { background: .3 * #FFF + .7 * @blue; }
-.monet   .title, section.monet   { background: .3 * #FFF + .7 * @green; }
-.browser .title, section.browser { background: .3 * #FFF + .7 * @yellow; }
+.home .title { padding: 60px 0 100px; }
+
+.core   .title, section.core   { background: mix(@red,    #FFF, 70%); }
+.fermat .title, section.fermat { background: mix(@blue,   #FFF, 70%); }
+.xxx    .title, section.xxx    { background: mix(@green,  #FFF, 70%); }
+.fusion .title, section.fusion { background: mix(@yellow, #FFF, 70%); }
 
 .title h1 {
     font-weight: 100;
@@ -78,6 +80,8 @@ header {
     font-weight: 100;
     color: rgba(255,255,255,0.6);
     font-size: 20px;
+    margin-right: 20px;
+    width: 260px
 }
 
 .link {
@@ -114,10 +118,16 @@ header {
 // BODY
 // =================================================================================================
 
-.sidebar { position: absolute; background: #D2E4FF; width: 180px; height:100%; }
+.sidebar { position: absolute; width: 180px; height:100%; }
 .sidebar.fixed { position: fixed; top: 40px; bottom: 0; height: auto; }
-.sidebar-fill { background: #D2E4FF; position: absolute; right: 100%; height: 100%; width: 1000px; top: 0; }
+.sidebar-fill { position: absolute; right: 100%; height: 100%; width: 1000px; top: 0; }
 .sidebar-wrap { position: relative; z-index: 10; width: 200px; margin-left: -20px; height: 100%; overflow: auto; padding: 20px 0; box-sizing: border-box; }
+
+.core   .sidebar, .core   .sidebar-fill { background: mix(@red,    #FFF, 20%); }
+.fermat .sidebar, .fermat .sidebar-fill { background: mix(@blue,   #FFF, 20%); }
+.xxx    .sidebar, .xxx    .sidebar-fill { background: mix(@green,  #FFF, 20%); }
+.fusion .sidebar, .fusion .sidebar-fill { background: mix(@yellow, #FFF, 20%); }
+
 
 .sidebar-h2 { font-size: 16px; font-weight: 600; padding: 3px 0 3px 12px; margin: 9px 0 1px 8px; cursor: pointer; transition: background .1s, color .1s; }
 .sidebar-h3 { font-size: 14px; font-weight: 100; padding: 2px 0 2px 10px; margin: -2px 0 -2px 18px; cursor: pointer; transition: background .1s, color .1s; }
@@ -137,6 +147,16 @@ code.usage { margin: 0 0 4px 0; display: inline-block; padding: 3px 4px;}
 
 section { padding: 40px 0; background: .3 * #FFF + .7 * @grey; }
 
+code {
+    line-height: 1;
+    padding: 0 4px;
+    white-space: nowrap;
+    background-color: #EEE;
+    border: 1px solid #DDD;
+    border-radius: 3px;
+    margin: -2px 1px;
+    letter-spacing: -.5px;
+}
 
 // =================================================================================================
 // FOOTER

@@ -45,11 +45,11 @@ header {
   background: #1f7aff;
 }
 
-#nav-monet {
+#nav-xxx {
   background: #31b304;
 }
 
-#nav-browser {
+#nav-fusion {
   background: #ff941f;
 }
 
@@ -58,6 +58,10 @@ header {
   color: #FFF;
   padding: 1px 0 40px;
   margin-top: 40px;
+}
+
+.home .title {
+  padding: 60px 0 100px;
 }
 
 .core .title,
@@ -70,13 +74,13 @@ section.fermat {
   background: #62a2ff;
 }
 
-.monet .title,
-section.monet {
+.xxx .title,
+section.xxx {
   background: #6fca4f;
 }
 
-.browser .title,
-section.browser {
+.fusion .title,
+section.fusion {
   background: #ffb462;
 }
 
@@ -90,6 +94,8 @@ section.browser {
   font-weight: 100;
   color: rgba(255, 255, 255, 0.6);
   font-size: 20px;
+  margin-right: 20px;
+  width: 260px;
 }
 
 .link {
@@ -135,7 +141,6 @@ section.browser {
 
 .sidebar {
   position: absolute;
-  background: #D2E4FF;
   width: 180px;
   height: 100%;
 }
@@ -148,7 +153,6 @@ section.browser {
 }
 
 .sidebar-fill {
-  background: #D2E4FF;
   position: absolute;
   right: 100%;
   height: 100%;
@@ -166,6 +170,26 @@ section.browser {
   padding: 20px 0;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+.core .sidebar,
+.core .sidebar-fill {
+  background: #f0cde1;
+}
+
+.fermat .sidebar,
+.fermat .sidebar-fill {
+  background: #d2e4ff;
+}
+
+.xxx .sidebar,
+.xxx .sidebar-fill {
+  background: #d6f0cd;
+}
+
+.fusion .sidebar,
+.fusion .sidebar-fill {
+  background: #ffead2;
 }
 
 .sidebar-h2 {
@@ -238,6 +262,17 @@ code.usage {
 section {
   padding: 40px 0;
   background: #66666e;
+}
+
+code {
+  line-height: 1;
+  padding: 0 4px;
+  white-space: nowrap;
+  background-color: #EEE;
+  border: 1px solid #DDD;
+  border-radius: 3px;
+  margin: -2px 1px;
+  letter-spacing: -0.5px;
 }
 
 .home footer {

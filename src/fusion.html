@@ -2,16 +2,16 @@
 <html lang="en">
 
   <head>
-    <!--(bake templates/header.html title="Mathigon | fermat.js" description="")-->
+    <!--(bake templates/header.html title="Mathigon | fusion.js" description="")-->
   </head>
 
-  <body class="fermat">
+  <body class="fusion">
 
     <!--(bake templates/nav.html)-->
 
     <div class="title">
       <div class="wrap">
-        <h1>fermat.js</h1>
+        <h1>fusion.js</h1>
         <div row>
           <p class="subtitle" grow style="margin-right: 20px; width: 260px">Library of countless high-performance mathematics functions and classes, ranging from number theory to statistics, numeric mathematics</p>
           <div style="width: 260px">
@@ -39,7 +39,26 @@
         <p class="warning">Core.js extends the native JavaScript Array prototype.</p>
         <p>Currently, fermat.js can only use JavaScript numbers, and is restricted to their size and precision. In the future, we will create BigNum and arbitrary precision number classes that work with all these functions.</p>
 
+
+
+        <h2>Arrays</h2>
+
+        <h3>M.tabulate</h3>
+        <p><code>M.tabulate(Function fn, Integer x1, Integer x2, ..., Integer xn)</code></p>
+        <p>creates an <code>n</code>-dimensional matrix that contains <code>fn(i1, i2, ..., in)</code> in cell <code>[i1][i2]...[in]</code>.</p>
+
+
+        <h3>M.list</h3>
+        <p><code>M.list(Integer a)</code></p>
+        <p>creates an array with values ranging from 0 to a (inclusive)</p>
+        <p>For example, M.list(5) = [0, 1, 2, 3, 4]</p>
+
+        <h3>M.shuffle</h3>
+        <p>More text</p>
+
+
         <!--(bake ../../fermat.js/dist/docs.html)-->
+
 
         <footer>Footer</footer>
 
