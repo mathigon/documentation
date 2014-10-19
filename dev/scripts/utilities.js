@@ -33,11 +33,8 @@ M.noop = function() {};
 M.trueop = function(){ return true; };
 
 M.run = function(obj, args, _this) {
-    if (obj instanceof Function) {
-        return obj.apply(_this || null, args);
-    } else {
-        return obj;
-    }
+    if (obj instanceof Function) return obj.apply(_this || null, args);
+    return obj;
 };
 
 // Checks if x is strictly equal to any one of the following arguments
@@ -166,7 +163,7 @@ M.isOneOf = function(x, values) {
 
         var getter = function () { return value; };
         var setter = function (newVal) {
-            oldVal = value;
+            var oldVal = value;
             value = newVal;
             return newVal = handler.call(this, newVal, oldVal);  // jshint ignore:line
         };
@@ -720,6 +717,7 @@ M.setPrecision = function(eps) {
 
 var _arrayJoin = Array.prototype.join;
 var _arrayPush = Array.prototype.push;
+var _arraySlice = Array.prototype.slice;
 
 // The function remembers previously evaluated values, avoiding repetitive calculations
 // http://blog.thejit.org/2008/09/05/memoization-in-javascript/
@@ -995,7 +993,7 @@ function concatArrays(a1, a2) {
 
         var maxf = Math.sqrt(n);
         for (var f = 2; f <= maxf; ++f) {
-            if (n % f === 0) return concatArray(fact(f), fact(n / f));
+            if (n % f === 0) return concatArrays(fact(f), fact(n / f));
         }
     };
 
@@ -1224,7 +1222,7 @@ function concatArrays(a1, a2) {
         var u2 = Math.random();
         var rand = Math.sqrt( -2 * Math.log(u1) ) * Math.cos( 2 * Math.PI * u2 );
 
-        return rand * Math.sqrt(s) + m;
+        return rand * Math.sqrt(v) + m;
     };
 
     M.random.exponential = function(l) {
@@ -1270,7 +1268,7 @@ function concatArrays(a1, a2) {
         if (!n) return 0;
 
         var sorted = values.slice(0).sort();
-        return (len % 2 === 1) ? sorted[Math.floor(n/2)] : (sorted[n/2 - 1] + sorted[n/2]) / 2;
+        return (n % 2 === 1) ? sorted[Math.floor(n/2)] : (sorted[n/2 - 1] + sorted[n/2]) / 2;
     };
 
 
@@ -1601,7 +1599,7 @@ function concatArrays(a1, a2) {
             return this[0][0] * this[1][1] - this[0][1] * this[1][0];
         }
 
-        for (var col = 0; col < cols; ++col) {
+        for (var col = 0; col < this.cols; ++col) {
             var diagLeft  = this[0][col];
             var diagRight = this[0][col];
 
@@ -1636,9 +1634,9 @@ function concatArrays(a1, a2) {
     M.matrix = {};
 
     // Create an identity matrix of dimension n x n
-    M.matrix.identity = function(n) {
-        var x = new M.Matrix(n, m, 0);
-        for (var i = 0; i < Math.min(n, m); ++i) x[i][i] = 1;
+    M.matrix.identity = function() {
+        var x = new M.Matrix(n, n, 0);
+        for (var i = 0; i < n; ++i) x[i][i] = 1;
         return x;
     };
 
@@ -1777,10 +1775,10 @@ function concatArrays(a1, a2) {
     };
 
     M.geo.Rect.prototype.toPolygon = function() {
-        var a = new M.geo.Point(this.x,     this.y);
-        var b = new M.geo.Point(this.x + w, this.y);
-        var c = new M.geo.Point(this.x + w, this.y + h);
-        var d = new M.geo.Point(this.x,     this.y + h);
+        var a = new M.geo.Point(this.x, this.y);
+        var b = new M.geo.Point(this.x + this.w, this.y);
+        var c = new M.geo.Point(this.x + this.w, this.y + this.h);
+        var d = new M.geo.Point(this.x, this.y + this.h);
         return new M.geo.Polygon([a, b, c, d]);
     };
 
@@ -1808,11 +1806,11 @@ function concatArrays(a1, a2) {
 
     M.geo.project = function(p, l) {
         var k = M.vector.dot(M.vector.subtr(p, l.p1), l.normalVector());
-        return new Point(l.p1.x + k.x, l.p1.y + k.y);
+        return new M.geo.Point(l.p1.x + k.x, l.p1.y + k.y);
     };
 
     M.geo.lineToPointDistance = function(p, l) {
-        return M.geo.distance(p, M.gep.project(p, l));
+        return M.geo.distance(p, M.geo.project(p, l));
     };
 
     M.geo.Polygon.prototype.centroid = function() {
@@ -1824,8 +1822,8 @@ function concatArrays(a1, a2) {
     // Interpolation
 
     M.geo.Line.prototype.at = function(t) {
-        var x = t * p1.x + (1-t) * p2.x;
-        var y = t * p1.y + (1-t) * p2.y;
+        var x = t * this.p1.x + (1-t) * this.p2.x;
+        var y = t * this.p1.y + (1-t) * this.p2.y;
         return new M.geo.Point(x, y);
     };
 
@@ -1842,10 +1840,10 @@ function concatArrays(a1, a2) {
     };
 
     M.geo.Curve.prototype.at = function(t) {
-        var x = M.cube(1-t)*this.p1.x + 3*t*(1-t)*(1-t)*q1.x +
-                    3*t*t*(1-t)*q2.x + M.cube(t)*this.p2.x;
-        var y = M.cube(1-t)*this.p1.y + 3*t*(1-t)*(1-t)*q1.y +
-                    3*t*t*(1-t)*q2.y + M.cube(t)*this.p2.y;
+        var x = M.cube(1-t)*this.p1.x + 3*t*(1-t)*(1-t)*this.q1.x +
+                    3*t*t*(1-t)*this.q2.x + M.cube(t)*this.p2.x;
+        var y = M.cube(1-t)*this.p1.y + 3*t*(1-t)*(1-t)*this.q1.y +
+                    3*t*t*(1-t)*this.q2.y + M.cube(t)*this.p2.y;
         return new M.geo.Point(x, y);
     };
 
@@ -1874,7 +1872,7 @@ function concatArrays(a1, a2) {
     };
 
     M.geo.Rect.prototype.circumference = function() {
-        return 2 * w + 2 * h;
+        return 2 * this.w + 2 * this.h;
     };
 
     M.geo.Polygon.prototype.circumference = function() {
@@ -1973,8 +1971,8 @@ function concatArrays(a1, a2) {
         var v = l.p2.x - l.p1.x;
         var w = l.p2.y - l.p1.y;
 
-        var x0 = p.x - p1.x;
-        var y0 = p.y - p1.y;
+        var x0 = p.x - l.p1.x;
+        var y0 = p.y - l.p1.y;
 
         var mu = (v * y0 - w * x0) / (v * v + w * w);
 
@@ -2170,7 +2168,7 @@ function concatArrays(a1, a2) {
 
         if (arguments.length > 2) {
             var rest = _arraySlice.call(arguments, 1);
-            return lcm(x, M.geo.intersect.apply(null, rest));
+            return M.geo.intersect(x, M.geo.intersect.apply(null, rest));
         }
 
         // Handle Rectangles
@@ -2187,7 +2185,7 @@ function concatArrays(a1, a2) {
             case 'polygon-polygon': return polygonPolygonIntersect(x, y);
         }
 
-        throw new Error('Can\'t intersect ' + typeX + 's and ' + typeY + '.');
+        throw new Error('Can\'t intersect ' + getGeoType(x) + 's and ' + getGeoType(y) + '.');
     };
 
 })();
@@ -2541,7 +2539,7 @@ function concatArrays(a1, a2) {
                     this.result.push(new Expression('abs', completed));
                 } else {
                     if (completed.length !== 1) throw new Error('Unexpected ",".');
-                    this.result.push(new Expression(completed[i]));
+                    this.result.push(new Expression(completed[0]));
                 }
                 this.current = '';
                 this.currentBracket = this.currentParser = this.currentFn = null;
@@ -2589,6 +2587,7 @@ function concatArrays(a1, a2) {
     ExpressionParser.prototype.complete = function(x) {
 
         this.pushCurrent();
+        var i;
 
         // Handle Factorials and Percentages
         for (i=0; i<this.result.length; ++i) {
@@ -2663,7 +2662,7 @@ function concatArrays(a1, a2) {
         for (var i=0; i<this.args.length; ++i) newArgs.push(this.args[i].toString());
 
         var fn = strings[this.fn];
-        return fn ? fn.apply(null, args) : this.fn + '(' + this.args.join(', ') + ')';
+        return fn ? fn.apply(null, newArgs) : this.fn + '(' + this.args.join(', ') + ')';
     };
 
     Expression.prototype.evaluate = function(vars) {
@@ -2889,7 +2888,7 @@ M.ajax = function(url, options) {
     if (!options) options = {};
     var xhr = new XMLHttpRequest();
 
-    var respond = function(xx) {
+    var respond = function() {
         var status = xhr.status;
 
         if (!status && xhr.responseText || status >= 200 && status < 300 || status === 304) {
@@ -3111,21 +3110,21 @@ M.getScript = function(src, success, error) {
 	               '#55A1B1', '#488BC2', '#4065B1', '#413B93', '#781C81'];
     M.colour.rainbow = function(steps) {
         var scale = (0.4 + 0.15 * steps).bound(0,1);
-        return FM.tabulate(function(x){ return M.colour.getColourAt(rainbow, scale*x/(steps-1)); }, steps);
+        return M.tabulate(function(x){ return M.colour.getColourAt(rainbow, scale*x/(steps-1)); }, steps);
     };
 
     var temperature = ['#3D52A1', '#3A89C9', '#77B7E5', '#B4DDF7', '#E6F5FE', '#FFFAD2', '#FFE3AA',
                        '#F9BD7E', '#ED875E', '#D24D3E', '#AE1C3E'];
     M.colour.temperature = function(steps) {
         var scale = (0.1 * steps).bound(0,1);
-        return FM.tabulate(function(x){
+        return M.tabulate(function(x){
             return M.colour.getColourAt(temperature, (1-scale)/2 + scale*x/(steps-1) ); }, steps);
     };
 
     var solar = ['#FFFFE5', '#FFF7BC', '#FEE391', '#FEC44F', '#FB9A29', '#EC7014', '#CC4C02',
                  '#993404', '#662506'];
     M.colour.solar = function(steps) {
-        return FM.tabulate(function(x){ return M.colour.getColourAt(solar, x/(steps-1)); }, steps);
+        return M.tabulate(function(x){ return M.colour.getColourAt(solar, x/(steps-1)); }, steps);
     };
 
 })();
@@ -3591,7 +3590,8 @@ M.cookie = {
       	var next = this.$el.nextSibling;
         var parent = this.$el.parentNode;
         var frag = document.createDocumentFragment();
-        var returned = fn.call(frag.appendChild(element)) || element;
+        frag.appendChild(this.$el);
+        var returned = fn.call(this) || this.$el;
       	if (next) {
 			parent.insertBefore(returned, next);
 		} else {
@@ -3637,8 +3637,8 @@ M.cookie = {
 	};
 
 	M.$.prototype.insertBefore = function(newChild) {
-	    var parent = this.parent();
 	    var _this = this;
+	    var parent = this.parent();
 
 	    if (typeof newChild === 'string') {
 	        var newChildren = $$N(newChild);
@@ -3652,12 +3652,12 @@ M.cookie = {
 
 	M.$.prototype.insertAfter = function(newChild) {
 	    var _this = this;
-	    var parent = _this.$el.parentNode;
+	    var parent = this.parent();
 
 	    if (typeof newChild === 'string') {
 	        var newChildren = $$N(newChild);
 	        newChildren.each(function(child) {
-	            //parent.$el.insertAfter(child, _this.$el);
+	            parent.$el.insertAfter(child.$el, _this.$el);
 	        });
 	    } else {
 	        var next = _this.$el.nextSibling;
@@ -3687,12 +3687,12 @@ M.cookie = {
 
 	M.$.prototype.next = function () {
 	    var next = this.$el.nextSibling;
-	    return next ? $(next) : false;
+	    return next ? $(next) : null;
 	};
 
 	M.$.prototype.prev = function () {
 	    var prev = this.$el.previousSibling;
-	    return prev ? $(prev) : false;
+	    return prev ? $(prev) : null;
 	};
 
 	M.$.prototype.find = function(selector) {
@@ -3701,7 +3701,7 @@ M.cookie = {
 
 	M.$.prototype.parent = function() {
 	    var parent = this.$el.parentNode;
-	    return parent ? $(parent) : false;
+	    return parent ? $(parent) : null;
 	};
 
 	M.$.prototype.parents = function(selector) {
@@ -3788,7 +3788,7 @@ M.cookie = {
             window.mozCancelAnimationFrame    ||
             window.msCancelAnimationFrame     ||
             window.clearTimeout;
-          return function(id){ return cancel(id); };
+          return function(id) { return cAF(id); };
     })();
 
     M.animate = function(callback, duration) {
@@ -4067,18 +4067,18 @@ M.cookie = {
 	    var startX, startY;
 	    var preventMouse = false;
 
-	    $el.addEventListener('click', function(e){
+	    $el.$el.addEventListener('click', function(e){
 	        e.preventDefault();
 	    });
 
-	    $el.addEventListener('mousedown', function(e){
+	    $el.$el.addEventListener('mousedown', function(e){
 	        if (preventMouse) return;
 	        waitForEvent = true;
 	        startX = e.clientX;
 	        startY = e.clientY;
 	    });
 
-	    $el.addEventListener('mouseup', function(e){
+	    $el.$el.addEventListener('mouseup', function(e){
 	        if (preventMouse) {
 	            preventMouse = false;
 	            return;
@@ -4093,7 +4093,7 @@ M.cookie = {
 	        waitForEvent = false;
 	    });
 
-	    $el.addEventListener('touchstart', function(e){
+	    $el.$el.addEventListener('touchstart', function(e){
 	        preventMouse = true;
 	        if (e.touches.length === 1) {
 	            waitForEvent = true;
@@ -4102,7 +4102,7 @@ M.cookie = {
 	        }
 	    });
 
-	    $el.addEventListener('touchend', function(e){
+	    $el.$el.addEventListener('touchend', function(e){
 	        if (waitForEvent && e.changedTouches.length === 1) {
 	            var endX = e.changedTouches[0].clientX;
 	            var endY = e.changedTouches[0].clientY;
@@ -4113,7 +4113,7 @@ M.cookie = {
 	        waitForEvent = false;
 	    });
 
-	    $el.addEventListener('touchcancel', function(){
+	    $el.$el.addEventListener('touchcancel', function(){
 	        waitForEvent = false;
 	    });
 	}
@@ -4133,7 +4133,7 @@ M.cookie = {
 		if ($el._events._pointer) return;
 		$el._events._pointer = true;
 
-		var $parent = $el.$el.offsetParent;
+		var $parent = $($el.$el.offsetParent);
 		var isInside = null;
 		$parent.on('pointerEnd', function(e) { isInside = null; });
 
@@ -4154,9 +4154,10 @@ M.cookie = {
 	M.$.prototype.fixOverflowScroll = function() {
 		if (this._events.fixOverflowScroll) return;
 		this._events.fixOverflowScroll = true;
-		_this = this;
 
-		this.addEventListener('touchstart', function(){
+		var _this = this;
+
+		this.$el.addEventListener('touchstart', function(){
 			// This ensures that overflow bounces happen within container
 			var top = _this.$el.scrollTop;
 			var bottom = _this.$el.scrollHeight - _this.$el.offsetHeight;
@@ -4197,17 +4198,16 @@ M.cookie = {
 
 		var scrollTimeout = null;
 		var scrolling = false;
-		var initialScroll = 0;
+		var $parent = ($el.$el === window) ? M.$body.$el : $el.$el;
 
 		function start() {
-			initialScroll = _this.$el.scrollTop;
 			$el.trigger('scrollstart', {});
 			scrolling = true;
 		}
 
 		function move() {
 			if (!scrolling) start();
-			$el.trigger('scroll', { top: $el.$el.scrollTop, left: $el.$el.scrollLeft });
+			$el.trigger('scroll', { top: $parent.scrollTop, left: $parent.scrollLeft });
 
 			if (scrollTimeout) window.clearTimeout(scrollTimeout);
 			scrollTimeout = window.setTimeout(end, 100);
@@ -4223,10 +4223,13 @@ M.cookie = {
 			window.removeEventListener('touchend', touchEnd);
 		}
 
-		$el.addEventListener('wheel mousewheel DOMMouseScroll', move);
 		$el.fixOverflowScroll();
 
-		$el.on('touchstart', function(){
+		$el.$el.addEventListener('wheel', move);
+		$el.$el.addEventListener('mousewheel', move);
+		$el.$el.addEventListener('DOMMouseScroll', move);
+
+		$el.$el.addEventListener('touchstart', function(){
 			start();
 			window.addEventListener('touchmove', move);
 			window.addEventListener('touchend', touchEnd);
@@ -4278,11 +4281,10 @@ M.cookie = {
 	// EVENT BINDINGS
 
 	function createEvent($el, event, fn, useCapture) {
-		var custom = customEvents[name];
+		var custom = customEvents[event];
 
 		if (M.isString(custom)) {
 			$el.on(custom, fn, useCapture);
-			return;
 		} else if (custom) {
 			custom($el);
 		} else {
@@ -4297,7 +4299,7 @@ M.cookie = {
 	}
 
 	function removeEvent($el, event, fn, useCapture) {
-		var custom = customEvents[name];
+		var custom = customEvents[event];
 
 		if (M.isString(custom)) {
 			$el.off(custom, fn, useCapture);
@@ -4338,7 +4340,7 @@ M.cookie = {
 		});
 	};
 
-	M.$.prototype.trigger = function(name, args) {
+	M.$.prototype.trigger = function(event, args) {
 		if (!this._events[event]) return;
 		var _this = this;
 		M.each(this._events[event], function(fn) { fn.call(_this, args); });
@@ -4787,7 +4789,7 @@ M.Gallery = function($panel, options) {
         M.$body.off('mousemove touchmove', motionMove);
         M.$body.off('mouseup mouseleave touchend touchcancel', motionEnd);
 
-        x = event.touches ? event.touches[0].clientX : event.clientX;
+        var x = event.touches ? event.touches[0].clientX : event.clientX;
         var lastDiff = lastMotionX - previousMotionX;
         var shift = lastDiff > 12 ? 1 : lastDiff < -12 ? -1 : 0;
 
@@ -5285,7 +5287,7 @@ M.draw = function($svg, options) {
     var activePath = null;
 
     _this.start = function(p) {
-        if (_this.p && FM.geo.distance(_this.p, p) < 20) {
+        if (_this.p && M.geo.distance(_this.p, p) < 20) {
             activePath.addPoint(p);
 
         } else {
@@ -5303,7 +5305,7 @@ M.draw = function($svg, options) {
     };
 
     _this.addPoint = function(p) {
-        if (FM.geo.manhatten(_this.p, p) > 4) {
+        if (M.geo.manhatten(_this.p, p) > 4) {
             activePath.addPoint(p);
             _this.p = p;
             if (options.onIntersect) _this.checkForIntersects();
@@ -5346,7 +5348,7 @@ M.draw.prototype.checkForIntersects = function() {
     for (var i=0; i<this.paths.length-1; ++i) {
         var l = this.paths[i].points.length;
         for (var j=1; j<l-2; ++j) {
-            var t = FM.geo.intersect(a1, a2, this.paths[i].points[j], this.paths[i].points[j+1]);
+            var t = M.geo.intersect(a1, a2, this.paths[i].points[j], this.paths[i].points[j+1]);
             if (t) {
                 this.options.onIntersect(t, path, this.paths[i]);
                 return;
