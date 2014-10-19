@@ -42,10 +42,7 @@
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/styles/global.css">
-    <link rel="stylesheet" href="/styles/io.css">
-    
-    <!-- Webfonts -->
-    <script src="//use.edgefonts.net/source-sans-pro:n3,i3,n4,i4,n6,i6,n7;source-code-pro:n4,n7.js"></script>
+    <link rel="stylesheet" href="/styles/docs.css">
     
     <!-- Compatibility -->
     <!--[if lt IE 9]> <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
@@ -59,8 +56,8 @@
         <a      href="/"       id="nav-logo"   class="nav-link"></a>
         <a grow href="/core"   id="nav-core"   class="nav-link">core.js</a>
         <a grow href="/fermat" id="nav-fermat" class="nav-link">fermat.js</a>
-        <a grow href="/xxx"    id="nav-xxx"    class="nav-link">xxx.js</a>
-        <a grow href="/fusion" id="nav-fusion" class="nav-link">fusion.js</a>
+        <a grow href="/boost"  id="nav-boost"  class="nav-link">boost.js</a>
+        <a grow href="/slate"  id="nav-slate"  class="nav-link">slate.js</a>
       </nav>
     </header>
     
@@ -71,7 +68,7 @@
         <div row>
           <p class="subtitle" grow>General purpose JavaScript library.</p>
           <div style="width: 260px">
-            <a class="link"><div class="link-download"></div>Download fermat.min.js</a>
+            <a class="link"><div class="link-download"></div>Download core.min.js</a>
             <a class="link"><div class="link-github"></div>Explore Source on GitHub</a>
           </div>
         </div>
@@ -88,6 +85,7 @@
       <div class="content" id="api">
 
         <h2>Introduction</h2>
+
         <p>All functions and methods are part of the <code>M</code> object.</p>
         <p>The Fermat library does no parameter and error checking. If you pass in invalid values the behaviour is undefined and functions may throw unpredictable errors.</p>
         <p>Most functions have no or very few dependencies, so it is easy to find and copy particular algorithms from the source code on GithHub.</p>
@@ -207,7 +205,7 @@
             </style>
           </head>
           <body>  
-            <h1 id="tesla-javascript-tools">Tesla JavaScript Tools</h1>
+            
         <h2 id="general">General</h2>
         <h3 id="-a-name-noop-a-m-noop-noop-"><a name="noop"></a><a href="#noop">M.noop</a></h3>
         <h4 id="-m-noop-"><code>M.noop()</code></h4>
@@ -218,7 +216,7 @@
         <h3 id="-a-name-isoneof-a-m-isoneof-isoneof-"><a name="isOneOf"></a><a href="#isOneOf">M.isOneOf</a></h3>
         <h4 id="-m-isoneof-x-value1-value2-boolean-"><code>M.isOneOf(x, value1, value2, ...) : Boolean</code></h4>
         <p>checks if x is strictly equal (<code>===</code>) to any one of the following arguments.</p>
-        <h2 id="object-functions">Object Functions</h2>
+        <h2 id="objects">Objects</h2>
         <h3 id="-a-name-has-a-m-has-has-"><a name="has"></a><a href="#has">M.has</a></h3>
         <h4 id="-m-has-object-obj-string-key-boolean-"><code>M.has(Object obj, String key): Boolean</code></h4>
         <p>checks if <code>obj</code> contains the property <code>key</code> (not including any prototype functions or inherited methods).</p>
@@ -257,7 +255,7 @@
         <h3 id="-a-name-unwatch-a-m-unwatch-unwatch-"><a name="unwatch"></a><a href="#unwatch">M.unwatch</a></h3>
         <h4 id="-m-unwatch-object-obj-string-prop-"><code>M.unwatch(Object obj, String prop)</code></h4>
         <p>removes a previously attached change watcher from <code>obj.prop</code>.</p>
-        <h2 id="type-functions">Type Functions</h2>
+        <h2 id="types">Types</h2>
         <h3 id="-a-name-typeof-a-m-typeof-typeof-"><a name="typeof"></a><a href="#typeof">M.typeof</a></h3>
         <h4 id="-m-typeof-obj-string-"><code>M.typeof(obj): String</code></h4>
         <p>returns the type of any value or object. Possible outcomes are <code>null</code>, <code>undefined</code>, <code>nan</code>, <code>number</code>, <code>string</code>, <code>boolean</code>, <code>array</code>, <code>date</code>, <code>regexp</code>, <code>function</code> or <code>object</code>.</p>
@@ -274,7 +272,7 @@
         <h4 id="-m-isfunction-obj-boolean-"><code>M.isFunction(obj) : Boolean</code></h4>
         <h4 id="-m-isboolean-obj-boolean-"><code>M.isBoolean(obj) : Boolean</code></h4>
         <h4 id="-m-isobject-obj-boolean-"><code>M.isObject(obj) : Boolean</code></h4>
-        <h2 id="array-functions">Array Functions</h2>
+        <h2 id="copying-and-comparing">Copying and Comparing</h2>
         <h3 id="-a-name-shallowcopy-a-m-shallowcopy-shallowcopy-"><a name="shallowCopy"></a><a href="#shallowCopy">M.shallowCopy</a></h3>
         <h4 id="-m-shallowcopy-todo-"><code>M.shallowCopy(TODO)</code></h4>
         <p>TODO</p>
@@ -303,7 +301,7 @@
         <h3 id="-a-name-class-prototype-trigger-a-m-class-prototype-trigger-class-prototype-trigger-"><a name="Class.prototype.trigger"></a><a href="#Class.prototype.trigger">M.Class.prototype.trigger</a></h3>
         <h4 id="-m-class-prototype-trigger-string-event-object-arg-"><code>M.Class.prototype.trigger(String event, Object arg)</code></h4>
         <p>triggers a single event on a class, and calls all bound callbacks with <code>arg</code> as argument.</p>
-        <h2 id="array-functions">Array Functions</h2>
+        <h2 id="strings">Strings</h2>
         <h3 id="-a-name-string-endswith-a-string-endswith-string-endswith-"><a name="String.endsWith"></a><a href="#String.endsWith">String.endsWith</a></h3>
         <h4 id="-string-prototype-endswith-string-end-boolean-"><code>String.prototype.endsWith(String end) : Boolean</code></h4>
         <p>checks if a string ends with another string <code>end</code>.</p>
@@ -322,13 +320,14 @@
         <h3 id="-a-name-string-contains-a-string-contains-string-contains-"><a name="String.contains"></a><a href="#String.contains">String.contains</a></h3>
         <h4 id="-string-prototype-contains-string-str-boolean-"><code>String.prototype.contains(String str) : Boolean</code></h4>
         <p>checks if a string contains contains <code>str</code>. This polyfill is only added if the environment doesn&#39;t natively support <code>String.prototype.contains</code>.</p>
-        <h2 id="array-functions">Array Functions</h2>
+        <h2 id="arrays">Arrays</h2>
         <h3 id="-a-name-tabulate-a-m-tabulate-tabulate-"><a name="tabulate"></a><a href="#tabulate">M.tabulate</a></h3>
-        <h4 id="-m-tabulate-todo-"><code>M.tabulate(TODO)</code></h4>
-        <p>TODO</p>
+        <h4 id="-m-tabulate-function-fn-integer-x1-integer-x2-integer-xn-array-"><code>M.tabulate(Function fn, Integer x1, Integer x2, ..., Integer xn) : Array</code></h4>
+        <p>creates an <code>n</code>-dimensional matrix that contains <code>fn(i1, i2, ..., in)</code> in cell <code>[i1][i2]...[in]</code>.</p>
         <h3 id="-a-name-list-a-m-list-list-"><a name="list"></a><a href="#list">M.list</a></h3>
-        <h4 id="-m-list-todo-"><code>M.list(TODO)</code></h4>
-        <p>TODO</p>
+        <h4 id="-m-list-integer-a-array-"><code>M.list(Integer a) : Array</code></h4>
+        <p>creates an array with values ranging from 0 to a (inclusive).
+        For example, <code>M.list(5) = [0, 1, 2, 3, 4]</code>.</p>
         <h3 id="-a-name-map-a-m-map-map-"><a name="map"></a><a href="#map">M.map</a></h3>
         <h4 id="-m-map-todo-"><code>M.map(TODO)</code></h4>
         <p>TODO</p>
@@ -382,7 +381,7 @@
 
     </div>
 
-    <script type='text/javascript' src='/scripts/mathigon.min.js'></script>
+    <script type='text/javascript' src='/scripts/utilities.js'></script>
     <script type='text/javascript' src='/scripts/docs.js'></script>
 
   </body>

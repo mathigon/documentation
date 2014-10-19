@@ -1,20 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-  <loc>http://mathigon.io/core.html</loc>
-  <lastmod>2014-09-16T21:24:54.000Z</lastmod>
+  <loc>http://mathigon.org/boost.html</loc>
+  <lastmod>2014-10-19T08:27:30.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>http://mathigon.io/fermat.html</loc>
-  <lastmod>2014-09-16T21:24:54.000Z</lastmod>
+  <loc>http://mathigon.org/core.html</loc>
+  <lastmod>2014-10-19T08:27:30.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>http://mathigon.io/</loc>
-  <lastmod>2014-09-16T21:24:54.000Z</lastmod>
+  <loc>http://mathigon.org/fermat.html</loc>
+  <lastmod>2014-10-19T08:27:30.000Z</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>http://mathigon.org/</loc>
+  <lastmod>2014-10-19T08:27:30.000Z</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>http://mathigon.org/slate.html</loc>
+  <lastmod>2014-10-19T08:27:30.000Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.5</priority>
 </url>

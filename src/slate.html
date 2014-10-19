@@ -2,20 +2,20 @@
 <html lang="en">
 
   <head>
-    <!--(bake templates/header.html title="Mathigon | xxx.js" description="")-->
+    <!--(bake templates/header.html title="Mathigon | slate.js" description="")-->
   </head>
 
-  <body class="xxx">
+  <body class="slate">
 
     <!--(bake templates/nav.html)-->
 
     <div class="title">
       <div class="wrap">
-        <h1>xxx.js</h1>
+        <h1>slate.js</h1>
         <div row>
           <p class="subtitle" grow style="margin-right: 20px; width: 260px">Library of countless high-performance mathematics functions and classes, ranging from number theory to statistics, numeric mathematics</p>
           <div style="width: 260px">
-            <a class="link"><div class="link-download"></div>Download fermat.min.js</a>
+            <a class="link"><div class="link-download"></div>Download slate.min.js</a>
             <a class="link"><div class="link-github"></div>Explore Source on GitHub</a>
           </div>
         </div>
@@ -32,6 +32,7 @@
       <div class="content" id="api">
 
         <h2>Introduction</h2>
+
         <p>All functions and methods are part of the <code>M</code> object. Classes are capitalised, but you don't need the <code>new</code> keyword to create instances.</p>
         <p>The Fermat library does no parameter and error checking. If you pass in invalid values the behaviour is undefined and functions may throw unpredictable errors.</p>
         <p>The Fermat library requires Mathigon&rsquo;s <a>core.js</a>, which is already included in the minified build above.</p>
@@ -39,26 +40,7 @@
         <p class="warning">Core.js extends the native JavaScript Array prototype.</p>
         <p>Currently, fermat.js can only use JavaScript numbers, and is restricted to their size and precision. In the future, we will create BigNum and arbitrary precision number classes that work with all these functions.</p>
 
-
-
-        <h2>Arrays</h2>
-
-        <h3>M.tabulate</h3>
-        <p><code>M.tabulate(Function fn, Integer x1, Integer x2, ..., Integer xn)</code></p>
-        <p>creates an <code>n</code>-dimensional matrix that contains <code>fn(i1, i2, ..., in)</code> in cell <code>[i1][i2]...[in]</code>.</p>
-
-
-        <h3>M.list</h3>
-        <p><code>M.list(Integer a)</code></p>
-        <p>creates an array with values ranging from 0 to a (inclusive)</p>
-        <p>For example, M.list(5) = [0, 1, 2, 3, 4]</p>
-
-        <h3>M.shuffle</h3>
-        <p>More text</p>
-
-
-        <!--(bake ../../fermat.js/dist/docs.html)-->
-
+        <!--(bake ../../slate.js/dist/docs.html)-->
 
         <footer>Footer</footer>
 
@@ -66,7 +48,7 @@
 
     </div>
 
-    <script type='text/javascript' src='/scripts/mathigon.min.js'></script>
+    <script type='text/javascript' src='/scripts/utilities.js'></script>
     <script type='text/javascript' src='/scripts/docs.js'></script>
 
   </body>

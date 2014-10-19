@@ -4,333 +4,230 @@
 // ================================================================================================
 
 
-'use strict';
-
+/* jshint node: true */
 
 module.exports = function (grunt) {
 
     // Dynamically load npm tasks
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
+    var libraries = ['../core.js/dist/core.js', '../fermat.js/dist/fermat.js',
+                     '../boost.js/dist/boost.js', '../slate.js/dist/slate.js'];
 
     grunt.initConfig({
 
         pkg: grunt.file.readJSON('package.json'),
+        src: 'src',
+        out: (grunt.cli.tasks[0] === 'prod' ? 'prod' : 'dev'),
+        banner: '/* (c) 2014, Mathigon */\n\n',
 
-        project: {
-            src: 'src',
-            banner: '// (c) 2014, Mathigon\n\n'
-        },
-
-
-        // ----------------------------------------------------------------------------------------
-        // Clean files and folders
-        // https://github.com/gruntjs/grunt-contrib-clean
-
-        clean: {
-            dev:  ['dev'],
-            prod: ['prod']
-        },
+        clean: ['<%= out %>'],
 
 
         // ----------------------------------------------------------------------------------------
-        // Uglify (minify) JavaScript files
-        // https://github.com/gruntjs/grunt-contrib-uglify
+        // JavaScript Files
 
-        uglify: {
+        concat: {
             options: {
-                banner: '<%= project.banner %>',
-                mangle: false
+                separator: '\n'
             },
-            scripts: {
-                files: [
-                    { dest: 'prod/scripts/utilities.js',
-                      src: ['src/scripts/prototype.js',
-                            'src/scripts/fermat.js', 'src/scripts/browser.js'] },
-                    { dest: 'prod/scripts/layout.js', src: ['src/scripts/layout.js'] },
-                ],
+            utilities: {
+                src: libraries,
+                dest: '<%= out %>/scripts/utilities.js'
             },
-            prod: {
-                files: [{
-                    expand: true,
-                    src: ['resources/**/*.js'],
-                    cwd: 'src',
-                    dest: 'prod',
-                }]
+            site: {
+                src: '<%= src %>/scripts/*.js',
+                dest: '<%= out %>/scripts/docs.js'
             }
         },
 
-
-        // ----------------------------------------------------------------------------------------
-        // Compile LESS files
-        // https://github.com/gruntjs/grunt-contrib-less
-
-        less: {
-            dev: {
-                files: [{
-                    expand: true,
-                    src: 'styles/*.less',
-                    dest: 'dev',
-                    cwd: 'src',
-                    ext: '.css'
-                }]
-            },
-            prod: {
-                files: [{
-                    expand: true,
-                    src: 'styles/*.less',
-                    dest: 'prod',
-                    cwd: 'src',
-                    ext: '.css'
-                }]
-            }
-        },
+        uglify: { all: {
+            options: { banner: '<%= banner %>', mangle: false },
+            src: ['<%= out %>/scripts/*.js'],
+            expand: true
+        }},
 
 
         // ----------------------------------------------------------------------------------------
-        // Autoprefixer
-        // https://github.com/nDmitry/grunt-autoprefixer
+        // CSS Files
 
-        autoprefixer: {
-           options: {
-                browsers: [
-                    'last 2 version',
-                    'safari 6',
-                    'ie 9',
-                    'opera 12.1',
-                    'ios 6',
-                    'android 4'
-                ]
-            },            
-            dev: {
-                files: [{
-                    expand: true,
-                    flatten: true,
-                    src: 'dev/styles/*.css',
-                    dest: 'dev/styles'
-                }]
-            },
-            prod: {
-                files: [{
-                    expand: true,
-                    flatten: true,
-                    src: 'prod/styles/*.css',
-                    dest: 'prod/styles'
-                }]
-            }
-        },
+        less: { all: {
+            files: [{
+                expand: true,
+                src: 'styles/*.less',
+                dest: '<%= out %>',
+                cwd: '<%= src %>',
+                ext: '.css'
+            }]
+        }},
 
+        autoprefixer: { all: {
+            files: [{
+                expand: true,
+                flatten: true,
+                src: '<%= out %>/styles/*.css',
+                dest: '<%= out %>/styles'
+            }]
+        }},
 
-        // ----------------------------------------------------------------------------------------
-        // CSSMin
-        // https://github.com/gruntjs/grunt-contrib-cssmin
-
-        cssmin: {
-            options: {
-                banner: '<%= project.banner %>'
-            },
-            prod: {
-                files: [{
-                    expand: true,
-                    flatten: true,
-                    src: 'prod/styles/*.css',
-                    dest: 'prod/styles'
-                }]
-            }
-        },
+        cssmin: { all: {
+            options: { banner: '<%= banner %>' },
+            files: [{
+                expand: true,
+                flatten: true,
+                src: '<%= out %>/styles/*.css',
+                dest: '<%= out %>/styles'
+            }]
+        }},
 
 
         // ----------------------------------------------------------------------------------------
-        // IMG Minification
+        // Images
 
-        imagemin: {
+        imagemin: { all: {
             options: {
                 optimizationLevel: 4,
                 progressive: true,
                 interlaced: true
             },
-            prod: {
-                files: [{
-                    expand: true,
-                    cwd: 'src',
-                    src: ['**/*.{png,jpg,gif}', '!**/uri/*'],
-                    dest: 'prod'
-                }]
-            }
-        },
+            files: [{
+                expand: true,
+                cwd: '<%= src %>',
+                src: ['**/*.{png,jpg,gif}', '!**/uri/*'],
+                dest: '<%= out %>'
+            }]
+        }},
 
 
         // ----------------------------------------------------------------------------------------
         // HTML Bake
         // https://github.com/MathiasPaumgarten/grunt-bake
 
-        bake: {
-            dev: {
-                options: { content: { dev: "true" } },
-                files: [{
-                    expand: true,
-                    cwd: 'src',
-                    src: ['**/*.html', '!**/templates/*'],
-                    dest: 'dev'
-                }]
+        bake: { all: {
+            options: { content: (this.out === 'dev' ? { dev: 'true' } : { prod: 'prod' }) },
+            files: [{
+                expand: true,
+                cwd: '<%= src %>',
+                src: ['**/*.html', '!**/templates/*'],
+                dest: '<%= out %>'
+            }]
+
+        }},
+
+        htmlmin: { all: {
+            options: {
+                keepClosingSlash: true,
+                removeComments: true,
+                collapseWhitespace: true,
+                removeEmptyAttributes: true,
+                removeRedundantAttributes: true,
+                collapseBooleanAttributes: true
             },
-            prod: {
-                options: { content: { prod: "prod" } },
-                files: [{
-                    expand: true,
-                    cwd: 'src',
-                    src: ['**/*.html', '!**/templates/*'],
-                    dest: 'prod'
-                }]
-            }
-        },
+            files: [{
+                expand: true,
+                cwd: '<%= out %>',
+                src: ['**/*.html'],
+                dest: '<%= out %>'
+            }]
+        }},
+
+        sitemap: { all: {
+            siteRoot: 'prod/',
+            homepage: 'http://mathigon.org'
+        }},
 
 
         // ----------------------------------------------------------------------------------------
-        // HTML Minification
-
-        htmlmin: {
-            prod: {
-                options: {
-                    keepClosingSlash: true,
-                    removeComments: true,
-                    collapseWhitespace: true,
-                    removeEmptyAttributes: true,
-                    removeRedundantAttributes: true,
-                    collapseBooleanAttributes: true
-                },
-                files: [{
-                    expand: true,
-                    cwd: 'prod',
-                    src: ['**/*.html'],
-                    dest: 'prod'
-                }]
-            }
-        },
-
-
-        // ----------------------------------------------------------------------------------------
-        // Copy Static Files
+        // Static Files
 
         copy: {
+            globalCss: {
+                src: '../boost.js/dist/global.css',
+                dest: '<%= out %>/styles/global.css'
+            },
             dev: {
                 files: [{
                     expand: true,
-                    cwd: 'src',
-                    src: ['**/*.{js,gif,png,jpg,ico,json,mp3,mp4,svg,otf,ttf}', '!**/uri/*'],
-                    dest: 'dev'
+                    cwd: '<%= src %>',
+                    src: ['**/*.{gif,png,jpg,ico,json,xml,mp3,mp4,svg,otf,ttf,eot,woff,pdf}', '!**/uri/*'],
+                    dest: '<%= out %>'
                 }]
             },
             prod: {
                 files: [{
                     expand: true,
-                    cwd: 'src',
-                    src: ['**/*.{ico,json,mp3,mp4,svg,otf,ttf}', '!**/uri/*'],
-                    dest: 'prod'
+                    cwd: '<%= src %>',
+                    src: ['**/*.{ico,json,xml,mp3,mp4,svg,otf,ttf,eot,woff,pdf}', '!**/uri/*'],
+                    dest: '<%= out %>'
                 }]
             }
         },
 
 
         // ----------------------------------------------------------------------------------------
-        // Sitemaps
+        // File Watchers and Syncing
 
-        sitemap: {
-            prod: {
-                siteRoot: 'prod/',
-                homepage: 'http://mathigon.io'
-            }
-        },
-
-
-        // ----------------------------------------------------------------------------------------
-        // Start Web Server
-        // https://github.com/jsoverson/grunt-open
-
-        connect: {
-            dev: {
-                options: {
-                    port: 8010,
-                    base: 'dev',
-                    keepalive: true
-                }
-            },
-            prod: {
-                options: {
-                    port: 8011,
-                    base: 'prod',
-                    keepalive: true
-                }
-            }
-        },
-
-
-        // ----------------------------------------------------------------------------------------
-        // Watch Files
-        // https://github.com/tomusdrw/grunt-sync
-        // https://github.com/sindresorhus/grunt-concurrent
-        // https://github.com/gruntjs/grunt-contrib-watch
-
-        sync: {
-            dev: {
-                files: [{
-                    cwd: 'src',
-                    src: ['**', '!**/*.less', '!**/*.html', '!**/uri/*'],
-                    dest: 'dev',
-                }],
-                verbose: true
-            }
-        },
+        sync: { all: {
+            files: [{
+                cwd: 'src',
+                src: ['**', '!**/*.less', '!**/*.html', '!**/uri/*'],
+                dest: '<%= out %>'
+            }],
+            verbose: true
+        }},
 
         watch: {
             html: {
                 files: 'src/**/*.{html,svg}',
-                tasks: ['bake:dev']
+                tasks: ['bake']
             },
             less: {
                 files: 'src/**/*.less',
-                tasks: ['less:dev', 'autoprefixer:dev']
+                tasks: ['less', 'autoprefixer']
             },
-            dev: {
-                files: 'src/**/*.{js,gif,png,jpg,ico,json,mp3,mp4,svg,otf,ttf}',
-                tasks: ['sync:dev']
+            js: {
+                files: 'src/scripts/*.js',
+                tasks: ['concat']
+            },
+            static: {
+                files: 'src/**/*.{gif,png,jpg,ico,json,xml,mp3,mp4,svg,otf,ttf,eot,woff,png}',
+                tasks: ['sync']
             }
         },
 
         concurrent: {
+            options: { limit: 5, logConcurrentOutput: true },
             dev: {
-                tasks: ['watch:html', 'watch:less', 'watch:dev', 'connect:dev'],
-                options: {
-                    limit: 4,
-                    logConcurrentOutput: true
-                }
+                tasks: ['watch:html', 'watch:less', 'watch:js', 'watch:static', 'connect:dev']
             },
             prod: {
-                tasks: ['connect:prod'],
-                options: {
-                    limit: 1,
-                    logConcurrentOutput: true
-                }
+                tasks: ['connect:prod']
             }
         },
 
 
         // ----------------------------------------------------------------------------------------
         // FTP Upload
-        // https://github.com/zonak/grunt-ftp-deploy
+
+        connect: {
+            dev: {
+                options: {
+                    port: 8020,
+                    base: 'dev',
+                    keepalive: true
+                }
+            },
+            prod: {
+                options: {
+                    port: 8021,
+                    base: 'prod',
+                    keepalive: true
+                }
+            }
+        },
 
         'ftp-deploy': {
             prod: {
-                auth: {
-                    host: 'mathigon.org',
-                    port: 21,
-                    authKey: 'mathigon'
-                },
-                src: 'prod',
-                dest: '/public_html/mathigon-io',
-                exclusions: []
-            },
-            dev: {
                 auth: {
                     host: 'mathigon.org',
                     port: 21,
@@ -347,37 +244,37 @@ module.exports = function (grunt) {
 
     // Default (dev) task
     grunt.registerTask('default', [
-        'clean:dev',
-        'less:dev',
-        'autoprefixer:dev',
+        'clean',
+        'concat:utilities',
+        'concat:site',
+        'less:all',
+        'autoprefixer:all',
+        'copy:globalCss',
+        'bake:all',
         'copy:dev',
-        'bake:dev',
         'concurrent:dev'
     ]);
 
     // Build (dist) task
     grunt.registerTask('prod', [
-        'clean:prod',
-        'less:prod',
-        'autoprefixer:prod',
-        'cssmin:prod',
-        'uglify:scripts',
-        'uglify:prod',
-        'imagemin:prod',
-        'bake:prod',
-        'htmlmin:prod',
+        'clean',
+        'concat:utilities',
+        'concat:site',
+        'uglify:all',
+        'less:all',
+        'autoprefixer:all',
+        'copy:globalCss',
+        'cssmin:all',
+        'imagemin:all',
+        'bake:all',
+        'htmlmin:all',
         'copy:prod',
-        'sitemap:prod',
+        'sitemap:all',
         'concurrent:prod'
     ]);
 
     // Deploy task
-    grunt.registerTask('deploy-prod', [
+    grunt.registerTask('deploy', [
         'ftp-deploy:prod'
-    ]);
-
-    // Deploy task
-    grunt.registerTask('deploy-dev', [
-        'ftp-deploy:dev'
     ]);
 };

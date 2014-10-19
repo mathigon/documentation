@@ -1,6 +1,7 @@
 html,
 body {
-  font-family: 'source-sans-pro', 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-family: Whitney, Helvetica, Arial, sans-serif;
+  font-size: 18px;
 }
 
 .wrap {
@@ -9,8 +10,28 @@ body {
   margin: 0 auto;
 }
 
+strong {
+  font-weight: 600;
+}
+
+::-moz-selection {
+  background: rgba(31, 122, 255, 0.3);
+}
+
+::selection {
+  background: rgba(31, 122, 255, 0.3);
+}
+
+p a {
+  color: #1f7aff;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
 header {
-  background: #242430;
+  background: #181824;
   height: 40px;
   position: fixed;
   width: 100%;
@@ -33,6 +54,7 @@ header {
 
 #nav-logo {
   background: url(/images/logo.png);
+  -webkit-background-size: 180px 40px;
   background-size: 180px 40px;
   width: 180px;
 }
@@ -45,43 +67,57 @@ header {
   background: #1f7aff;
 }
 
-#nav-xxx {
+#nav-boost {
   background: #31b304;
 }
 
-#nav-fusion {
+#nav-slate {
   background: #ff941f;
 }
 
 .title {
-  background: #242430;
   color: #FFF;
   padding: 1px 0 40px;
   margin-top: 40px;
-}
-
-.home .title {
   padding: 60px 0 100px;
+  background: #242430;
 }
 
-.core .title,
-section.core {
+section {
+  padding: 40px 0;
+  background: #bababd;
+}
+
+.core .title {
   background: #ca4f96;
 }
 
-.fermat .title,
-section.fermat {
+.fermat .title {
   background: #62a2ff;
 }
 
-.xxx .title,
-section.xxx {
+.boost .title {
   background: #6fca4f;
 }
 
-.fusion .title,
-section.fusion {
+.slate .title {
   background: #ffb462;
+}
+
+section.core {
+  background: #e8b4d2;
+}
+
+section.fermat {
+  background: #bcd7ff;
+}
+
+section.boost {
+  background: #c1e8b4;
+}
+
+section.slate {
+  background: #ffdfbc;
 }
 
 .title h1 {
@@ -114,6 +150,7 @@ section.fusion {
 .link > div {
   width: 24px;
   height: 24px;
+  -webkit-background-size: 24px 24px;
   background-size: 24px 24px;
   position: absolute;
   top: 5px;
@@ -168,6 +205,7 @@ section.fusion {
   height: 100%;
   overflow: auto;
   padding: 20px 0;
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
@@ -182,13 +220,13 @@ section.fusion {
   background: #d2e4ff;
 }
 
-.xxx .sidebar,
-.xxx .sidebar-fill {
+.boost .sidebar,
+.boost .sidebar-fill {
   background: #d6f0cd;
 }
 
-.fusion .sidebar,
-.fusion .sidebar-fill {
+.slate .sidebar,
+.slate .sidebar-fill {
   background: #ffead2;
 }
 
@@ -214,15 +252,41 @@ section.fusion {
 
 .sidebar-h2:hover,
 .sidebar-h2.active {
-  background: #4C95FF;
   color: #FFF;
 }
 
 .sidebar-h3:hover,
 .sidebar-h3.active {
-  background: #4C95FF;
   color: #FFF;
   font-weight: 400;
+}
+
+.core .sidebar-h2:hover,
+.core .sidebar-h2.active,
+.core .sidebar-h3:hover,
+.core .sidebar-h3.active {
+  background: #ca4f96;
+}
+
+.fermat .sidebar-h2:hover,
+.fermat .sidebar-h2.active,
+.fermat .sidebar-h3:hover,
+.fermat .sidebar-h3.active {
+  background: #62a2ff;
+}
+
+.boost .sidebar-h2:hover,
+.boost .sidebar-h2.active,
+.boost .sidebar-h3:hover,
+.boost .sidebar-h3.active {
+  background: #6fca4f;
+}
+
+.slate .sidebar-h2:hover,
+.slate .sidebar-h2.active,
+.slate .sidebar-h3:hover,
+.slate .sidebar-h3.active {
+  background: #ffb462;
 }
 
 .content {
@@ -259,11 +323,6 @@ code.usage {
   }
 }
 
-section {
-  padding: 40px 0;
-  background: #66666e;
-}
-
 code {
   line-height: 1;
   padding: 0 4px;
@@ -278,6 +337,6 @@ code {
 .home footer {
   padding: 12px 0;
   color: rgba(255, 255, 255, 0.6);
-  background: #242430;
+  background: #181824;
   font-size: 14px;
 }

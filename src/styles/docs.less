@@ -6,10 +6,12 @@
 @blue:   #1f7aff;  // Blue Ribbon
 @green:  #31b304;  // La Palma
 @yellow: #ff941f;  // Neon Carrot
-@grey:   #242430;  // Charade
+@dark:   #181824;  // Charade
+@light:  #242430;  // Charade
 
 html, body {
-    font-family: 'source-sans-pro', 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    font-family: Whitney, Helvetica, Arial, sans-serif;
+    font-size: 18px;
 }
 
 .wrap {
@@ -18,13 +20,21 @@ html, body {
     margin: 0 auto;
 }
 
+strong { font-weight: 600; }
+
+::selection { background: fade(@blue, 30%); }
+
+p a { color: @blue; }
+p a:hover { text-decoration: underline; }
+
+
 
 // =================================================================================================
 // NAV BAR
 // =================================================================================================
 
 header {
-    background: #242430;
+    background: @dark;
     height: 40px;
     position: fixed;
     width: 100%;
@@ -48,8 +58,8 @@ header {
 #nav-logo { background: url(/images/logo.png); background-size: 180px 40px; width: 180px; }
 #nav-core { background: @red ; }
 #nav-fermat { background: @blue ; }
-#nav-xxx { background: @green ; }
-#nav-fusion { background: @yellow ; }
+#nav-boost { background: @green ; }
+#nav-slate { background: @yellow ; }
 
 
 // =================================================================================================
@@ -57,18 +67,27 @@ header {
 // =================================================================================================
 
 .title {
-    background: @grey;
     color: #FFF;
     padding: 1px 0 40px;
     margin-top: 40px;
+    padding: 60px 0 100px;
+    background: @light;
 }
 
-.home .title { padding: 60px 0 100px; }
+section {
+    padding: 40px 0;
+    background: mix(@dark, #FFF, 30%);
+}
 
-.core   .title, section.core   { background: mix(@red,    #FFF, 70%); }
-.fermat .title, section.fermat { background: mix(@blue,   #FFF, 70%); }
-.xxx    .title, section.xxx    { background: mix(@green,  #FFF, 70%); }
-.fusion .title, section.fusion { background: mix(@yellow, #FFF, 70%); }
+.core   .title { background: mix(@red,    #FFF, 70%); }
+.fermat .title { background: mix(@blue,   #FFF, 70%); }
+.boost  .title { background: mix(@green,  #FFF, 70%); }
+.slate  .title { background: mix(@yellow, #FFF, 70%); }
+
+section.core   { background: mix(@red,    #FFF, 30%); }
+section.fermat { background: mix(@blue,   #FFF, 30%); }
+section.boost  { background: mix(@green,  #FFF, 30%); }
+section.slate  { background: mix(@yellow, #FFF, 30%); }
 
 .title h1 {
     font-weight: 100;
@@ -125,14 +144,20 @@ header {
 
 .core   .sidebar, .core   .sidebar-fill { background: mix(@red,    #FFF, 20%); }
 .fermat .sidebar, .fermat .sidebar-fill { background: mix(@blue,   #FFF, 20%); }
-.xxx    .sidebar, .xxx    .sidebar-fill { background: mix(@green,  #FFF, 20%); }
-.fusion .sidebar, .fusion .sidebar-fill { background: mix(@yellow, #FFF, 20%); }
+.boost  .sidebar, .boost  .sidebar-fill { background: mix(@green,  #FFF, 20%); }
+.slate  .sidebar, .slate  .sidebar-fill { background: mix(@yellow, #FFF, 20%); }
 
 
 .sidebar-h2 { font-size: 16px; font-weight: 600; padding: 3px 0 3px 12px; margin: 9px 0 1px 8px; cursor: pointer; transition: background .1s, color .1s; }
 .sidebar-h3 { font-size: 14px; font-weight: 100; padding: 2px 0 2px 10px; margin: -2px 0 -2px 18px; cursor: pointer; transition: background .1s, color .1s; }
-.sidebar-h2:hover, .sidebar-h2.active { background: #4C95FF; color: #FFF; }
-.sidebar-h3:hover, .sidebar-h3.active { background: #4C95FF; color: #FFF; font-weight: 400; }
+.sidebar-h2:hover, .sidebar-h2.active {color: #FFF; }
+.sidebar-h3:hover, .sidebar-h3.active { color: #FFF; font-weight: 400; }
+
+.core   .sidebar-h2:hover, .core   .sidebar-h2.active, .core   .sidebar-h3:hover, .core   .sidebar-h3.active { background: mix(@red,    #FFF, 70%); }
+.fermat .sidebar-h2:hover, .fermat .sidebar-h2.active, .fermat .sidebar-h3:hover, .fermat .sidebar-h3.active { background: mix(@blue,   #FFF, 70%); }
+.boost  .sidebar-h2:hover, .boost  .sidebar-h2.active, .boost  .sidebar-h3:hover, .boost  .sidebar-h3.active { background: mix(@green,  #FFF, 70%); }
+.slate  .sidebar-h2:hover, .slate  .sidebar-h2.active, .slate  .sidebar-h3:hover, .slate  .sidebar-h3.active { background: mix(@yellow, #FFF, 70%); }
+
 
 .content { padding: 40px 0 100px 220px; }
 h2 { font-weight: 600; font-size: 1.8em; border-top: 4px solid #D2E4FF; padding-top: 1em; margin-top: 1.5em }
@@ -144,8 +169,6 @@ code.usage { margin: 0 0 4px 0; display: inline-block; padding: 3px 4px;}
   .sidebar { display: none; }
   .content { padding-left: 0; }
 }
-
-section { padding: 40px 0; background: .3 * #FFF + .7 * @grey; }
 
 code {
     line-height: 1;
@@ -165,6 +188,6 @@ code {
 .home footer {
     padding: 12px 0;
     color: rgba(255,255,255,0.6);
-    background: @grey;
+    background: @dark;
     font-size: 14px;
 }
