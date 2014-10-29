@@ -10,7 +10,7 @@
 @light:  #242430;  // Charade
 
 html, body {
-    font-family: Whitney, Helvetica, Arial, sans-serif;
+    font-family: 'Whitney Mathigon', Whitney, Helvetica, Arial, sans-serif;
     font-size: 18px;
 }
 
@@ -35,7 +35,7 @@ p a:hover { text-decoration: underline; }
 
 header {
     background: @dark;
-    height: 40px;
+    height: 50px;
     position: fixed;
     width: 100%;
     top: 0;
@@ -45,21 +45,49 @@ header {
 .nav-link {
     width: 20%;
     float: left;
-    height: 35px;
+    height: 40px;
     color: #FFF;
     font-size: 20px;
     text-align: center;
     font-weight: 100;
-    padding-top: 5px;
+    padding-top: 10px;
     width: 40px;
     display: block;
 }
 
-#nav-logo { background: url(/images/logo.png); background-size: 180px 40px; width: 180px; }
-#nav-core { background: @red ; }
-#nav-fermat { background: @blue ; }
-#nav-boost { background: @green ; }
+.nav-img {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin: -14px 4px;
+    background-size: 40px 40px;
+}
+
+.nav-text {
+    margin-left: 4px;
+}
+
+#nav-logo { background: url(/images/logo.png) center left no-repeat; background-size: 163px 28px; width: 180px; }
+
+#nav-core { background: @red; }
+#nav-fermat { background: @blue; }
+#nav-boost { background: @green; }
 #nav-slate { background: @yellow ; }
+
+#nav-core   .nav-img { background-image: url(/images/menu-core.png); }
+#nav-fermat .nav-img { background-image: url(/images/menu-fermat.png); }
+#nav-boost  .nav-img { background-image: url(/images/menu-boost.png); }
+#nav-slate  .nav-img { background-image: url(/images/menu-slate.png); }
+
+@media screen and (max-width: 800px) {
+    .nav-img { display: none; }
+}
+
+@media screen and (max-width: 680px) {
+    .nav-img { display: inline-block; }
+    .nav-text { display: none; }
+}
+
 
 
 // =================================================================================================
@@ -69,7 +97,7 @@ header {
 .title {
     color: #FFF;
     padding: 1px 0 40px;
-    margin-top: 40px;
+    margin-top: 50px;
     padding: 60px 0 100px;
     background: @light;
 }

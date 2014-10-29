@@ -3657,14 +3657,14 @@ M.cookie = {
 	    if (typeof newChild === 'string') {
 	        var newChildren = $$N(newChild);
 	        newChildren.each(function(child) {
-	            parent.$el.insertAfter(child.$el, _this.$el);
+	            parent.$el.insertAfter(_this.$el, child.$el);
 	        });
 	    } else {
 	        var next = _this.$el.nextSibling;
 	        if (next) {
-	            parent.insertBefore(newChild.$el, next);
+	            parent.$el.insertBefore(newChild.$el, next);
 	        } else {
-	            parent.appendChild(newChild.$el);
+	            parent.$el.appendChild(newChild.$el);
 	        }
 	    }
 	};
@@ -4167,7 +4167,7 @@ M.cookie = {
 		});
 	};
 
-	M.$.prototype.scrollTo = function(pos, time, easing, force) {
+	M.$.prototype.scrollTo = function(pos, time, easing) {
 		var _this = this;
 
 		if (pos < 0) pos = 0;
@@ -4186,10 +4186,9 @@ M.cookie = {
 		_this.trigger('scrollstart', {});
 		var animation = M.animate(callback, time);
 
-		if (!force) {
-			this.on('scroll', function() { animation.cancel(); });
-			this.on('touchstart', function() { animation.cancel(); });
-		}
+		// TODO cancel scroll events
+		// this.on('scroll', function() { animation.cancel(); });
+		// this.on('touchstart', function() { animation.cancel(); });
 	};
 
 	function makeScrollEvents($el) {
@@ -4198,7 +4197,7 @@ M.cookie = {
 
 		var scrollTimeout = null;
 		var scrolling = false;
-		var $parent = ($el.$el === window) ? M.$body.$el : $el.$el;
+		var isWindow = ($el.$el === window || $el.$el === M.$body.$el);
 
 		function start() {
 			$el.trigger('scrollstart', {});
@@ -4207,7 +4206,7 @@ M.cookie = {
 
 		function move() {
 			if (!scrolling) start();
-			$el.trigger('scroll', { top: $parent.scrollTop, left: $parent.scrollLeft });
+			$el.trigger('scroll', { top: isWindow ? window.pageYOffset : $el.$el.scrollTop });
 
 			if (scrollTimeout) window.clearTimeout(scrollTimeout);
 			scrollTimeout = window.setTimeout(end, 100);
@@ -4225,9 +4224,10 @@ M.cookie = {
 
 		$el.fixOverflowScroll();
 
-		$el.$el.addEventListener('wheel', move);
-		$el.$el.addEventListener('mousewheel', move);
-		$el.$el.addEventListener('DOMMouseScroll', move);
+		var $target = ($el.$el === M.$body.$el) ? M.$window.$el : $el.$el;
+		$target.addEventListener('wheel', move);
+		$target.addEventListener('mousewheel', move);
+		$target.addEventListener('DOMMouseScroll', move);
 
 		$el.$el.addEventListener('touchstart', function(){
 			start();
@@ -4246,9 +4246,6 @@ M.cookie = {
 		pointerMove:  'mousemove touchmove',
 		pointerEnd:   'mouseup touchend mousecancel touchcancel',
 
-		animationEnd:   'webkitAnimationEnd oAnimationEnd animationend',
-		transitionEnd:  'webkitTransitionEnd oTransitionEnd transitionend',
-
 		change: 'propertychange keyup input paste',
 
 		scrollwheel: 'DOMMouseScroll mousewheel',
@@ -4264,7 +4261,7 @@ M.cookie = {
 		scrollEnd: makeScrollEvents  // no capture!
 	};
 
-	var shortcuts = ('click scroll change transitionEnd').split(' ');
+	var shortcuts = ('click scroll change').split(' ');
 
 	shortcuts.each(function(event) {
 		M.$.prototype[event] = function(callback) {
@@ -4275,6 +4272,14 @@ M.cookie = {
 			}
 		};
 	});
+
+	M.$.prototype.transitionEnd = function(fn) {
+		this.one('webkitTransitionEnd oTransitionEnd transitionend', fn);
+	};
+
+	M.$.prototype.animationEnd = function(fn) {
+		this.one('webkitAnimationEnd oAnimationEnd animationend', fn);
+	};
 
 
 	// =============================================================================================
@@ -4880,22 +4885,17 @@ M.Lightbox = function($container, chapter) {
 
     // M.scrollReveal($$('[scroll-reveal]'));
 
-    M.scrollReveal = function($els, $parent) {
-
-        // Scroll parent
-        var isWindow = !$parent;
-        var parentEl =  isWindow ? window.document.documentElement : $parent.$el;
-        if (isWindow) $parent = M.$window;
+    M.scrollReveal = function($els) {
 
         // Viewport height reference
         var viewportHeight;
-        function getHeight() { viewportHeight = isWindow ? window.innerHeight : parentEl.clientHeight; }
+        function getHeight() { viewportHeight = window.innerHeight; }
         M.resize(getHeight);
         getHeight();
 
         // Scroll position reference;
         var viewportScroll;
-        function getScroll() { viewportScroll = isWindow ? window.pageYOffset : parentEl.scrollTop; }
+        function getScroll() { viewportScroll = window.pageYOffset; }
 
         // Check if an element is visible
         function isInViewport($el, factor) {
@@ -4912,10 +4912,10 @@ M.Lightbox = function($container, chapter) {
 
             var axis      = M.isOneOf(options[0], 'left', 'right') ? 'X' : 'Y';
             var direction = M.isOneOf(options[0], 'top', 'left') ? '-' : '';
-            var distance  = options[1] || '24px';
-            var duration  = options[2] || '.5s';
-            var delay     = options[3] || '0s';
-            var factor    = M.isNaN(+options[4]) ? 0.25 : +options[4];
+            var factor    = M.isNaN(+options[1]) ? 0.2 : +options[1];
+            var distance  = options[2] || '40px';
+            var duration  = options[3] || '.5s';
+            var delay     = options[4] || '0s';
 
             function show() {
                 isShown = true;
@@ -4946,9 +4946,10 @@ M.Lightbox = function($container, chapter) {
 
         // Trigger Updates
         function updatePage() { getScroll(); for (var i=0; i<n; ++i) updateFns[i](); }
-        $parent.scroll(updatePage);
+        M.$body.scroll(updatePage);
         M.resize(updatePage);
         updatePage();
+        setTimeout(function() { updatePage(); }, 500);
 
     };
 
