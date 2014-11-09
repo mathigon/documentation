@@ -10,6 +10,19 @@ body {
   margin: 0 auto;
 }
 
+.wrap.home {
+  margin: 40px auto 200px;
+}
+
+.home h3 {
+  margin: 1.4em 0 0.4em;
+  font-weight: 600;
+}
+
+h4 {
+  margin: 1em 0 .4em;
+}
+
 strong {
   font-weight: 600;
 }
@@ -128,11 +141,6 @@ header {
   background: #242430;
 }
 
-section {
-  padding: 40px 0;
-  background: #bababd;
-}
-
 .core .title {
   background: #ca4f96;
 }
@@ -147,22 +155,6 @@ section {
 
 .slate .title {
   background: #ffb462;
-}
-
-section.core {
-  background: #e8b4d2;
-}
-
-section.fermat {
-  background: #bcd7ff;
-}
-
-section.boost {
-  background: #c1e8b4;
-}
-
-section.slate {
-  background: #ffdfbc;
 }
 
 .title h1 {
@@ -181,6 +173,7 @@ section.slate {
 
 .link {
   background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
   font-size: 18px;
   padding: 4px 10px 4px 36px;
   margin-bottom: 15px;
@@ -193,13 +186,13 @@ section.slate {
 }
 
 .link > div {
-  width: 24px;
-  height: 24px;
-  -webkit-background-size: 24px 24px;
-  background-size: 24px 24px;
+  width: 20px;
+  height: 20px;
+  -webkit-background-size: 20px 20px;
+  background-size: 20px 20px;
   position: absolute;
-  top: 5px;
-  left: 5px;
+  top: 7px;
+  left: 7px;
   opacity: 0.75;
   -webkit-transition: opacity .2s;
   transition: opacity .2s;
@@ -368,20 +361,129 @@ code.usage {
   }
 }
 
-code {
-  line-height: 1;
-  padding: 0 4px;
-  white-space: nowrap;
-  background-color: #EEE;
-  border: 1px solid #DDD;
-  border-radius: 3px;
-  margin: -2px 1px;
-  letter-spacing: -0.5px;
-}
-
 .home footer {
   padding: 12px 0;
   color: rgba(255, 255, 255, 0.6);
   background: #181824;
   font-size: 14px;
+}
+
+code,
+pre {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  direction: ltr;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  word-break: normal;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  font-size: 90%;
+}
+
+:not(pre) > code {
+  white-space: nowrap;
+  color: #333;
+  background-color: #E9E9E9;
+  border-radius: 3px;
+  padding: 4px 5px 2px;
+  margin: -2px 1px;
+}
+
+pre {
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  display: block;
+  padding: 8px 14px;
+  margin: 0 0 1em 0;
+  color: #333;
+  font-size: 90%;
+  text-align: left;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre;
+  white-space: pre-wrap;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #f8f8f2;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  line-height: 1.5;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #242430;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #1f7aff;
+  opacity: 0.5;
+}
+
+.token.punctuation {
+  color: #f8f8f2;
+}
+
+.namespace {
+  opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #b30469;
+}
+
+.token.boolean,
+.token.number {
+  color: #31b304;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #31b304;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: #ff941f;
+}
+
+.token.atrule,
+.token.attr-value {
+  color: #ff941f;
+}
+
+.token.keyword {
+  color: #1f7aff;
+}
+
+.token.regex,
+.token.important {
+  color: #b30469;
+}
+
+.token.important {
+  font-weight: bold;
+}
+
+.token.entity {
+  cursor: help;
 }

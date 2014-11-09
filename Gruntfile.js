@@ -145,6 +145,14 @@ module.exports = function (grunt) {
                 src: '../boost.js/dist/global.css',
                 dest: '<%= out %>/styles/global.css'
             },
+            vendor: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= src %>',
+                    src: ['vendor/**/*'],
+                    dest: '<%= out %>'
+                }]
+            },
             dev: {
                 files: [{
                     expand: true,
@@ -249,6 +257,7 @@ module.exports = function (grunt) {
         'concat:site',
         'less:all',
         'autoprefixer:all',
+        'copy:vendor',
         'copy:globalCss',
         'bake:all',
         'copy:dev',
@@ -263,6 +272,7 @@ module.exports = function (grunt) {
         'uglify:all',
         'less:all',
         'autoprefixer:all',
+        'copy:vendor',
         'copy:globalCss',
         'cssmin:all',
         'imagemin:all',

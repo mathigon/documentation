@@ -50,8 +50,8 @@ M.onload(function() {
         for (var i in posn) if (i > s) return posn[i];
     }
 
-    M.$window.scroll(function() {
-        var scroll = M.$body.$el.scrollTop;
+    M.$body.scroll(function() {
+        var scroll = M.$body.scrollTop();
 
         $sidebar.setClass('fixed', scroll > bodyTop);
 
@@ -70,5 +70,7 @@ M.onload(function() {
         }
 
     });
+
+    M.$body.trigger('scroll');
 
 });

@@ -2532,14 +2532,14 @@ function concatArrays(a1, a2) {
 
                 var completed = this.currentParser.complete();
                 if (this.currentFn) {
-                    this.result.push(new Expression(this.currentFn, completed));
+                    this.result.push(new ExpressionFn(this.currentFn, completed));
                 } else if (x === ']') {
-                    this.result.push(new Expression('[]', completed));
+                    this.result.push(new ExpressionFn('[]', completed));
                 } else if (x === '|') {
-                    this.result.push(new Expression('abs', completed));
+                    this.result.push(new ExpressionFn('abs', completed));
                 } else {
                     if (completed.length !== 1) throw new Error('Unexpected ",".');
-                    this.result.push(new Expression(completed[0]));
+                    this.result.push(new ExpressionVal(completed[0]));
                 }
                 this.current = '';
                 this.currentBracket = this.currentParser = this.currentFn = null;
@@ -2579,7 +2579,7 @@ function concatArrays(a1, a2) {
     ExpressionParser.prototype.pushCurrent = function() {
         if (!this.current) return;
         var num = +this.current;
-        this.result.push(new Expression(num === num ? num : this.current));
+        this.result.push(new ExpressionVal(num === num ? num : this.current));
         this.current = '';
     };
 
@@ -2592,10 +2592,10 @@ function concatArrays(a1, a2) {
         // Handle Factorials and Percentages
         for (i=0; i<this.result.length; ++i) {
             if (this.result[i] === '!') {
-                this.result.splice(i-1, 2, new Expression('!', [this.result[i-1]]));
+                this.result.splice(i-1, 2, new ExpressionFn('!', [this.result[i-1]]));
                 i -= 1;
             } else if (this.result[i] === '%') {
-                this.result.splice(i-1, 2, new Expression('/', [this.result[i-1], 100]));
+                this.result.splice(i-1, 2, new ExpressionFn('/', [this.result[i-1], 100]));
                 i -= 1;
             }
         }
@@ -2603,21 +2603,21 @@ function concatArrays(a1, a2) {
         // Handle Powers
         for (i=0; i<this.result.length; ++i) {
             if (this.result[i] === '^') {
-                this.result.splice(i-1, 3, new Expression('^', [this.result[i-1], this.result[i+1]]));
+                this.result.splice(i-1, 3, new ExpressionFn('^', [this.result[i-1], this.result[i+1]]));
                 i -= 2;
             }
         }
 
         // Handle Leading -
-        if (this.result[0] === '-') this.result.splice(0, 2, new Expression('-', [this.result[1]]));
+        if (this.result[0] === '-') this.result.splice(0, 2, new ExpressionFn('-', [this.result[1]]));
 
         // Handle Multiplication and Division
         for (i=0; i<this.result.length; ++i) {
             if (this.result[i] === '/') {
-                this.result.splice(i-1, 3, new Expression('/', [this.result[i-1], this.result[i+1]]));
+                this.result.splice(i-1, 3, new ExpressionFn('/', [this.result[i-1], this.result[i+1]]));
                 i -= 2;
             } else if (this.result[i] === '*') {
-                this.result.splice(i-1, 3, new Expression('*', [this.result[i-1], this.result[i+1]]));
+                this.result.splice(i-1, 3, new ExpressionFn('*', [this.result[i-1], this.result[i+1]]));
                 i -= 2;
             }
         }
@@ -2625,10 +2625,10 @@ function concatArrays(a1, a2) {
         // Handle Addition and Subtraction
         for (i=0; i<this.result.length; ++i) {
             if (this.result[i] === '-') {
-                this.result.splice(i-1, 3, new Expression('-', [this.result[i-1], this.result[i+1]]));
+                this.result.splice(i-1, 3, new ExpressionFn('-', [this.result[i-1], this.result[i+1]]));
                 i -= 2;
             } else if (this.result[i] === '+') {
-                this.result.splice(i-1, 3, new Expression('+', [this.result[i-1], this.result[i+1]]));
+                this.result.splice(i-1, 3, new ExpressionFn('+', [this.result[i-1], this.result[i+1]]));
                 i -= 2;
             }
         }
@@ -2640,24 +2640,17 @@ function concatArrays(a1, a2) {
     // ---------------------------------------------------------------------------------------------
     // Expressions
 
-    function Expression(fn, args) {
-        if (arguments.length === 1) {
-            this.isVal = true;
-            this.val = fn;
-        } else {
-            this.fn = fn;
-            this.args = args;
-        }
+    function ExpressionFn(fn, args) {
+        this.fn = fn;
+        this.args = args;
     }
 
-    Expression.prototype.simplify = function() {
+    ExpressionFn.prototype.simplify = function() {
         // TODO !!!
         return this;
     };
 
-    Expression.prototype.toString = function() {
-        if (this.isVal) return this.val.toString();
-
+    ExpressionFn.prototype.toString = function() {
         var newArgs = [];
         for (var i=0; i<this.args.length; ++i) newArgs.push(this.args[i].toString());
 
@@ -2665,12 +2658,8 @@ function concatArrays(a1, a2) {
         return fn ? fn.apply(null, newArgs) : this.fn + '(' + this.args.join(', ') + ')';
     };
 
-    Expression.prototype.evaluate = function(vars) {
+    ExpressionFn.prototype.evaluate = function(vars) {
         if (vars == null) vars = {};
-        if (this.isVal) {
-            console.log(this.val);
-            return (vars[this.val] === undefined) ? this.val : vars[this.val];
-        }
 
         var newArgs = [];
         for (var i=0; i<this.args.length; ++i) {
@@ -2680,8 +2669,27 @@ function concatArrays(a1, a2) {
         }
 
         var fn = vars[this.fn] || functions[this.fn] || Math[this.fn] || M[this.fn];
-        console.log.apply(null, newArgs);
         return (fn instanceof Function) ? fn.apply(null, newArgs) : this;
+    };
+
+
+    function ExpressionVal(val) {
+        this.isVal = true;
+        this.val = fn;
+    }
+
+    ExpressionVal.prototype.simplify = function() {
+        return this;
+    };
+
+    ExpressionVal.prototype.toString = function() {
+        return this.val.toString();
+    };
+
+    ExpressionVal.prototype.evaluate = function(vars) {
+        if (vars == null) vars = {};
+        // TODO return numbers if possible?
+        return (vars[this.val] === undefined) ? this.val : vars[this.val];
     };
 
 
@@ -2753,6 +2761,10 @@ M.boost = true;
 	    isTouch:  ('ontouchstart' in window) || (window.DocumentTouch && document instanceof window.DocumentTouch),
 	    imgExt:   ((window.devicePixelRatio || 1) > 1.25) ? '@2x' : '',
 
+	    isChrome: navigator.userAgent.toLowerCase().indexOf('chrome') > -1,
+
+	    hasHistory: window.history && window.history.pushState,
+
 	    speechRecognition: ('webkitSpeechRecognition' in window)
 	};
 
@@ -2814,7 +2826,7 @@ M.boost = true;
 
 	M.addCSSRule = function(selector, rules) {
 	    var css = document.styleSheets[document.styleSheets.length-1];
-	    var index = css.rules.length-1;
+	    var index = css.cssRules.length - 1;
 	    if(css.insertRule) {
 	        css.insertRule(selector + '{' + rules + '}', index);
 	    } else {
@@ -2896,16 +2908,17 @@ M.ajax = function(url, options) {
 
             if (options.dataType === 'html') {
                 var doc = document.implementation.createHTMLDocument('');
-                doc.open();
-                doc.write(xhr.responseText);
-                doc.close();
+                doc.documentElement.innerHTML = xhr.responseText;
+                //doc.open();
+                //doc.write(xhr.responseText);
+                //doc.close();
                 /* TODO Scripts in Ajax DOM
                 $T('script', doc).each(function(script){
                     var s = $N('script', { html: script.html() });
                     document.body.appendChild(s.$el);
                 });
                 */
-                options.success(doc);
+                options.success($(doc));
             } else if (options.dataType === 'json') {
                 options.success(JSON.parse(xhr.responseText));
             } else {
@@ -3180,7 +3193,7 @@ M.cookie = {
 
 (function() {
 
-    var hasHistory = !!window.history;
+    var hasHistory = M.browser.hasHistory;
     var id = 0;
 
     var root = window.location.origin + window.location.port;
@@ -3304,6 +3317,7 @@ M.cookie = {
 		this._data   = $el ? ($el._mdata   || ($el._mdata   = {})) : {};
 		this._events = $el ? ($el._mevents || ($el._mevents = {})) : {};
 		this.$el = $el;
+		this._isWindow = M.isOneOf($el, window, document.body, document.documentElement);
 	};
 
 
@@ -3322,9 +3336,9 @@ M.cookie = {
 	};
 
 	// Returns a single M.$ element by id
-	window.$I = function(selector, parent) {
-		if (!parent || !parent.getElementById) parent = document;
-		var $el = parent.getElementById(selector);
+	window.$I = function(selector, context) {
+	    context = (context && context.$el.getElementById) ? context.$el : document;
+		var $el = context.getElementById(selector);
 		return $el ? new M.$($el) : null;
 	};
 
@@ -3394,17 +3408,33 @@ M.cookie = {
 	// ---------------------------------------------------------------------------------------------
 	// Basic Functionality
 
+	function _addClass($el, className) {
+		if ($el.$el.classList) {
+			$el.$el.classList.add(className);
+		} else if (!$el.hasClass(className)) {
+			$el.$el.className += ' ' + className;
+		}
+	}
+
 	M.$.prototype.addClass = function(className) {
-	    var classes = className.split(' ');
+	    var classes = className.trim().split(' ');
 	    for (var i = 0; i < classes.length; ++i) {
-	        this.$el.classList.add(classes[i]);
+	        _addClass(this, classes[i]);
 	    }
 	};
 
+	function _removeClass($el, className) {
+		if ($el.$el.classList) {
+			$el.$el.classList.remove(className);
+		} else if ($el.hasClass(className)) {
+			$el.$el.className = (' ' + $el.$el.className + ' ').replace(' ' + className + ' ', ' ');
+		}
+	}
+
 	M.$.prototype.removeClass = function(className) {
-	    var classes = className.split(' ');
+	    var classes = className.trim().split(' ');
 	    for (var i = 0; i < classes.length; ++i) {
-	        this.$el.classList.remove(classes[i]);
+	        _removeClass(this, classes[i]);
 	    }
 	};
 
@@ -3412,10 +3442,20 @@ M.cookie = {
 	    return (' ' + this.$el.className + ' ').indexOf(' ' + className.trim() + ' ') >= 0;
 	};
 
+	function _toggleClass($el, className) {
+		if ($el.$el.classList) {
+			$el.$el.classList.toggle(className);
+		} else if ($el.hasClass(className)) {
+			$el.addClass(className);
+		} else {
+			$el.removeClass(className);
+		}
+	}
+
 	M.$.prototype.toggleClass = function(className) {
-	    var classes = className.split(' ');
+	    var classes = className.trim().split(' ');
 	    for (var i = 0; i < classes.length; ++i) {
-	        this.$el.classList.toggle(classes[i]);
+	        _toggleClass(this, classes[i]);
 	    }
 	};
 
@@ -3440,9 +3480,9 @@ M.cookie = {
 	M.$.prototype.data = function(key, value) {
 	    if (value == null) {
 	        var dataAttr = this.$el.getAttribute('data-' + key);
-	        return dataAttr ? dataAttr : (this.data ? this.data[key] : undefined);
+	        return dataAttr ? dataAttr : (this._data ? this._data[key] : undefined);
 	    } else {
-	        this.data[key] = value;
+	        this._data[key] = value;
 	    }
 	};
 
@@ -3474,36 +3514,50 @@ M.cookie = {
 	// ---------------------------------------------------------------------------------------------
 	// Dimensions
 
-	M.$.prototype.width = function(type) {
-	    if (this.$el === window) {
-	        return window.innerWidth;
-	    } else if (type === 'padding') {
-	        return this.$el.clientWidth;
-	    } else if (type === 'scroll') {
-	        return this.$el.scrollWidth;
-	    }  else if (type === 'border') {
-	        return this.$el.offsetWidth;
-	    } else if (type === 'margin') {
-	        return this.$el.offsetWidth + parseFloat(this.css('margin-right')) + parseFloat(this.css('margin-left'));
-	    } else {
-	        return this.$el.clientWidth - parseFloat(this.css('padding-left')) - parseFloat(this.css('padding-right'));
-	    }
+	// Includes border and padding
+	M.$.prototype.width = function() {
+		if (this._isWindow) return window.innerWidth;
+	    return this.$el.offsetWidth;
 	};
 
-	M.$.prototype.height = function(type) {
-	    if (this.$el === window) {
-	        return window.innerHeight;
-	    } else if (type === 'padding') {
-	        return this.$el.clientHeight;
-	    } else if (type === 'scroll') {
-	        return this.$el.scrollHeight;
-	    }  else if (type === 'border') {
-	        return this.$el.offsetHeight;
-	    } else if (type === 'margin') {
-	        return this.$el.offsetHeight + parseFloat(this.css('margin-top')) + parseFloat(this.css('margin-bottom'));
-	    } else {
-	        return this.$el.clientHeight - parseFloat(this.css('padding-bottom')) - parseFloat(this.css('padding-top'));
-	    }
+	// Doesn't include border and padding
+	M.$.prototype.innerWidth = function() {
+		if (this._isWindow) return window.innerWidth;
+		return this.$el.clientWidth - parseFloat(this.css('padding-left')) - parseFloat(this.css('padding-right'));
+	};
+
+	// Includes Margins
+	M.$.prototype.outerWidth = function() {
+		if (this._isWindow) return window.outerWidth;
+		return this.$el.offsetWidth + parseFloat(this.css('margin-right')) + parseFloat(this.css('margin-left'));
+	};
+
+	M.$.prototype.scrollWidth = function() {
+		if (this._isWindow) return M.$body.$el.scrollWidth;
+		return this.$el.scrollWidth;
+	};
+
+	// Includes border and padding
+	M.$.prototype.height = function() {
+		if (this._isWindow) return window.innerHeight;
+	    return this.$el.offsetHeight;
+	};
+
+	// Doesn't include border and padding
+	M.$.prototype.innerHeight = function() {
+		if (this._isWindow) return window.innerHeight;
+		return this.$el.clientHeight - parseFloat(this.css('padding-bottom')) - parseFloat(this.css('padding-top'));
+	};
+
+	// Includes Margins
+	M.$.prototype.outerHeight = function() {
+		if (this._isWindow) return window.outerHeight;
+		return this.$el.offsetHeight + parseFloat(this.css('margin-top')) + parseFloat(this.css('margin-bottom'));
+	};
+
+	M.$.prototype.scrollHeight = function() {
+		if (this._isWindow) return M.$body.$el.scrollHeight;
+		return this.$el.scrollHeight;
 	};
 
 	M.$.prototype.offset = function($parent) {
@@ -3532,6 +3586,30 @@ M.cookie = {
 	        box = this.$el.getBoundingClientRect();
 	        return { top: box.top, left: box.left, bottom: box.bottom, right: box.right };
 	    }
+	};
+
+	M.$.prototype.scrollTop = function(y) {
+		if (y == null) {
+			return this._isWindow ? window.pageYOffset : this.$el.scrollTop;
+		} else {
+			if (this._isWindow) {
+				document.body.scrollTop = document.documentElement.scrollTop = y;
+			} else {
+				this.$el.scrollTop = y;
+			}
+		}
+	};
+
+	M.$.prototype.scrollLeft = function(x) {
+		if (x == null) {
+			return this._isWindow ? window.pageXOffset : this.$el.scrollLeft;
+		} else {
+			if (this._isWindow) {
+				document.body.scrollLeft = document.documentElement.scrollLeft = x;
+			} else {
+				this.$el.scrollLeft = x;
+			}
+		}
 	};
 
 
@@ -4159,11 +4237,11 @@ M.cookie = {
 
 		this.$el.addEventListener('touchstart', function(){
 			// This ensures that overflow bounces happen within container
-			var top = _this.$el.scrollTop;
-			var bottom = _this.$el.scrollHeight - _this.$el.offsetHeight;
+			var top = _this.scrollTop();
+			var bottom = _this.$el.scrollHeight - _this.height();
 
-			if(top <= 0) _this.$el.scrollTop = 1;
-			if(top >= bottom) _this.$el.scrollTop = bottom - 1;
+			if(top <= 0) _this.scrollTop(1);
+			if(top >= bottom) _this.scrollTop(bottom - 1);
 		});
 	};
 
@@ -4174,12 +4252,12 @@ M.cookie = {
 		if (time == null) time = 1000;
 		if (!easing) easing = 'cubic';
 
-		var startPosition = this.$el.scrollTop;
+		var startPosition = this.scrollTop();
 		var distance = pos - startPosition;
 
 		var callback = function(t) {
 			var x = startPosition + distance * M.easing(easing, t);
-			_this.$el.scrollTop = x;
+			_this.scrollTop(x);
 			_this.trigger('scroll', { top: x });
 		};
 
@@ -4197,24 +4275,44 @@ M.cookie = {
 
 		var scrollTimeout = null;
 		var scrolling = false;
-		var isWindow = ($el.$el === window || $el.$el === M.$body.$el);
+		var scrollAnimation;
+		var scrollTop;
+
+		function onScroll() {
+			var newScrollTop = $el.scrollTop();
+
+			if (Math.abs(newScrollTop - scrollTop) > 1) {
+				if (scrollTimeout) window.clearTimeout(scrollTimeout);
+				scrollTimeout = null;
+				$el.trigger('scroll', { top: newScrollTop });
+				scrollTop = newScrollTop;
+			} else if (!scrollTimeout) {
+				scrollTimeout = window.setTimeout(end, 100);
+			} else {
+			}
+		}
 
 		function start() {
-			$el.trigger('scrollstart', {});
+			if (scrolling) return;
 			scrolling = true;
+			scrollTop = $el.scrollTop();
+			scrollAnimation = M.animate(onScroll);
+			$el.trigger('scrollstart', {});
 		}
 
 		function move() {
 			if (!scrolling) start();
-			$el.trigger('scroll', { top: isWindow ? window.pageYOffset : $el.$el.scrollTop });
-
-			if (scrollTimeout) window.clearTimeout(scrollTimeout);
-			scrollTimeout = window.setTimeout(end, 100);
 		}
 
 		function end() {
-			$el.trigger('scrollend', {});
 			scrolling = false;
+			scrollAnimation.cancel();
+			$el.trigger('scrollend', {});
+		}
+
+		function touchStart() {
+			window.addEventListener('touchmove', move);
+			window.addEventListener('touchend', touchEnd);
 		}
 
 		function touchEnd() {
@@ -4229,11 +4327,7 @@ M.cookie = {
 		$target.addEventListener('mousewheel', move);
 		$target.addEventListener('DOMMouseScroll', move);
 
-		$el.$el.addEventListener('touchstart', function(){
-			start();
-			window.addEventListener('touchmove', move);
-			window.addEventListener('touchend', touchEnd);
-		});
+		$el.$el.addEventListener('touchstart', touchStart);
 	}
 
 
@@ -4907,7 +5001,7 @@ M.Lightbox = function($container, chapter) {
 
         // Initialise element and
         function makeElement($el) {
-            var isShown = false;
+            var isShown = true;
             var options = ($el.attr('data-scroll') || '').split('|');
 
             var axis      = M.isOneOf(options[0], 'left', 'right') ? 'X' : 'Y';
@@ -4928,9 +5022,6 @@ M.Lightbox = function($container, chapter) {
                 $el.css('opacity', '0');
                 $el.transform('translate' + axis + '(' + direction + distance + ')');
             }
-
-            hide();
-            M.redraw();
 
             $el.transition(['opacity', duration, delay, ',', M.prefix('transform'), duration, delay].join(' '));
 

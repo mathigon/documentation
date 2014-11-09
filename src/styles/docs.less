@@ -20,6 +20,19 @@ html, body {
     margin: 0 auto;
 }
 
+.wrap.home {
+    margin: 40px auto 200px;
+}
+
+.home h3 {
+    margin: 1.4em 0 0.4em;
+    font-weight: 600;
+}
+
+h4 {
+    margin: 1em 0 .4em;
+}
+
 strong { font-weight: 600; }
 
 ::selection { background: fade(@blue, 30%); }
@@ -102,20 +115,10 @@ header {
     background: @light;
 }
 
-section {
-    padding: 40px 0;
-    background: mix(@dark, #FFF, 30%);
-}
-
 .core   .title { background: mix(@red,    #FFF, 70%); }
 .fermat .title { background: mix(@blue,   #FFF, 70%); }
 .boost  .title { background: mix(@green,  #FFF, 70%); }
 .slate  .title { background: mix(@yellow, #FFF, 70%); }
-
-section.core   { background: mix(@red,    #FFF, 30%); }
-section.fermat { background: mix(@blue,   #FFF, 30%); }
-section.boost  { background: mix(@green,  #FFF, 30%); }
-section.slate  { background: mix(@yellow, #FFF, 30%); }
 
 .title h1 {
     font-weight: 100;
@@ -133,6 +136,7 @@ section.slate  { background: mix(@yellow, #FFF, 30%); }
 
 .link {
     background: rgba(255,255,255,0.2);
+    border-radius: 4px;
     font-size: 18px;
     padding: 4px 10px 4px 36px;
     margin-bottom: 15px;
@@ -144,12 +148,12 @@ section.slate  { background: mix(@yellow, #FFF, 30%); }
 }
 
 .link > div {
-    width: 24px;
-    height: 24px;
-    background-size: 24px 24px;
+    width: 20px;
+    height: 20px;
+    background-size: 20px 20px;
     position: absolute;
-    top: 5px;
-    left: 5px;
+    top: 7px;
+    left: 7px;
     opacity: 0.75;
     transition: opacity .2s;
 }
@@ -198,16 +202,6 @@ code.usage { margin: 0 0 4px 0; display: inline-block; padding: 3px 4px;}
   .content { padding-left: 0; }
 }
 
-code {
-    line-height: 1;
-    padding: 0 4px;
-    white-space: nowrap;
-    background-color: #EEE;
-    border: 1px solid #DDD;
-    border-radius: 3px;
-    margin: -2px 1px;
-    letter-spacing: -.5px;
-}
 
 // =================================================================================================
 // FOOTER
@@ -219,3 +213,62 @@ code {
     background: @dark;
     font-size: 14px;
 }
+
+
+// =================================================================================================
+// FOOTER
+// http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript
+// =================================================================================================
+
+code, pre {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    direction: ltr;
+    hyphens: none;
+    word-break: normal;
+    tab-size: 4;
+    font-size: 90%;
+}
+
+:not(pre) > code {
+    white-space: nowrap;
+    color: #333;
+    background-color: #E9E9E9;
+    border-radius: 3px;
+    padding: 4px 5px 2px;
+    margin: -2px 1px;
+}
+
+pre {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+
+    display: block;
+    padding: 8px 14px;
+    margin: 0 0 1em 0;
+
+    color: #333;
+    font-size: 90%;
+    text-align: left;
+
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre;
+    white-space: pre-wrap;
+}
+
+code[class*="language-"], pre[class*="language-"] { color: #f8f8f2; text-shadow: 0 1px rgba(0, 0, 0, 0.3); line-height: 1.5; }
+:not(pre) > code[class*="language-"], pre[class*="language-"] { background: @light; }
+.token.comment, .token.prolog, .token.doctype, .token.cdata { color: @blue; opacity: 0.5; }
+.token.punctuation { color: #f8f8f2; }
+.namespace { opacity: .7; }
+.token.property, .token.tag, .token.constant, .token.symbol, .token.deleted { color: @red; }
+.token.boolean, .token.number { color: @green; }
+.token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted { color: @green; }
+.token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string, .token.variable { color: @yellow; }
+.token.atrule, .token.attr-value { color: @yellow; }
+.token.keyword { color: @blue; }
+.token.regex, .token.important { color: @red; }
+.token.important { font-weight: bold; }
+.token.entity { cursor: help; }
+
+
