@@ -852,6 +852,7 @@ function concatArrays(a1, a2) {
 
     M.roundTowardsZero = function(x) {
         // Add 0.00001 because of floating points uncertainty
+        // TODO use x|0;
         return x < 0 ? Math.ceil(x - 0.00001) : Math.floor(x + 0.00001);
     };
 
@@ -1120,7 +1121,6 @@ function concatArrays(a1, a2) {
         }
         return str;
     };
-
 
 })();
 
@@ -2785,12 +2785,6 @@ M.boost = true;
 	M.uid = function(){
 	    return Math.random().toString(36).substr(2,10);
 	};
-
-	M.is3DTransform = (function(){
-	    var style = document.createElement('div').style;
-	    return ('webkitPerspective' in style || 'MozPerspective' in style ||
-	        'OPerspective' in style || 'MsPerspective' in style || 'perspective' in style);
-	})();
 
 
 	// ---------------------------------------------------------------------------------------------
@@ -4975,76 +4969,72 @@ M.Lightbox = function($container, chapter) {
     };
 };
 
-(function() {
+// M.scrollReveal($$('[scroll-reveal]'));
 
-    // M.scrollReveal($$('[scroll-reveal]'));
+M.scrollReveal = function($els) {
 
-    M.scrollReveal = function($els) {
+    // Viewport height reference
+    var viewportHeight;
+    function getHeight() { viewportHeight = window.innerHeight; }
+    M.resize(getHeight);
+    getHeight();
 
-        // Viewport height reference
-        var viewportHeight;
-        function getHeight() { viewportHeight = window.innerHeight; }
-        M.resize(getHeight);
-        getHeight();
+    // Scroll position reference;
+    var viewportScroll;
+    function getScroll() { viewportScroll = window.pageYOffset; }
 
-        // Scroll position reference;
-        var viewportScroll;
-        function getScroll() { viewportScroll = window.pageYOffset; }
+    // Check if an element is visible
+    function isInViewport($el, factor) {
+        var elTop = $el.$el.offsetTop;
+        var elHeight = $el.$el.offsetHeight;
+        return (elTop + elHeight) >= viewportScroll +    factor  * viewportHeight &&
+                elTop             <= viewportScroll + (1-factor) * viewportHeight;
+    }
 
-        // Check if an element is visible
-        function isInViewport($el, factor) {
-            var elTop = $el.$el.offsetTop;
-            var elHeight = $el.$el.offsetHeight;
-            return (elTop + elHeight) >= viewportScroll +    factor  * viewportHeight &&
-                    elTop             <= viewportScroll + (1-factor) * viewportHeight;
+    // Initialise element and
+    function makeElement($el) {
+        var isShown = true;
+        var options = ($el.attr('data-scroll') || '').split('|');
+
+        var axis      = M.isOneOf(options[0], 'left', 'right') ? 'X' : 'Y';
+        var direction = M.isOneOf(options[0], 'top', 'left') ? '-' : '';
+        var factor    = M.isNaN(+options[1]) ? 0.2 : +options[1];
+        var distance  = options[2] || '40px';
+        var duration  = options[3] || '.5s';
+        var delay     = options[4] || '0s';
+
+        function show() {
+            isShown = true;
+            $el.css('opacity', '1');
+            $el.transform('translate' + axis + '(0)');
         }
 
-        // Initialise element and
-        function makeElement($el) {
-            var isShown = true;
-            var options = ($el.attr('data-scroll') || '').split('|');
-
-            var axis      = M.isOneOf(options[0], 'left', 'right') ? 'X' : 'Y';
-            var direction = M.isOneOf(options[0], 'top', 'left') ? '-' : '';
-            var factor    = M.isNaN(+options[1]) ? 0.2 : +options[1];
-            var distance  = options[2] || '40px';
-            var duration  = options[3] || '.5s';
-            var delay     = options[4] || '0s';
-
-            function show() {
-                isShown = true;
-                $el.css('opacity', '1');
-                $el.transform('translate' + axis + '(0)');
-            }
-
-            function hide() {
-                isShown = false;
-                $el.css('opacity', '0');
-                $el.transform('translate' + axis + '(' + direction + distance + ')');
-            }
-
-            $el.transition(['opacity', duration, delay, ',', M.prefix('transform'), duration, delay].join(' '));
-
-            return function() {
-                if (!isShown && isInViewport($el, factor)) show();
-                if ( isShown && !isInViewport($el, 0)) hide();
-            };
+        function hide() {
+            isShown = false;
+            $el.css('opacity', '0');
+            $el.transform('translate' + axis + '(' + direction + distance + ')');
         }
 
-        // Initialise Elements
-        var updateFns = $els.each(function($el){ return makeElement($el); });
-        var n = updateFns.length;
+        $el.transition(['opacity', duration, delay, ',', M.prefix('transform'), duration, delay].join(' '));
 
-        // Trigger Updates
-        function updatePage() { getScroll(); for (var i=0; i<n; ++i) updateFns[i](); }
-        M.$body.scroll(updatePage);
-        M.resize(updatePage);
-        updatePage();
-        setTimeout(function() { updatePage(); }, 500);
+        return function() {
+            if (!isShown && isInViewport($el, factor)) show();
+            if ( isShown && !isInViewport($el, 0)) hide();
+        };
+    }
 
-    };
+    // Initialise Elements
+    var updateFns = $els.each(function($el){ return makeElement($el); });
+    var n = updateFns.length;
 
-})();
+    // Trigger Updates
+    function updatePage() { getScroll(); for (var i=0; i<n; ++i) updateFns[i](); }
+    M.$body.scroll(updatePage);
+    M.resize(updatePage);
+    updatePage();
+    setTimeout(function() { updatePage(); }, 500);
+
+};
 
 M.Draggable = M.Class.extend({
 
@@ -5367,7 +5357,7 @@ M.piechart = function(percentage, radius, colour) {
     return str;
 };
 
-M.draw = function($svg, options) {
+M.Draw = function($svg, options) {
 
     var _this = this;
 
@@ -5430,7 +5420,7 @@ M.draw = function($svg, options) {
     });
 };
 
-M.draw.prototype.checkForIntersects = function() {
+M.Draw.prototype.checkForIntersects = function() {
 
     if (this.paths.length <= 1) return;
     var path = this.paths.last();
@@ -5449,12 +5439,12 @@ M.draw.prototype.checkForIntersects = function() {
     }
 };
 
-M.draw.prototype.stop = function() {
+M.Draw.prototype.stop = function() {
     this.drawing = false;
     this.p = null;
 };
 
-M.draw.prototype.clear = function() {
+M.Draw.prototype.clear = function() {
     this.paths.each(function(path) { path.remove(); });
     this.paths = [];
 };

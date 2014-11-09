@@ -1,6 +1,5 @@
 // =================================================================================================
 // GLOBAL
-// =================================================================================================
 
 @red:    #b30469;  // Ruby
 @blue:   #1f7aff;  // Blue Ribbon
@@ -24,15 +23,6 @@ html, body {
     margin: 40px auto 200px;
 }
 
-.home h3 {
-    margin: 1.4em 0 0.4em;
-    font-weight: 600;
-}
-
-h4 {
-    margin: 1em 0 .4em;
-}
-
 strong { font-weight: 600; }
 
 ::selection { background: fade(@blue, 30%); }
@@ -41,10 +31,25 @@ p a { color: @blue; }
 p a:hover { text-decoration: underline; }
 
 
+// =================================================================================================
+// TYPOGRAPHY
+
+h3 {
+    margin: 1.5em 0 0.5em;
+    font-weight: 600;
+}
+
+h4 {
+    font-weight: 600;
+    margin: 0 0 .5em 0;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #BBB;
+}
+
 
 // =================================================================================================
 // NAV BAR
-// =================================================================================================
 
 header {
     background: @dark;
@@ -102,10 +107,8 @@ header {
 }
 
 
-
 // =================================================================================================
 // TITLE
-// =================================================================================================
 
 .title {
     color: #FFF;
@@ -167,7 +170,6 @@ header {
 
 // =================================================================================================
 // BODY
-// =================================================================================================
 
 .sidebar { position: absolute; width: 180px; height:100%; }
 .sidebar.fixed { position: fixed; top: 40px; bottom: 0; height: auto; }
@@ -192,10 +194,15 @@ header {
 
 
 .content { padding: 40px 0 100px 220px; }
-h2 { font-weight: 600; font-size: 1.8em; border-top: 4px solid #D2E4FF; padding-top: 1em; margin-top: 1.5em }
+h2 { font-weight: 600; font-size: 1.8em; border-top: 4px solid mix(@light, #FFF, 20%); padding-top: 1em; margin-top: 1.5em }
 h2:first-child { border: none; margin-top: 0; padding: 0; }
 
-code.usage { margin: 0 0 4px 0; display: inline-block; padding: 3px 4px;}
+.core   h2 { border-color: mix(@red,    #FFF, 20%); }
+.fermat h2 { border-color: mix(@blue,   #FFF, 20%); }
+.boost  h2 { border-color: mix(@green,  #FFF, 20%); }
+.slate  h2 { border-color: mix(@yellow, #FFF, 20%); }
+
+code.usage { margin: 0 0 4px 0; display: inline-block; padding: 3px 4px; }
 
 @media screen and (max-width: 640px) {
   .sidebar { display: none; }
@@ -205,7 +212,6 @@ code.usage { margin: 0 0 4px 0; display: inline-block; padding: 3px 4px;}
 
 // =================================================================================================
 // FOOTER
-// =================================================================================================
 
 .home footer {
     padding: 12px 0;
@@ -216,25 +222,23 @@ code.usage { margin: 0 0 4px 0; display: inline-block; padding: 3px 4px;}
 
 
 // =================================================================================================
-// FOOTER
+// CODE HIGHLIGHTING
 // http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript
-// =================================================================================================
 
 code, pre {
     font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    direction: ltr;
     hyphens: none;
-    word-break: normal;
     tab-size: 4;
     font-size: 90%;
 }
 
 :not(pre) > code {
+    word-break: normal;
     white-space: nowrap;
     color: #333;
     background-color: #E9E9E9;
     border-radius: 3px;
-    padding: 4px 5px 2px;
+    padding: 4px 6px 2px;
     margin: -2px 1px;
 }
 
@@ -255,6 +259,11 @@ pre {
     white-space: pre;
     white-space: pre-wrap;
 }
+
+P > code:first-child { font-weight: bold; }
+.code-type { color: @blue; opacity: 0.5; }
+.code-param { color: @blue; }
+.code-return { color: @green; }
 
 code[class*="language-"], pre[class*="language-"] { color: #f8f8f2; text-shadow: 0 1px rgba(0, 0, 0, 0.3); line-height: 1.5; }
 :not(pre) > code[class*="language-"], pre[class*="language-"] { background: @light; }

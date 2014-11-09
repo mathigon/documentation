@@ -14,15 +14,6 @@ body {
   margin: 40px auto 200px;
 }
 
-.home h3 {
-  margin: 1.4em 0 0.4em;
-  font-weight: 600;
-}
-
-h4 {
-  margin: 1em 0 .4em;
-}
-
 strong {
   font-weight: 600;
 }
@@ -41,6 +32,19 @@ p a {
 
 p a:hover {
   text-decoration: underline;
+}
+
+h3 {
+  margin: 1.5em 0 0.5em;
+  font-weight: 600;
+}
+
+h4 {
+  font-weight: 600;
+  margin: 0 0 .5em 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #BBB;
 }
 
 header {
@@ -334,7 +338,7 @@ header {
 h2 {
   font-weight: 600;
   font-size: 1.8em;
-  border-top: 4px solid #D2E4FF;
+  border-top: 4px solid #d3d3d6;
   padding-top: 1em;
   margin-top: 1.5em;
 }
@@ -343,6 +347,22 @@ h2:first-child {
   border: none;
   margin-top: 0;
   padding: 0;
+}
+
+.core h2 {
+  border-color: #f0cde1;
+}
+
+.fermat h2 {
+  border-color: #d2e4ff;
+}
+
+.boost h2 {
+  border-color: #d6f0cd;
+}
+
+.slate h2 {
+  border-color: #ffead2;
 }
 
 code.usage {
@@ -371,12 +391,10 @@ code.usage {
 code,
 pre {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  direction: ltr;
   -webkit-hyphens: none;
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
-  word-break: normal;
   -moz-tab-size: 4;
   -o-tab-size: 4;
   tab-size: 4;
@@ -384,11 +402,12 @@ pre {
 }
 
 :not(pre) > code {
+  word-break: normal;
   white-space: nowrap;
   color: #333;
   background-color: #E9E9E9;
   border-radius: 3px;
-  padding: 4px 5px 2px;
+  padding: 4px 6px 2px;
   margin: -2px 1px;
 }
 
@@ -405,6 +424,23 @@ pre {
   word-wrap: break-word;
   white-space: pre;
   white-space: pre-wrap;
+}
+
+P > code:first-child {
+  font-weight: bold;
+}
+
+.code-type {
+  color: #1f7aff;
+  opacity: 0.5;
+}
+
+.code-param {
+  color: #1f7aff;
+}
+
+.code-return {
+  color: #31b304;
 }
 
 code[class*="language-"],
