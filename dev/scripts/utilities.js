@@ -1104,8 +1104,8 @@ function concatArrays(a1, a2) {
     }
 
     // Returns all subsets of arr (of given length)
-    M.subsets = function (arr, length) {
-        var myArr = arr.clone();
+    M.subsets = function(arr, length) {
+        var myArr = _arraySlice.call(arr, 0);
         var subsets = getSubsets(myArr);
         if (length) subsets = subsets.filter(function(x) { return x.length === length; });
         return subsets;
@@ -2674,8 +2674,7 @@ function concatArrays(a1, a2) {
 
 
     function ExpressionVal(val) {
-        this.isVal = true;
-        this.val = fn;
+        this.val = val;
     }
 
     ExpressionVal.prototype.simplify = function() {
@@ -2709,13 +2708,13 @@ function concatArrays(a1, a2) {
     };
 
     var strings = {
-        '+': function() { return arguments.join(' + '); },
+        '+': function() { return M.toArray(arguments).join(' + '); },
         '-': function(a, b) { return (b === undefined) ? '-' + a : a + ' - ' + b; },
-        '*': function() { return arguments.join(' * '); },
+        '*': function() { return M.toArray(arguments).join(' * '); },
         '/': function(a, b) { return a + ' / ' + b; },
         '!': function(n) { return n + '!'; },
         '^': function(a, b) { return a + ' ^ ' + b; },
-        '[]': function() { return '[' + arguments.join(', ') + ']'; },
+        '[]': function() { return '[' + M.toArray(arguments).join(', ') + ']'; },
         '"': function(str) { return '"' + str + '"'; },
         'mod': function(a, b) { return a + ' mod ' + b; }
     };
@@ -2793,10 +2792,20 @@ M.boost = true;
 	var loadQueue = [];
 	var loaded = false;
 
-	window.onload = function() {
+	function afterLoad() {
+		if (loaded) return;
 		loaded = true;
 		for (var i=0; i<loadQueue.length; ++i) loadQueue[i]();
+	}
+
+	window.onload = function() {
+		afterLoad();
+		if (M.resize()) M.resize();
 	};
+
+	document.addEventListener('DOMContentLoaded', function(event) {
+		afterLoad();
+	});
 
 	M.onload = function(fn) {
 		if (loaded) {

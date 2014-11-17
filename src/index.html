@@ -24,45 +24,100 @@
 
     <div class="wrap home">
 
-      <p>Almost all functions provided by Mathigon Script are part of the <code>M</code> object.</p>
+      <p class="warning">Mathigon&rsquo;s JavaScript libraries are still under development. While it is used in production on mathigon.org, a small number of functions may not yet exist or contain errors and bugs.</p>
 
-      <h3>Prototype Extension</h3>
-      <p>Core.js extends the prototypes of JavaScript's native <code>Array</code>, Number and String types. These additions are perfectly "save" (non-enumerable and backwards compatible), unless when used together with another library which extends native prototypes.</p>
+      <p>Almost all functions provided by Mathigon JS are part of the global <code>M</code> object. All classes are capitalised, but don&rsquo;t need to be created using the <code>new</code> keyword. Most functions have <strong>no or very few dependencies</strong>, so it is easy to copy particular algorithms from the source code on <a href="https://github.com/Mathigon/">GithHub</a>.</p>
+
+      <p>Core.js <strong>extends the prototypes</strong> of JavaScript's native <code>Array</code>, <code>Number</code> and <code>String</code> types. These additions are non-enumerable and perfectly &ldquo;save&rdquo;, unless when used together with other libraries that extend native prototypes.</p>
+
+      <p>Unless where otherwise documented, functions <strong>don&rsquo;t check their arguments</strong> for validity. If a function is called with invalid argument types, the behaviour is undefined and functions may throw unpredictable errors.</p>
+
+      <h3>Array Functions</h3>
+      <p>Core.js and Fermat.js contain a variety of functions which can be used to simplify the creation and modification of arrays.</p>
+      <pre><code class="language-javascript"
+>M.tabulate(Math.random, 5);
+    // -> [0.7068, 0.9314, 0.6050, 0.9042, 0.2278]
+
+M.tabulate(function(x, y) { return '' + x + y; }, 3, 3).flatten();
+    // -> ['00', '01', '02', '10', '11', '12', '20', '21', '22']
+
+M.map(M.add, [1, 2, 3], [4, 5, 6], [7, 8, 9]);
+    // -> [12, 15, 18]
+
+M.list(9).chunk(3);
+    // -> [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
+</code></pre>
+
+      <p>Fermat.js also provides an Array subclass, <code>M.Vector</code> which is more powerful but also less efficient than native JavaScript arrays.</p>
 
       <h3>Classes</h3>
-      <p>core.js provides a class structure that supports inheritance and subtyping. Every class already contains <code>.on</code>, <code>.off</code> and <code>.trigger</code> methods for handling events.</p>
+      <p>Core.js provides a class structure that supports inheritance and subtyping. Every new class already contains <code>.on</code>, <code>.off</code> and <code>.trigger</code> methods for handling events.</p>
       <pre><code class="language-javascript"
 >var Vehicle = M.Class.extend({
     init: function() { ... },
-    addPassenger: function() { ... }
+    addPassenger: function() { ... },
+    type: function() { return 'Vehicle'; }
 });
 
 var Car = Vehicle.extend({
-    init: function(colour) { ... },
-    startEngine: function() { ... }
+    init: function(colour) { this.colour = colour; },
+    startEngine: function() { this.trigger('engineStart'); },
+    type: function() { return 'Car'; }
 });
 
-var myCar = new Car('red');</code></pre>
+Car.parent;  // -> Vehicle
 
-      <h3>Array Functions</h3>
-      <p>Core.js and Fermat.js contain a variety of functions which can be used to dynamically create and modify arrays.</p>
+var myCar = new Car('red');
 
-<pre><code class="language-javascript"
->var timesTable = M.tabulate(function(x, y) { return x * y; }, 10, 10);
-</code></pre>
+myCar.colour;  // -> 'red'
+myCar.type();  // -> 'Car'
+myCar.on('engineStart', function() { ... });</code></pre>
 
-      <h3>Parameter Checking</h3>
-      <p>Unless where otherwise documented, none of the functions perform parameter checking. If a function is called with invalid argument types, the result is undefined and may lead to unexpected errors being thrown.</p>
+
+      <h3>Expression Parsing</h3>
+      <p>Fermat.js is able to parse complex mathematical expressions, including arbitrary functions, arrays and strings. When evaluating, expressions have access to all constants and functions in <code>Math</code> and <code>M</code>, and you can pass in an object of custom variable and function values.</p>
+      <pre><code class="language-javascript"
+>var expr = M.expression.parse('1 * (2 + x) - 4! + norm([1, 2, x^2]) - (100 / 2)%');
+expr.evaluate({ x: 10 });</code></pre>
+
 
       <h3>DOM Selection</h3>
       <p>Boost.js provides a variety of functions to select DOM elements. <code>$</code>, <code>$I</code>, <code>$C</code> and <code>$T</code> return a single element, while <code>$$</code>, <code>$$C</code> and <code>$$T</code> return arrays of elements. <code>$N</code> and <code>$$N</code> can be used to create new DOM elements.</p>
+      <pre><code class="language-javascript"
+>var $el = $C('my-class');
+$el.on('click', function() { ... });
+$el.transform('scale(2)');</code></pre>
+
+      <h3>Speical Events</h3>
+      <p>TODO</p>
+
+      <h3>Animations and Effects</h3>
+      <p>TODO</p>
+
+
+      <h3>UI Elements</h3>
+      <p>TODO</p>
+
+
+      <h2>Roadmap</h2>
+
+      <p>Text</p>
+
+      <ul>
+        <li>Update <strong>special events</strong> (<code>click</code>, <code>scroll</code> and <code>pointerMove</code>) to allow removing of events.</li>
+        <li>Expand <code>M.Queue</code> into a full promise framework and update events framework to use promises instead of callbacks.</li>
+        <li>Improve <strong>expression parsing</strong>, simplification and evaluation</li>
+        <li>Improve <strong>geometry functions</strong>, allowing arbitrary intersection, projections of geometric objects.</li>
+        <li>Create <strong>Bignum</strong> library that can handle arbitrarily large integers, arbitrarily accurate decimals and exact fractions. Update all mathematical functions to seamlessly handle Bignum and native <code>Number</code> inputs.</li>
+        <li>Create new <strong>SVG library</strong> that integrates with the existing geometry, animation and events functions.</li>
+        <li>Create a variety of new reusable <strong>UI components</strong>. Convert all UI widgets into <strong>HTML tags</strong> utilising Web Components and Shadow DOM.</li>
+      </ul>
 
 
       <h2>Contributing</h2>
 
-      <p>Text</p>
-
-
+      <p>Mathigon JS was created to simplify web development, to share code between Mathigon websites, and to XxX the neex for external JavaScript libraries. This </p>
+      <p>If you find bugs or more efficient implementations of certain functions, please fork our GitHub repository and send us a pull request. If you would like to add larger pieces of new functionality, please email us first at <a>dev@mathigon.org</a>.</p>
     </div>
 
     <footer><div class="wrap">© 2014 Mathigon, All Rights Reserved</div></footer>
@@ -90,6 +145,3 @@ var myCar = new Car('red');</code></pre>
 
   </body>
 </html>
-
-
-

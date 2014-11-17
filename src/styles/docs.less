@@ -47,6 +47,15 @@ h4 {
     color: #BBB;
 }
 
+.warning {
+    border-radius: 5px;
+    color: #FFF;
+    background: @red;
+    padding: 8px 14px;
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
 
 // =================================================================================================
 // NAV BAR
@@ -258,9 +267,11 @@ pre {
     word-wrap: break-word;
     white-space: pre;
     white-space: pre-wrap;
+    overflow: scroll;
 }
 
-P > code:first-child { font-weight: bold; }
+p > code:first-child { font-weight: bold; }
+.home p > code:first-child { font-weight: 400; }
 .code-type { color: @blue; opacity: 0.5; }
 .code-param { color: @blue; }
 .code-return { color: @green; }
@@ -279,5 +290,3 @@ code[class*="language-"], pre[class*="language-"] { color: #f8f8f2; text-shadow:
 .token.regex, .token.important { color: @red; }
 .token.important { font-weight: bold; }
 .token.entity { cursor: help; }
-
-

@@ -47,6 +47,15 @@ h4 {
   color: #BBB;
 }
 
+.warning {
+  border-radius: 5px;
+  color: #FFF;
+  background: #b30469;
+  padding: 8px 14px;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
 header {
   background: #181824;
   height: 50px;
@@ -424,10 +433,15 @@ pre {
   word-wrap: break-word;
   white-space: pre;
   white-space: pre-wrap;
+  overflow: scroll;
 }
 
-P > code:first-child {
+p > code:first-child {
   font-weight: bold;
+}
+
+.home p > code:first-child {
+  font-weight: 400;
 }
 
 .code-type {

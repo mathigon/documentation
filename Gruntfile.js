@@ -41,11 +41,13 @@ module.exports = function (grunt) {
             }
         },
 
-        uglify: { all: {
-            options: { banner: '<%= banner %>', mangle: false },
-            src: ['<%= out %>/scripts/*.js'],
-            expand: true
-        }},
+        uglify: {
+            all: {
+                options: { banner: '<%= banner %>', mangle: false },
+                src: ['<%= out %>/scripts/*.js'],
+                expand: true
+            }
+        },
 
 
         // ----------------------------------------------------------------------------------------
