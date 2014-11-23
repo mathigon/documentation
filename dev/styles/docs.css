@@ -235,7 +235,7 @@ header {
 
 .sidebar.fixed {
   position: fixed;
-  top: 40px;
+  top: 50px;
   bottom: 0;
   height: auto;
 }
@@ -395,6 +395,14 @@ code.usage {
   color: rgba(255, 255, 255, 0.6);
   background: #181824;
   font-size: 14px;
+}
+
+.home footer a {
+  text-decoration: underline;
+}
+
+.home footer a:hover {
+  color: #FFF;
 }
 
 code,

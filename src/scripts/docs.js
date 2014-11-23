@@ -10,11 +10,11 @@ M.onload(function() {
     var $sidebarTopicWrap;
     var $body = $I('body');
 
-    var bodyTop = $body.$el.offsetTop - 40;
+    var bodyTop = $body.$el.offsetTop - 50;
     var posn = {};
-    
+
     M.resize(function() {
-        bodyTop = $body.$el.offsetTop - 40;
+        bodyTop = $body.$el.offsetTop - 50;
         posn = {};
     });
 
@@ -39,7 +39,7 @@ M.onload(function() {
             posn[top] = [$sidebarEl, $topicWrap];
         });
 
-        $sidebarEl.click(function() { M.$body.scrollTo(top-75, 1000); });
+        $sidebarEl.click(function() { M.$body.scrollTo(top - 75, 1000); });
     });
 
     var $sidebar = $C('sidebar');
