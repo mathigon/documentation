@@ -1096,7 +1096,7 @@ function concatArrays(a1, a2) {
         var subsets = getSubsets(arr);
         var result = [];
         for (var i=0; i<subsets.length; ++i) {
-            var a2 = subsets[i].clone();
+            var a2 = _arraySlice.call(subsets[i], 0);
             a2.push(last);
             result.push(subsets[i], a2);
         }
@@ -1139,7 +1139,7 @@ function concatArrays(a1, a2) {
     M.random.integerArray = function(n) {
         var a = [];
         for (var i=0; i<n; ++i) a.push(i);
-        return a.shuffle();
+        return M.shuffle(a);
     };
 
     // Choses a random value from weights [2, 5, 3] or { a: 2, b: 5, c: 3 }
@@ -1503,7 +1503,7 @@ function concatArrays(a1, a2) {
         normalize: function() {
             var a = [], n = this.length;
             var total = this.norm();
-            for (var i = 0; i < n; ++i) a.push(a[i]/total);
+            for (var i = 0; i < n; ++i) a.push(this[i]/total);
             return M.Vector(a);
         },
 
@@ -1532,6 +1532,10 @@ function concatArrays(a1, a2) {
         return M.Vector([v1[1] * v2[2] - v1[2] * v2[1],
                          v1[2] * v2[0] - v1[0] * v2[2],
                          v1[0] * v2[1] - v1[1] * v2[0]]);
+    };
+
+    M.vector.mult = function(v, s) {
+        return M.Vector(M.map(function(x) { return x * s; }, v));
     };
 
 })();
@@ -2751,19 +2755,24 @@ M.boost = true;
 
 (function() {
 
+	var ua = window.navigator.userAgent;
+	var isIE = (ua.indexOf('MSIE ') >= 0) || !!ua.match(/Trident.*rv\:11\./);
+
 	M.browser = {
 	    width:    window.innerWidth,
 	    height:   window.innerHeight,
 
 	    isMobile: /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i
-				      .test(navigator.userAgent.toLowerCase()),
+					.test(navigator.userAgent.toLowerCase()),
 	    isRetina: ((window.devicePixelRatio || 1) > 1),
 	    isTouch:  ('ontouchstart' in window) || (window.DocumentTouch && document instanceof window.DocumentTouch),
 	    imgExt:   ((window.devicePixelRatio || 1) > 1.25) ? '@2x' : '',
 
-	    isChrome: navigator.userAgent.toLowerCase().indexOf('chrome') > -1,
+	    isChrome: ua.toLowerCase().indexOf('chrome') >= 0,
+	    isIE: isIE,
 
-	    hasHistory: window.history && window.history.pushState,
+	    hasHistory: window.history && window.history.pushState && (!isIE || ua.indexOf('MSIE 1') >= 0),
+	    hasClipPath: document.body.style.clipPath != null && document.body.style.webkitClipPath != null && !isIE,
 
 	    speechRecognition: ('webkitSpeechRecognition' in window)
 	};
@@ -3097,7 +3106,7 @@ M.getScript = function(src, success, error) {
     };
 
     M.colour.interpolate = function(c1, c2, p) {
-        p = p.bound(0,1);
+        p = M.bound(p, 0,1);
 
         c1 = M.colour.parse(c1);
         c2 = M.colour.parse(c2);
@@ -3115,7 +3124,7 @@ M.getScript = function(src, success, error) {
 
 	// Gets the colour of a multi-step gradient at a given percentage p
 	M.colour.getColourAt = function(gradient, p) {
-	    p = p.bound(0, 0.999);
+	    p = M.bound(p, 0, 0.999);
 	    var r = Math.floor(p * (gradient.length - 1));
 	    var q = p * (gradient.length - 1) - r;
 	    return M.colour.interpolate(gradient[r+1], gradient[r], q);
@@ -3126,14 +3135,14 @@ M.getScript = function(src, success, error) {
     var rainbow = ['#D92120', '#E6642C', '#E68E34', '#D9AD3C', '#B5BD4C', '#7FB972', '#63AD99',
 	               '#55A1B1', '#488BC2', '#4065B1', '#413B93', '#781C81'];
     M.colour.rainbow = function(steps) {
-        var scale = (0.4 + 0.15 * steps).bound(0,1);
+        var scale = M.bound(0.4 + 0.15 * steps, 0, 1);
         return M.tabulate(function(x){ return M.colour.getColourAt(rainbow, scale*x/(steps-1)); }, steps);
     };
 
     var temperature = ['#3D52A1', '#3A89C9', '#77B7E5', '#B4DDF7', '#E6F5FE', '#FFFAD2', '#FFE3AA',
                        '#F9BD7E', '#ED875E', '#D24D3E', '#AE1C3E'];
     M.colour.temperature = function(steps) {
-        var scale = (0.1 * steps).bound(0,1);
+        var scale = M.bound(0.1 * steps, 0, 1);
         return M.tabulate(function(x){
             return M.colour.getColourAt(temperature, (1-scale)/2 + scale*x/(steps-1) ); }, steps);
     };
@@ -4022,6 +4031,33 @@ M.cookie = {
             function() { this.hide(); });
     };
 
+    // Requires css transition: height, no padding or margin
+    M.$.prototype.slideUp = function(callback) {
+        var _this = this;
+        this._data.sliding = 'up';
+        this.css('height', this.height() + 'px');
+        M.redraw();
+        this.css('height', '0px');
+
+        this.transitionEnd(function() {
+            if (_this._data.sliding === 'up' && callback) callback();
+        });
+    };
+
+    // Requires css transition: height, no padding or margin, single wrapper child
+    M.$.prototype.slideDown = function(callback) {
+        var _this = this;
+        this._data.sliding = 'down';
+        this.css('height', this.children(0).outerHeight() + 'px');
+
+        this.transitionEnd(function() {
+            if (_this._data.sliding === 'down') {
+                _this.css('height', 'auto');
+                if (callback) callback();
+            }
+        });
+    };
+
 
     // ---------------------------------------------------------------------------------------------
     // Animated Effects
@@ -4553,23 +4589,23 @@ M.audio = {
     files: {},
     playing: null,
     load: function(src, id) {
-        M.Audio.files[id] = new Audio(src);
-        M.Audio.files[id].load();
-        M.Audio.files[id].addEventListener('timeupdate', function() {
-            if (M.Audio.playing) M.Audio.playing.update();
+        M.audio.files[id] = new Audio(src);
+        M.audio.files[id].load();
+        M.audio.files[id].addEventListener('timeupdate', function() {
+            if (M.audio.playing) M.audio.playing.update();
         });
-        return M.Audio.files[id];
+        return M.audio.files[id];
     }
 };
 
 M.audio.Chunk = M.Class.extend({
 
     init: function(file, times) {
-        if (M.isString(times)) times = times.split('|').toNumbers();
+        if (M.isString(times)) times = M.map(parseFloat, times.split('|'));
         this.times = times;
         this.currentTime = times[0];
         this.duration = times[1] - times[0];
-        this.player = M.Audio.files[file] || M.Audio.load(file, Math.floor(Math.random()*10000));
+        this.player = M.audio.files[file] || M.audio.load(file, Math.floor(Math.random()*10000));
         this.ended = false;
     },
 
@@ -4581,8 +4617,8 @@ M.audio.Chunk = M.Class.extend({
             return;
         }
 
-        if (M.Audio.playing) M.Audio.playing.pause();
-        M.Audio.playing = this;
+        if (M.audio.playing) M.audio.playing.pause();
+        M.audio.playing = this;
 
         this.ended = false;
         this.player.currentTime = this.currentTime;
@@ -4591,7 +4627,7 @@ M.audio.Chunk = M.Class.extend({
     },
 
     pause: function() {
-        if (M.Audio.playing === this) this.player.pause();
+        if (M.audio.playing === this) this.player.pause();
         this.trigger('pause');
     },
 
@@ -4601,7 +4637,7 @@ M.audio.Chunk = M.Class.extend({
     },
 
     reset: function() {
-        if (M.Audio.playing === this) this.player.pause();
+        if (M.audio.playing === this) this.player.pause();
         if (this.player.readyState) this.currentTime = this.times[0];
         this.ended = true;
         this.trigger('reset');
@@ -4610,7 +4646,7 @@ M.audio.Chunk = M.Class.extend({
     update: function() {
         if (this.ended) return;
 
-        if (M.Audio.playing === this)
+        if (M.audio.playing === this)
             this.currentTime = this.player.currentTime;
 
         if (this.currentTime >= this.times[1]) {
@@ -4681,16 +4717,16 @@ M.speechRecognition = function() {
     };
 };
 
-M.Bubble = function($popup, chapter) {
+M.Popup = function($popup, chapter) {
 
     // TODO onopen(), onclose() functions
 
     var _this = this;
 
-    var $bubble = $C('popup-bubble',$popup)[0];
+    var $bubble = $C('popup-bubble',$popup);
     if (!$bubble) return;
 
-    var $bubbleBox = $C('bubble-box',$bubble)[0];
+    var $bubbleBox = $C('bubble-box',$bubble);
     $N('span', {'class': 'bubble-arrow'}, $bubble);
 
     _this.open = function() {
@@ -4708,10 +4744,10 @@ M.Bubble = function($popup, chapter) {
         var pageRight = M.browser.width;
 
         if (left < pageLeft + 10)
-            $bubbleBox.transformX(pageLeft + 10 - left);
+            $bubbleBox.translateX(pageLeft + 10 - left);
 
         if (right > pageRight - 54)
-            $bubbleBox.transformX(pageRight - 54 - right);
+            $bubbleBox.translateX(pageRight - 54 - right);
 
         M.redraw();
         if (top < 27 ) { chapter.scrollBy(top - 27); }
@@ -4757,7 +4793,7 @@ M.Gallery = function($panel, options) {
 
     var width, slidesPerPage, slideWidth;
     var activeIndex = 0;
-    var transformX = 0;
+    var translateX = 0;
 
     //$N('div', { class: 'gallery-shadow-left' }, $box);
     //$N('div', { class: 'gallery-shadow-right' }, $box);
@@ -4778,11 +4814,11 @@ M.Gallery = function($panel, options) {
     // RESIZE EVENTS -------------------------------------------------------------------------------
 
     var setPosition = function(offset) {
-        transformX = offset;
-        $panel.transformX(offset);
+        translateX = offset;
+        $panel.translateX(offset);
         /*if (options.opacity) $slides.each(function($s, i) {
             var x = ((i+1)*slideWidth + offset) / slideWidth;
-            $s.css('opacity', M.easing('quad', 0.4 + 0.6 * x.bound(0,1) ));
+            $s.css('opacity', M.easing('quad', 0.4 + 0.6 * M.bound(x, 0,1) ));
         });*/
     };
 
@@ -4827,8 +4863,8 @@ M.Gallery = function($panel, options) {
     var startAnimationTo = function(newIndex) {
         animCancel = false;
         animT = 0;
-        animStart = transformX;
-        animDistance = -newIndex * slideWidth - transformX;
+        animStart = translateX;
+        animDistance = -newIndex * slideWidth - translateX;
         animStartTime = M.now();
         makeActive(newIndex);
         animRender();
@@ -4837,7 +4873,7 @@ M.Gallery = function($panel, options) {
     var next = function() {
         animTiming = 'quad';
         if (activeIndex < slidesCount - slidesPerPage) {
-            $next.pulse();
+            $next.pulseDown();
             startAnimationTo(activeIndex+1);
         }
     };
@@ -4845,7 +4881,7 @@ M.Gallery = function($panel, options) {
     var back = function() {
         animTiming = 'quad';
         if (activeIndex > 0) {
-            $back.pulse();
+            $back.pulseDown();
             startAnimationTo(activeIndex-1);
         }
     };
@@ -4864,7 +4900,7 @@ M.Gallery = function($panel, options) {
         M.$body.on('mousemove touchmove', motionMove);
         M.$body.on('mouseup mouseleave touchend touchcancel', motionEnd);
         animCancel = true;
-        motionStartPosn = transformX;
+        motionStartPosn = translateX;
         pointerStart = event.touches ? event.touches[0].clientX : event.clientX;
         lastMotionX = previousMotionX = pointerStart;
     };
@@ -4897,7 +4933,7 @@ M.Gallery = function($panel, options) {
         var shift = lastDiff > 12 ? 1 : lastDiff < -12 ? -1 : 0;
 
         animTiming = 'quad-out';
-        startAnimationTo(Math.round(-transformX/slideWidth-shift).bound(0, slidesCount - slidesPerPage));
+        M.bound(startAnimationTo(Math.round(-translateX/slideWidth - shift), 0, slidesCount - slidesPerPage));
     };
 
     $wrapper.on('mousedown touchstart', motionStart);
@@ -4912,6 +4948,26 @@ M.Gallery = function($panel, options) {
         back: back
     };
 };
+
+M.Frame = M.Class.extend({
+    init: function($el) {
+        var width = $el.width('border');
+        var height = $el.height('border');
+        var ratio = height/width;
+
+        var $wrap = $N('div', { class: 'frame-wrap'});
+        $el.wrap($wrap);
+
+        function resize() {
+            var w = $wrap.width('border');
+            var h = w * ratio;
+            $wrap.css('height', h+'px');
+            $el.transform('scale(' + w/width + ') translateZ(0)');
+        }
+
+        M.resize(resize);
+    }
+});
 
 M.Lightbox = function($container, chapter) {
 

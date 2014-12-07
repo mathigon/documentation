@@ -144,9 +144,29 @@ $el.transform('scale(2)');</code></pre>
 
       <h3>Speical Events</h3>
       <p>TODO</p>
+      <pre><code class="language-javascript"
+>$element.on('click', function(e) { console.log('click'); });
+$element.on('scroll', function(e) { console.log(e.top); });
+$element.on('pointerStart', function(e) { console.log(x.top); });
+</code></pre>
 
       <h3>Animations and Effects</h3>
       <p>TODO</p>
+      <pre><code class="language-javascript"
+>$element.fadeIn(200);
+$element.pulsate();
+
+$element.animate([
+    { css: 'background', from: '#C00', to: '#0C0', duration: 500, timing: 'linear', delay: 200 },
+    { css: 'width', to: '200px' }
+]);</code></pre>
+
+      <p>TODO</p>
+      <pre><code class="language-javascript"
+>M.animate(function(prop, time) {
+    $element.css(left, prop * 200 + 'px');
+    $element.text(time + 's');
+}, 500);</code></pre>
 
 
       <h3>UI Elements</h3>
@@ -159,7 +179,7 @@ $el.transform('scale(2)');</code></pre>
 
       <ul>
         <li>Update <strong>special events</strong> (<code>click</code>, <code>scroll</code> and <code>pointerMove</code>) to allow removing of events.</li>
-        <li>Expand <code>M.Queue</code> into a full promise framework and update events framework to use promises instead of callbacks.</li>
+        <li>Expand <code>M.Queue</code> into a full promise framework and update events and animations to use promises instead of callbacks.</li>
         <li>Improve <strong>expression parsing</strong>, simplification and evaluation</li>
         <li>Improve <strong>geometry functions</strong>, allowing arbitrary intersection, projections of geometric objects.</li>
         <li>Create <strong>Bignum</strong> library that can handle arbitrarily large integers, arbitrarily accurate decimals and exact fractions. Update all mathematical functions to seamlessly handle Bignum and native <code>Number</code> inputs.</li>
