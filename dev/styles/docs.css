@@ -397,12 +397,26 @@ code.usage {
   font-size: 14px;
 }
 
-.home footer a {
+#body footer {
+  margin-top: 60px;
+  border-top: 1px solid #CCC;
+  padding-top: 10px;
+  font-size: 14px;
+  color: #AAA;
+}
+
+footer a {
   text-decoration: underline;
 }
 
 .home footer a:hover {
   color: #FFF;
+  text-decoration: underline;
+}
+
+#body footer a:hover {
+  color: #333;
+  text-decoration: underline;
 }
 
 code,
@@ -481,8 +495,8 @@ pre[class*="language-"] {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: #1f7aff;
-  opacity: 0.5;
+  color: #FFF;
+  opacity: 0.3;
 }
 
 .token.punctuation {

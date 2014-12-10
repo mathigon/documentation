@@ -19,7 +19,8 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         src: 'src',
         out: (grunt.cli.tasks[0] === 'prod' ? 'prod' : 'dev'),
-        banner: '/* (c) 2014, Mathigon */\n\n',
+        banner: '/* Mathigon JavaScript Tools */\n' +
+                '/* MIT License (https://github.com/Mathigon/core.js/blob/master/LICENSE) */\n\n',
 
         clean: ['<%= out %>'],
 
@@ -42,11 +43,15 @@ module.exports = function (grunt) {
         },
 
         uglify: {
+            options: { banner: '<%= banner %>', mangle: false },
             all: {
-                options: { banner: '<%= banner %>', mangle: false },
                 src: ['<%= out %>/scripts/*.js'],
                 expand: true
-            }
+            },
+            core:   { src: libraries.slice(0, 1), dest: '<%= out %>/download/core.min.js' },
+            fermat: { src: libraries.slice(0, 2), dest: '<%= out %>/download/fermat.min.js' },
+            boost:  { src: libraries.slice(0, 3), dest: '<%= out %>/download/boost.min.js' },
+            slate:  { src: libraries.slice(0, 4), dest: '<%= out %>/download/mathigon.min.js' }
         },
 
 
@@ -263,6 +268,10 @@ module.exports = function (grunt) {
         'copy:globalCss',
         'bake:all',
         'copy:dev',
+        'uglify:core',
+        'uglify:fermat',
+        'uglify:boost',
+        'uglify:slate',
         'concurrent:dev'
     ]);
 
@@ -281,6 +290,10 @@ module.exports = function (grunt) {
         'bake:all',
         'htmlmin:all',
         'copy:prod',
+        'uglify:core',
+        'uglify:fermat',
+        'uglify:boost',
+        'uglify:slate',
         'sitemap:all',
         'concurrent:prod'
     ]);

@@ -2,7 +2,7 @@
 <html lang="en">
 
   <head>
-    <!--(bake templates/header.html title="Mathigon.io" description="")-->
+    <!--(bake templates/header.html title="Mathigon.io" description="Open source JavaScript libraries that power Mathigon and make web development for modern browsers fun and easy.")-->
   </head>
 
   <body class="home">
@@ -26,7 +26,7 @@
 
       <p class="warning">Mathigon&rsquo;s JavaScript libraries are still under development. While it is used in production on mathigon.org, a small number of functions may not yet exist or contain errors and bugs.</p>
 
-      <p>Almost all functions provided by Mathigon JS are part of the global <code>M</code> object. All classes are capitalised, but don&rsquo;t need to be created using the <code>new</code> keyword. Most functions have <strong>no or very few dependencies</strong>, so it is easy to copy particular algorithms from the source code on <a href="https://github.com/Mathigon/">GithHub</a>.</p>
+      <p>Almost all functions provided by Mathigon JS are part of the global <code>M</code> object. All classes are capitalised, but don&rsquo;t need to be created using the <code>new</code> keyword. Most functions have <strong>no or very few dependencies</strong>, so it is easy to copy particular algorithms from the source code on <a href="https://github.com/Mathigon/">GitHub</a>.</p>
 
       <p>Core.js <strong>extends the prototypes</strong> of JavaScript's native <code>Array</code>, <code>Number</code> and <code>String</code> types. These additions are non-enumerable and perfectly &ldquo;save&rdquo;, unless when used together with other libraries that extend native prototypes.</p>
 
@@ -89,7 +89,7 @@ $el.on('click', function() { ... });
 $el.transform('scale(2)');</code></pre>
 
       <h3>Speical Events</h3>
-      <p>TODO</p>
+      <p>Boost.js seamlessly supports a number of special events. The <code>click</code> event is overwritten to happen on <code>mouseup</code> or <code>touchend</code> to avoid delays on mobile devices. The <code>scroll</code>, <code>scrollStart</code> and <code>scrollEnd</code> events are fired for mouse and touch scroling using <code>requestAnimationFrame</code>. Mathigon also simulates cross-platform <code>pointerStart</code>, <code>pointerMove</code>, <code>pointerEnd</code>, <code>pointerEnter</code>, <code>pointerLeave</code> and <code>pointerOver</code> events. </p>
       <pre><code class="language-javascript"
 >$element.on('click', function(e) { console.log('click'); });
 $element.on('scroll', function(e) { console.log(e.top); });
@@ -97,17 +97,18 @@ $element.on('pointerStart', function(e) { console.log(x.top); });
 </code></pre>
 
       <h3>Animations and Effects</h3>
-      <p>TODO</p>
+      <p>Boost.js contains a variety of element transitions, including <code>.enter()</code>, <code>.exit()</code>, and effects like <code>.pulsate()</code>. You can also define generic element animations which use CSS transition to animate any css properties. In particular, you can animate to and from <code>height: auto</code> and <code>width: auto</code>.</p>
       <pre><code class="language-javascript"
 >$element.fadeIn(200);
 $element.pulsate();
+$element.exit('fade', 300, 100);  // duration 300ms, delay 100ms
 
 $element.animate([
     { css: 'background', from: '#C00', to: '#0C0', duration: 500, timing: 'linear', delay: 200 },
     { css: 'width', to: '200px' }
 ]);</code></pre>
 
-      <p>TODO</p>
+      <p><code>M.animate</code> is a wrapper for <code>requestAnimationFrame</code> that can be used to call a function at every step during an animation of fixed length, or indefinitely.</p>
       <pre><code class="language-javascript"
 >M.animate(function(prop, time) {
     $element.css(left, prop * 200 + 'px');
@@ -116,12 +117,22 @@ $element.animate([
 
 
       <h3>UI Elements</h3>
-      <p>TODO</p>
+      <p>Slate.js creates a number of different UI and media element classes. All classes contain appropriate methods and they fire a variety of useful events.</p>
+      <pre><code class="language-javascript"
+>var mySlider = new M.Slider($C('track'), 10);
+mySlider.on('move', function(n) { ... })
+
+var myGallery = new M.Gallery($C('gallery'), { callback: function(index) { ... } });
+myGallery.next();
+
+M.audio.load('/my-audio.mp4', 'file1');
+var myAudio = new M.audio.Chunk('file1', [20, 40]);
+myAudio.on('timeupdate', function() { ... });
+myAudio.play();
+</code></pre>
 
 
       <h2>Roadmap</h2>
-
-      <p>Text</p>
 
       <ul>
         <li>Update <strong>special events</strong> (<code>click</code>, <code>scroll</code> and <code>pointerMove</code>) to allow removing of events.</li>
@@ -136,32 +147,49 @@ $element.animate([
 
       <h2>Contributing</h2>
 
-      <p>Mathigon JS was created to simplify web development, to share code between Mathigon websites, and to XxX the neex for external JavaScript libraries. This </p>
-      <p>If you find bugs or more efficient implementations of certain functions, please fork our GitHub repository and send us a pull request. If you would like to add larger pieces of new functionality, please email us first at <a>dev@mathigon.org</a>.</p>
+      <p>Mathigon JS was created to simplify web development, to share code between Mathigon websites, and to reduce the need for a large number of external JavaScript libraries and frameworks. While most of the code was written for specific Mathigon uses, rather than to build a generic and universal library, we hope that you will find it useful for animation and computation heavy projects.</p>
+      <p>To contribute code, please fork our GitHub repository and send us a pull request. If you find bugs or mistakes in Mathigon JS, please <a href="mailto:dev@mathigon.org">email us</a> with details on how to reproduce them.</p>
+
+
+      <div id="social" class="social-row" row>
+        <div grow><div class="fb-share-button" data-href="http://mathigon.io" data-type="button_count"></div></div>
+        <div grow><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://mathigon.io" data-text="Mathigon JavaScript Libraries" data-via="MathigonProject" data-hashtags="Mathigon">Tweet</a></div>
+        <div grow><div class="g-plus" data-action="share" data-annotation="bubble" data-height="24"></div></div>
+        <div grow><a href="//www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fmathigon.io&media=http%3A%2F%2Fmathigon.org%2Fimages%2Ffavicons%2Ffavicon-512.png&description=Mathigon" data-pin-do="buttonPin" data-pin-config="none" data-pin-color="red"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_20.png" /></a></div>
+        <div grow><a href="http://www.tumblr.com/share" title="Share on Tumblr" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:61px; height:20px; background:url('http://platform.tumblr.com/v1/share_2.png') top left no-repeat transparent;">Share on Tumblr</a></div>
+      </div>
     </div>
 
-    <footer><div class="wrap">&copy; 2014 Mathigon, <a href="https://github.com/Mathigon/core.js/blob/master/LICENSE">MIT License</a></div></footer>
+    <footer>
+      <div class="wrap">&copy; 2014 Mathigon, <a href="https://github.com/Mathigon/core.js/blob/master/LICENSE">MIT License</a></div>
+    </footer>
 
     <script src="/vendor/prism.js"></script>
 
     <!-- ========== Social Media Buttons ========== -->
 
     <div id="fb-root"></div>
+
     <script>
-    (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+
+      !function(d,s,id){
+        var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+        if(!d.getElementById(id)){js=d.createElement(s);
+        js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+        fjs.parentNode.insertBefore(js,fjs);
+      }}(document, 'script', 'twitter-wjs');
     </script>
 
-    <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
-
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-    <script type="text/javascript" async src="https://apis.google.com/js/platform.js"></script>
+    <script async src="//assets.pinterest.com/js/pinit.js"></script>
+    <script async src="http://apis.google.com/js/platform.js"></script>
+    <script async src="http://platform.tumblr.com/v1/share.js"></script>
 
   </body>
 </html>

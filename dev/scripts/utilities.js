@@ -400,11 +400,6 @@ M.isOneOf = function(x, values) {
 
     M.extend(String.prototype, {
 
-        endsWith: function(search) {
-            var end = this.length;
-            var start = end - search.length;
-            return (this.substring(start, end) === search);
-        },
 
         strip: function() {
             return this.replace(/^\s+/, '').replace(/\s+$/, '');
@@ -426,9 +421,18 @@ M.isOneOf = function(x, values) {
 
     }, true);
 
-    if ( !String.prototype.contains ) {
+    if (!String.prototype.endsWith) {
         M.extend(String.prototype, {
+            endsWith: function(search) {
+                var end = this.length;
+                var start = end - search.length;
+                return (this.substring(start, end) === search);
+            }
+        }, true);
+    }
 
+    if (!String.prototype.contains) {
+        M.extend(String.prototype, {
             contains: function() {
                 return String.prototype.indexOf.apply( this, arguments ) !== -1;
             }
@@ -3481,7 +3485,7 @@ M.cookie = {
 	};
 
 	M.$.prototype.attr = function(attr, value) {
-	    if (value == null) {
+	    if (value === undefined) {
 	        return this.$el.getAttribute(attr);
 	    } else if (value === null) {
 	        this.$el.removeAttribute(attr);
@@ -3910,7 +3914,7 @@ M.cookie = {
         var duration = s.getPropertyValue('transition-duration').split(',');
         var property = s.getPropertyValue('transition-property').split(',');
         var timing   = s.getPropertyValue('transition-timing-function')
-                        .match(/[^\(\),]+(\([^\(\)]*\))?[^\(\),]*/g);
+                        .match(/[^\(\),]+(\([^\(\)]*\))?[^\(\),]*/g) || [];
 
         var result = [];
         for (var i=0; i<property.length; ++i) {
@@ -3947,8 +3951,8 @@ M.cookie = {
         // Set start property values of elements
         var s = window.getComputedStyle(this.$el);
         M.each(props, function(options) {
-            if (options.css === 'height') this.css('height', parseFloat(s.getPropertyValue('height')));
-            if (options.css === 'width') this.css('width',  parseFloat(s.getPropertyValue('width')));
+            if (options.css === 'height') _this.css('height', parseFloat(s.getPropertyValue('height')));
+            if (options.css === 'width') _this.css('width', parseFloat(s.getPropertyValue('width')));
             if (options.from != null) _this.css(options.css, options.from);
         });
 
@@ -4933,7 +4937,7 @@ M.Gallery = function($panel, options) {
         var shift = lastDiff > 12 ? 1 : lastDiff < -12 ? -1 : 0;
 
         animTiming = 'quad-out';
-        M.bound(startAnimationTo(Math.round(-translateX/slideWidth - shift), 0, slidesCount - slidesPerPage));
+        startAnimationTo(M.bound(Math.round(-translateX/slideWidth - shift), 0, slidesCount - slidesPerPage));
     };
 
     $wrapper.on('mousedown touchstart', motionStart);
@@ -4968,72 +4972,6 @@ M.Frame = M.Class.extend({
         M.resize(resize);
     }
 });
-
-M.Lightbox = function($container, chapter) {
-
-    var $lightbox        = $N('div', {'class': 'lightbox-overlay' }, $container);
-    var $lightboxImg     = $N('div', {'class': 'lightbox-img' }, $lightbox);
-    var $lightboxCaption = $N('div', {'class': 'lightbox-caption' }, $lightbox);
-    var transform = {};
-
-    function add($img) {
-        var src = $img.attr('src');
-        var $wrap = $N('div', { class: 'lightbox' });
-        $img.wrap($wrap);
-        $N('div', {'class': 'lightbox-zoom' }, $wrap);
-        $wrap.click(function() { open($wrap, src); });
-    }
-
-    var activeImg;
-
-    function open($img, src) {
-        activeImg = $img;
-        $lightbox.css('display', 'block');
-
-        var newX = $img.$el.getBoundingClientRect();
-        var oldX = $lightboxImg.$el.getBoundingClientRect();
-
-        var X = newX.left + newX.width /2 - oldX.left - oldX.width /2;
-        var Y = newX.top  + newX.height/2 - oldX.top  - oldX.height/2;
-        var S = Math.max(newX.width/oldX.width, newX.height/oldX.height);
-        transform = {X: X, Y: Y, S: S};
-
-        $lightboxImg.css('background-image', 'url('+src.replace(/\.(?=[^.]*$)/, '-large.')+'), url('+src+')');
-        $lightboxImg.transform('translate('+X+'px,'+Y+'px) scale('+S+')');
-        // TODO caption text
-
-        M.redraw();
-        $lightboxImg.addClass('transitions');
-        M.redraw();
-
-        $img.css('visibility', 'hidden');
-        chapter.$toolbar.addClass('off');
-        $lightbox.addClass('on');
-        $lightboxImg.transform('scale(1) translate(0,0)');
-    }
-
-    function close() {
-        $lightbox.removeClass('on');
-        $lightboxImg.transform('translate('+transform.X+'px,'+transform.Y+'px) scale('+transform.S+')');
-        chapter.$toolbar.removeClass('off');
-
-        setTimeout( function() {
-            activeImg.css('visibility', 'visible');
-            $lightbox.css('display', 'none');
-            $lightboxImg.transform('none');
-            $lightboxImg.transform('none');
-            $lightboxImg.removeClass('transitions');
-        }, 400);
-    }
-
-    $lightbox.click(function(){ close(); });
-
-    return {
-        add: add,
-        open: open,
-        close: close
-    };
-};
 
 // M.scrollReveal($$('[scroll-reveal]'));
 
@@ -5146,8 +5084,8 @@ M.Draggable = M.Class.extend({
         var motionMove = function(e) {
             e.preventDefault();
             var newPosition = getPosn(e);
-            var x = (position[0] + newPosition[0] - dragStart[0]).bound(0, width);
-            var y = (position[1] + newPosition[1] - dragStart[1]).bound(0, height);
+            var x = M.bound(position[0] + newPosition[0] - dragStart[0], 0, width);
+            var y = M.bound(position[1] + newPosition[1] - dragStart[1], 0, height);
             draw(x, y);
         };
 
@@ -5158,8 +5096,8 @@ M.Draggable = M.Class.extend({
             if (newPosition[0] === dragStart[0] && newPosition[1] === dragStart[1]) {
                 _this.trigger('click');
             } else {
-                var x = (position[0] + newPosition[0] - dragStart[0]).bound(0, width);
-                var y = (position[1] + newPosition[1] - dragStart[1]).bound(0, height);
+                var x = M.bound(position[0] + newPosition[0] - dragStart[0], 0, width);
+                var y = M.bound(position[1] + newPosition[1] - dragStart[1], 0, height);
                 position = [x, y];
                 _this.trigger('end');
             }
@@ -5218,7 +5156,7 @@ M.Slider = M.Class.extend({
 
         this.play = function() {
             cancelPlay = false;
-            $knob.pulse();
+            $knob.pulseDown();
             animRender();
         };
 

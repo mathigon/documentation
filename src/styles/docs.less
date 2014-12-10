@@ -229,8 +229,17 @@ code.usage { margin: 0 0 4px 0; display: inline-block; padding: 3px 4px; }
     font-size: 14px;
 }
 
-.home footer a { text-decoration: underline; }
-.home footer a:hover { color: #FFF; }
+#body footer {
+    margin-top: 60px;
+    border-top: 1px solid #CCC;
+    padding-top: 10px;
+    font-size: 14px;
+    color: #AAA;
+}
+
+footer a { text-decoration: underline; }
+.home footer a:hover { color: #FFF; text-decoration: underline; }
+#body footer a:hover { color: #333; text-decoration: underline; }
 
 
 // =================================================================================================
@@ -281,7 +290,7 @@ p > code:first-child { font-weight: bold; }
 
 code[class*="language-"], pre[class*="language-"] { color: #f8f8f2; text-shadow: 0 1px rgba(0, 0, 0, 0.3); line-height: 1.5; }
 :not(pre) > code[class*="language-"], pre[class*="language-"] { background: @light; }
-.token.comment, .token.prolog, .token.doctype, .token.cdata { color: @blue; opacity: 0.5; }
+.token.comment, .token.prolog, .token.doctype, .token.cdata { color: #FFF; opacity: 0.3; }
 .token.punctuation { color: #f8f8f2; }
 .namespace { opacity: .7; }
 .token.property, .token.tag, .token.constant, .token.symbol, .token.deleted { color: @red; }
