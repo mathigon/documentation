@@ -1,6 +1,6 @@
 // ================================================================================================
 // Mathigon Gruntfile
-// (c) 2014 Mathigon
+// (c) 2015 Mathigon
 // ================================================================================================
 
 
@@ -249,7 +249,7 @@ module.exports = function (grunt) {
                     authKey: 'mathigon'
                 },
                 src: 'dev',
-                dest: '/public_html/mathigon-io',
+                dest: '/public_html/mathigon_io',
                 exclusions: []
             }
         }

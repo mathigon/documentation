@@ -146,6 +146,13 @@ header {
   }
 }
 
+@media screen and (max-width: 440px) {
+  #nav-logo {
+    width: 35px;
+    margin-right: 40px;
+  }
+}
+
 .title {
   color: #FFF;
   padding: 1px 0 40px;
