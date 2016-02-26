@@ -1,305 +1,125 @@
 // ================================================================================================
-// Mathigon Gruntfile
-// (c) 2015 Mathigon
+// Mathigon | Grunt Configuration
+// (c) Mathigon, 2016
 // ================================================================================================
 
 
-/* jshint node: true */
+module.exports = function(grunt) {
 
-module.exports = function (grunt) {
-
-    // Dynamically load npm tasks
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-
-    var libraries = ['../core.js/dist/core.js', '../fermat.js/dist/fermat.js',
-                     '../boost.js/dist/boost.js', '../slate.js/dist/slate.js'];
+    require('./grunt-rollup')(grunt)
 
     grunt.initConfig({
 
-        pkg: grunt.file.readJSON('package.json'),
-        src: 'src',
-        out: (grunt.cli.tasks[0] === 'prod' ? 'prod' : 'dev'),
-        banner: '/* Mathigon JavaScript Tools */\n' +
-                '/* MIT License (https://github.com/Mathigon/core.js/blob/master/LICENSE) */\n\n',
+        banner: '/* (c) Mathigon, 2016 */\n' +
+                '/* MIT License (https://github.com/Mathigon/mathigon.io/blob/master/LICENSE) */\n\n',
 
-        clean: ['<%= out %>'],
-
+        clean: ['build'],
 
         // ----------------------------------------------------------------------------------------
-        // JavaScript Files
 
-        concat: {
-            options: {
-                separator: '\n'
-            },
-            utilities: {
-                src: libraries,
-                dest: '<%= out %>/scripts/utilities.js'
-            },
-            site: {
-                src: '<%= src %>/scripts/*.js',
-                dest: '<%= out %>/scripts/docs.js'
-            }
-        },
-
-        uglify: {
-            options: { banner: '<%= banner %>', mangle: false },
-            all: {
-                src: ['<%= out %>/scripts/*.js'],
-                expand: true
-            },
-            core:   { src: libraries.slice(0, 1), dest: '<%= out %>/download/core.min.js' },
-            fermat: { src: libraries.slice(0, 2), dest: '<%= out %>/download/fermat.min.js' },
-            boost:  { src: libraries.slice(0, 3), dest: '<%= out %>/download/boost.min.js' },
-            slate:  { src: libraries.slice(0, 4), dest: '<%= out %>/download/mathigon.min.js' }
-        },
-
-
-        // ----------------------------------------------------------------------------------------
-        // CSS Files
-
-        less: { all: {
-            files: [{
-                expand: true,
-                src: 'styles/*.less',
-                dest: '<%= out %>',
-                cwd: '<%= src %>',
-                ext: '.css'
-            }]
+        rollup: { app: {
+            files: { 'build/scripts.js': 'src/scripts.js' }
         }},
 
-        autoprefixer: { all: {
-            files: [{
-                expand: true,
-                flatten: true,
-                src: '<%= out %>/styles/*.css',
-                dest: '<%= out %>/styles'
-            }]
+        babel: { app: {
+            options: { presets: ['es2015'] },
+            src: ['build/scripts.js'],
+            dest: 'build/scripts.js'
         }},
 
-        cssmin: { all: {
+        uglify: { app: {
             options: { banner: '<%= banner %>' },
+            src: ['build/scripts.js'],
+            dest: 'build/scripts.js'
+        }},
+
+        // ----------------------------------------------------------------------------------------
+
+        less: { app: {
+            files: { 'build/styles.css': 'src/styles.less' }
+        }},
+
+        autoprefixer: { app: {
+            src: ['build/styles.css'],
+            dest: 'build/styles.css'
+        }},
+
+        cssmin: { app: {
+            options: { banner: '<%= banner %>' },
+            src: ['build/styles.css'],
+            dest: 'build/styles.css'
+        }},
+
+        // -------------------------------------------------------------------------
+
+        jade: { app: {
             files: [{
                 expand: true,
-                flatten: true,
-                src: '<%= out %>/styles/*.css',
-                dest: '<%= out %>/styles'
+                cwd: 'src',
+                src: ['*.jade', '!_template.jade'],
+                dest: 'build',
+                ext: '.html'
             }]
         }},
 
-
         // ----------------------------------------------------------------------------------------
-        // Images
 
-        imagemin: { all: {
-            options: {
-                optimizationLevel: 4,
-                progressive: true,
-                interlaced: true
-            },
+        copy: { app: {
             files: [{
                 expand: true,
-                cwd: '<%= src %>',
-                src: ['**/*.{png,jpg,gif}', '!**/uri/*'],
-                dest: '<%= out %>'
+                cwd: 'src',
+                src: ['vendor/**', 'images/**', 'favicon.ico'],
+                dest: 'build'
             }]
         }},
 
-
         // ----------------------------------------------------------------------------------------
-        // HTML Bake
-        // https://github.com/MathiasPaumgarten/grunt-bake
 
-        bake: { all: {
-            options: { content: (this.out === 'dev' ? { dev: 'true' } : { prod: 'prod' }) },
-            files: [{
-                expand: true,
-                cwd: '<%= src %>',
-                src: ['**/*.html', '!**/templates/*'],
-                dest: '<%= out %>'
-            }]
-
-        }},
-
-        htmlmin: { all: {
-            options: {
-                keepClosingSlash: true,
-                removeComments: true,
-                collapseWhitespace: true,
-                removeEmptyAttributes: true,
-                removeRedundantAttributes: true,
-                collapseBooleanAttributes: true
-            },
-            files: [{
-                expand: true,
-                cwd: '<%= out %>',
-                src: ['**/*.html'],
-                dest: '<%= out %>'
-            }]
-        }},
-
-        sitemap: { all: {
-            siteRoot: 'prod/',
-            homepage: 'http://mathigon.org'
-        }},
-
-
-        // ----------------------------------------------------------------------------------------
-        // Static Files
-
-        copy: {
-            globalCss: {
-                src: '../boost.js/dist/global.css',
-                dest: '<%= out %>/styles/global.css'
-            },
-            vendor: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= src %>',
-                    src: ['vendor/**/*'],
-                    dest: '<%= out %>'
-                }]
-            },
-            dev: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= src %>',
-                    src: ['**/*.{gif,png,jpg,ico,json,xml,mp3,mp4,svg,otf,ttf,eot,woff,pdf}', '!**/uri/*'],
-                    dest: '<%= out %>'
-                }]
-            },
-            prod: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= src %>',
-                    src: ['**/*.{ico,json,xml,mp3,mp4,svg,otf,ttf,eot,woff,pdf}', '!**/uri/*'],
-                    dest: '<%= out %>'
-                }]
-            }
-        },
-
-
-        // ----------------------------------------------------------------------------------------
-        // File Watchers and Syncing
-
-        sync: { all: {
+        sync: { app: {
             files: [{
                 cwd: 'src',
-                src: ['**', '!**/*.less', '!**/*.html', '!**/uri/*'],
-                dest: '<%= out %>'
-            }],
-            verbose: true
+                src: ['vendor/**', 'images/**', 'favicon.ico'],
+                dest: 'build'
+            }]
         }},
 
         watch: {
-            html: {
-                files: 'src/**/*.{html,svg}',
-                tasks: ['bake']
+            jade: {
+                files: ['src/*.jade', '../*.js/docs/*.md'],
+                tasks: ['jade']
             },
             less: {
-                files: 'src/**/*.less',
+                files: 'src/*.less',
                 tasks: ['less', 'autoprefixer']
             },
             js: {
-                files: 'src/scripts/*.js',
-                tasks: ['concat']
+                files: 'src/*.js',
+                tasks: ['rollup', 'babel']
             },
             static: {
-                files: 'src/**/*.{gif,png,jpg,ico,json,xml,mp3,mp4,svg,otf,ttf,eot,woff,png}',
+                files: ['vendor/**', 'images/**', 'favicon.ico'],
                 tasks: ['sync']
             }
         },
 
-        concurrent: {
-            options: { limit: 5, logConcurrentOutput: true },
-            dev: {
-                tasks: ['watch:html', 'watch:less', 'watch:js', 'watch:static', 'connect:dev']
-            },
-            prod: {
-                tasks: ['connect:prod']
-            }
-        },
-
-
         // ----------------------------------------------------------------------------------------
-        // FTP Upload
 
-        connect: {
-            dev: {
-                options: {
-                    port: 8020,
-                    base: 'dev',
-                    keepalive: true
-                }
-            },
-            prod: {
-                options: {
-                    port: 8021,
-                    base: 'prod',
-                    keepalive: true
-                }
+        connect: { app: {
+            options: {
+                port: 8081,
+                base: 'build',
+                keepalive: true
             }
-        },
+        } },
 
-        'ftp-deploy': {
-            prod: {
-                auth: {
-                    host: 'mathigon.org',
-                    port: 21,
-                    authKey: 'mathigon'
-                },
-                src: 'dev',
-                dest: '/public_html/mathigon_io',
-                exclusions: []
-            }
-        }
+        concurrent: { app: {
+            options: { limit: 5, logConcurrentOutput: true },
+            tasks: ['watch:jade', 'watch:less', 'watch:js', 'watch:static', 'connect']
+        } }
     });
 
-    // ============================================================================================
-
-    // Default (dev) task
-    grunt.registerTask('default', [
-        'clean',
-        'concat:utilities',
-        'concat:site',
-        'less:all',
-        'autoprefixer:all',
-        'copy:vendor',
-        'copy:globalCss',
-        'bake:all',
-        'copy:dev',
-        'uglify:core',
-        'uglify:fermat',
-        'uglify:boost',
-        'uglify:slate',
-        'concurrent:dev'
-    ]);
-
-    // Build (dist) task
-    grunt.registerTask('prod', [
-        'clean',
-        'concat:utilities',
-        'concat:site',
-        'uglify:all',
-        'less:all',
-        'autoprefixer:all',
-        'copy:vendor',
-        'copy:globalCss',
-        'cssmin:all',
-        'imagemin:all',
-        'bake:all',
-        'htmlmin:all',
-        'copy:prod',
-        'uglify:core',
-        'uglify:fermat',
-        'uglify:boost',
-        'uglify:slate',
-        'sitemap:all',
-        'concurrent:prod'
-    ]);
-
-    // Deploy task
-    grunt.registerTask('deploy', [
-        'ftp-deploy:prod'
-    ]);
+    grunt.registerTask('build', ['rollup', 'babel', 'less', 'autoprefixer', 'jade', 'copy']);
+    grunt.registerTask('default', ['clean', 'build', 'uglify', 'cssmin']);
+    grunt.registerTask('dev', ['build', 'concurrent']);
 };

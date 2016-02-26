@@ -1,0 +1,29 @@
+extends _template
+
+block vars
+  - var id = 'boost'
+  - var title = 'boost.js'
+  - var subtitle = 'DOM selection and manipulation utilities, events framework, animation and transition functions, AJAX, cookie, browser history and browser storage functions.'
+
+block body
+
+  .sidebar
+    .sidebar-wrap
+    .sidebar-fill
+
+  #api.content
+
+    include:marked ../../boost.js/docs/ajax.md
+    include:marked ../../boost.js/docs/colour.md
+    include:marked ../../boost.js/docs/elements.md
+    include:marked ../../boost.js/docs/events.md
+    include:marked ../../boost.js/docs/animate.md
+    include:marked ../../boost.js/docs/browser.md
+    include:marked ../../boost.js/docs/audio.md
+    include:marked ../../boost.js/docs/router.md
+    include:marked ../../boost.js/docs/template.md
+
+    footer © 2016 Mathigon, #[a(href="https://github.com/Mathigon/core.js/blob/master/LICENSE") MIT License]
+
+block scripts
+  script(src='/scripts.js')

@@ -1,0 +1,75 @@
+block vars
+
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+
+    title= title
+    meta(name="description", content=subtitle)
+    meta(name="format-detection", content="telephone=no")
+
+    // Mobile Data
+    meta(name="HandheldFriendly", content="True")
+    meta(name="MobileOptimized", content="480")
+    meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+    meta(http-equiv="cleartype", content="on")
+
+    // Web Apps and Images
+    link(rel="icon", sizes="64x64",   href="/images/favicons/favicon-64.png")
+    link(rel="icon", sizes="96x96",   href="/images/favicons/favicon-96.png")
+    link(rel="icon", sizes="192x192", href="/images/favicons/favicon-192.png")
+    link(rel="apple-touch-icon",      href="/images/favicons/favicon-192.png")
+
+    // Facebook Open Graph
+    meta(property="og:title",        content=title)
+    meta(property="og:description",  content=subtitle)
+    meta(property="og:image",        content="http://mathigon.org/images/og-tile.png")
+    meta(property="og:image:width",  content="1200")
+    meta(property="og:image:height", content="630")
+    meta(property="og:type",         content="school")
+    meta(property="og:site_name",    content="Mathigon")
+
+    // Twitter Cards
+    meta(name="twitter:card",        content="summary_large_image")
+    meta(name="twitter:title",       content=title)
+    meta(name="twitter:description", content=subtitle)
+    meta(name="twitter:image",       content="http://mathigon.org/images/og-tile.png")
+    meta(name="twitter:site",        content="@MathigonProject")
+    meta(name="twitter:creator",     content="@philipplegner")
+
+    // Stylesheets
+    link(href='/styles.css', rel='stylesheet')
+    link(href='http://mathigon.org/styles/fonts.css', rel='stylesheet')
+
+  body(class=id)
+    header
+      nav.row.wrap
+        a.nav-link#nav-logo(href="/")
+        a.nav-link.grow#nav-core(href="/core")     #[span.nav-img]#[span.nav-text core.js]
+        a.nav-link.grow#nav-fermat(href="/fermat") #[span.nav-img]#[span.nav-text fermat.js]
+        a.nav-link.grow#nav-boost(href="/boost")   #[span.nav-img]#[span.nav-text boost.js]
+        a.nav-link.grow#nav-slate(href="/slate")   #[span.nav-img]#[span.nav-text slate.js]
+
+    .hero
+      .wrap
+        h1= title
+        .row
+          p.subtitle.grow(style="margin-right: 20px; width: 260px")= subtitle
+          div(style="width: 260px")
+            a.link(href="/download/boost.min.js", target="_blank", download) #[.link-download] Download boost.min.js
+            a.link(href="https://github.com/Mathigon/boost.js") #[.link-github] Explore Source on GitHub
+
+    #body.wrap
+      block body
+
+    block scripts
+
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q || []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-37525836-5', 'auto');
+      ga('send', 'pageview');

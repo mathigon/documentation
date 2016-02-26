@@ -1,0 +1,33 @@
+extends _template
+
+block vars
+  - var id = 'slate'
+  - var title = 'slate.js'
+  - var subtitle = 'Collection of useful UI and media classes: audio and speech recognition, draggable, slider and gallery, SVG library, interactive variables and more.'
+
+block body
+
+  .sidebar
+    .sidebar-wrap
+    .sidebar-fill
+
+  #api.content
+
+    include:marked ../../slate.js/docs/draggable.md
+    include:marked ../../slate.js/docs/drawing.md
+    include:marked ../../slate.js/docs/dropdown.md
+    include:marked ../../slate.js/docs/gallery.md
+    include:marked ../../slate.js/docs/graph.md
+    include:marked ../../slate.js/docs/imgSequence.md
+    include:marked ../../slate.js/docs/media.md
+    include:marked ../../slate.js/docs/parallax.md
+    include:marked ../../slate.js/docs/popup.md
+    include:marked ../../slate.js/docs/progress.md
+    include:marked ../../slate.js/docs/slider.md
+    include:marked ../../slate.js/docs/target.md
+    include:marked ../../slate.js/docs/tooltip.md
+
+    footer © 2016 Mathigon, #[a(href="https://github.com/Mathigon/core.js/blob/master/LICENSE") MIT License]
+
+block scripts
+  script(src='/scripts.js')
