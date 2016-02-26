@@ -189,7 +189,8 @@ header {
     .slate &  { background: mix(@yellow, white, 70%); }
 }
 
-.content { padding: 40px 0 100px 220px; }
+.content { padding: 40px 0 0 220px; }
+.home #body { padding-top: 60px; }
 
 @media screen and (max-width: 640px) {
     .sidebar { display: none; }
@@ -244,17 +245,10 @@ li { margin: 0 0 4px 0; }
 
 
 // -----------------------------------------------------------------------------
-// Sidebar
+// Footer
 
-.home footer {
-    padding: 12px 0;
-    color: rgba(255,255,255,0.6);
-    background: @dark;
-    font-size: 14px;
-}
-
-#body footer {
-    margin-top: 60px;
+footer {
+    margin: 60px 0;
     border-top: 1px solid #CCC;
     padding-top: 10px;
     font-size: 14px;
@@ -263,7 +257,6 @@ li { margin: 0 0 4px 0; }
 
 footer a { text-decoration: underline; }
 .home footer a:hover { color: #FFF; text-decoration: underline; }
-#body footer a:hover { color: #333; text-decoration: underline; }
 
 
 // -----------------------------------------------------------------------------
@@ -305,7 +298,7 @@ pre {
     overflow: scroll;
 }
 
-h3 + p code:first-child { display: block; font-weight: bold; margin-bottom: 8px; }
+#api h3 + p code:first-child { display: block; font-weight: bold; margin-bottom: 8px; }
 .home p > code:first-child { font-weight: 400; }
 .code-type { color: @blue; opacity: 0.5; }
 .code-param { color: @blue; }

@@ -7,9 +7,7 @@ block vars
 
 block body
 
-  p Almost all functions provided by Mathigon JS are part of the global <code>M</code> object. All classes are capitalised, but don&rsquo;t need to be created using the <code>new</code> keyword. Most functions have <strong>no or very few dependencies</strong>, so it is easy to copy particular algorithms from the source code on <a href="https://github.com/Mathigon/">GitHub</a>.
-
-  p Core.js <strong>extends the prototypes</strong> of JavaScript's native <code>Array</code>, <code>Number</code> and <code>String</code> types. These additions are non-enumerable and perfectly &ldquo;save&rdquo;, unless when used together with other libraries that extend native prototypes.
+  p Mathigon.js is 
 
   p Unless where otherwise documented, functions <strong>don&rsquo;t check their arguments</strong> for validity. If a function is called with invalid argument types, the behaviour is undefined and functions may throw unpredictable errors.
 
@@ -103,11 +101,10 @@ block body
     myAudio.play();
 
 
-  h2 Roadmap
+  h3 Roadmap
 
   ul
     li Update <strong>special events</strong> (<code>click</code>, <code>scroll</code> and <code>pointerMove</code>) to allow removing of events.
-    li Expand <code>M.Queue</code> into a full promise framework and update events and animations to use promises instead of callbacks.
     li Improve <strong>expression parsing</strong>, simplification and evaluation
     li Improve <strong>geometry functions</strong>, allowing arbitrary intersection, projections of geometric objects.
     li Create <strong>Bignum</strong> library that can handle arbitrarily large integers, arbitrarily accurate decimals and exact fractions. Update all mathematical functions to seamlessly handle Bignum and native <code>Number</code> inputs.
@@ -115,7 +112,7 @@ block body
     li Create a variety of new reusable <strong>UI components</strong>. Convert all UI widgets into <strong>HTML tags</strong> utilising Web Components and Shadow DOM.
 
 
-  h2 Contributing
+  h3 Contributing
 
   p Mathigon JS was created to simplify web development, to share code between Mathigon websites, and to reduce the need for a large number of external JavaScript libraries and frameworks. While most of the code was written for specific Mathigon uses, rather than to build a generic and universal library, we hope that you will find it useful for animation and computation heavy projects.
   p To contribute code, please fork our GitHub repository and send us a pull request. If you find bugs or mistakes in Mathigon JS, please <a href="mailto:dev@mathigon.org">email us</a> with details on how to reproduce them.
