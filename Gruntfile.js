@@ -124,10 +124,8 @@ module.exports = function(grunt) {
                 commit: true,
                 push: true,
                 message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%',
-                options: {
-                    remote: 'git@github.com:Mathigon/mathigon.github.io.git',
-                    branch: 'master'
-                }
+                remote: 'git@github.com:Mathigon/mathigon.github.io.git',
+                branch: 'master'
             }
         }}
     });
