@@ -1,23 +1,17 @@
-# core.js
+# Mathigon.io
 
-TODO
-
-
-## Quick start
-
-TODO
+Discover the open source JavaScript libraries that power Mathigon. Combining functions for DOM manipulation, animations, events handling, UI elements and mathematics, they make web development for modern browsers fun and easy.
 
 
-## Documentation
+## Deployment
 
-TODO
+Main development of this website happens on the `source` branch. Run `grunt` to build the website in the `/build` directory, and run `grunt dev` to watch the `/src` directory for changes.
 
+For the documentation to compile correctly, this repo needs to be a sibling of `core.js`, `fermat.js`, `slate.js` and `boost.js`.
 
-## Contributing
-
-TODO
+To deploy changes, run `grunt deploy`. This will push the `/build` directory to the `master` branch on GitHub, which is used by GitHub pages.
 
 
 ## Copyright and license
 
-Code and documentation are copyright (c) 2015 Mathigon. Released under the [MIT license](LICENSE).
+Code and documentation are copyright (c) 2016 Mathigon. Released under the [MIT license](LICENSE).
