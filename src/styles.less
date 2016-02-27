@@ -16,7 +16,7 @@
 
 html, body {
     font-family: 'Whitney Mathigon', Whitney, Helvetica, sans-serif;
-    font-display: swap;
+    font-display: sw§ap;
     font-size: 18px;
 }
 
@@ -34,8 +34,10 @@ strong { font-weight: 600; }
 
 ::selection { background: fade(@blue, 30%); }
 
-p a { color: @blue; }
-p a:hover { text-decoration: underline; }
+p a, ul a {
+    color: @blue;
+    &:hover { text-decoration: underline; }
+}
 
 
 // -----------------------------------------------------------------------------
@@ -256,7 +258,7 @@ footer {
 }
 
 footer a { text-decoration: underline; }
-.home footer a:hover { color: #FFF; text-decoration: underline; }
+footer a:hover { color: #666; }
 
 
 // -----------------------------------------------------------------------------

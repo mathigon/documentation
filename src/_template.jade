@@ -58,8 +58,9 @@ html
         .row
           p.subtitle.grow(style="margin-right: 20px; width: 260px")= subtitle
           div(style="width: 260px")
-            a.link(href="/download/boost.min.js", target="_blank", download) #[.link-download] Download boost.min.js
-            a.link(href="https://github.com/Mathigon/boost.js") #[.link-github] Explore Source on GitHub
+            a.link(href="https://github.com/Mathigon/" + title.replace('Mathigon.io', '')) #[.link-github] Explore Source on GitHub
+            if title != 'Mathigon.io'
+              a.link(href="https://github.com/Mathigon/" + title + "/archive/master.zip", download) #[.link-download] Download boost.min.js
 
     #body.wrap
       block body

@@ -7,14 +7,33 @@ block vars
 
 block body
 
-  p Mathigon.js is 
+  p Mathigon.io is home to four different JavaScript libraries designed for high performance and fast development:
 
-  p Unless where otherwise documented, functions <strong>don&rsquo;t check their arguments</strong> for validity. If a function is called with invalid argument types, the behaviour is undefined and functions may throw unpredictable errors.
+  ul
+    li #[a(href='/core') core.js] is a collection of universal  helper functions and utility classes.
+    li #[a(href='/fermat') fermat.js] contains efficient mathematics, statistics and geometry functions.
+    li #[a(href='/boost') boost.js] simplified front end web development with DOM, event and animation utilities.
+    li #[a(href='/slate') slate.js] is a collection of interactive web components.
+
+  p While core.js and fermat.js can run in any environment, boost.js and slate.js require a browser.
 
 
-  h3 Array Functions
+  h3 Introduction
 
-  p Core.js and Fermat.js contain a variety of functions which can be used to simplify the creation and modification of arrays.
+  p All libraries are written entirely in ES6. They are split into a few different modules which export public functions and classes. To use any one, you simply need to import it. 
+
+  pre: code.language-javascript.
+    import { tabulate, average } from 'arrays'
+    import Matrix from 'matrix'
+
+  p IDEs like WebStorm, we recommend marking the #[code src/] folder in every library as #[em resource root], so that dependencies are correctly resolved. If you want to create a single concatenated file for browsers, you can use tools like #[a(href="http://webpack.github.io") Webpack], #[a(href="http://browserify.org") Browserify] or #[a(href="http://jspm.io") jspm]. At Mathigon we use #[a(href="http://rollupjs.org") rollup.js] which runs #[em tree shaking] to remove all unused functions and classes. This significantly reduces the file size of the resulting bundle. You can see a Grunt-based example on #[a(href="https://github.com/Mathigon/mathigon.github.io/blob/source/grunt-rollup.js") GitHub].
+
+  p For improved performance, very few of the functions perform argument checks or throw errors. If a function is called with incorrect arguments, the behaviour is undefined can could range from silent typecasting to unexpected errors. Where needed, the caller is responsible for checking that parameter match the types defined in this documentation.
+
+
+  h3 Arrays
+
+  p Mathigon.io contains various different functions for efficient array creation and manipulation.
 
   pre: code.language-javascript.
     tabulate(Math.random, 5);
@@ -29,92 +48,113 @@ block body
     list(9).chunk(3);
       // [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
 
-  p Fermat.js also provides an Array subclass, #[code Vector] which is more powerful but also less efficient than native JavaScript arrays.
+    subsets([1,2,3])
+      // [[], [1], [2], [3], [1,2], [1,3], [2,3], [1,2,3]]
 
+    permutations([4,5,6])
+      //[[4,5,6], [4,6,5], [5,4,6], [5,6,4], [6,4,5], [6,5,4]]
 
-  h3 Expression Parsing
+  h3 Expressions and Mathematics
 
-  p Fermat.js is able to parse complex mathematical expressions, including arbitrary functions, arrays and strings. When evaluating, expressions have access to all constants and functions in <code>Math</code> and <code>M</code>, and you can pass in an object of custom variable and function values.
-
-  pre: code.language-javascript.
-    let expr = Expression.parse('1 * (2 + x) - 4! + norm([1, 2, x^2]) - (100 / 2)%');
-    expr.evaluate({ x: 10 });
-
-
-  h3 DOM Selection
-
-  p Boost.js provides a variety of functions to select DOM elements. <code>$</code>, <code>$I</code>, <code>$C</code> and <code>$T</code> return a single element, while <code>$$</code>, <code>$$C</code> and <code>$$T</code> return arrays of elements. <code>$N</code> and <code>$$N</code> can be used to create new DOM elements.
+  p Fermat.js is able to parse complex mathematical expressions, including arbitrary functions, arrays and strings. When evaluating, you can pass in custom variables and functions.
 
   pre: code.language-javascript.
-    var $el = $C('my-class');
-    $el.on('click', function() { ... });
-    $el.transform('scale(2)');</code></pre>
+    let expr = Expression.parse('1 * (2 + x) - 4! + average([1, 2, x^2]) - (100 / 2)%');
+    expr.evaluate({ x: 10, average });
 
+  h3 Elements
 
-  h3 Speical Events
-
-  p Boost.js seamlessly supports a number of special events. The <code>click</code> event is overwritten to happen on <code>mouseup</code> or <code>touchend</code> to avoid delays on mobile devices. The <code>scroll</code>, <code>scrollStart</code> and <code>scrollEnd</code> events are fired for mouse and touch scroling using <code>requestAnimationFrame</code>. Mathigon also simulates cross-platform <code>pointerStart</code>, <code>pointerMove</code>, <code>pointerEnd</code>, <code>pointerEnter</code>, <code>pointerLeave</code> and <code>pointerOver</code> events.
+  p boost.js contains a powerful wrapper class for DOM elements. You can use #[code $] and #[code $$] to select one or more dom elements on the current page, and #[code $N] and #[code $$N] to create new elements.
 
   pre: code.language-javascript.
-    $element.on('click', function(e) { console.log('click'); });
-    $element.on('scroll', function(e) { console.log(e.top); });
-    $element.on('pointerStart', function(e) { console.log(x.top); });
+    let $parent = $('.foo');
+    let $child = $N('div', { class: '.bar', html: 'Hello' }, $parent);
 
+    $child.on('click', function() { ... });
+    $child.transform('scale(2)');
 
-  h3 Animations and Effects
+  h3 Events
+
+  p Everything in Mathigon.io is based on events. Many classes inherit from #[code Evented] which supports basic #[code .on], #[code .one], #[code .off] and #[code .trigger] methods.
+
+  p In addition to standard browser events, boost.js also supports a number of special events. The #[code click] event is overwritten to happen on <code>mouseup</code> or <code>touchend</code> to avoid delays on mobile devices. The <code>scroll</code>, <code>scrollStart</code> and <code>scrollEnd</code> events are fired for mouse and touch scrolling using <code>requestAnimationFrame</code>. Mathigon also simulates cross-platform pointer events.
+
+  pre: code.language-javascript.
+    $element.on('click', function() { console.log('click'); });
+    $element.on('scroll', function({ top }) { console.log(top); });
+    $element.on('pointerStart', function(e) { console.log(e.top); });
+
+  h3 Animations
 
   p Boost.js contains a variety of element transitions, including <code>.enter()</code>, <code>.exit()</code>, and effects like <code>.pulsate()</code>. You can also define generic element animations which use CSS transition to animate any css properties. In particular, you can animate to and from <code>height: auto</code> and <code>width: auto</code>.
 
   pre: code.language-javascript.
-    $element.fadeIn(200);
-    $element.pulsate();
-    $element.exit('fade', 300, 100);  // duration 300ms, delay 100ms
+    $el.fadeIn(200);
+    $el.pulsate();
+    $el.exit('fade', 300, 100);  // duration 300ms, delay 100ms
 
-    $element.animate([
+    $el.animate([
       { css: 'background', from: '#C00', to: '#0C0', duration: 500, timing: 'linear', delay: 200 },
       { css: 'width', to: '200px' }
     ]);
 
-  p <code>M.animate</code> is a wrapper for <code>requestAnimationFrame</code> that can be used to call a function at every step during an animation of fixed length, or indefinitely.
+  p <code>animate()</code> is a wrapper for <code>requestAnimationFrame</code> that can be used to call a function at every step during an animation of fixed length, or indefinitely.
 
   pre: code.language-javascript.
-    animate(function(prop, time) {
-      $element.css(left, prop * 200 + 'px');
-      $element.text(time + 's');
+    animate(function(prog, time) {
+      $el.css(left, prog * 200 + 'px');
+      $el.text(time + 's');
     }, 500);
 
+  h3 Web Components
 
-  h3 UI Elements
+  p To use a web component in slate.js, you simply need to import the relevant module in your JavaScript entry point, even though you'll rarely used the imported class. The browser will automatically convert all corresponding tags, e.g. <code>&lt;x-dropdown&gt;&lt;/x-dropdown&gt;</code>.
 
-  p Slate.js creates a number of different UI and media element classes. All classes contain appropriate methods and they fire a variety of useful events.
+  p Many components contain a Less stylesheet, which you similarly need to import in your styles entry point. Others contain a jade template file which similarly needs to be compiled and added at the top of your html.
 
   pre: code.language-javascript.
-    var mySlider = new M.Slider($C('track'), 10);
-    mySlider.on('move', function(n) { ... })
+    &lt;!-- This is not a standard feature: you need to manually compile and insert templates. --&gt;
+    &lt;link rel="import" href="slate.js/dropdown/template.js"&gt;
+    &lt;x-dropdown&gt;Hello&lt;/x-dropdown&gt;
 
-    var myGallery = new M.Gallery($C('gallery'), { callback: function(index) { ... } });
-    myGallery.next();
+  pre: code.language-javascript.
+    import XDropdown from 'dropdown'
+    let $el = $('x-dropdown')
 
-    M.audio.load('/my-audio.mp4', 'file1');
-    var myAudio = new M.audio.Chunk('file1', [20, 40]);
-    myAudio.on('timeupdate', function() { ... });
-    myAudio.play();
+  pre: code.language-css.
+    @import 'slate.js/src/dropdown/styles.less'
+
+  p Instead, you can also define your own web components using `customElement()`.
+
+
+  pre: code.language-css.
+    import { $, customElement, $body } from 'elements';
+
+    export default customElement('x-foo', {
+
+      created: function($el) { ... },
+      attached: function($el) { ... },
+      detached: function($el) { ... },
+
+      template: '&lt;div&gt;foo: &lt;content&gt;&lt;/content&gt;&lt;/div&gt;'
+    });
+
+  p Boost's custom elements don't use Shadow DOM, but you can use the Shadow DOM #[code &lt;content select=""&gt;] syntax in template strings. Tools like webpack allow you to write styles and templates in external files and insert them as strings in the compiled JavaScript file when building your application.
 
 
   h3 Roadmap
 
   ul
-    li Update <strong>special events</strong> (<code>click</code>, <code>scroll</code> and <code>pointerMove</code>) to allow removing of events.
-    li Improve <strong>expression parsing</strong>, simplification and evaluation
-    li Improve <strong>geometry functions</strong>, allowing arbitrary intersection, projections of geometric objects.
-    li Create <strong>Bignum</strong> library that can handle arbitrarily large integers, arbitrarily accurate decimals and exact fractions. Update all mathematical functions to seamlessly handle Bignum and native <code>Number</code> inputs.
-    li Create new <strong>SVG library</strong> that integrates with the existing geometry, animation and events functions.
-    li Create a variety of new reusable <strong>UI components</strong>. Convert all UI widgets into <strong>HTML tags</strong> utilising Web Components and Shadow DOM.
+    li Update special events (click, scroll and pointerMove) to allow removing of events.
+    li Improve performance of events, elements and web components using new browser APIs.
+    li Complete the geometry module, allowing arbitrary intersection, projections of geometric objects.
+    li Improve expression parsing, simplification and evaluation
+    li Complete Bignum library that can handle arbitrarily large integers, arbitrarily accurate decimals and exact fractions. Update all mathematical functions to seamlessly handle Bignum and native `Number` inputs.
+    li Create a new SVG library that integrates with the existing geometry, animation and events functions.
 
 
   h3 Contributing
 
-  p Mathigon JS was created to simplify web development, to share code between Mathigon websites, and to reduce the need for a large number of external JavaScript libraries and frameworks. While most of the code was written for specific Mathigon uses, rather than to build a generic and universal library, we hope that you will find it useful for animation and computation heavy projects.
   p To contribute code, please fork our GitHub repository and send us a pull request. If you find bugs or mistakes in Mathigon JS, please <a href="mailto:dev@mathigon.org">email us</a> with details on how to reproduce them.
 
 
