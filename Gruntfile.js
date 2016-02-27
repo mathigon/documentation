@@ -121,11 +121,11 @@ module.exports = function(grunt) {
         buildcontrol: { app: {
             options: {
                 dir: 'build',
+                branch: 'master',
                 commit: true,
                 push: true,
                 message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%',
-                remote: 'git@github.com:Mathigon/mathigon.github.io.git',
-                branch: 'master'
+                remote: 'git@github.com:Mathigon/mathigon.github.io.git'
             }
         }}
     });
