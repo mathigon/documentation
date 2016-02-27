@@ -116,10 +116,24 @@ module.exports = function(grunt) {
         concurrent: { app: {
             options: { limit: 5, logConcurrentOutput: true },
             tasks: ['watch:jade', 'watch:less', 'watch:js', 'watch:static', 'connect']
-        } }
+        } },
+
+        buildcontrol: { app: {
+            options: {
+                dir: 'build',
+                commit: true,
+                push: true,
+                message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%',
+                options: {
+                    remote: 'git@github.com:Mathigon/mathigon.github.io.git',
+                    branch: 'master'
+                }
+            }
+        }}
     });
 
-    grunt.registerTask('build', ['rollup', 'babel', 'less', 'autoprefixer', 'jade', 'copy']);
-    grunt.registerTask('default', ['clean', 'build', 'uglify', 'cssmin']);
-    grunt.registerTask('dev', ['build', 'concurrent']);
+    grunt.registerTask('default', ['rollup', 'babel', 'less', 'autoprefixer', 'jade', 'copy']);
+
+    grunt.registerTask('dev', ['default', 'concurrent']);
+    grunt.registerTask('deploy', ['clean', 'default', 'uglify', 'cssmin', 'buildcontrol']);
 };
