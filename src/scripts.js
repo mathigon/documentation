@@ -19,11 +19,6 @@ Browser.ready(function() {
     let positions = [];
     let bodyTop;
 
-    Browser.resize(function() {
-        bodyTop = $content.offsetTop - 50;
-        positions = [];
-    });
-
     $('#api').findAll('h1, h3').forEach(function($el) {
         let $sidebarEl;
         let $topicWrap;
@@ -50,7 +45,6 @@ Browser.ready(function() {
     }
 
     $body.on('scroll', function({ top }) {
-        console.log('scroll', top, bodyTop);
         $sidebar.setClass('fixed', top > bodyTop);
         let active = getActive(top);
 
@@ -67,5 +61,8 @@ Browser.ready(function() {
         }
     });
 
-    Browser.resize();
+    Browser.resize(function() {
+        bodyTop = $content.offsetTop - 50;
+        positions = [];
+    });
 });

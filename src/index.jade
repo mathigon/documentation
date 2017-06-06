@@ -82,7 +82,7 @@ block body
   pre: code.language-javascript.
     $element.on('click', function() { console.log('click'); });
     $element.on('scroll', function({ top }) { console.log(top); });
-    $element.on('pointerStart', function(e) { console.log(e.top); });
+    $element.on('pointerdown', function(e) { console.log(e.top); });
 
   h3 Animations
 
