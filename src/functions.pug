@@ -1,0 +1,19 @@
+extends _template
+
+block vars
+  - var title = 'Step Functions'
+  - var subtitle = 'Every step in a chapter can be linked to custom JavaScript code that sets up interactivity, events or personalisation'
+
+block body
+
+  .x-blue
+    .hero.slanted
+      .container.narrow
+        h1
+          +icon('functions', 72)
+          | Step Functions
+        p.subtitle= subtitle
+
+    .container.narrow
+      p.todo.text-center COMING SOON!
+      +footer()

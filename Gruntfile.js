@@ -1,137 +1,141 @@
-// ================================================================================================
-// Mathigon | Grunt Configuration
-// (c) Mathigon, 2016
-// ================================================================================================
+// =============================================================================
+// Grunt Configuration
+// (c) Mathigon
+// =============================================================================
 
 
-module.exports = function(grunt) {
+const grunt = require('grunt');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
+const rollup = require('rollup');
+const rollupResolve = require('rollup-plugin-node-resolve');
+const babel = require('@babel/core');
+const babelOld = require('babel-core');
 
-    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-    require('./grunt-rollup')(grunt)
+require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-    grunt.initConfig({
+const browsers = ['> 1%', 'not ie <= 11', 'not ios < 10'];
 
-        banner: '/* (c) Mathigon, 2016 */\n' +
-                '/* MIT License (https://github.com/Mathigon/mathigon.io/blob/master/LICENSE) */\n\n',
 
-        clean: ['build'],
+// =============================================================================
+// Custom Rollup Plugins
+// TODO This is a duplicate of the mathigon.org Gruntfile.
 
-        // ----------------------------------------------------------------------------------------
-
-        rollup: { app: {
-            files: { 'build/scripts.js': 'src/scripts.js' }
-        }},
-
-        babel: { app: {
-            options: { presets: ['es2015'] },
-            src: ['build/scripts.js'],
-            dest: 'build/scripts.js'
-        }},
-
-        uglify: { app: {
-            options: { banner: '<%= banner %>' },
-            src: ['build/scripts.js'],
-            dest: 'build/scripts.js'
-        }},
-
-        // ----------------------------------------------------------------------------------------
-
-        less: { app: {
-            files: { 'build/styles.css': 'src/styles.less' }
-        }},
-
-        autoprefixer: { app: {
-            src: ['build/styles.css'],
-            dest: 'build/styles.css'
-        }},
-
-        cssmin: { app: {
-            options: { banner: '<%= banner %>' },
-            src: ['build/styles.css'],
-            dest: 'build/styles.css'
-        }},
-
-        // -------------------------------------------------------------------------
-
-        jade: { app: {
-            files: [{
-                expand: true,
-                cwd: 'src',
-                src: ['*.jade', '!_template.jade'],
-                dest: 'build',
-                ext: '.html'
-            }]
-        }},
-
-        // ----------------------------------------------------------------------------------------
-
-        copy: { app: {
-            files: [{
-                expand: true,
-                cwd: 'src',
-                src: ['vendor/**', 'images/**', 'favicon.ico', 'CNAME'],
-                dest: 'build'
-            }]
-        }},
-
-        // ----------------------------------------------------------------------------------------
-
-        sync: { app: {
-            files: [{
-                cwd: 'src',
-                src: ['vendor/**', 'images/**', 'favicon.ico'],
-                dest: 'build'
-            }]
-        }},
-
-        watch: {
-            jade: {
-                files: ['src/*.jade', '../*.js/docs/*.md'],
-                tasks: ['jade']
-            },
-            less: {
-                files: 'src/*.less',
-                tasks: ['less', 'autoprefixer']
-            },
-            js: {
-                files: 'src/*.js',
-                tasks: ['rollup', 'babel']
-            },
-            static: {
-                files: ['vendor/**', 'images/**', 'favicon.ico'],
-                tasks: ['sync']
-            }
-        },
-
-        // ----------------------------------------------------------------------------------------
-
-        connect: { app: {
-            options: {
-                port: 8081,
-                base: 'build',
-                keepalive: true
-            }
-        } },
-
-        concurrent: { app: {
-            options: { limit: 5, logConcurrentOutput: true },
-            tasks: ['watch:jade', 'watch:less', 'watch:js', 'watch:static', 'connect']
-        } },
-
-        buildcontrol: { app: {
-            options: {
-                dir: 'build',
-                branch: 'master',
-                commit: true,
-                push: true,
-                message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%',
-                remote: 'git@github.com:Mathigon/mathigon.github.io.git'
-            }
-        }}
-    });
-
-    grunt.registerTask('default', ['rollup', 'babel', 'less', 'autoprefixer', 'jade', 'copy']);
-
-    grunt.registerTask('dev', ['default', 'concurrent']);
-    grunt.registerTask('deploy', ['clean', 'default', 'uglify', 'cssmin', 'buildcontrol']);
+const babelOptions = {
+  presets: [['@babel/preset-env', {
+    targets: {browsers},
+    modules: false,
+    useBuiltIns: false,
+    loose: true
+  }]]
 };
+
+grunt.registerMultiTask('babel', '', function() {
+  this.files.forEach(function(el) {
+    let result = babel.transformFileSync(el.src[0], babelOptions);
+    result = babelOld.transform(result.code, {presets: [['minify']]});
+    grunt.file.write(el.dest, '/* (c) Mathigon */\n' + result.code + '\n');
+  });
+});
+
+grunt.registerMultiTask('rollup', '', function() {
+  const done = this.async();
+  const options = this.options({name: 'app'});
+
+  function onwarn(error) {
+    if (error.code !== 'CIRCULAR_DEPENDENCY') grunt.log.error(error.message);
+  }
+
+  const promises = this.files.map(f => {
+    return rollup.rollup({input: f.src[0], plugins: [rollupResolve()], onwarn})
+        .then(bundle => bundle.generate({format: 'iife', name: options.name}))
+        .then(result => grunt.file.write(f.dest, result.code));
+  });
+
+  Promise.all(promises)
+      .then(() => done())
+      .catch(error => grunt.fail.warn(error));
+});
+
+
+// =============================================================================
+
+
+grunt.initConfig({
+
+  less: {
+    options: {optimisation: 1},
+    app: {files: {'build/styles.css': 'src/styles.less'}}
+  },
+
+  postcss: {
+    options: {processors: [autoprefixer({browsers}), cssnano()]},
+    app: {files: [{src: 'build/styles.css'}]}
+  },
+
+  rollup: {
+    app: {files: {'build/scripts.js': 'src/scripts.js'}}
+  },
+
+  babel: {
+    app: {files: [{'build/scripts.js': 'build/scripts.js'}]}
+  },
+
+  pug: {
+    app: {
+      files: [{
+        expand: true,
+        cwd: 'src',
+        src: ['*.pug', '!_template.jade'],
+        dest: 'build',
+        ext: '.html'
+      }]
+    }
+  },
+
+  copy: {
+    app: {
+      files: [{
+        expand: true,
+        cwd: 'src',
+        src: ['vendor/**', 'images/**', 'favicon.ico', 'CNAME'],
+        dest: 'build'
+      }]
+    }
+  },
+
+  watch: {
+    css: {
+      files: 'src/styles.less',
+      tasks: ['less', 'postcss']
+    },
+    js: {
+      files: 'src/*.js',
+      tasks: ['rollup', 'babel']
+    },
+    pug: {
+      files: ['src/*.pug', '../docs/*.md'],
+      tasks: ['pug']
+    }
+  },
+
+  concurrent: {
+    options: {limit: 3, logConcurrentOutput: true},
+    app: {tasks: ['watch:css', 'watch:js', 'watch:pug']}
+  },
+
+  buildcontrol: {
+    app: {
+      options: {
+        dir: 'build',
+        branch: 'master',
+        commit: true,
+        push: true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%',
+        remote: 'git@github.com:Mathigon/mathigon.github.io.git'
+      }
+    }
+  }
+});
+
+grunt.registerTask('default', ['less', 'postcss', 'rollup', 'babel', 'pug', 'copy']);

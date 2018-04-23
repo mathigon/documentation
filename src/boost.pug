@@ -1,0 +1,25 @@
+extends _template
+
+block vars
+  - var title = 'boost.js'
+  - var subtitle = 'Simplifying browser APIs – from DOM manipulation to web components, event handling, animations, routing, multi-threading and AJAX requests.'
+
+block body
+
+  .x-green
+    .hero.slanted
+      .container.narrow
+        h1
+          +icon('boost', 72)
+          | boost.js
+        p.subtitle= subtitle
+        .btn-row: a.btn.btn-white.m-green(href="https://github.com/mathigon/boost.js")
+          +icon('github', 32)
+          | View on Github
+
+    .container.narrow.api
+      .sidebar
+        .sidebar-body
+      .api-body
+        include:markdown-it(html=true) ../docs/boost.md
+        +footer()

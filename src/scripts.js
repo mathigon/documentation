@@ -1,68 +1,58 @@
-// ================================================================================================
-// Mathigon.io
-// (c) 2016, Mathigon
-// ================================================================================================
+// =============================================================================
+// Mathigon.io Scripts
+// (c) Mathigon
+// =============================================================================
 
 
-import { $, $N, $body } from 'elements';
-import Browser from 'browser';
+
+import { $, $N, $body, $html, Browser } from '@mathigon/boost';
+
+$html.addClass((Browser.isMobile ? 'is' : 'not') + '-mobile');
+Browser.replaceSvgImports();
 
 Browser.ready(function() {
+  const $content = $('.api-body');
+  if (!$content) return;
 
-    let $content = $('#body');
-    let $sidebar = $('.sidebar');
-    let $sidebarWrap = $('.sidebar-wrap');
-    let $sidebarTopicWrap;
-    let $sidebarActive;
-    let $sidebarActiveBox;
+  const $sidebar = $('.sidebar-body');
+  const positions = [];
 
-    let positions = [];
-    let bodyTop;
+  let $currentSection;
+  $content.$$('h2, h3, h4').forEach(($el, i) => {
+    const name = $el.$('a').id;
+    let $link, $section;
 
-    $('#api').findAll('h1, h3').forEach(function($el) {
-        let $sidebarEl;
-        let $topicWrap;
-        let top;
-
-        if ($el.is('h1')) {
-            $sidebarEl = $N('div', { class: 'sidebar-h2', html: $el.text }, $sidebarWrap);
-            $sidebarTopicWrap = $topicWrap = $N('div', { style: 'display: none' }, $sidebarWrap);
-        } else {
-            $sidebarEl = $N('div', { class: 'sidebar-h3', html: $el.text }, $sidebarTopicWrap);
-            $topicWrap = $sidebarTopicWrap;
-        }
-
-        Browser.resize(function() {
-            top = $el.offsetTop;
-            positions.push([top, $sidebarEl, $topicWrap]);
-        });
-
-        $sidebarEl.on('click', function() { $body.scrollTo(top - 75, 1000); });
-    });
-
-    function getActive(s) {
-        for (let p of positions) if (p[0] > s) return p;
+    if ($el.is('h2')) {
+      $link = $N('a', {href: '#' + name, html: $el.text}, $sidebar);
+      $currentSection = $section = $N('div', {class: 'hidden'}, $sidebar);
+    } else {
+      $link = $N('a', {href: '#' + name, html: name.replace('+', '#').replace('module_', '')}, $currentSection);
+      $section = $currentSection;
     }
 
-    $body.on('scroll', function({ top }) {
-        $sidebar.setClass('fixed', top > bodyTop);
-        let active = getActive(top);
+    Browser.resize(() => positions[i] = [$el.positionTop, $link, $section]);
+  });
 
-        if (active[1] !== $sidebarActive) {
-            if ($sidebarActive) $sidebarActive.removeClass('active');
-            $sidebarActive = active[1];
-            $sidebarActive.addClass('active');
-        }
 
-        if (active[2] !== $sidebarActiveBox) {
-            if ($sidebarActiveBox) $sidebarActiveBox.hide();
-            $sidebarActiveBox = active[2];
-            if ($sidebarActiveBox) $sidebarActiveBox.show();
-        }
-    });
+  function getActive(s) {
+    for (let p of positions) if (p[0] > s) return p;
+  }
 
-    Browser.resize(function() {
-        bodyTop = $content.offsetTop - 50;
-        positions = [];
-    });
+  let $activeLink;
+  let $activeSection;
+  $body.on('scroll', function({ top }) {
+    let active = getActive(top);
+
+    if (active[1] !== $activeLink) {
+      if ($activeLink) $activeLink.removeClass('active');
+      $activeLink = active[1];
+      $activeLink.addClass('active');
+    }
+
+    if (active[2] !== $activeSection) {
+      if ($activeSection) $activeSection.addClass('hidden');
+      $activeSection = active[2];
+      if ($activeSection) $activeSection.removeClass('hidden');
+    }
+  });
 });

@@ -1,0 +1,25 @@
+extends _template
+
+block vars
+  - var title = 'fermat.js'
+  - var subtitle = 'Powerful mathematics, statistics and geometry library, containing everything from number theory to random numbers, expression parsing and linear algebra classes.'
+
+block body
+
+  .x-blue
+    .hero.slanted
+      .container.narrow
+        h1
+          +icon('fermat', 72)
+          | fermat.js
+        p.subtitle= subtitle
+        .btn-row: a.btn.btn-white.m-blue(href="https://github.com/mathigon/fermat.js")
+          +icon('github', 32)
+          | View on Github
+
+    .container.narrow.api
+      .sidebar
+        .sidebar-body
+      .api-body
+        include:markdown-it(html=true) ../docs/fermat.md
+        +footer()

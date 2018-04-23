@@ -1,0 +1,83 @@
+block vars
+
+mixin icon(url, width, height)
+  - height = height || width
+  svg(viewBox="0 0 " + width + ' ' + height, class="icon", width=width, height=height)
+    use(xlink:href="/images/icons.svg#" + url)
+
+mixin footer()
+  footer.global-footer
+    .footer-left
+      a(href='https://mathigon.org') Mathigon.org
+      span.dot •
+      a(href='https://github.com/mathigon') Mathigon on Github
+      span.dot •
+      a(href='https://mathigon.org/policies') Terms and Privacy
+    .footer-right © Mathigon
+
+doctype html
+html.ready
+  head
+    meta(charset="utf-8")
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+
+    title= title
+    meta(name="description" content=subtitle)
+    meta(name="viewport", content="width=device-width, initial-scale=1, user-scalable=no")
+    meta(http-equiv="cleartype", content="on")
+
+    meta(property="og:title" content=title)
+    meta(property="og:description" content=subtitle)
+    meta(property="og:image" content="https://mathigon.org/images/og-tile.png")
+    meta(property="og:site_name" content="Mathigon")
+    meta(name="twitter:site" content="@MathigonProject")
+
+    link(href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,300,400i&amp;subset=greek', rel='stylesheet', type='text/css')
+    link(href='/styles.css' rel='stylesheet')
+
+  body
+    header
+      a#logo(href='/')
+        +icon('logo', 36)
+        +icon('title-io', 120, 36)
+
+      nav
+        .nav-item
+          .nav-link.dropdown-title
+            +icon('javascript', 32)
+            | JS Libraries
+          .dropdown-body
+            a.nav-dropdown-item.red(href="/core")
+              +icon('core', 32)
+              | core.js
+            a.nav-dropdown-item.blue(href="/fermat")
+              +icon('fermat', 32)
+              | fermat.js
+            a.nav-dropdown-item.green(href="/boost")
+              +icon('boost', 32)
+              | boost.js
+        .nav-item
+          .nav-link.dropdown-title
+            +icon('library', 32)
+            | Textbook Content
+          .dropdown-body
+            a.nav-dropdown-item.yellow(href="/markdown")
+              +icon('markdown', 32)
+              | Markdown
+            a.nav-dropdown-item.blue(href="/functions")
+              +icon('functions', 32)
+              | Functions
+            a.nav-dropdown-item.red(href="/others")
+              +icon('others', 32)
+              | Others
+
+    block body
+    script(src="/scripts.js")
+
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q || []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-37525836-5', 'auto');
+      ga('send', 'pageview');

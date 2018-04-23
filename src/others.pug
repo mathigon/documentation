@@ -1,0 +1,19 @@
+extends _template
+
+block vars
+  - var title = 'Other Components'
+  - var subtitle = 'Every chapter consists of many other components, including  styling, glossaries, biographies and hints.'
+
+block body
+
+  .x-red
+    .hero.slanted.red
+      .container.narrow
+        h1
+          +icon('others', 72)
+          | Other Chapter Components
+        p.subtitle= subtitle
+
+    .container.narrow
+      p.todo.text-center COMING SOON!
+      +footer()
