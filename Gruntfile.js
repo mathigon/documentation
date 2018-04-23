@@ -86,7 +86,7 @@ grunt.initConfig({
       files: [{
         expand: true,
         cwd: 'src',
-        src: ['*.pug', '!_template.jade'],
+        src: ['*.pug', '!_template.pug'],
         dest: 'build',
         ext: '.html'
       }]

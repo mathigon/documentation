@@ -33,7 +33,7 @@ html.ready
     meta(name="twitter:site" content="@MathigonProject")
 
     link(href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,300,400i&amp;subset=greek', rel='stylesheet', type='text/css')
-    link(href='/styles.css' rel='stylesheet')
+    link(href='/styles.css?v=1' rel='stylesheet')
 
   body
     header
@@ -45,7 +45,7 @@ html.ready
         .nav-item
           .nav-link.dropdown-title
             +icon('javascript', 32)
-            | JS Libraries
+            span.nav-text JS Libraries
           .dropdown-body
             a.nav-dropdown-item.red(href="/core")
               +icon('core', 32)
@@ -59,7 +59,7 @@ html.ready
         .nav-item
           .nav-link.dropdown-title
             +icon('library', 32)
-            | Textbook Content
+            span.nav-text Textbook Content
           .dropdown-body
             a.nav-dropdown-item.yellow(href="/markdown")
               +icon('markdown', 32)
@@ -72,7 +72,7 @@ html.ready
               | Others
 
     block body
-    script(src="/scripts.js")
+    script(src="/scripts.js?v=1")
 
     script.
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
