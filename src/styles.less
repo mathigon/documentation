@@ -33,7 +33,7 @@
 // Header and Hero
 
 html { font-size: 18px; }
-.container p { color: #999; }
+.home p { color: #999; }
 
 .hero {
   padding: 72px 0 84px;
@@ -112,7 +112,7 @@ header a.nav-dropdown-item .icon { margin: 0 9px -8px -8px; }
   h2 { font-size: 28px; .colour(); }
   h2:first-child { margin-top: 0; }
   h3, h4 { font-size: 20px; margin: 24px 0 16px; }
-  p { margin: 0; font-size: 16px; color: #666; }
+  p { margin: 0; font-size: 16px; }
   ul { display: none; }
   hr { margin: 24px 0; height: 3px; .background(20%); }
 
@@ -149,13 +149,12 @@ code, pre {
   font-family: Consolas, Menlo, Courier, monospace;
   hyphens: none;
   word-break: normal;
-  white-space: nowrap;
   tab-size: 4;
   font-size: 94%;
 }
 
-code { background-color: #eee; border-radius: 3px; padding: 4px 6px 2px; margin: -2px 1px; }
-pre code { background: none; padding: 0; margin: 0; color: inherit }
+code { background-color: #eee; border-radius: 3px; padding: 4px 6px 2px; margin: -2px 1px; white-space: nowrap; }
+pre code { background: none; padding: 0; margin: 0; color: inherit; white-space: pre; }
 a code { color: @blue; transition: background .2s; &:hover { background: mix(@blue, #eee, 25%); } }
 
 pre {
