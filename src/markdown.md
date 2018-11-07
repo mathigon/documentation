@@ -103,7 +103,7 @@ given CSS selector (and, if needed, scroll them into view.)
 
 ```
 We can have [links](http://mathigon.org) or [biographies](bio:gauss) or
-[glossary words](gloss:prime) or [targets](-> #s1.bio)
+[glossary words](gloss:prime) or [targets](->#s1.bio)
 ```
 
 ### Variable Sliders
