@@ -31,4 +31,4 @@ function generateDocs(module){
   fs.writeFileSync(output, markdown.join(''));
 }
 
-for (const m of ['core', 'fermat', 'boost']) generateDocs(m);
+for (const m of ['core', 'fermat', 'hilbert', 'boost']) generateDocs(m);

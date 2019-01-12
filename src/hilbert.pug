@@ -1,0 +1,25 @@
+extends _template
+
+block vars
+  - var title = 'hilbert.js'
+  - var subtitle = 'JavaScript expression parsing, MathML rendering and CAS.'
+
+block body
+
+  .x-blue
+    .hero.slanted
+      .container.narrow
+        h1
+          +icon('fermat', 72)
+          | hilbert.js
+        p.subtitle= subtitle
+        .btn-row: a.btn.btn-white.m-blue(href="https://github.com/mathigon/hilbert.js")
+          +icon('github', 32)
+          | View on Github
+
+    .container.narrow.api
+      .sidebar
+        .sidebar-body
+      .api-body
+        include:markdown-it(html=true) ../docs/hilbert.md
+        +footer()

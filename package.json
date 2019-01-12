@@ -3,7 +3,7 @@
   "description": "Mathigon's open source JavaScript libraries.",
   "url": "https://mathigon.io",
   "author": "Philipp Legner",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/mathigon/mathigon.io.git"
@@ -19,6 +19,7 @@
     "@mathigon/boost": "^0.2.0",
     "@mathigon/core": "^0.2.1",
     "@mathigon/fermat": "^0.2.0",
+    "@mathigon/hilbert": "^0.1.0",
     "@babel/core": "^7.0.0-beta.40",
     "@babel/polyfill": "^7.0.0-beta.40",
     "@babel/preset-env": "^7.0.0-beta.40",
