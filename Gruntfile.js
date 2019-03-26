@@ -9,8 +9,6 @@ const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const rollup = require('rollup');
 const rollupResolve = require('rollup-plugin-node-resolve');
-const babel = require('@babel/core');
-const babelOld = require('babel-core');
 
 require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
@@ -18,29 +16,11 @@ const browsers = ['> 1%', 'not ie <= 11', 'not ios < 10'];
 
 
 // =============================================================================
-// Custom Rollup Plugins
-// TODO This is a duplicate of the mathigon.org Gruntfile.
-
-const babelOptions = {
-  presets: [['@babel/preset-env', {
-    targets: {browsers},
-    modules: false,
-    useBuiltIns: false,
-    loose: true
-  }]]
-};
-
-grunt.registerMultiTask('babel', '', function() {
-  this.files.forEach(function(el) {
-    let result = babel.transformFileSync(el.src[0], babelOptions);
-    result = babelOld.transform(result.code, {presets: [['minify']]});
-    grunt.file.write(el.dest, '/* (c) Mathigon */\n' + result.code + '\n');
-  });
-});
+// Custom Grunt Plugins
 
 grunt.registerMultiTask('rollup', '', function() {
   const done = this.async();
-  const options = this.options({name: 'app'});
+  const options = this.options({name: 'app', replace: false});
 
   function onwarn(error) {
     if (error.code !== 'CIRCULAR_DEPENDENCY') grunt.log.error(error.message);
@@ -49,7 +29,7 @@ grunt.registerMultiTask('rollup', '', function() {
   const promises = this.files.map(f => {
     return rollup.rollup({input: f.src[0], plugins: [rollupResolve()], onwarn})
         .then(bundle => bundle.generate({format: 'iife', name: options.name}))
-        .then(result => grunt.file.write(f.dest, result.code));
+        .then(result => grunt.file.write(f.dest, result.output[0].code));
   });
 
   Promise.all(promises)
@@ -59,7 +39,7 @@ grunt.registerMultiTask('rollup', '', function() {
 
 
 // =============================================================================
-
+// Grunt Setup
 
 grunt.initConfig({
 
@@ -78,6 +58,16 @@ grunt.initConfig({
   },
 
   babel: {
+    options: {
+      presets: [['@babel/preset-env', {
+        targets: {browsers},
+        modules: false,
+        useBuiltIns: false,
+        loose: true
+      }], ['minify', {builtIns: false}]],
+      comments: false,
+      minified: true
+    },
     app: {files: [{'build/scripts.js': 'build/scripts.js'}]}
   },
 
