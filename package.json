@@ -1,5 +1,5 @@
 {
-  "name": "Mathigon.io",
+  "name": "mathigon.io",
   "description": "Mathigon's open source JavaScript libraries.",
   "url": "https://mathigon.io",
   "author": "Philipp Legner",
@@ -16,7 +16,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@mathigon/boost": "^0.2.8",
+    "@mathigon/boost": "^0.3.0",
     "@mathigon/core": "^0.2.5",
     "@mathigon/fermat": "^0.2.7",
     "@mathigon/hilbert": "^0.2.2",
