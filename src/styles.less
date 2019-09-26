@@ -36,27 +36,25 @@ html { font-size: 18px; }
 .home p { color: #999; }
 
 .hero {
-  padding: 72px 0 84px;
+  padding: 94px 0 54px;
   background: @grey url(/images/tiles.png);
   background-size: 240px;
   height: auto;
   z-index: 1;
-  .background(70%);
+  .background(100%);
 
-  h1 { font-size: 44px; text-align: center; }
+  h1 { font-size: 40px; text-align: center; }
   h1 .icon { fill: white; display: block; margin: 0 auto; }
-  .subtitle { font-size: 20px; color: fade(white, 60%); }
-  .btn .icon { margin: 0 6px -10px -6px; }
+  .subtitle { font-size: 20px; color: fade(white, 80%); line-height: 1.4; }
 }
 
 .nav-item:hover .nav-link { opacity: 1; background: @grey; }
-header a.nav-dropdown-item { font-size: 18px; line-height: 40px; }
-header a.nav-dropdown-item .icon { margin: 0 9px -8px -8px; }
+header a.nav-dropdown-item { font-size: 18px; line-height: 40px; margin: 0; }
 
-.nav-dropdown-item.red { background: mix(@red, black, 80%); }
-.nav-dropdown-item.blue { background: mix(@blue, black, 80%); }
-.nav-dropdown-item.green { background: mix(@green, black, 80%); }
-.nav-dropdown-item.yellow { background: mix(@yellow, black, 80%); }
+.nav-dropdown-item.red { background: mix(@red, black, 90%); }
+.nav-dropdown-item.blue { background: mix(@blue, black, 90%); }
+.nav-dropdown-item.green { background: mix(@green, black, 90%); }
+.nav-dropdown-item.yellow { background: mix(@yellow, black, 90%); }
 
 .nav-dropdown-item.red:hover { background: @red; }
 .nav-dropdown-item.blue:hover { background: @blue; }
@@ -64,7 +62,7 @@ header a.nav-dropdown-item .icon { margin: 0 9px -8px -8px; }
 .nav-dropdown-item.yellow:hover { background: @yellow; }
 
 .nav-item .dropdown-body { display: block; opacity: 0; pointer-events: none; transition: opacity .3s; }
-.nav-item:hover .dropdown-body { opacity: 1; pointer-events: all; }
+.nav-item:hover .dropdown-body { opacity: 1; pointer-events: all; box-shadow: 0 0 12px fade(black, 25%); }
 
 
 // -----------------------------------------------------------------------------
@@ -102,7 +100,7 @@ header a.nav-dropdown-item .icon { margin: 0 9px -8px -8px; }
   a { display: block;  transition: background .2s, color .2s; }
   & > a { font-size: 16px; font-weight: 600; padding: 3px 0 3px 12px; margin: 9px 0 1px 8px; }
   & > * > a { font-size: 14px; color: fade(black, 50%); padding: 2px 0 2px 10px; margin: -2px 0 -2px 18px; }
-  a:hover, a.active { color: white; .background(70%, white); }
+  a:hover, a.active { color: white; .background(90%, white); }
 }
 
 .api-body {
@@ -133,10 +131,10 @@ header a.nav-dropdown-item .icon { margin: 0 9px -8px -8px; }
 .row:hover .grow:hover { background: fade(black, 10%); }
 
 .lib-icon {
-  width: 84px;
-  height: 84px;
+  width: 72px;
+  height: 72px;
   fill: fade(white, 80%);
-  padding: 12px;
+  padding: 18px;
   margin: 0 auto;
   border-radius: 100%;
   .background();

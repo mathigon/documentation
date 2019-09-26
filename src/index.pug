@@ -9,50 +9,49 @@ block body
   .hero.slanted
     .container.narrow
       h1
-        +icon('lightbulb', 72)
+        +icon('lightbulb', 54)
         | Mathigon Open Source
       p.subtitle Help us build the future of education!
-      .btn-row
-        a.btn.btn-red(href="https://github.com/mathigon") #[+icon('github', 32)] Github
-        a.btn.btn-red(href="https://mathigon.org/teachers") #[+icon('teacher', 32)] For Teachers
+      //- .btn-row
+        a.btn.btn-red(href="https://github.com/mathigon") #[+icon('github', 24)] Github
 
   .container.narrow.home
-    h2.text-center Open Source Libraries
+    h2.text-center JavaScript Libraries
 
-    p.text-center These JavaScript libraries power Mathigon, and maybe they are also useful for your own projects.
+    p.text-center These libraries power Mathigon, and maybe they are also useful for your own projects:
 
     .row.padded
       a.grow.x-red(href="/core")
-        .lib-icon: +icon('core', 84)
+        .lib-icon: +icon('core', 72)
         h3 core.js
         p JavaScript utility function and classes, including array and string helper functions, type checking and event classes.
       a.grow.x-blue(href="/fermat")
-        .lib-icon: +icon('fermat', 84)
+        .lib-icon: +icon('fermat', 72)
         h3 fermat.js
         p Powerful mathematics, statistics and geometry library, containing everything from number theory to random numbers, expression parsing and linear algebra classes.
       a.grow.x-green(href="/boost")
-        .lib-icon: +icon('boost', 84)
+        .lib-icon: +icon('boost', 72)
         h3 boost.js
         p Simplifying browser APIs – from DOM manipulation to web components, event handling, animations, routing, multi-threading and AJAX requests.
 
 
-    h2.text-center Free Educational Resources
+    h2.text-center Open Educational Resources
 
     p.text-center All our textbook chapters are open source. You can browse the code on GitHub, or run your own local server to preview changes or additions (#[a(href="https://github.com/mathigon/textbooks") instructions]). Every chapter consists of a few different components, which are documented here:
 
     .row.padded
-      a.grow.x-yellow(href="/markdown")
-        .lib-icon: +icon('markdown', 84)
+      a.grow.x-blue(href="/markdown")
+        .lib-icon: +icon('notes', 72)
         h3 Markdown
         p Mathigon’s content is written in a special flavour of Markdown that makes it very easy to add interactivity, styling and custom markup.
-      a.grow.x-blue(href="/functions")
-        .lib-icon: +icon('functions', 84)
+      a.grow.x-red(href="/guidelines")
+        .lib-icon: +icon('book', 72)
+        h3 Content Guidelines
+        p Guidelines about the tone, style, design and format for Mathigon's courses.
+      a.grow.x-yellow(href="/functions")
+        .lib-icon: +icon('settings', 72)
         h3 Step Functions
         p Every step in a chapter can be linked to custom JavaScript code that sets up interactivity, events or personalisation.
-      a.grow.x-red(href="/others")
-        .lib-icon: +icon('others', 84)
-        h3 Other Components
-        p There are many other components: styling, glossaries, biographies, hints, and more.
 
 
     h2.text-center Contribute to Mathigon
@@ -63,27 +62,8 @@ block body
 
     p Please #[a(href="mailto:dev@mathigon.org") email us] if you want to help translate parts of Mathigon into other languages. This requires translating a copy of the markdown file that corresponds to the course. You can see a #[a(href="https://mathigon.org/course/graphs-and-networks/introduction?hl=vn") live example] and the #[a(href="https://github.com/mathigon/textbooks/blob/master/content/graphs-and-networks/translations/content_vn.md") source code].
 
-    p There are also non-technical ways to support Mathigon: from marketing and publicity to testing, and proof-reading new content.
+    h2.text-center Work at Mathigon
 
-    //- .row.padded-thin.feature-grid.contribute
-      .grow
-        h3 Content
-        p Write parts of the next Mathigon course or textbook.
-      .grow
-        h3 Software
-        p Create interactive content or new features for the Mathigon platform.
-      .grow
-        h3 Design
-        p Create illustrations or diagrams to make education more visual.
-      .grow
-        h3 Support
-        p Help test new courses and features, and support students with questions.
-      .grow
-        h3 Translation
-        p Make Mathigon more widely accessible around the world.
-
-    //- p We also need volunteers to interact with students and answer their questions – both on how to use Mathigon, and the mathematical content itself. We are currently building a support and ticket platform which will enable that.
-
-    //- p Mathigon runs on open source technologies like #[a(href="https://nodejs.org/") Node.js], #[a(href="http://expressjs.com") Express], #[a(href="http://socket.io") Socket.io] and #[a(href="http://webcomponents.org") WebComponents].
+    p Mathigon is hiring! At #[a(href="https://mathigon.org/careers") mathigon.org/careers], you can learn more about our team and available positions. Please #[a(href="mailto:careers@mathigon.org") email us] if you have any questions.
 
     +footer()

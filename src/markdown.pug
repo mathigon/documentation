@@ -6,15 +6,15 @@ block vars
 
 block body
 
-  .x-yellow
+  .x-blue
     .hero.slanted
       .container.narrow
         h1
-          +icon('markdown', 72)
+          +icon('notes', 54)
           | Mathigon Markdown
         p.subtitle= subtitle
 
     .container.narrow
 
-      include:markdown-it(html=true) ./markdown.md
+      include:markdown-it(html=true) ../pages/markdown.md
       +footer()

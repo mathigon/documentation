@@ -1,0 +1,20 @@
+extends _template
+
+block vars
+  - var title = 'Mathigon Markdown'
+  - var subtitle = 'TODO'
+
+block body
+
+  .x-red
+    .hero.slanted
+      .container.narrow
+        h1
+          +icon('book', 54)
+          | Content Development Guidelines
+        p.subtitle= subtitle
+
+    .container.narrow
+
+      include:markdown-it(html=true) ../pages/guidelines.md
+      +footer()

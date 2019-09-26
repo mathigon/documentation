@@ -104,7 +104,7 @@ grunt.initConfig({
       tasks: ['rollup', 'babel']
     },
     pug: {
-      files: ['src/*.pug', '../docs/*.md'],
+      files: ['src/*.pug', 'pages/*.md', '../docs/*.md'],
       tasks: ['pug']
     }
   },
