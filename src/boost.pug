@@ -1,7 +1,8 @@
 extends _template
+include _docs
 
 block vars
-  - var title = 'boost.js'
+  - var title = 'boost.ts'
   - var subtitle = 'Simplifying browser APIs – from DOM manipulation to web components, event handling, animations, routing, multi-threading and AJAX requests.'
 
 block body
@@ -11,15 +12,16 @@ block body
       .container.narrow
         h1
           +icon('brush', 54)
-          | boost.js
+          | boost.ts
         p.subtitle= subtitle
         .btn-row: a.btn.btn-white.m-green(href="https://github.com/mathigon/boost.js")
           +icon('github', 24)
           | View on Github
 
-    .container.narrow.api
+    .container.api
       .sidebar
         .sidebar-body
       .api-body
-        include:markdown-it(html=true) ../docs/boost.md
+        for module in boost.children
+          +docs(module)
         +footer()
