@@ -107,7 +107,7 @@ function templates() {
 exports.watch = () => {
   gulp.watch('src/**/*.less', styles);
   gulp.watch('src/**/*.ts', scripts);
-  gulp.watch(['src/**/*.pug', 'docs/*.json'], templates);
+  gulp.watch(['src/**/*.pug', 'docs/*.json', 'pages/*.md'], templates);
 };
 
 exports.default = gulp.parallel(styles, scripts, assets, templates);
