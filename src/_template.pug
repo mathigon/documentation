@@ -33,7 +33,7 @@ html.ready
     meta(name="twitter:site" content="@MathigonOrg")
 
     link(href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,300,400i&amp;subset=greek', rel='stylesheet', type='text/css')
-    link(href='/styles.css?v=2' rel='stylesheet')
+    link(href='/styles.css?v=3' rel='stylesheet')
 
   body
     header
@@ -42,40 +42,41 @@ html.ready
         +icon('title-io', 120, 36)
 
       nav
-        .nav-item
-          .nav-link.dropdown-title
+        x-popup(animation="fade").nav-item
+          button.nav-link.popup-target
             +icon('glossary', 24)
             span.nav-text JS Libraries
-          .dropdown-body
-            a.nav-dropdown-item.red(href="/core")
+          .popup-body
+            a.nav-link.red(href="/core")
               +icon('controls', 24)
               | core.js
-            a.nav-dropdown-item.blue(href="/fermat")
+            a.nav-link.blue(href="/fermat")
               +icon('compass', 24)
               | fermat.js
-            a.nav-dropdown-item.yellow(href="/hilbert")
+            a.nav-link.yellow(href="/hilbert")
               +icon('lightbulb', 24)
               | hilbert.js
-            a.nav-dropdown-item.green(href="/boost")
+            a.nav-link.green(href="/boost")
               +icon('brush', 24)
               | boost.js
-        .nav-item
-          .nav-link.dropdown-title
+
+        x-popup(animation="fade").nav-item
+          button.nav-link.popup-target
             +icon('library', 24)
             span.nav-text Textbook Content
-          .dropdown-body
-            a.nav-dropdown-item.blue(href="/markdown")
+          .popup-body
+            a.nav-link.blue(href="/markdown")
               +icon('notes', 24)
               | Markdown
-            a.nav-dropdown-item.red(href="/guidelines")
+            a.nav-link.red(href="/guidelines")
               +icon('book', 24)
-              | Content Guidelines
-            a.nav-dropdown-item.yellow(href="/functions")
+              | Content Guide
+            a.nav-link.yellow(href="/functions")
               +icon('settings', 24)
               | Step Functions
 
     block body
-    script(src="/scripts.js?v=2")
+    script(src="/scripts.js?v=3")
 
     script.
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

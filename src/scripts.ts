@@ -5,6 +5,7 @@
 
 
 import {$, $N, $body, $html, Browser, replaceSvgImports, ElementView} from '@mathigon/boost';
+import '../../mathigon.org/src/shared/components/popup/popup';
 
 
 $html.addClass((Browser.isMobile ? 'is' : 'not') + '-mobile');
