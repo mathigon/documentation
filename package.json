@@ -3,7 +3,7 @@
   "description": "Mathigon's open source JavaScript libraries.",
   "url": "https://mathigon.io",
   "author": "Philipp Legner",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/mathigon/mathigon.io.git"
@@ -21,10 +21,10 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@mathigon/boost": "^0.4.3",
-    "@mathigon/core": "^0.3.4",
-    "@mathigon/fermat": "^0.3.4",
-    "@mathigon/hilbert": "^0.3.4",
+    "@mathigon/boost": "^0.4.7",
+    "@mathigon/core": "^0.3.6",
+    "@mathigon/fermat": "^0.3.6",
+    "@mathigon/hilbert": "^0.3.6",
     "autoprefixer": "^9.7.1",
     "cssnano": "^4.1.10",
     "gulp": "^4.0.2",
