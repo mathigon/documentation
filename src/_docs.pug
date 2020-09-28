@@ -20,6 +20,8 @@ mixin docs(model, level)
         a(id=model.name)
 
     .description
+      if model.comment
+        p= model.comment.shortText
       if model.signatures
         div!= parseTemplate('member.signatures', model)
       else if model.getSignature || model.setSignature
