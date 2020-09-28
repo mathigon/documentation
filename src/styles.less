@@ -19,6 +19,7 @@
   .x-blue & { background-color: mix(@blue, @mix, @ratio); }
   .x-green & { background-color: mix(@green, @mix, @ratio); }
   .x-yellow & { background-color: mix(@yellow, @mix, @ratio); }
+  .x-purple & { background-color: mix(@purple, @mix, @ratio); }
 }
 
 .colour() {
@@ -26,6 +27,7 @@
   .x-blue & { color: @blue; }
   .x-green & { color: @green; }
   .x-yellow & { color: @yellow; }
+  .x-purple & { color: @purple; }
 }
 
 
@@ -33,7 +35,7 @@
 // Header and Hero
 
 html { font-size: 18px; }
-.home p { color: #999; }
+.home p { color: #444; }
 
 .hero {
   padding: 94px 0 54px;
@@ -56,6 +58,7 @@ header .popup-body .nav-link {
   &.blue { background: @blue; }
   &.green { background: @green; }
   &.yellow { background: @yellow; }
+  &.purple { background: @purple; }
 }
 
 header .nav-item .popup-body { left: 0; }
@@ -66,6 +69,7 @@ header .popup-body { border: none; border-radius: 0; }
 // Sidebar and API
 
 .container.api { display: flex; flex-direction: row; }
+.hero + .container h1 { display: none; }
 
 .sidebar {
   position: sticky;
@@ -182,10 +186,10 @@ aside { display: none; }
 // -----------------------------------------------------------------------------
 // Homepage
 
-.row .grow { width: 200px; text-align: center; transition: background .2s; border-radius: 6px; padding: 12px; }
-.row .grow h3 { margin: 12px 0; }
-.row .grow p { font-size: 14px; margin: 0; }
-.row:hover .grow:hover { background: fade(black, 10%); }
+.tiles a { width: 200px; text-align: center; transition: background .2s; border-radius: 6px; padding: 12px; background: fade(black, 10%); }
+.tiles a h3 { margin: 12px 0; }
+.tiles a p { font-size: 14px; margin: 0; }
+.tiles a:hover, .tiles a:focus { background: fade(black, 20%); }
 
 .lib-icon {
   width: 60px;

@@ -3,7 +3,7 @@
   "description": "Mathigon's open source JavaScript libraries.",
   "url": "https://mathigon.io",
   "author": "Philipp Legner",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/mathigon/mathigon.io.git"
@@ -13,19 +13,17 @@
     "watch": "gulp watch & npm run server",
     "start": "npm run typedoc && gulp && npm run watch",
     "deploy": "npm run typedoc && gulp && gulp deploy",
-    "core": "typedoc --json docs/core.json node_modules/@mathigon/core/src",
-    "fermat": "typedoc --json docs/fermat.json node_modules/@mathigon/fermat/src",
-    "hilbert": "typedoc --json docs/hilbert.json node_modules/@mathigon/hilbert/src",
-    "boost": "typedoc --json docs/boost.json node_modules/@mathigon/boost/src",
-    "typedoc": "npm run core && npm run fermat && npm run hilbert && npm run boost"
+    "core": "typedoc --json docs/core.json ../core.js/src",
+    "fermat": "typedoc --json docs/fermat.json ../fermat.js/src",
+    "hilbert": "typedoc --json docs/hilbert.json ../hilbert.js/src",
+    "euclid": "typedoc --json docs/euclid.json ../euclid.js/src",
+    "boost": "typedoc --json docs/boost.json ../boost.js/src",
+    "typedoc": "npm run core && npm run fermat && npm run hilbert && npm run euclid && npm run boost"
   },
   "license": "MIT",
   "devDependencies": {
-    "@mathigon/boost": "^0.5.2",
-    "@mathigon/core": "^0.5.2",
-    "@mathigon/fermat": "^0.5.2",
-    "@mathigon/hilbert": "^0.5.2",
-    "autoprefixer": "^9.7.1",
+    "@mathigon/boost": "0.6.1",
+    "autoprefixer": "^9.8.6",
     "cssnano": "^4.1.10",
     "gulp": "^4.0.2",
     "gulp-better-rollup": "^4.0.1",
@@ -34,14 +32,15 @@
     "gulp-postcss": "^8.0.0",
     "gulp-pug": "^4.0.1",
     "gulp-rename": "^1.4.0",
-    "handlebars": "^4.5.3",
+    "handlebars": "^4.7.6",
     "jstransformer-markdown-it": "^2.1.0",
     "rollup": "^1.27.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-typescript": "^1.0.1",
     "terser": "^4.4.0",
     "through2": "^3.0.1",
-    "tslib": "^1.10.0",
-    "typedoc": "^0.15.2"
+    "tslib": "^2.0.1",
+    "typedoc": "^0.19.2",
+    "typescript": "4.0.3"
   }
 }

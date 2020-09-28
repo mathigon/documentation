@@ -2,19 +2,19 @@ extends _template
 include _docs
 
 block vars
-  - var title = 'hilbert.ts'
-  - var subtitle = 'JavaScript expression parsing, MathML rendering and CAS.'
+  - var title = 'euclid.ts'
+  - var subtitle = '2D Euclidean geometry classes, utilities, and drawing tools.'
 
 block body
 
-  .x-yellow
+  .x-purple
     .hero.slanted
       .container.narrow
         h1
-          +icon('equation', 54)
-          | hilbert.ts
+          +icon('compass', 54)
+          | euclid.ts
         p.subtitle= subtitle
-        .btn-row: a.btn.btn-white.m-yellow(href="https://github.com/mathigon/hilbert.js")
+        .btn-row: a.btn.btn-white.m-purple(href="https://github.com/mathigon/euclid.js")
           +icon('github', 24)
           | View on Github
 
@@ -22,6 +22,6 @@ block body
       .sidebar
         .sidebar-body
       .api-body
-        for module in hilbert.children
+        for module in euclid.children
           +docs(module)
         +footer()

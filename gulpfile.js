@@ -94,9 +94,10 @@ function templates() {
   const core = require('./docs/core.json');
   const fermat = require('./docs/fermat.json');
   const boost = require('./docs/boost.json');
+  const euclid = require('./docs/euclid.json');
   const hilbert = require('./docs/hilbert.json');
   return gulp.src(['src/**/*.pug', '!src/**/_*.pug'])
-      .pipe(gulpPug({data: {core, fermat, boost, hilbert, parseTemplate,
+      .pipe(gulpPug({data: {core, fermat, boost, euclid, hilbert, parseTemplate,
           toTitleCase}}))
       .pipe(gulpRename({extname: '.html'}))
       .pipe(gulp.dest('build'));

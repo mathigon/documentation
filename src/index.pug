@@ -16,42 +16,50 @@ block body
         a.btn.btn-red(href="https://github.com/mathigon") #[+icon('github', 24)] Github
 
   .container.narrow.home
-    h2.text-center JavaScript Libraries
+    h2.text-center TypeScript Libraries
 
     p.text-center These libraries power Mathigon, and maybe they are also useful for your own projects:
 
-    .row.padded
-      a.grow.x-red(href="/core")
-        .lib-icon: +icon('controls', 60)
+    .row.padded.tiles
+      a.x-red(href="/core")
+        .lib-icon: +icon('construction', 60)
         h3 core.js
         p JavaScript utility function and classes, including array and string helper functions, type checking and event classes.
-      a.grow.x-blue(href="/fermat")
-        .lib-icon: +icon('compass', 60)
+      a.x-blue(href="/fermat")
+        .lib-icon: +icon('lightbulb', 60)
         h3 fermat.js
-        p Powerful mathematics, statistics and geometry library, containing everything from number theory to random numbers, expression parsing and linear algebra classes.
-      a.grow.x-green(href="/boost")
+        p Powerful mathematics and statistics library, containing everything from number theory to random numbers and linear algebra classes.
+      a.x-green(href="/boost")
         .lib-icon: +icon('brush', 60)
         h3 boost.js
         p Simplifying browser APIs – from DOM manipulation to web components, event handling, animations, routing, multi-threading and AJAX requests.
+      a.x-purple(href="/euclid")
+        .lib-icon: +icon('compass', 60)
+        h3 euclid.js
+        p 2D Euclidean geometry classes, utilities, and drawing tools.
+      a.x-yellow(href="/hilbert")
+        .lib-icon: +icon('equation', 60)
+        h3 hilbert.js
+        p JavaScript expression parsing, MathML rendering and CAS.
 
 
     h2.text-center Open Educational Resources
 
-    p.text-center All our textbook chapters are open source. You can browse the code on GitHub, or run your own local server to preview changes or additions (#[a(href="https://github.com/mathigon/textbooks") instructions]). Every chapter consists of a few different components, which are documented here:
+    p.text-center All our textbook chapters are open source. You can browse the code on GitHub, or run your own local server to preview changes or additions (#[a(href="https://github.com/mathigon/textbooks/blob/master/docs/setup.md") instructions]). Every chapter consists of a few different components, which are documented here:
 
-    .row.padded
-      a.grow.x-blue(href="/markdown")
+    .row.padded.tiles
+      a.x-blue(href="/markdown")
         .lib-icon: +icon('notes', 60)
         h3 Markdown
         p Mathigon’s content is written in a special flavour of Markdown that makes it very easy to add interactivity, styling and custom markup.
-      a.grow.x-red(href="/guidelines")
-        .lib-icon: +icon('book', 60)
-        h3 Content Guidelines
-        p Guidelines about the tone, style, design and format for Mathigon’s courses.
-      a.grow.x-yellow(href="/functions")
+      a.x-red(href="/interactivity")
         .lib-icon: +icon('settings', 60)
-        h3 Step Functions
+        h3 Interactivity
         p Every step in a chapter can be linked to custom JavaScript code that sets up interactivity, events or personalisation.
+      a.x-green(href="/translations")
+        .lib-icon: +icon('language', 60)
+        h3 Translations
+        p Help us reach even more students by translating Mathigon into other languages.
 
 
     h2.text-center Contribute to Mathigon
@@ -60,7 +68,6 @@ block body
 
     p To make any changes you need to create a #[a(href="https://github.com/join") GitHub account]. Then you can send us Pull Requests with your changes, which we'll review and deploy. If you are unfamiliar with Git, start by reading about how to #[a(href="https://help.github.com/articles/set-up-git/") set up Git on your computer], and how to #[a(href="https://guides.github.com/introduction/flow/") contribute code to public repos].
 
-    p Please #[a(href="mailto:dev@mathigon.org") email us] if you want to help translate parts of Mathigon into other languages. This requires translating a copy of the markdown file that corresponds to the course. You can see a #[a(href="https://mathigon.org/course/graph-theory/introduction?hl=vn") live example] and the #[a(href="https://github.com/mathigon/textbooks/blob/master/content/graph-theory/translations/content_vn.md") source code].
 
     h2.text-center Work at Mathigon
 

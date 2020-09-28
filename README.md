@@ -12,7 +12,7 @@ build the website in the `/build` directory, and run `npm start` to watch the
 `/src` directory for changes.
 
 For the documentation to compile correctly, this repo needs to be a sibling of
-`core.js`, `fermat.js` and `boost.js`.
+`core.js`, `fermat.js`, `euclid.js` and `boost.js`.
 
 To deploy changes, run `npm run deploy`. This will push the `/build` directory
 to the `master` branch on GitHub, which is used by GitHub pages.
