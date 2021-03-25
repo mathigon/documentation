@@ -1,0 +1,51 @@
+footer { display: none; }
+.logo { display: block; width: 200px; height: 42px; }
+
+div.highlighter-rouge, code { border: 1px solid rgba(black, 20%); }
+code { padding: 0.2em 0.4em; font-size: 0.8em; }
+pre code { background: none; }
+
+// p { color: rgba(white, 75%); }
+
+
+.docs-item { border-top: 1px solid #ccc; position: relative; padding: 28px 0; }
+.source { position: absolute; top: 0; right: 0; background: #ccc; line-height: 1.4; font-size: 14px; padding: 0 6px; border-radius: 0 0 4px 4px; }
+.docs-item > :first-child, .docs-item > div + * { margin-top: 0 !important; }
+.docs-item > :last-child { margin-bottom: 0 !important; }
+
+h2, h3 { font-weight: 600; }
+.main-content h2 { color: #cd0e66; }
+
+.signature { font-style: normal; font-size: 14px; color: #222; }
+.pill { background: #cd0e66; color: white; font-size: 14px; font-weight: 600;
+ border-radius: 20px; margin-right: 6px; padding: 0 8px; opacity: 0.5; }
+
+a.souce { float: right; }
+
+.nav-list .nav-list-item > .nav-list .nav-list-item .nav-list-link { color: rgba(white, 70%); }
+.nav-list .nav-list-item .nav-list-link:hover, .nav-list .nav-list-item .nav-list-link.active, .site-title:hover {
+  background: linear-gradient(-90deg, rgba(white, 20%) 80%, rgba(white, 0) 100%); color: white;
+}
+.nav-list .nav-list-item .nav-list-expander:hover { background: rgba(white, 20%); }
+
+.table-wrapper { box-shadow: 0 2px 6px rgba(black, 10%); border: 1px solid; }
+table { border-collapse: collapse; }
+th { background: rgba(black, 8%); }
+// td { background: none; }
+
+.highlight {
+ // color: #f8f8f2;
+ .hll, .s, .sa, .sb, .sc, .dl, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss { color: #22ab24; }
+ .go { color: #44475a; }
+ // .err, .g, .l, .n, .x, .p, .ge, .gr, .gh, .gi, .gp, .gs, .gu, .gt, .ld, .no, .nd, .ni, .ne, .nn, .nx, .py, .w, .bp { color: #f8f8f2; }
+ .gh, .gi, .gu { font-weight: bold; }
+ .ge { text-decoration: underline; }
+ .bp { font-style: italic; }
+ .c, .ch, .cm, .cpf, .c1, .cs { color: #009ea6; }
+ .kd, .kt, .nb, .nl, .nv, .vc, .vg, .k, .vi, .vm { color: #cd0e66; }
+ .kd, .nb, .nl, .nv, .vc, .vg, .vi, .vm { font-style: italic; }
+ .na, .nc, .nf, .fm { color: #fd8c00; }
+ .kt, .o, .cp, .kc, .kn, .kp, .kr, .nt, .ow { color: #6d3bbf; }
+ .m, .mb, .mf, .mh, .mi, .mo, .il { color: #0f82f2; }
+ .gd { color: #eb4726; }
+}
