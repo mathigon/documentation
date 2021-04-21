@@ -11,7 +11,7 @@ description: todo
 Our JavaScript API allows you to add interactive Polypad canvases to any website. You simply need to include our JS source file, create a parent element for Polypad, and then call `Polypad.create()`:
 
 ```html
-<script src="https://static.mathigon.org/api/polypad-v1.3.js"></script>
+<script src="https://static.mathigon.org/api/polypad-v1.6.js"></script>
 <div id="polypad" style="width: 800px; height: 500px;"></div>
 <script>Polypad.create(document.querySelector('#polypad'), {apiKey: 'test'})</script>
 ```
@@ -20,7 +20,7 @@ Polypad requires [Custom Web Components](https://developer.mozilla.org/en-US/doc
 
 Our goal is to support the latest version of Chrome, Firefox, Opera and Edge on all mobile and desktop devices.
 
-Note: the `polypad-v1.3.js` script needs to be included in the `<body>`, not the `<head>` of your HTML document.
+Note: the `polypad-v1.6.js` script needs to be included in the `<body>`, not the `<head>` of your HTML document.
 
 
 ## JSON Schema
@@ -82,6 +82,9 @@ interface Polypad {
     // Override the default theme colours 'red', 'blue', 'green', ...
     themeColours?: Record<string, string>;
 
+    // Whether to prevent panning and zooming of the canvas using touch gestures.
+    noPanAndZoom?: boolean;
+
     // Whether to bind keyboard events for undo/redo and cut/copy/paste. Default is false.
     bindKeyboardEvents?: boolean;
 
@@ -101,7 +104,7 @@ interface PolypadInstance {
   off: (event: string, callback: (e: unknown) => void) => void;
 
   // Serialize or un-serialize a polypad state from JSON data. See above for types.
-  serialize: () => PolypadData;
+  serialize: (maxTiles?: number, maxStrokes?: number, maxStrokeLength?: number) => PolypadData;
   unSerialize: (data: PolypadData) => void;
 
   // Create a PNG image of a given size. This asynchronous function returns a Data URI string.
@@ -121,8 +124,9 @@ interface PolypadInstance {
   undo: () => void;
   redo: () => void;
 
-  // Set the background grid of the canvas.
+  // Set the background grid or display options. See the `options` event for more details.
   setGrid: (string: GridType) => void;
+  setOptions: (e: {altColors?: boolean, noLabels?: boolean}) => void;
 
   // Clear all tiles on the current canvas. Unline .unSerialize({}), this action can be undone.
   clear: () => void;
@@ -131,6 +135,14 @@ interface PolypadInstance {
   getViewport: () => {x: number; y: number; zoom: number};
   setViewport: (x: number, y: number, zoom: number) => void;
   resetViewport: () => void;
+
+  // Expand, collapase or toggle the sidebar on the left. With no arguments, the current state
+  // is flipped, or you can explicitly specify and expanded or collapsed state.
+  toggleSidebar: (expanded?: boolean) => void;
+
+  // Add a custom button to the toolbar or sidebar. You can provide either an HTML string or a
+  // DOM Element, and the method returns the new <button> DOM element.
+  addCustomButton: (target: 'toolbar'|'settings', body: string|Element = '') => Element
 }
 ```
 
@@ -160,7 +172,11 @@ __Callback Options__: `{x: number, y: number, zoom: number}`
 ### `.on('undo')`, `.on('redo')`
 
 Triggered on undo and redo: both from a user input (e.g. clicking the undo button or `CTRL` + `Z` on
-the keyboard), or programatically (e.g. calling `.undo()` above),
+the keyboard), or programatically (e.g. calling `.undo()` above), You can call `.preventDefault()` on
+the event object to prevent the built-in undo/redo handling, and instead apply changes from a custom
+stack of changes.
+
+__Callback Options__: `Event`
 
 ### `.on('grid')`
 
@@ -168,11 +184,18 @@ Triggered whenever the user changes the grid background of the canvas.
 
 __Callback Options__: `{grid: GridType}`
 
+### `.on('options')`
+
+Triggered whenever the user changes the canvas options using the settings bar on the left. Options
+include whether to use an alternate colour scheme (`altColors`) and whether to show number labels for
+some tiles (`noLabels`). This event will always be called after the `.setOptions()` method.
+
+__Callback Options__: `{altColors?: boolean, noLabels?: boolean}`
+
 ### `.on('move')`
 
-This event is triggered continuously while users are moving one or more tiles. It is throttled to be
-triggered at most once per second. The Callback argument contains the ID and the current position of
-all currently selected tiles.
+This event is triggered continuously while users are moving one or more tiles. The Callback argument
+contains the ID and the current position of all currently selected tiles.
 
 __Callback Options__: `{tiles: {id: string, x: number, y: number}[]}`
 
@@ -202,6 +225,7 @@ Polypad supports a large number of different tile types.
 | Number Card      | `number-card`    | TODO… |
 | Decimal Grid     | `decimal-grid`   | TODO… |
 | Dot Machine      | `dot-machine`    | TODO… |
+| Abacus           | `abacus`         | TODO… |
 | Exploding Dot    | `dot`            | TODO… |
 | Fraction Bars    | `fraction-bar`   | TODO… |
 | Fraction Circles | `fraction-circle`| TODO… |
@@ -216,6 +240,7 @@ Polypad supports a large number of different tile types.
 | Custom Spinner   | `custom-spinner` | TODO… |
 | Image            | `image`          | The URL of the image, which should be returned by the `imageUpload()` config function. |
 | Text             | `text`           | The text body of the string |
+| Equation         | `equation`       | The ASCII-Math expressions |
 | Geometry         | `geo`            | A geometric expression, e.g. `a=point(10,20)` or `c=segment(a,b)` |
 
 
