@@ -11,7 +11,7 @@ description: todo
 Our JavaScript API allows you to add interactive Polypad canvases to any website. You simply need to include our JS source file, create a parent element for Polypad, and then call `Polypad.create()`:
 
 ```html
-<script src="https://static.mathigon.org/api/polypad-v2.0.js"></script>
+<script src="https://static.mathigon.org/api/polypad-v2.1.js"></script>
 <div id="polypad" style="width: 800px; height: 500px;"></div>
 <script>Polypad.create(document.querySelector('#polypad'), {apiKey: 'test'})</script>
 ```
@@ -81,6 +81,9 @@ interface Polypad {
     settings?: boolean;     // Whether to show the settings bar
 
     initial?: PolypadData;  // Initial data to show
+
+    // Whether to show a second, custom sidebar tab
+    sidebarTab?: {title: string, icon: string};
 
     // Override the default theme colours 'red', 'blue', 'green', ...
     themeColours?: Record<string, string>;
@@ -154,6 +157,27 @@ interface PolypadInstance {
   addCustomButton: (target: 'toolbar'|'settings', body: string|Element = '') => Element
 }
 ```
+
+
+## Custom Sidebar Tab
+
+Using the `sidebarTab` property, you can enable a second, custom tab for the sidebar, similar to
+Mathigon's version of Polypad. You need to specify a title, as well as an icon ID, which could be
+one of these options:
+
+```
+'tiles', 'controls', 'shapes', 'geometry', 'numbers', 'fractions', 'algebra', 'probability', 'undo',
+'redo', 'grid', 'construction', 'text', 'color', 'pen', 'axes', 'screenshot', 'zoom-in', 'zoom-out',
+'move', 'cursor', 'pen', 'marker', 'highlighter', 'ruler', 'text', 'eraser', 'add-image',
+'text-alt', 'fraction', 'power', 'sqrt', 'copy', 'delete', 'geo-line', 'geo-circle', 'equation',
+'fullscreen-reverse', 'fullscreen', 'spades', 'clubs', 'hearts', 'diamonds', 'bold', 'italic',
+'underlined', 'quiz', 'settings', 'unlocked', 'lock', 'layer-back', 'layer-front', 'folder-shared',
+'move-off', 'eye-off', 'fraction-up', 'fraction-down', 'combine-dots', 'split-dots'
+```
+
+The content of the sidebar can be simply added into the `<div></div>` that the Polypad instance is
+attached to. It will be automatically shown in the correct place using the `<slot></slot>`
+element. See [example.html](example.html) for an example!
 
 
 ## Events
@@ -239,9 +263,12 @@ Polypad supports a large number of different tile types.
 | Tantrix Tiles    | `tantrix`        | Index from `0` to `13` |
 | Number Tiles     | `number-tile`    | `${width}:${count}`, e.g. `10:100` for a 10x10 block of tiles |
 | Number Bars      | `number-bar`     | Width from `1` to `10` |
-| Prime Circle     | `prime-disk`     |  |
+| Number Frame     | `number-frame`   |  |
 | Number Card      | `number-card`    |  |
-| Decimal Grid     | `decimal-grid`   |  |
+| Prime Circle     | `prime-disk`     |  |
+| Dot Arrangement  | `number-dot`     |  |
+| Number Grid      | `number-grid`    |  |
+| Multiplication Grid | `decimal-grid` |  |
 | Abacus           | `abacus`         |  |
 | Exploding Dot    | `dot`            |  |
 | Dot Machine      | `dot-machine`    |  |
@@ -257,6 +284,7 @@ Polypad supports a large number of different tile types.
 | Spinner          | `spinner`        |  |
 | Custom Spinner   | `custom-spinner` |  |
 | Playing Card     | `card`           |  |
+| Polyhedral Dice  | `polyhedral-dice` |  |
 | Domino           | `domino`         |  |
 | Number Line      | `number-line`    |  |
 | Coordinate Axes  | `axes`           |  |
