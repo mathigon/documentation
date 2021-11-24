@@ -1,6 +1,7 @@
 ---
 layout: page
 nav_order: 7
+has_children: true
 description: todo
 ---
 
@@ -11,7 +12,7 @@ description: todo
 Our JavaScript API allows you to add interactive Polypad canvases to any website. You simply need to include our JS source file, create a parent element for Polypad, and then call `Polypad.create()`:
 
 ```html
-<script src="https://static.mathigon.org/api/polypad-v2.1.js"></script>
+<script src="https://static.mathigon.org/api/polypad-v2.2.js"></script>
 <div id="polypad" style="width: 800px; height: 500px;"></div>
 <script>Polypad.create(document.querySelector('#polypad'), {apiKey: 'test'})</script>
 ```
@@ -20,7 +21,7 @@ Polypad requires [Custom Web Components](https://developer.mozilla.org/en-US/doc
 
 Our goal is to support the latest version of Chrome, Firefox, Opera and Edge on all mobile and desktop devices.
 
-Note: the `polypad-v1.10.js` script needs to be included in the `<body>`, not the `<head>` of your HTML document.
+Note: the `polypad-v2.2.js` script needs to be included in the `<body>`, not the `<head>` of your HTML document.
 
 
 ## JSON Schema
@@ -138,6 +139,8 @@ interface PolypadInstance {
     mergeTiles?: boolean;
     labelType?: 'fraction'|'percentage'|'decimal';
     noLabels?: boolean;
+    evalEquations?: boolean;
+    playAudio?: boolean;
   }) => void;
 
   // Clear all tiles on the current canvas. Unline .unSerialize({}), this action can be undone.
@@ -225,10 +228,11 @@ __Callback Options__: `{grid: GridType}`
 
 Triggered whenever the user changes the canvas options using the settings bar on the left. Options
 include whether to use an alternate colour scheme (`altColors`), whether to show number labels for
-some tiles (`noLabels`), and whether to merge number cards (`mergeTiles`). This event will always be
-called after the `.setOptions()` method.
+some tiles (`noLabels`), whether to merge number cards or prime factor circles (`mergeTiles`),
+whether to play sound effects (`playAudio`), and whether to evaluate equations (`evalEquations`).
+This event will always be called after the `.setOptions()` method.
 
-__Callback Options__: `{altColors?: boolean, advancedOptions?: boolean, noLabels?: boolean, mergeTiles?: boolean, labelType?: 'fraction'|'percentage'|'decimal'}`
+__Callback Options__: `{altColors?: boolean, advancedOptions?: boolean, noLabels?: boolean, mergeTiles?: boolean, labelType?: 'fraction'|'percentage'|'decimal', evalEquations?: boolean, playAudio?: boolean}`
 
 ### `.on('selection')`
 
@@ -244,54 +248,13 @@ contains the ID and the current position of all currently selected tiles.
 __Callback Options__: `{tiles: {id: string, x: number, y: number}[]}`
 
 
-## Tile Types
+## Future Features
 
-Polypad supports a large number of different tile types.
-
-| Tile             | Name             | Options String |
-| ---------------- | ---------------- | -------------- |
-| Polygons         | `polygon`        | Either a named polygon like `square`, `reg-hexagon` or `kite`, or a string of vertex coordinates, e.g. `0 0,1 0,1 1,0 1`|
-| Custom Polygons  | `custom-polygon` | _Same as for Polygon_ |
-| Polyominoes      | `pentomino`      | Index from `0` to `11` for pentominoes and `12` to `16` for tetrominoes |
-| Tangram          | `tangram`        | Index from `0` to `6` |
-| Tangram Egg      | `egg`            | Index from `0` to `8` |
-| Penrose Tiles    | `penrose`        | Either `0` or `1` |
-| Penrose Nature   | `garden`         | Index from `0` to `7` |
-| Pentagon Tile    | `pentagon`       | Index from `0` to `17` |
-| Fractals         | `fractal`        | Index from `0` (large) to `4` (small) |
-| Kolam Tiles      | `kolam`          | Index from `0` to `5` |
-| Tantrix Tiles    | `tantrix`        | Index from `0` to `13` |
-| Number Tiles     | `number-tile`    | `${width}:${count}`, e.g. `10:100` for a 10x10 block of tiles |
-| Number Bars      | `number-bar`     | Width from `1` to `10` |
-| Number Frame     | `number-frame`   |  |
-| Number Card      | `number-card`    |  |
-| Prime Circle     | `prime-disk`     |  |
-| Dot Arrangement  | `number-dot`     |  |
-| Number Grid      | `number-grid`    |  |
-| Multiplication Grid | `decimal-grid` |  |
-| Abacus           | `abacus`         |  |
-| Exploding Dot    | `dot`            |  |
-| Dot Machine      | `dot-machine`    |  |
-| Bucket of Zero   | `bucket`         |  |
-| Fraction Bars    | `fraction-bar`   |  |
-| Fraction Circles | `fraction-circle`|  |
-| Algebra Tiles    | `algebra-tile`   |  |
-| Algebra Grid     | `grid`           |  |
-| Balance Scale    | `balance`        |  |
-| Balance Tokens   | `token`          |  |
-| Dice             | `dice`           |  |
-| Coin             | `coin`           |  |
-| Spinner          | `spinner`        |  |
-| Custom Spinner   | `custom-spinner` |  |
-| Playing Card     | `card`           |  |
-| Polyhedral Dice  | `polyhedral-dice` |  |
-| Domino           | `domino`         |  |
-| Number Line      | `number-line`    |  |
-| Coordinate Axes  | `axes`           |  |
-| Ruler            | `ruler`          | Width, e.g. `400` |
-| Protractor       | `protractor`     | Width, e.g. `200` |
-| Table            | `table`          |  |
-| Image            | `image`          | The URL of the image, which should be returned by the `imageUpload()` config function. |
-| Text             | `text`           | :warning: The rich text HTML of the string. Remember to do XSS sanitisation before saving this in a DB. |
-| Equation         | `equation`       | The ASCII-Math expressions |
-| Geometry         | `geo`            | A geometric expression, e.g. `a=point(10,20)` or `c=segment(a,b)` |
+* [ ] Customisation options for which items to show in the sidebar, toolbar and settings menu
+* [ ] Animate the position of tiles in `.update()`, rather than changing the position instantly.
+* [ ] Animate the drawing of strokes in `.add()`.
+* [ ] Expose additional, internal methods and events
+* [ ] Customise the maximum zoom/pan limits
+* [ ] Switch colour scheme (light/dark)
+* [ ] Support non-English languages
+* [ ] Support including the script in the `<head>`. Currently, it accesses `document.body`, so it needs to be included in the `<body>`.
