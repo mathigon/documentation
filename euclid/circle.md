@@ -1,6 +1,6 @@
 ---
 layout: page
-nav_order: 4
+nav_order: 5
 parent: Euclid.js
 ---
 
@@ -213,6 +213,14 @@ The length of the circumference of this circle.
 | --- | --- | --- | --- |
 | `t` | number |  |  |
 
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/circle.ts#L98">circle.ts#L98</a></div>
+
+### <span class="pill">Method</span> .toString <span class="signature">(): string</span>
 
 </div>
 

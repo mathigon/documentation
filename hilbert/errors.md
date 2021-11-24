@@ -86,7 +86,7 @@ Create .stack property on a target object
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/hilbert.js/src/errors.ts#L37">hilbert.js/src/errors.ts#L37</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/hilbert.js/src/errors.ts#L41">hilbert.js/src/errors.ts#L41</a></div>
 
 ### <span class="pill">static</span> <span class="pill">Method</span> .conflictingBrackets <span class="signature">(x: string): ExprError</span>
 
@@ -99,7 +99,7 @@ Create .stack property on a target object
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/hilbert.js/src/errors.ts#L53">hilbert.js/src/errors.ts#L53</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/hilbert.js/src/errors.ts#L57">hilbert.js/src/errors.ts#L57</a></div>
 
 ### <span class="pill">static</span> <span class="pill">Method</span> .consecutiveOperators <span class="signature">(x: string, y: string): ExprError</span>
 
@@ -113,7 +113,7 @@ Create .stack property on a target object
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/hilbert.js/src/errors.ts#L49">hilbert.js/src/errors.ts#L49</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/hilbert.js/src/errors.ts#L53">hilbert.js/src/errors.ts#L53</a></div>
 
 ### <span class="pill">static</span> <span class="pill">Method</span> .endOperator <span class="signature">(x: ExprElement): ExprError</span>
 
@@ -126,7 +126,20 @@ Create .stack property on a target object
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/hilbert.js/src/errors.ts#L33">hilbert.js/src/errors.ts#L33</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/hilbert.js/src/errors.ts#L29">hilbert.js/src/errors.ts#L29</a></div>
+
+### <span class="pill">static</span> <span class="pill">Method</span> .evalLoop <span class="signature">(x: string): ExprError</span>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `x` | string |  |  |
+
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/hilbert.js/src/errors.ts#L37">hilbert.js/src/errors.ts#L37</a></div>
 
 ### <span class="pill">static</span> <span class="pill">Method</span> .invalidCharacter <span class="signature">(x: string): ExprError</span>
 
@@ -139,7 +152,7 @@ Create .stack property on a target object
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/hilbert.js/src/errors.ts#L58">hilbert.js/src/errors.ts#L58</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/hilbert.js/src/errors.ts#L62">hilbert.js/src/errors.ts#L62</a></div>
 
 ### <span class="pill">static</span> <span class="pill">Method</span> .invalidExpression <span class="signature">(): ExprError</span>
 
@@ -147,7 +160,7 @@ Create .stack property on a target object
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/hilbert.js/src/errors.ts#L45">hilbert.js/src/errors.ts#L45</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/hilbert.js/src/errors.ts#L49">hilbert.js/src/errors.ts#L49</a></div>
 
 ### <span class="pill">static</span> <span class="pill">Method</span> .startOperator <span class="signature">(x: ExprElement): ExprError</span>
 
@@ -160,7 +173,7 @@ Create .stack property on a target object
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/hilbert.js/src/errors.ts#L41">hilbert.js/src/errors.ts#L41</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/hilbert.js/src/errors.ts#L45">hilbert.js/src/errors.ts#L45</a></div>
 
 ### <span class="pill">static</span> <span class="pill">Method</span> .unclosedBracket <span class="signature">(x: string): ExprError</span>
 

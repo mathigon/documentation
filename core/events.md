@@ -8,7 +8,7 @@ parent: Core.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/events.ts#L14">events.ts#L14</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/events.ts#L15">events.ts#L15</a></div>
 
 ## <span class="pill">Class</span> EventTarget
 
@@ -22,7 +22,7 @@ Base class for event management.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/events.ts#L15">events.ts#L15</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/events.ts#L16">events.ts#L16</a></div>
 
 ### <span class="pill">Property</span> .events <span class="signature">: Map&lt;string, Array&lt;EventCallback&gt;&gt;</span>
 
@@ -32,7 +32,7 @@ Default value: `...`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/events.ts#L35">events.ts#L35</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/events.ts#L36">events.ts#L36</a></div>
 
 ### <span class="pill">Method</span> .off <span class="signature">(events: string, fn: EventCallback): void</span>
 
@@ -48,7 +48,7 @@ Removes an event listener from one or more events.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/events.ts#L18">events.ts#L18</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/events.ts#L19">events.ts#L19</a></div>
 
 ### <span class="pill">Method</span> .on <span class="signature">(events: string, fn: EventCallback): void</span>
 
@@ -64,7 +64,7 @@ Adds an event listener for one or more events.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/events.ts#L26">events.ts#L26</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/events.ts#L27">events.ts#L27</a></div>
 
 ### <span class="pill">Method</span> .one <span class="signature">(events: string, fn: EventCallback): void</span>
 
@@ -80,16 +80,16 @@ Adds a one-time event listener to one or more events.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/events.ts#L44">events.ts#L44</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/events.ts#L45">events.ts#L45</a></div>
 
-### <span class="pill">Method</span> .trigger <span class="signature">(events: string, arg: any): void</span>
+### <span class="pill">Method</span> .trigger <span class="signature">(events: string, arg: unknown): void</span>
 
 Triggers one or more events, and executes all bound event listeners.
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | `events` | string |  |  |
-| `arg` | any |  |  |
+| `arg` | unknown |  |  |
 
 
 </div>

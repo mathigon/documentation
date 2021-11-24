@@ -49,7 +49,7 @@ Generates an Cauchy random variable.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/random.ts#L169">random.ts#L169</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/random.ts#L168">random.ts#L168</a></div>
 
 ## chiCDF <span class="signature">(chi: number, deg: number): number</span>
 

@@ -16,7 +16,7 @@ parent: Boost.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/browser.ts#L314">browser.ts#L314</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/browser.ts#L315">browser.ts#L315</a></div>
 
 ## Browser <span class="signature">: BrowserInstance</span>
 
@@ -36,7 +36,7 @@ Default value: `...`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/browser.ts#L365">browser.ts#L365</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/browser.ts#L366">browser.ts#L366</a></div>
 
 ## bindAccessibilityEvents <span class="signature">(): void</span>
 
@@ -44,7 +44,7 @@ Default value: `...`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/browser.ts#L332">browser.ts#L332</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/browser.ts#L333">browser.ts#L333</a></div>
 
 ## replaceSvgImports <span class="signature">(): void</span>
 

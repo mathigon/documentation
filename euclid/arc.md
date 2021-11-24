@@ -8,7 +8,7 @@ parent: Euclid.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L14">arc.ts#L14</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L15">arc.ts#L15</a></div>
 
 ## <span class="pill">Class</span> Arc
 
@@ -49,7 +49,7 @@ Implements GeoShape
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L15">arc.ts#L15</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L16">arc.ts#L16</a></div>
 
 ### <span class="pill">readonly</span> <span class="pill">Property</span> .type <span class="signature">: string</span>
 
@@ -67,7 +67,7 @@ Default value: `'arc'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L25">arc.ts#L25</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L26">arc.ts#L26</a></div>
 
 ### <span class="pill">Accessor</span> .end <span class="signature">: Point</span>
 
@@ -91,7 +91,7 @@ Default value: `'arc'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L21">arc.ts#L21</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L22">arc.ts#L22</a></div>
 
 ### <span class="pill">Accessor</span> .radius <span class="signature">: number</span>
 
@@ -99,7 +99,7 @@ Default value: `'arc'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L29">arc.ts#L29</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L30">arc.ts#L30</a></div>
 
 ### <span class="pill">Accessor</span> .startAngle <span class="signature">: number</span>
 
@@ -133,7 +133,7 @@ Default value: `'arc'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L33">arc.ts#L33</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L34">arc.ts#L34</a></div>
 
 ### <span class="pill">Method</span> .contract <span class="signature">(p: number): Arc</span>
 
@@ -146,7 +146,7 @@ Default value: `'arc'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L106">arc.ts#L106</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L107">arc.ts#L107</a></div>
 
 ### <span class="pill">Method</span> .equals <span class="signature">(): boolean</span>
 
@@ -167,7 +167,7 @@ Default value: `'arc'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L87">arc.ts#L87</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L88">arc.ts#L88</a></div>
 
 ### <span class="pill">Method</span> .reflect <span class="signature">(l: Line): Arc</span>
 
@@ -180,9 +180,11 @@ Default value: `'arc'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L81">arc.ts#L81</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L82">arc.ts#L82</a></div>
 
 ### <span class="pill">Method</span> .rotate <span class="signature">(a: number, c: Point): Arc</span>
+
+Rotates this arc by a given angle (in radians), optionally around point `c`.
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -194,7 +196,7 @@ Default value: `'arc'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L92">arc.ts#L92</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L93">arc.ts#L93</a></div>
 
 ### <span class="pill">Method</span> .scale <span class="signature">(sx: number, sy: number): Arc</span>
 
@@ -208,7 +210,7 @@ Default value: `'arc'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L97">arc.ts#L97</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L98">arc.ts#L98</a></div>
 
 ### <span class="pill">Method</span> .shift <span class="signature">(x: number, y: number): Arc</span>
 
@@ -235,7 +237,7 @@ Default value: `'arc'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L102">arc.ts#L102</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L103">arc.ts#L103</a></div>
 
 ### <span class="pill">Method</span> .translate <span class="signature">(p: Point): Arc</span>
 
@@ -250,7 +252,7 @@ Default value: `'arc'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L112">arc.ts#L112</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L113">arc.ts#L113</a></div>
 
 ## <span class="pill">Class</span> Sector
 
@@ -258,11 +260,24 @@ Extends Arc
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L113">arc.ts#L113</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L114">arc.ts#L114</a></div>
 
 ### <span class="pill">readonly</span> <span class="pill">Property</span> .type
 
 Default value: `'sector'`
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/arc.ts#L116">arc.ts#L116</a></div>
+
+### <span class="pill">Method</span> .contains <span class="signature">(p: Point): boolean</span>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `p` | Point |  |  |
+
 
 </div>
 

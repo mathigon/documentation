@@ -8,7 +8,7 @@ parent: Fermat.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/number-theory.ts#L116">number-theory.ts#L116</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/number-theory.ts#L118">number-theory.ts#L118</a></div>
 
 ## eulerPhi <span class="signature">(x: number): number</span>
 
@@ -55,7 +55,7 @@ Generates a random prime number with d digits, where 2 <= d <= 16.
 
 <div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/number-theory.ts#L97">number-theory.ts#L97</a></div>
 
-## goldbach <span class="signature">(x: number): undefined|Array&lt;number&gt;</span>
+## goldbach <span class="signature">(x: number): [number, number]</span>
 
 Tries to write a number x as the sum of two primes.
 

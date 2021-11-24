@@ -8,23 +8,57 @@ parent: Core.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L162">arrays.ts#L162</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L175">arrays.ts#L175</a></div>
 
-## <span class="pill">Interface</span> LinkedListItem
+## <span class="pill">Class</span> LinkedList
+
+Converts an array to a linked list data structure.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L164">arrays.ts#L164</a></div>
+### constructor <span class="signature">(items: Array&lt;T&gt;): LinkedList&lt;T&gt;</span>
 
-### <span class="pill">Property</span> .next
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `items` | Array&lt;T&gt; |  |  |
+
 
 </div>
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L163">arrays.ts#L163</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L176">arrays.ts#L176</a></div>
 
-### <span class="pill">Property</span> .val <span class="signature">: T</span>
+### <span class="pill">Property</span> .root
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L197">arrays.ts#L197</a></div>
+
+### <span class="pill">Accessor</span> .array
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L201">arrays.ts#L201</a></div>
+
+### <span class="pill">Method</span> .delete <span class="signature">(node: LinkedListItem&lt;T&gt;): undefined</span>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `node` | LinkedListItem&lt;T&gt; |  |  |
+
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L188">arrays.ts#L188</a></div>
+
+### <span class="pill">Method</span> .traverse <span class="signature">(): Generator&lt;LinkedListItem&lt;T&gt;, void, unknown&gt;</span>
 
 </div>
 
@@ -79,15 +113,15 @@ Returns all elements that are only in one of a1 and a2.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L108">arrays.ts#L108</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L109">arrays.ts#L109</a></div>
 
-## flatten <span class="signature">(array: Array&lt;any&gt;): Array&lt;T&gt;</span>
+## flatten <span class="signature">(array: Nested&lt;T&gt;): Array&lt;T&gt;</span>
 
 Flattens a nested array into a single list.
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `array` | Array&lt;any&gt; |  |  |
+| `array` | Nested&lt;T&gt; |  |  |
 
 
 </div>
@@ -96,14 +130,14 @@ Flattens a nested array into a single list.
 
 <div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L143">arrays.ts#L143</a></div>
 
-## intersect <span class="signature">(a1: Array&lt;any&gt;, a2: Array&lt;any&gt;): Array&lt;any&gt;</span>
+## intersect <span class="signature">(a1: Array&lt;T&gt;, a2: Array&lt;T&gt;): Array&lt;T&gt;</span>
 
 Returns all elements that are in both a1 and a2.
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `a1` | Array&lt;any&gt; |  |  |
-| `a2` | Array&lt;any&gt; |  |  |
+| `a1` | Array&lt;T&gt; |  |  |
+| `a2` | Array&lt;T&gt; |  |  |
 
 
 </div>
@@ -112,20 +146,20 @@ Returns all elements that are in both a1 and a2.
 
 <div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L157">arrays.ts#L157</a></div>
 
-## join <span class="signature">(arrays: Array&lt;Array&lt;any&gt;&gt;): Array&lt;any&gt;</span>
+## join <span class="signature">(arrays: Array&lt;Array&lt;T&gt;&gt;): Array&lt;T&gt;</span>
 
 Join multiple Arrays
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `arrays` | Array&lt;Array&lt;any&gt;&gt; |  |  |
+| `arrays` | Array&lt;Array&lt;T&gt;&gt; |  |  |
 
 
 </div>
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L70">arrays.ts#L70</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L69">arrays.ts#L69</a></div>
 
 ## last <span class="signature">(array: Array&lt;T&gt;, i: number): T</span>
 
@@ -141,7 +175,7 @@ Returns the last item in an array, or the ith item from the end.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L52">arrays.ts#L52</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L51">arrays.ts#L51</a></div>
 
 ## list <span class="signature">(a: number, b: number, step: number): Array&lt;number&gt;</span>
 
@@ -158,7 +192,7 @@ Creates an array of numbers from 0 to a, or from a to b.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L95">arrays.ts#L95</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L94">arrays.ts#L94</a></div>
 
 ## loop <span class="signature">(array: Array&lt;T&gt;): (): T</span>
 
@@ -194,7 +228,7 @@ Creates an array of size `n`, containing `value` at every entry.
 
 ## repeat2D <span class="signature">(value: T, x: number, y: number): Array&lt;Array&lt;T&gt;&gt;</span>
 
-Creates a matrix of size `x` by `y`, containing `value` at every entry.
+Creates a 2D array of size `x` by `y`, containing `value` at every entry.
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -223,16 +257,16 @@ Rotates the elements of an array by offset.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L82">arrays.ts#L82</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L81">arrays.ts#L81</a></div>
 
-## sortBy <span class="signature">(array: Array&lt;T&gt;, fn: (x: T): any, reverse: boolean): Array&lt;T&gt;</span>
+## sortBy <span class="signature">(array: Array&lt;T&gt;, fn: (x: T): S, reverse: boolean): Array&lt;T&gt;</span>
 
 Sorts an array by the return value when evaluating a given function.
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | `array` | Array&lt;T&gt; |  |  |
-| `fn` | (x: T): any |  |  |
+| `fn` | (x: T): S |  |  |
 | `reverse` | boolean | false |  |
 
 
@@ -260,8 +294,8 @@ Creates an array of size `n`, with the result of `fn(i)` at position i.
 
 ## tabulate2D <span class="signature">(fn: (i: number, j: number): T, x: number, y: number): Array&lt;Array&lt;T&gt;&gt;</span>
 
-Creates a matrix of size `x` by `y`, with the result of `fn(i, j)` at
-position (i, j.
+Creates a 2D array of size `x` by `y`, with the result of `fn(i, j)` at
+position (i, j).
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -274,22 +308,22 @@ position (i, j.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L168">arrays.ts#L168</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L163">arrays.ts#L163</a></div>
 
-## toLinkedList <span class="signature">(array: Array&lt;T&gt;): Array&lt;LinkedListItem&lt;T&gt;&gt;</span>
+## toCSV <span class="signature">(data: Array&lt;Array&lt;unknown&gt;&gt;): string</span>
 
-Converts an array to a linked list data structure.
+Converts a 2D array to CSV data.
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `array` | Array&lt;T&gt; |  |  |
+| `data` | Array&lt;Array&lt;unknown&gt;&gt; |  |  |
 
 
 </div>
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L76">arrays.ts#L76</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L75">arrays.ts#L75</a></div>
 
 ## total <span class="signature">(array: Array&lt;number&gt;): number</span>
 
@@ -304,7 +338,7 @@ Finds the sum of all elements in an numeric array.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L102">arrays.ts#L102</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L101">arrays.ts#L101</a></div>
 
 ## unique <span class="signature">(array: Array&lt;T&gt;): Array&lt;T&gt;</span>
 

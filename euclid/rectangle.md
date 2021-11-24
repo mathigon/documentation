@@ -1,6 +1,6 @@
 ---
 layout: page
-nav_order: 12
+nav_order: 14
 parent: Euclid.js
 ---
 
@@ -161,7 +161,7 @@ A polygon class representing this rectangle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L126">rectangle.ts#L126</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L127">rectangle.ts#L127</a></div>
 
 ### <span class="pill">Method</span> .equals <span class="signature">(_other: Polygon): boolean</span>
 
@@ -187,7 +187,7 @@ A polygon class representing this rectangle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L110">rectangle.ts#L110</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L111">rectangle.ts#L111</a></div>
 
 ### <span class="pill">Method</span> .reflect <span class="signature">(l: Line): Polygon</span>
 
@@ -200,9 +200,11 @@ A polygon class representing this rectangle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L105">rectangle.ts#L105</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L106">rectangle.ts#L106</a></div>
 
 ### <span class="pill">Method</span> .rotate <span class="signature">(a: number, c: Point): Rectangle|Polygon</span>
+
+Rotates this rectangle by a given angle (in radians), optionally around point `c`.
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -214,7 +216,7 @@ A polygon class representing this rectangle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L114">rectangle.ts#L114</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L115">rectangle.ts#L115</a></div>
 
 ### <span class="pill">Method</span> .scale <span class="signature">(sx: number, sy: number): Rectangle</span>
 
@@ -228,7 +230,7 @@ A polygon class representing this rectangle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L118">rectangle.ts#L118</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L119">rectangle.ts#L119</a></div>
 
 ### <span class="pill">Method</span> .shift <span class="signature">(x: number, y: number): Rectangle</span>
 
@@ -237,6 +239,14 @@ A polygon class representing this rectangle.
 | `x` | number |  |  |
 | `y` | number | ... |  |
 
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L132">rectangle.ts#L132</a></div>
+
+### <span class="pill">Method</span> .toString <span class="signature">(): string</span>
 
 </div>
 
@@ -255,7 +265,7 @@ A polygon class representing this rectangle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L122">rectangle.ts#L122</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L123">rectangle.ts#L123</a></div>
 
 ### <span class="pill">Method</span> .translate <span class="signature">(p: Point): Rectangle</span>
 
@@ -270,13 +280,13 @@ A polygon class representing this rectangle.
 
 <div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L21">rectangle.ts#L21</a></div>
 
-### <span class="pill">static</span> <span class="pill">Method</span> .aroundPoints <span class="signature">(points: Iterable&lt;Point&gt;): Rectangle</span>
+### <span class="pill">static</span> <span class="pill">Method</span> .aroundPoints <span class="signature">(points: Iterable&lt;SimplePoint&gt;): Rectangle</span>
 
 Creates the smallest rectangle containing all given points.
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `points` | Iterable&lt;Point&gt; |  |  |
+| `points` | Iterable&lt;SimplePoint&gt; |  |  |
 
 
 </div>

@@ -1,6 +1,6 @@
 ---
 layout: page
-nav_order: 7
+nav_order: 8
 parent: Core.js
 ---
 
@@ -18,44 +18,28 @@ Object Map Interface.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/utilities.ts#L31">utilities.ts#L31</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/utilities.ts#L94">utilities.ts#L94</a></div>
 
-## applyDefaults <span class="signature">(obj: any, defaults: any): any</span>
-
-Applies default keys to an object.
-
-| Name | Type | Default | Description |
-| --- | --- | --- | --- |
-| `obj` | any |  |  |
-| `defaults` | any |  |  |
-
-
-</div>
-
-<div class="docs-item" markdown="1">
-
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/utilities.ts#L97">utilities.ts#L97</a></div>
-
-## cache <span class="signature">(fn: (args: Array&lt;any&gt;): T): (args: Array&lt;any&gt;): NonNullable&lt;T&gt;</span>
+## cache <span class="signature">(fn: (args: Args): T): (args: Args): NonNullable&lt;T&gt;</span>
 
 Function wrapper that modifies a function to cache its return values. This
 is useful for performance intensive functions which are called repeatedly
 with the same arguments. However it can reduce performance for functions
 which are always called with different arguments. Note that argument
-comparison doesn't not work with Objects or nested arrays.
+comparison does not work with Objects or nested arrays.
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `fn` | (args: Array&lt;any&gt;): T |  |  |
+| `fn` | (args: Args): T |  |  |
 
 
 </div>
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/utilities.ts#L42">utilities.ts#L42</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/utilities.ts#L33">utilities.ts#L33</a></div>
 
-## deepExtend <span class="signature">(obj1: any, obj2: any, arrayMergeFn: (a: Array&lt;any&gt;, b: Array&lt;any&gt;): Array&lt;any&gt;): void</span>
+## deepExtend <span class="signature">(obj1: any, obj2: any, arrayMergeFn: (a: Array&lt;unknown&gt;, b: Array&lt;unknown&gt;): Array&lt;unknown&gt;): void</span>
 
 Deep extends obj1 with obj2, using a custom array merge function.
 
@@ -63,16 +47,16 @@ Deep extends obj1 with obj2, using a custom array merge function.
 | --- | --- | --- | --- |
 | `obj1` | any |  |  |
 | `obj2` | any |  |  |
-| `arrayMergeFn` | (a: Array&lt;any&gt;, b: Array&lt;any&gt;): Array&lt;any&gt; | ... |  |
+| `arrayMergeFn` | (a: Array&lt;unknown&gt;, b: Array&lt;unknown&gt;): Array&lt;unknown&gt; | ... |  |
 
 
 </div>
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/utilities.ts#L74">utilities.ts#L74</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/utilities.ts#L65">utilities.ts#L65</a></div>
 
-## defer <span class="signature">(): {promise: Promise&lt;T&gt;, reject: (reason: any): void, resolve: (value: T|PromiseLike&lt;T&gt;): void}</span>
+## defer <span class="signature">(): {promise: Promise&lt;T&gt;, reject: (reason: unknown): void, resolve: (value: T|PromiseLike&lt;T&gt;): void}</span>
 
 Creates a new promise together with functions to resolve or reject.
 
@@ -80,7 +64,7 @@ Creates a new promise together with functions to resolve or reject.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/utilities.ts#L57">utilities.ts#L57</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/utilities.ts#L48">utilities.ts#L48</a></div>
 
 ## delay <span class="signature">(fn: (): void, t: number): number</span>
 
@@ -128,25 +112,26 @@ Executes a function or returns the default value.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/utilities.ts#L138">utilities.ts#L138</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/utilities.ts#L151">utilities.ts#L151</a></div>
 
-## safeToJSON <span class="signature">(str: string, fallback: any): any</span>
+## safeToJSON <span class="signature">(str: |string, fallback: T, allowedKeys: Array&lt;string&gt;): undefined|T</span>
 
 Safe wrapper for JSON.parse.
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `str` | string |  |  |
-| `fallback` | any | ... |  |
+| `str` | |string |  |  |
+| `fallback` | T |  |  |
+| `allowedKeys` | Array&lt;string&gt; |  |  |
 
 
 </div>
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/utilities.ts#L114">utilities.ts#L114</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/utilities.ts#L119">utilities.ts#L119</a></div>
 
-## throttle <span class="signature">(fn: (args: Array&lt;any&gt;): void, t: number, forceDelay: boolean): (args: Array&lt;any&gt;): void</span>
+## throttle <span class="signature">(fn: (args: Args): void, t: number, forceDelay: boolean): (args: Args): void</span>
 
 Function wrapper that prevents a function from being executed more than once
 every t ms. This is particularly useful for optimising callbacks for
@@ -156,7 +141,7 @@ timout, rather than instantly.
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `fn` | (args: Array&lt;any&gt;): void |  |  |
+| `fn` | (args: Args): void |  |  |
 | `t` | number | 0 |  |
 | `forceDelay` | boolean | false |  |
 
@@ -180,7 +165,7 @@ Creates a random UID string of a given length.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/utilities.ts#L68">utilities.ts#L68</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/utilities.ts#L59">utilities.ts#L59</a></div>
 
 ## wait <span class="signature">(t: number): Promise&lt;void&gt;</span>
 

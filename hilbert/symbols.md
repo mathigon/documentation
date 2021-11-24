@@ -1,10 +1,18 @@
 ---
 layout: page
-nav_order: 6
+nav_order: 8
 parent: Hilbert.js
 ---
 
 # Symbols
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/symbols.ts#L139">symbols.ts#L139</a></div>
+
+## <span class="pill">Type alias</span> SpecialFunction
+
+</div>
 
 <div class="docs-item" markdown="1">
 
@@ -78,7 +86,7 @@ Default value: `...`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/symbols.ts#L144">symbols.ts#L144</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/symbols.ts#L145">symbols.ts#L145</a></div>
 
 ## VOICE_STRINGS <span class="signature">: Obj&lt;string&gt;</span>
 
@@ -101,9 +109,9 @@ Default value: `...`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/symbols.ts#L140">symbols.ts#L140</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/symbols.ts#L141">symbols.ts#L141</a></div>
 
-## isSpecialFunction <span class="signature">(fn: string): boolean</span>
+## isSpecialFunction <span class="signature">(fn: string): fn is abs|round|floor|ceil|max|min|mod|lcm|gcd|gcf|log|exp|ln|sqrt|root|sin|cos|tan|sec|csc|cot|cosec|cotan|arcsin|arccos|arctan|sinh|cosh|tanh|sech|csch|coth|cosech</span>
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |

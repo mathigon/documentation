@@ -1,6 +1,6 @@
 ---
 layout: page
-nav_order: 5
+nav_order: 7
 parent: Hilbert.js
 ---
 
@@ -8,7 +8,7 @@ parent: Hilbert.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/parser.ts#L263">parser.ts#L263</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/parser.ts#L259">parser.ts#L259</a></div>
 
 ## collapseTerm <span class="signature">(tokens: Array&lt;ExprElement&gt;): ExprElement</span>
 
@@ -21,9 +21,9 @@ parent: Hilbert.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/parser.ts#L178">parser.ts#L178</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/parser.ts#L176">parser.ts#L176</a></div>
 
-## matchBrackets <span class="signature">(tokens: Array&lt;ExprElement&gt;, context: {variables?: undefined|Array&lt;string&gt;}): ExprElement|ExprTerm</span>
+## matchBrackets <span class="signature">(tokens: Array&lt;ExprElement&gt;, context: {variables?: undefined|Array&lt;string&gt;}): ExprElement</span>
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |

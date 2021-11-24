@@ -84,6 +84,21 @@ when they will be absent when used in a 'with' statement.
 
 <div class="docs-item" markdown="1">
 
+### <span class="pill">Method</span> .at <span class="signature">(index: number): undefined|number</span>
+
+Takes an integer value and returns the item at that index,
+allowing for positive and negative integers.
+Negative integers count back from the last item in the array.
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `index` | number |  |  |
+
+
+</div>
+
+<div class="docs-item" markdown="1">
+
 ### <span class="pill">Method</span> .concat <span class="signature">(items: Array&lt;ConcatArray&lt;number&gt;&gt;): Array&lt;number&gt;</span>
 
 Combines two or more arrays.
@@ -219,6 +234,36 @@ otherwise.
 | --- | --- | --- | --- |
 | `predicate` | (value: number, index: number, obj: Array&lt;number&gt;): unknown |  |  |
 | `thisArg` | any |  |  |
+
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+### <span class="pill">Method</span> .flat <span class="signature">(depth: D): Array&lt;FlatArray&lt;A, D&gt;&gt;</span>
+
+Returns a new array with all sub-array elements concatenated into it recursively up to the
+specified depth.
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `depth` | D |  |  |
+
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+### <span class="pill">Method</span> .flatMap <span class="signature">(callback: (value: number, index: number, array: Array&lt;number&gt;): U|, thisArg: This): Array&lt;U&gt;</span>
+
+Calls a defined callback function on each element of an array. Then, flattens the result into
+a new array.
+This is identical to a map followed by flat with depth 1.
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `callback` | (value: number, index: number, array: Array&lt;number&gt;): U| |  |  |
+| `thisArg` | This |  |  |
 
 
 </div>

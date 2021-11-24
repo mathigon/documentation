@@ -1,6 +1,6 @@
 ---
 layout: page
-nav_order: 4
+nav_order: 5
 parent: Hilbert.js
 ---
 
@@ -8,7 +8,7 @@ parent: Hilbert.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L41">functions.ts#L41</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L42">functions.ts#L42</a></div>
 
 ## <span class="pill">Class</span> ExprFunction
 
@@ -42,7 +42,7 @@ Default value: `...`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L102">functions.ts#L102</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L94">functions.ts#L94</a></div>
 
 ### <span class="pill">Accessor</span> .functions
 
@@ -50,7 +50,7 @@ Default value: `...`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L93">functions.ts#L93</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L85">functions.ts#L85</a></div>
 
 ### <span class="pill">Accessor</span> .simplified <span class="signature">: this</span>
 
@@ -58,7 +58,17 @@ Default value: `...`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L98">functions.ts#L98</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/elements.ts#L63">elements.ts#L63</a></div>
+
+### <span class="pill">Accessor</span> .unknowns
+
+Returns a list of all variables used in the expression (excluding defined constants).
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L90">functions.ts#L90</a></div>
 
 ### <span class="pill">Accessor</span> .variables
 
@@ -66,7 +76,7 @@ Default value: `...`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L88">functions.ts#L88</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L80">functions.ts#L80</a></div>
 
 ### <span class="pill">Method</span> .collapse <span class="signature">(): ExprFunction|ExprElement</span>
 
@@ -74,7 +84,7 @@ Default value: `...`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L47">functions.ts#L47</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L48">functions.ts#L48</a></div>
 
 ### <span class="pill">Method</span> .evaluate <span class="signature">(vars: VarMap): number</span>
 
@@ -87,7 +97,37 @@ Default value: `...`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L84">functions.ts#L84</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L62">functions.ts#L62</a></div>
+
+### <span class="pill">Method</span> .interval <span class="signature">(vars: VarMap): Interval</span>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `vars` | VarMap | ... |  |
+
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/elements.ts#L51">elements.ts#L51</a></div>
+
+### <span class="pill">Method</span> .recursiveSubstitute <span class="signature">(vars: ExprMap): ExprElement</span>
+
+Recursively substitutes a new expression for a variable.
+NOTE: This function does not test for cyclical dependencies, which could
+lead to an infinite loop. You have to manually validate expressions first!
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `vars` | ExprMap |  |  |
+
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L76">functions.ts#L76</a></div>
 
 ### <span class="pill">Method</span> .substitute <span class="signature">(vars: ExprMap): ExprFunction</span>
 
@@ -100,7 +140,7 @@ Default value: `...`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L132">functions.ts#L132</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L123">functions.ts#L123</a></div>
 
 ### <span class="pill">Method</span> .toMathML <span class="signature">(custom: MathMLMap): string</span>
 
@@ -113,7 +153,7 @@ Default value: `...`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L106">functions.ts#L106</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L98">functions.ts#L98</a></div>
 
 ### <span class="pill">Method</span> .toString <span class="signature">(): string</span>
 
@@ -121,7 +161,7 @@ Default value: `...`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L213">functions.ts#L213</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L203">functions.ts#L203</a></div>
 
 ### <span class="pill">Method</span> .toVoice <span class="signature">(custom: MathMLMap): string</span>
 
@@ -136,7 +176,7 @@ Default value: `...`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L248">functions.ts#L248</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L238">functions.ts#L238</a></div>
 
 ## <span class="pill">Class</span> ExprTerm
 
@@ -161,7 +201,7 @@ Extends ExprElement
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L270">functions.ts#L270</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L264">functions.ts#L264</a></div>
 
 ### <span class="pill">Accessor</span> .functions
 
@@ -169,7 +209,7 @@ Extends ExprElement
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L262">functions.ts#L262</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L256">functions.ts#L256</a></div>
 
 ### <span class="pill">Accessor</span> .simplified <span class="signature">: ExprElement</span>
 
@@ -177,7 +217,17 @@ Extends ExprElement
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L266">functions.ts#L266</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/elements.ts#L63">elements.ts#L63</a></div>
+
+### <span class="pill">Accessor</span> .unknowns
+
+Returns a list of all variables used in the expression (excluding defined constants).
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L260">functions.ts#L260</a></div>
 
 ### <span class="pill">Accessor</span> .variables
 
@@ -185,7 +235,7 @@ Extends ExprElement
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L286">functions.ts#L286</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L280">functions.ts#L280</a></div>
 
 ### <span class="pill">Method</span> .collapse <span class="signature">(): ExprElement</span>
 
@@ -193,7 +243,7 @@ Extends ExprElement
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L254">functions.ts#L254</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L244">functions.ts#L244</a></div>
 
 ### <span class="pill">Method</span> .evaluate <span class="signature">(vars: VarMap): number</span>
 
@@ -206,7 +256,37 @@ Extends ExprElement
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L258">functions.ts#L258</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L248">functions.ts#L248</a></div>
+
+### <span class="pill">Method</span> .interval <span class="signature">(vars: VarMap): Interval</span>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `vars` | VarMap | ... |  |
+
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/elements.ts#L51">elements.ts#L51</a></div>
+
+### <span class="pill">Method</span> .recursiveSubstitute <span class="signature">(vars: ExprMap): ExprElement</span>
+
+Recursively substitutes a new expression for a variable.
+NOTE: This function does not test for cyclical dependencies, which could
+lead to an infinite loop. You have to manually validate expressions first!
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `vars` | ExprMap |  |  |
+
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L252">functions.ts#L252</a></div>
 
 ### <span class="pill">Method</span> .substitute <span class="signature">(vars: ExprMap): ExprElement</span>
 
@@ -219,7 +299,7 @@ Extends ExprElement
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L278">functions.ts#L278</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L272">functions.ts#L272</a></div>
 
 ### <span class="pill">Method</span> .toMathML <span class="signature">(custom: MathMLMap): string</span>
 
@@ -232,7 +312,7 @@ Extends ExprElement
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L274">functions.ts#L274</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L268">functions.ts#L268</a></div>
 
 ### <span class="pill">Method</span> .toString <span class="signature">(): string</span>
 
@@ -240,7 +320,7 @@ Extends ExprElement
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L282">functions.ts#L282</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L276">functions.ts#L276</a></div>
 
 ### <span class="pill">Method</span> .toVoice <span class="signature">(custom: MathMLMap): string</span>
 

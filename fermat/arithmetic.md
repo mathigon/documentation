@@ -57,13 +57,13 @@ Returns the digits of a number n.
 
 <div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L25">arithmetic.ts#L25</a></div>
 
-## isBetween <span class="signature">(x: number, a: number, b: number, t: number): boolean</span>
+## isBetween <span class="signature">(value: number, a: number, b: number, t: number): boolean</span>
 
 Checks if a number x is between two numbers a and b.
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `x` | number |  |  |
+| `value` | number |  |  |
 | `a` | number |  |  |
 | `b` | number |  |  |
 | `t` | number | ... |  |
@@ -140,14 +140,14 @@ differ if a or m < 0.
 
 <div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L14">arithmetic.ts#L14</a></div>
 
-## nearlyEquals <span class="signature">(x: number, y: number, t: number): boolean</span>
+## nearlyEquals <span class="signature">(a: number, b: number, t: number): boolean</span>
 
 Checks if two numbers are nearly equals.
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `x` | number |  |  |
-| `y` | number |  |  |
+| `a` | number |  |  |
+| `b` | number |  |  |
 | `t` | number | ... |  |
 
 
@@ -157,7 +157,7 @@ Checks if two numbers are nearly equals.
 
 <div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L69">arithmetic.ts#L69</a></div>
 
-## numberFormat <span class="signature">(n: number, places: number, seperators: boolean): string</span>
+## numberFormat <span class="signature">(n: number, places: number, separators: boolean): string</span>
 
 Converts a number to a clean string, by rounding, adding power suffixes, and
 adding thousands separators. `places` is the number of digits to show in the
@@ -167,7 +167,7 @@ result.
 | --- | --- | --- | --- |
 | `n` | number |  |  |
 | `places` | number | 0 |  |
-| `seperators` | boolean | true |  |
+| `separators` | boolean | true |  |
 
 
 </div>
@@ -190,7 +190,7 @@ thousands separators.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L257">arithmetic.ts#L257</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L260">arithmetic.ts#L260</a></div>
 
 ## polynomial <span class="signature">(x: number, coefficients: Array&lt;number&gt;): number</span>
 
@@ -255,13 +255,13 @@ Round a number `n` to the nearest multiple of `increment`.
 
 <div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L31">arithmetic.ts#L31</a></div>
 
-## sign <span class="signature">(x: number, t: number): 1|0|-1</span>
+## sign <span class="signature">(value: number, t: number): 1|0|-1</span>
 
 Returns the sign of a number x, as +1, 0 or –1.
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `x` | number |  |  |
+| `value` | number |  |  |
 | `t` | number | ... |  |
 
 

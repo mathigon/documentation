@@ -13,6 +13,8 @@ pre code { background: none; }
 .docs-item > :first-child, .docs-item > div + * { margin-top: 0 !important; }
 .docs-item > :last-child { margin-bottom: 0 !important; }
 
+.main-content .task-list-item { display: block; }
+
 h2, h3 { font-weight: 600; }
 .main-content h2 { color: #cd0e66; }
 

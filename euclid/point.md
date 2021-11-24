@@ -1,6 +1,6 @@
 ---
 layout: page
-nav_order: 10
+nav_order: 12
 parent: Euclid.js
 ---
 
@@ -175,7 +175,7 @@ Finds the perpendicular distance between this point and a line.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/point.ts#L200">point.ts#L200</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/point.ts#L213">point.ts#L213</a></div>
 
 ### <span class="pill">Method</span> .equals <span class="signature">(other: any, precision: number): boolean</span>
 
@@ -211,7 +211,7 @@ Finds the perpendicular distance between this point and a line.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/point.ts#L174">point.ts#L174</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/point.ts#L187">point.ts#L187</a></div>
 
 ### <span class="pill">Method</span> .reflect <span class="signature">(l: Line): Point</span>
 
@@ -226,11 +226,11 @@ Reflects this point across a line l.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/point.ts#L159">point.ts#L159</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/point.ts#L172">point.ts#L172</a></div>
 
 ### <span class="pill">Method</span> .rotate <span class="signature">(angle: number, c: SimplePoint): Point</span>
 
-Rotates this point by a given angle (in radians) around c.
+Rotates this point by a given angle (in radians) around point `c`.
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -255,7 +255,7 @@ Rotates this point by a given angle (in radians) around c.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/point.ts#L188">point.ts#L188</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/point.ts#L201">point.ts#L201</a></div>
 
 ### <span class="pill">Method</span> .scale <span class="signature">(sx: number, sy: number): Point</span>
 
@@ -269,7 +269,7 @@ Rotates this point by a given angle (in radians) around c.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/point.ts#L192">point.ts#L192</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/point.ts#L205">point.ts#L205</a></div>
 
 ### <span class="pill">Method</span> .shift <span class="signature">(x: number, y: number): Point</span>
 
@@ -310,7 +310,15 @@ Rotates this point by a given angle (in radians) around c.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/point.ts#L152">point.ts#L152</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/point.ts#L218">point.ts#L218</a></div>
+
+### <span class="pill">Method</span> .toString <span class="signature">(): string</span>
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/point.ts#L165">point.ts#L165</a></div>
 
 ### <span class="pill">Method</span> .transform <span class="signature">(m: TransformMatrix): Point</span>
 
@@ -325,7 +333,7 @@ Transforms this point using a 2x3 matrix m.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/point.ts#L196">point.ts#L196</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/point.ts#L209">point.ts#L209</a></div>
 
 ### <span class="pill">Method</span> .translate <span class="signature">(p: Point): Point</span>
 
@@ -347,6 +355,24 @@ Calculates the average of multiple points.
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | `points` | Array&lt;SimplePoint&gt; |  |  |
+
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/point.ts#L154">point.ts#L154</a></div>
+
+### <span class="pill">static</span> <span class="pill">Method</span> .colinear <span class="signature">(p1: SimplePoint, p2: SimplePoint, p3: SimplePoint, tolerance: number): boolean</span>
+
+Check if p1, p2 and p3 lie on a straight line.
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `p1` | SimplePoint |  |  |
+| `p2` | SimplePoint |  |  |
+| `p3` | SimplePoint |  |  |
+| `tolerance` | number |  |  |
 
 
 </div>
@@ -393,6 +419,21 @@ Calculates the dot product of two points p1 and p2.
 | --- | --- | --- | --- |
 | `p1` | SimplePoint |  |  |
 | `p2` | SimplePoint |  |  |
+
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/point.ts#L149">point.ts#L149</a></div>
+
+### <span class="pill">static</span> <span class="pill">Method</span> .equals <span class="signature">(p1: SimplePoint, p2: SimplePoint, precision: number): boolean</span>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `p1` | SimplePoint |  |  |
+| `p2` | SimplePoint |  |  |
+| `precision` | number |  |  |
 
 
 </div>
@@ -493,7 +534,7 @@ Returns the Manhattan distance between two points p1 and p2.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/point.ts#L206">point.ts#L206</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/point.ts#L223">point.ts#L223</a></div>
 
 ## ORIGIN <span class="signature">: Point</span>
 

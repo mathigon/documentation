@@ -1,6 +1,6 @@
 ---
 layout: page
-nav_order: 11
+nav_order: 13
 parent: Euclid.js
 ---
 
@@ -8,7 +8,7 @@ parent: Euclid.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L17">polygon.ts#L17</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L18">polygon.ts#L18</a></div>
 
 ## <span class="pill">Class</span> Polygon
 
@@ -29,7 +29,7 @@ Implements GeoShape
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L19">polygon.ts#L19</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L20">polygon.ts#L20</a></div>
 
 ### <span class="pill">readonly</span> <span class="pill">Property</span> .points
 
@@ -37,7 +37,7 @@ Implements GeoShape
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L18">polygon.ts#L18</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L19">polygon.ts#L19</a></div>
 
 ### <span class="pill">readonly</span> <span class="pill">Property</span> .type <span class="signature">: string</span>
 
@@ -47,7 +47,7 @@ Default value: `'polygon'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L50">polygon.ts#L50</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L51">polygon.ts#L51</a></div>
 
 ### <span class="pill">Accessor</span> .area <span class="signature">: number</span>
 
@@ -55,7 +55,7 @@ Default value: `'polygon'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L54">polygon.ts#L54</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L55">polygon.ts#L55</a></div>
 
 ### <span class="pill">Accessor</span> .centroid <span class="signature">: Point</span>
 
@@ -63,7 +63,7 @@ Default value: `'polygon'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L25">polygon.ts#L25</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L26">polygon.ts#L26</a></div>
 
 ### <span class="pill">Accessor</span> .circumference <span class="signature">: number</span>
 
@@ -71,7 +71,7 @@ Default value: `'polygon'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L67">polygon.ts#L67</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L68">polygon.ts#L68</a></div>
 
 ### <span class="pill">Accessor</span> .edges
 
@@ -79,7 +79,7 @@ Default value: `'polygon'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L83">polygon.ts#L83</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L84">polygon.ts#L84</a></div>
 
 ### <span class="pill">Accessor</span> .oriented <span class="signature">: this</span>
 
@@ -89,7 +89,7 @@ The oriented version of this polygon (vertices in clockwise order).
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L76">polygon.ts#L76</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L77">polygon.ts#L77</a></div>
 
 ### <span class="pill">Accessor</span> .radius <span class="signature">: number</span>
 
@@ -97,7 +97,7 @@ The oriented version of this polygon (vertices in clockwise order).
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L38">polygon.ts#L38</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L39">polygon.ts#L39</a></div>
 
 ### <span class="pill">Accessor</span> .signedArea <span class="signature">: number</span>
 
@@ -108,7 +108,7 @@ are ordered clockwise, and negative otherwise.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L234">polygon.ts#L234</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L196">polygon.ts#L196</a></div>
 
 ### <span class="pill">Method</span> .at <span class="signature">(t: number): Point</span>
 
@@ -121,7 +121,22 @@ are ordered clockwise, and negative otherwise.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L219">polygon.ts#L219</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L217">polygon.ts#L217</a></div>
+
+### <span class="pill">Method</span> .centerAt <span class="signature">(on: Point): Polygon</span>
+
+Center this polygon on a given point or the origin
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `on` | Point | ... |  |
+
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L181">polygon.ts#L181</a></div>
 
 ### <span class="pill">Method</span> .contains <span class="signature">(p: Point): boolean</span>
 
@@ -137,7 +152,7 @@ algorithm and calculating the number of intersections.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L90">polygon.ts#L90</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L91">polygon.ts#L91</a></div>
 
 ### <span class="pill">Method</span> .cut <span class="signature">(line: Line): Array&lt;Polygon&gt;</span>
 
@@ -152,20 +167,22 @@ Cut this polygon along a line, and return multiple parts.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L285">polygon.ts#L285</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L253">polygon.ts#L253</a></div>
 
-### <span class="pill">Method</span> .equals <span class="signature">(_other: Polygon): boolean</span>
+### <span class="pill">Method</span> .equals <span class="signature">(other: Polygon, tolerance: number, oriented: boolean): boolean</span>
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `_other` | Polygon |  |  |
+| `other` | Polygon |  |  |
+| `tolerance` | number |  |  |
+| `oriented` | boolean |  |  |
 
 
 </div>
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L238">polygon.ts#L238</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L200">polygon.ts#L200</a></div>
 
 ### <span class="pill">Method</span> .project <span class="signature">(p: Point): Point</span>
 
@@ -178,7 +195,7 @@ Cut this polygon along a line, and return multiple parts.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L266">polygon.ts#L266</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L234">polygon.ts#L234</a></div>
 
 ### <span class="pill">Method</span> .reflect <span class="signature">(line: Line): Polygon</span>
 
@@ -191,9 +208,11 @@ Cut this polygon along a line, and return multiple parts.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L260">polygon.ts#L260</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L228">polygon.ts#L228</a></div>
 
 ### <span class="pill">Method</span> .rotate <span class="signature">(a: number, center: Point): Polygon</span>
+
+Rotates this polygon by a given angle (in radians), optionally around point `center`.
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -205,7 +224,7 @@ Cut this polygon along a line, and return multiple parts.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L271">polygon.ts#L271</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L239">polygon.ts#L239</a></div>
 
 ### <span class="pill">Method</span> .scale <span class="signature">(sx: number, sy: number): Polygon</span>
 
@@ -219,7 +238,7 @@ Cut this polygon along a line, and return multiple parts.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L276">polygon.ts#L276</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L244">polygon.ts#L244</a></div>
 
 ### <span class="pill">Method</span> .shift <span class="signature">(x: number, y: number): Polygon</span>
 
@@ -233,7 +252,7 @@ Cut this polygon along a line, and return multiple parts.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L256">polygon.ts#L256</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L223">polygon.ts#L223</a></div>
 
 ### <span class="pill">Method</span> .transform <span class="signature">(m: TransformMatrix): Polygon</span>
 
@@ -246,7 +265,7 @@ Cut this polygon along a line, and return multiple parts.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L281">polygon.ts#L281</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L249">polygon.ts#L249</a></div>
 
 ### <span class="pill">Method</span> .translate <span class="signature">(p: Point): Polygon</span>
 
@@ -259,7 +278,7 @@ Cut this polygon along a line, and return multiple parts.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L181">polygon.ts#L181</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L105">polygon.ts#L105</a></div>
 
 ### <span class="pill">static</span> <span class="pill">Method</span> .collision <span class="signature">(p1: Polygon, p2: Polygon): boolean</span>
 
@@ -275,7 +294,20 @@ Checks if two polygons p1 and p2 collide.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L206">polygon.ts#L206</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L146">polygon.ts#L146</a></div>
+
+### <span class="pill">static</span> <span class="pill">Method</span> .convexHull <span class="signature">(points: Array&lt;Point&gt;): Polygon</span>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `points` | Array&lt;Point&gt; |  |  |
+
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L139">polygon.ts#L139</a></div>
 
 ### <span class="pill">static</span> <span class="pill">Method</span> .interpolate <span class="signature">(p1: Polygon, p2: Polygon, t: number): Polygon</span>
 
@@ -292,7 +324,7 @@ Interpolates the points of two polygons
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L197">polygon.ts#L197</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L130">polygon.ts#L130</a></div>
 
 ### <span class="pill">static</span> <span class="pill">Method</span> .regular <span class="signature">(n: number, radius: number): Polygon</span>
 
@@ -306,11 +338,24 @@ Creates a regular polygon.
 
 </div>
 
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L120">polygon.ts#L120</a></div>
+
+### <span class="pill">static</span> <span class="pill">Method</span> .union <span class="signature">(polygons: Array&lt;Polygon&gt;): Array&lt;Polygon&gt;</span>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `polygons` | Array&lt;Polygon&gt; |  |  |
+
+
+</div>
+
 </div>
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L293">polygon.ts#L293</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L272">polygon.ts#L272</a></div>
 
 ## <span class="pill">Class</span> Polyline
 
@@ -320,7 +365,7 @@ Extends Polygon
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L294">polygon.ts#L294</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L273">polygon.ts#L273</a></div>
 
 ### <span class="pill">readonly</span> <span class="pill">Property</span> .type
 
@@ -330,7 +375,7 @@ Default value: `'polyline'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L296">polygon.ts#L296</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L275">polygon.ts#L275</a></div>
 
 ### <span class="pill">Accessor</span> .length <span class="signature">: number</span>
 
@@ -340,7 +385,7 @@ Default value: `'polyline'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L316">polygon.ts#L316</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L295">polygon.ts#L295</a></div>
 
 ## <span class="pill">Class</span> Triangle
 
@@ -350,7 +395,7 @@ Extends Polygon
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L317">polygon.ts#L317</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L296">polygon.ts#L296</a></div>
 
 ### <span class="pill">readonly</span> <span class="pill">Property</span> .type
 
@@ -360,7 +405,7 @@ Default value: `'triangle'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L319">polygon.ts#L319</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L298">polygon.ts#L298</a></div>
 
 ### <span class="pill">Accessor</span> .circumcircle <span class="signature">: Circle</span>
 
@@ -368,7 +413,7 @@ Default value: `'triangle'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L338">polygon.ts#L338</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L317">polygon.ts#L317</a></div>
 
 ### <span class="pill">Accessor</span> .incircle <span class="signature">: Circle</span>
 
@@ -376,7 +421,7 @@ Default value: `'triangle'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L353">polygon.ts#L353</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/polygon.ts#L332">polygon.ts#L332</a></div>
 
 ### <span class="pill">Accessor</span> .orthocenter <span class="signature">: Point</span>
 
