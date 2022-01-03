@@ -12,7 +12,7 @@ description: todo
 Our JavaScript API allows you to add interactive Polypad canvases to any website. You simply need to include our JS source file, create a parent element for Polypad, and then call `Polypad.create()`:
 
 ```html
-<script src="https://static.mathigon.org/api/polypad-v2.2.js"></script>
+<script src="https://static.mathigon.org/api/polypad-v2.3.js"></script>
 <div id="polypad" style="width: 800px; height: 500px;"></div>
 <script>Polypad.create(document.querySelector('#polypad'), {apiKey: 'test'})</script>
 ```
@@ -21,7 +21,7 @@ Polypad requires [Custom Web Components](https://developer.mozilla.org/en-US/doc
 
 Our goal is to support the latest version of Chrome, Firefox, Opera and Edge on all mobile and desktop devices.
 
-Note: the `polypad-v2.2.js` script needs to be included in the `<body>`, not the `<head>` of your HTML document.
+Note: the `polypad-v2.3.js` script needs to be included in the `<body>`, not the `<head>` of your HTML document.
 
 
 ## JSON Schema
@@ -40,6 +40,10 @@ interface TileData {
   colour?: string;    // HEX colour (e.g. "#ff0044")
   flipped?: boolean;
   locked?: boolean;
+  fixed?: boolean;
+  hidden?: boolean;
+  order?: 'front'|'back'
+  cables?: {fromPort?: string, toPort?: string, toTileId: string}[];
 }
 
 interface StrokeData {
@@ -57,6 +61,7 @@ interface PolypadData {
   noLabels: boolean;
   altColors?: boolean;
   mergeTiles?: boolean;
+  evalEquations?: boolean;
   labelType?: 'fraction'|'percentage'|'decimal';
   tiles: TileData[];
   strokes: StrokeData[];

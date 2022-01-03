@@ -7,6 +7,38 @@ description: todo
 
 # Polypad API Changelog
 
+## v2.3 (3 January 2022)
+
+### Breaking Changes
+
+* Changed the order and position of some sidebar items. Coordinate systems and sliders are now in
+  the "Algebra" selection, while the number line is now in the "Numbers" section. The last
+  section has been renamed to "Games and Applications" and contains a number of new features.
+* Updated "linking" system that now allows the same tile (e.g. table or equation) to be linked to
+  multiple other tiles (e.g. a coordinate system). The link data is now stored as an array in the
+  `cables` property of `TileData`, rather than the previous `link` string. For any existing, saved
+  Polypad canvases, `link: 'abc'` needs to be converted to `cables: [{toTileId: 'abc'}]`.
+
+### New Features
+
+* Create scatter plots that can be created by linkin a table to a coordinate system.
+* New chessboard and chess pieces tiles, including move hints.
+* New "ten-frame" tile and two-sided counters.
+* New number line multiples jumps tile.
+* New resize handle for the balance scale plates.
+* Sound effects when applying certain actions (e.g. rolling a die)
+* Double-click on a function or scatter plot in the coordinate system to change its colour.
+* Keyboard shortcuts for bold/italic/underlined in rich text boxes.
+
+### Fixes
+
+* Correctly apply tile transformations when a tile's position is changed by another tile (e.g. the balance scale or bucket of zero).
+* Fix tile transforms if the x or y coordinates are 0. (This could happen after curring unfolded 3D nets.)
+* When copying a geometric construction, include all dependency points in the change event data (e.g. the center point when copying a circle).
+* Improved parsing of equations involving implicit multiplication or mixed numbers.
+* Add XSS escaping for table tiles.
+
+
 ## v2.2 (24 November 2021)
 
 ### New Features
@@ -66,8 +98,8 @@ description: todo
 ### Breaking Changes
 
 * Updated change and undo/redo handling
-    * The undo and redo button now only apply to actions by the user, not to tiles added or modified programatically
-    * The `.on('change')` event now returns arrays with the previous and updated state of tiles that have changed
+  * The undo and redo button now only apply to actions by the user, not to tiles added or modified programatically
+  * The `.on('change')` event now returns arrays with the previous and updated state of tiles that have changed
 
 ### New Features
 
@@ -103,9 +135,9 @@ description: todo
 
 * Fix change events for fraction bars, prime factor circles and number tiles
 * Equation editor bugs
-    * Super and subscript typing, better spacing
-    * Serialisation of some expressions
-    * Correctly layout equations when elements are hidden
+  * Super and subscript typing, better spacing
+  * Serialisation of some expressions
+  * Correctly layout equations when elements are hidden
 * Additional sanity checks in case pointer move/end events are triggered before a start event
 * Prevent right-click events
 
