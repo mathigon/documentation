@@ -12,7 +12,7 @@ description: todo
 Our JavaScript API allows you to add interactive Polypad canvases to any website. You simply need to include our JS source file, create a parent element for Polypad, and then call `Polypad.create()`:
 
 ```html
-<script src="https://static.mathigon.org/api/polypad-v2.3.js"></script>
+<script src="https://static.mathigon.org/api/polypad-v3.0.js"></script>
 <div id="polypad" style="width: 800px; height: 500px;"></div>
 <script>Polypad.create(document.querySelector('#polypad'), {apiKey: 'test'})</script>
 ```
@@ -42,33 +42,50 @@ interface TileData {
   locked?: boolean;
   fixed?: boolean;
   hidden?: boolean;
+  hideHandles?: boolean;
   order?: 'front'|'back'
   cables?: {fromPort?: string, toPort?: string, toTileId: string}[];
 }
 
 interface StrokeData {
   id?: string;         // Unique identifier
-  points: string;      // SVG path
+  points: string;      // SVG path, or geometric expression
   colour?: string;     // HEX colour
   brush: 'pen'|'marker'|'highlighter'
 }
 
-type GridType = 'none'|'square2-grid'|'square-dots'|'square-grid'|'tri-dots'|'tri-grid'|'tri2-dots'|'tri2-grid';
+interface PolypadOptions {
+  toolbar?: string;     // Comma-separated list of toolbar icons to show
+  settings?: string;    // Comma-separated list of settings bar icons to show
+  sidebar?: string;     // Comma-separated list of sidebar sections to show
+  actionbar?: string;   // Comma-separated list of actionbar items to show
+
+  labelType?: 'fraction'|'percentage'|'decimal';
+  grid?: 'none'|'square2-grid'|'square-dots'|'square-grid'|'tri-dots'|'tri-grid'|'tri2-dots'|'tri2-grid';
+
+  noLabels?: boolean;       // Disable number labels for some tiles (e.g. number bars)
+  altColors?: boolean;      // Alternate colour scheme for polygons and number bars
+  mergeTiles?: boolean;     // Merge number cards or prime factor circles when hovering
+  evalEquations?: boolean;  // Evaluate equations
+
+  noCopyPaste?: boolean;
+  noUndoRedo?: boolean;
+  noPinchPan?: boolean;
+  noDeleting?: boolean;
+  noAudio?: boolean;        // Disable sound effects
+  noRotating?: boolean;
+  noSnapping?: boolean;
+}
 
 interface PolypadData {
-  title: string;         // Polypad title
-  grid: GridType;
-  noLabels: boolean;
-  altColors?: boolean;
-  mergeTiles?: boolean;
-  evalEquations?: boolean;
-  labelType?: 'fraction'|'percentage'|'decimal';
-  tiles: TileData[];
-  strokes: StrokeData[];
+  title?: string;
+  options?: PolypadOptions;
+  tiles?: TileData[];
+  strokes?: StrokeData[];
 }
 ```
 
-Please that the maximum length of the `tiles` and `strokes` array is 2000. With more items on the
+By default, the maximum length of the `tiles` and `strokes` array is 2000. With more items on the
 same page, you might see performance issues on some devices.
 
 
@@ -93,9 +110,6 @@ interface Polypad {
 
     // Override the default theme colours 'red', 'blue', 'green', ...
     themeColours?: Record<string, string>;
-
-    // Whether to prevent panning and zooming of the canvas using touch gestures.
-    noPanAndZoom?: boolean;
 
     // Whether to bind keyboard events for undo/redo and cut/copy/paste. Default is false.
     bindKeyboardEvents?: boolean;
@@ -137,16 +151,7 @@ interface PolypadInstance {
   redo: () => void;
 
   // Set the background grid or display options. See the `options` event for more details.
-  setGrid: (string: GridType) => void;
-  setOptions: (e: {
-    altColors?: boolean;
-    advancedOptions?: boolean;
-    mergeTiles?: boolean;
-    labelType?: 'fraction'|'percentage'|'decimal';
-    noLabels?: boolean;
-    evalEquations?: boolean;
-    playAudio?: boolean;
-  }) => void;
+  setOptions: (e: Partial<PolypadOptions>) => void;
 
   // Clear all tiles on the current canvas. Unline .unSerialize({}), this action can be undone.
   clear: () => void;
@@ -167,21 +172,41 @@ interface PolypadInstance {
 ```
 
 
+## UI Customisation
+
+The `PolypadData.options` object contains properties to customise which UI elements are visible,
+using comma-separated strings. If this field is empty, all items will be shown. Otherwise, only
+the selected items will be shown.
+
+### Toolbar
+
+Options include `move`, `pen`, `geo`, `text`, `equation`, `eraser`, `image`, and `color`.
+
+### Settings Bar
+
+Options include `fullscreen`, `grid`, `customise` and `download`. The undo/redo buttons can be
+hidden using the `.noUndoRedo` Polypad option, and the pan/zoom buttons can be hidden using the
+`.noPinchPan` option.
+
+### Sidebar
+
+Options include `geometry`, `polygons`, `polyominoes`, `tangram`, `penrose`, `pentagons`, `solids`,
+`measuring`, `patterns`, `numbers`, `number-tiles`, `number-bars`, `number-frames`, `number-cards`,
+`number-line`, `primes`, `number-dots`, `number-grid`, `number-tools`, `fractions`, `fraction-bars`,
+`fraction-circles`, `algebra`, `algebra`, `balance`, `axes`, `sliders`, `probability`,
+`probability`, `charts`, `playing-cards`, `polyhedral-dice`, `non-trans-dice`, `applications`,
+`logic`, `chess`, `clocks` and `dominoes`.
+
+### Actionbar
+
+Many options, that are simply the label/tooltip of each item, in lowercase and kebab-case. Examples
+include `copy`, `delete` or `split-tiles`.
+
+
 ## Custom Sidebar Tab
 
 Using the `sidebarTab` property, you can enable a second, custom tab for the sidebar, similar to
-Mathigon's version of Polypad. You need to specify a title, as well as an icon ID, which could be
-one of these options:
-
-```
-'tiles', 'controls', 'shapes', 'geometry', 'numbers', 'fractions', 'algebra', 'probability', 'undo',
-'redo', 'grid', 'construction', 'text', 'color', 'pen', 'axes', 'screenshot', 'zoom-in', 'zoom-out',
-'move', 'cursor', 'pen', 'marker', 'highlighter', 'ruler', 'text', 'eraser', 'add-image',
-'text-alt', 'fraction', 'power', 'sqrt', 'copy', 'delete', 'geo-line', 'geo-circle', 'equation',
-'fullscreen-reverse', 'fullscreen', 'spades', 'clubs', 'hearts', 'diamonds', 'bold', 'italic',
-'underlined', 'quiz', 'settings', 'unlocked', 'lock', 'layer-back', 'layer-front', 'folder-shared',
-'move-off', 'eye-off', 'fraction-up', 'fraction-down', 'combine-dots', 'split-dots'
-```
+Mathigon's version of Polypad. You need to specify a title, as well as an icon ID.
 
 The content of the sidebar can be simply added into the `<div></div>` that the Polypad instance is
 attached to. It will be automatically shown in the correct place using the `<slot></slot>`
@@ -223,21 +248,12 @@ stack of changes.
 
 __Callback Options__: `Event`
 
-### `.on('grid')`
-
-Triggered whenever the user changes the grid background of the canvas.
-
-__Callback Options__: `{grid: GridType}`
-
 ### `.on('options')`
 
-Triggered whenever the user changes the canvas options using the settings bar on the left. Options
-include whether to use an alternate colour scheme (`altColors`), whether to show number labels for
-some tiles (`noLabels`), whether to merge number cards or prime factor circles (`mergeTiles`),
-whether to play sound effects (`playAudio`), and whether to evaluate equations (`evalEquations`).
-This event will always be called after the `.setOptions()` method.
+Triggered whenever the user changes the canvas options using the settings bar on the left. The
+available options are listed in the `PolypadOptions` object.
 
-__Callback Options__: `{altColors?: boolean, advancedOptions?: boolean, noLabels?: boolean, mergeTiles?: boolean, labelType?: 'fraction'|'percentage'|'decimal', evalEquations?: boolean, playAudio?: boolean}`
+__Callback Options__: `Partial<PolypadOptions>`
 
 ### `.on('selection')`
 
@@ -251,15 +267,3 @@ This event is triggered continuously while users are moving one or more tiles. T
 contains the ID and the current position of all currently selected tiles.
 
 __Callback Options__: `{tiles: {id: string, x: number, y: number}[]}`
-
-
-## Future Features
-
-* [ ] Customisation options for which items to show in the sidebar, toolbar and settings menu
-* [ ] Animate the position of tiles in `.update()`, rather than changing the position instantly.
-* [ ] Animate the drawing of strokes in `.add()`.
-* [ ] Expose additional, internal methods and events
-* [ ] Customise the maximum zoom/pan limits
-* [ ] Switch colour scheme (light/dark)
-* [ ] Support non-English languages
-* [ ] Support including the script in the `<head>`. Currently, it accesses `document.body`, so it needs to be included in the `<body>`.

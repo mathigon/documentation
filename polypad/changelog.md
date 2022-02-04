@@ -5,7 +5,59 @@ parent: Polypad API Docs
 description: todo
 ---
 
-# Polypad API Changelog
+# Polypad Changelog
+
+## Future
+
+* [ ] __v3.1__ New settings panel in the UI, for users to be able to customise the Polypad options.
+* [ ] __v3.2__ Support non-English languages.
+* [ ] __v4.0__ Break up the `.options` string for tiles into typed, self-documenting objects with
+  multiple different properties.
+* [ ] __v4.0__ Refactored change/undo/redo handling with many bug fixes.
+* [ ] Animate the position of tiles in `.update()`, rather than changing the position instantly, and animate the drawing of strokes in `.add()`.
+* [ ] Customise the maximum zoom/pan limits
+* [ ] Switch colour scheme (light/dark)
+* [ ] Support including the script in the `<head>`. Currently, it accesses `document.body`, so it needs to be included in the `<body>`.
+
+
+## v3.0 (4 February 2022)
+
+### Breaking Changes
+
+* Significantly improved options handling, with many additional ways to customise the UI and
+  features of Polypad:
+  * All options (e.g. `grid`, `noLabels`, `altColors`, `mergeTiles` and `evalEquations`) are now
+    grouped under a `PolypadData.options` object.
+  * New `toolbar`, `settings`, `sidebar` and `actionbar` options can be used to show only a subset
+    of available tiles or buttons in the UI, using a comma-separated string.
+  * Additional options for `noCopyPaste`, `noUndoRedo`, `noPinchPan`, `noDeleting`, `noAudio`,
+    `noRotating` and  `noSnapping`.
+  * The `.setGrid()` method and the `.on('grid')` event have been removed. You can now just use the
+    `.setOptions()` method and the `.on('options')` event.
+  * The `noPanAndZoom` property has been removed when setting up Polypad, and is now an option
+    that can be changed dynamically, like the ones above.
+* New __Action Bar__ that floats under your current selection of tiles or can be pinned to the
+  bottom. This can be used to customise properties of the tile, or apply actions.
+
+### New Features
+
+* Logic gate tiles, including switches, flip-flops and light bulbs, for learning computer science.
+* Significantly improved snapping and drawing logic, including snapping to intersections or paths
+  generated using the ruler or protractor utensils. The `Stroke.points` property can now be both
+  an SVG path string or a geometric expression like `segment(point(1,1),point(2,2))`.
+* Inches units for ruler, updated labels for ruler and protractor.
+* Advanced option to hide the "handles" for different tiles (`TileData.hideHandles`).
+* The table and coordinate system icons now appear both in the "algebra" and "data science" sections
+  of the sidebar.
+
+### Fixes
+
+* Fix undo/redo events when adding geo points that snap to existing constructions.
+* Split number tiles first into rows, then into individual tiles.
+* Various improvements to the linking system (styling and UX tweaks).
+* Various performance improvements and reduced JS bundle size.
+* Updated "copy" icon.
+
 
 ## v2.3 (3 January 2022)
 
