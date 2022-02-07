@@ -2,7 +2,6 @@
 layout: page
 nav_order: 1
 parent: Polypad API Docs
-description: todo
 ---
 
 # Polypad Tile Types

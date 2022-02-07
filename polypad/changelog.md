@@ -2,15 +2,14 @@
 layout: page
 nav_order: 2
 parent: Polypad API Docs
-description: todo
 ---
 
 # Polypad Changelog
 
 ## Future
 
-* [ ] __v3.1__ New settings panel in the UI, for users to be able to customise the Polypad options.
-* [ ] __v3.2__ Support non-English languages.
+* [ ] __v3.2__ New settings panel in the UI, for users to be able to customise the Polypad options.
+* [ ] __v3.3__ Support non-English languages.
 * [ ] __v4.0__ Break up the `.options` string for tiles into typed, self-documenting objects with
   multiple different properties.
 * [ ] __v4.0__ Refactored change/undo/redo handling with many bug fixes.
@@ -18,6 +17,20 @@ description: todo
 * [ ] Customise the maximum zoom/pan limits
 * [ ] Switch colour scheme (light/dark)
 * [ ] Support including the script in the `<head>`. Currently, it accesses `document.body`, so it needs to be included in the `<body>`.
+
+
+## v3.1 (7 February 2022)
+
+### Breaking Changes
+
+* Replace the canvas-wide `labelType` and `noLabels` options with a tile-specific `labels` option.
+  You can now have tiles with multiple different label types on the same canvas, and there is a new
+  selector for fraction bars and circles.
+
+### Fixes
+
+* Fix equation editor tool selection
+* Fix initial loading of cached options
 
 
 ## v3.0 (4 February 2022)

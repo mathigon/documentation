@@ -2,7 +2,6 @@
 layout: page
 nav_order: 7
 has_children: true
-description: todo
 ---
 
 # Polypad API Docs
@@ -12,7 +11,7 @@ description: todo
 Our JavaScript API allows you to add interactive Polypad canvases to any website. You simply need to include our JS source file, create a parent element for Polypad, and then call `Polypad.create()`:
 
 ```html
-<script src="https://static.mathigon.org/api/polypad-v3.0.js"></script>
+<script src="https://static.mathigon.org/api/polypad-v3.1.js"></script>
 <div id="polypad" style="width: 800px; height: 500px;"></div>
 <script>Polypad.create(document.querySelector('#polypad'), {apiKey: 'test'})</script>
 ```
@@ -44,6 +43,7 @@ interface TileData {
   hidden?: boolean;
   hideHandles?: boolean;
   order?: 'front'|'back'
+  labels?: 'fraction'|'percentage'|'decimal'|'hidden';
   cables?: {fromPort?: string, toPort?: string, toTileId: string}[];
 }
 
@@ -60,10 +60,7 @@ interface PolypadOptions {
   sidebar?: string;     // Comma-separated list of sidebar sections to show
   actionbar?: string;   // Comma-separated list of actionbar items to show
 
-  labelType?: 'fraction'|'percentage'|'decimal';
   grid?: 'none'|'square2-grid'|'square-dots'|'square-grid'|'tri-dots'|'tri-grid'|'tri2-dots'|'tri2-grid';
-
-  noLabels?: boolean;       // Disable number labels for some tiles (e.g. number bars)
   altColors?: boolean;      // Alternate colour scheme for polygons and number bars
   mergeTiles?: boolean;     // Merge number cards or prime factor circles when hovering
   evalEquations?: boolean;  // Evaluate equations
