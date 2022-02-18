@@ -8,7 +8,6 @@ parent: Polypad API Docs
 
 ## Future
 
-* [ ] __v3.2__ New settings panel in the UI, for users to be able to customise the Polypad options.
 * [ ] __v3.3__ Support non-English languages.
 * [ ] __v4.0__ Break up the `.options` string for tiles into typed, self-documenting objects with
   multiple different properties.
@@ -17,6 +16,36 @@ parent: Polypad API Docs
 * [ ] Customise the maximum zoom/pan limits
 * [ ] Switch colour scheme (light/dark)
 * [ ] Support including the script in the `<head>`. Currently, it accesses `document.body`, so it needs to be included in the `<body>`.
+
+
+## v3.2 (17 February 2022)
+
+### Breaking Changes
+
+* The "grid" and "settings" panels in the settings bar have changed significantly – see below.
+* Tile weights for the balance scale components are now stored in `.options.tileWeights` rather than
+  the options strings for each individual balance scale. This used to cause various bugs with
+  multiple balance scales on the same canvas.
+
+### New Features
+
+* New panel to customise the UI of Polypad and select which features are available. Some options
+  from the old settings panel have moved into the "grid" selection panel (e.g. editing hidden tiles
+  or resetting the viewport).
+* New mode for editing locked or hidden tiles.
+* Reset the Polypad viewport when exiting fullscreen mode.
+* New geometry tool for drawing rectangles.
+* Support fraction bar denominators up to 32.
+* New `.showGesture()` method to help with building onboarding flows.
+
+### Fixes
+
+* Fix loading of initial Polypad options when instantiating API (e.g. grid).
+* XSS escaping for content of rich text boxes.
+* Fix multiple SVG display bugs in Safari (compass, spinners, and number line).
+* Fix label type when splitting fraction bars into multiple segments.
+* Hide the actionbar when no valid actions are selected.
+* Improved snapping when moving geometry construction paths.
 
 
 ## v3.1 (7 February 2022)

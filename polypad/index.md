@@ -11,7 +11,7 @@ has_children: true
 Our JavaScript API allows you to add interactive Polypad canvases to any website. You simply need to include our JS source file, create a parent element for Polypad, and then call `Polypad.create()`:
 
 ```html
-<script src="https://static.mathigon.org/api/polypad-v3.1.js"></script>
+<script src="https://static.mathigon.org/api/polypad-v3.2.js"></script>
 <div id="polypad" style="width: 800px; height: 500px;"></div>
 <script>Polypad.create(document.querySelector('#polypad'), {apiKey: 'test'})</script>
 ```
@@ -20,7 +20,7 @@ Polypad requires [Custom Web Components](https://developer.mozilla.org/en-US/doc
 
 Our goal is to support the latest version of Chrome, Firefox, Opera and Edge on all mobile and desktop devices.
 
-Note: the `polypad-v2.3.js` script needs to be included in the `<body>`, not the `<head>` of your HTML document.
+Note: the `polypad-v3.2.js` script needs to be included in the `<body>`, not the `<head>` of your HTML document.
 
 
 ## JSON Schema
@@ -64,6 +64,7 @@ interface PolypadOptions {
   altColors?: boolean;      // Alternate colour scheme for polygons and number bars
   mergeTiles?: boolean;     // Merge number cards or prime factor circles when hovering
   evalEquations?: boolean;  // Evaluate equations
+  tileWeights?: string;     // Used for balance scales
 
   noCopyPaste?: boolean;
   noUndoRedo?: boolean;
@@ -157,6 +158,11 @@ interface PolypadInstance {
   getViewport: () => {x: number; y: number; zoom: number};
   setViewport: (x: number, y: number, zoom: number) => void;
   resetViewport: () => void;
+
+  // Show a floating hand gesture that animates either clicking on a DOM element (no slide)
+  // or dragging a DOM element by a certain distance (with slide). The gesture disappears as
+  // soon as the target is interacted with.
+  showGesture: (selector: string, slide?: {x: number, y: number}) => void;
 
   // Expand, collapase or toggle the sidebar on the left. With no arguments, the current state
   // is flipped, or you can explicitly specify and expanded or collapsed state.
