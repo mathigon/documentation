@@ -11,7 +11,7 @@ has_children: true
 Our JavaScript API allows you to add interactive Polypad canvases to any website. You simply need to include our JS source file, create a parent element for Polypad, and then call `Polypad.create()`:
 
 ```html
-<script src="https://static.mathigon.org/api/polypad-v3.2.js"></script>
+<script src="https://static.mathigon.org/api/polypad-v3.1.js"></script>
 <div id="polypad" style="width: 800px; height: 500px;"></div>
 <script>Polypad.create(document.querySelector('#polypad'), {apiKey: 'test'})</script>
 ```
@@ -20,7 +20,7 @@ Polypad requires [Custom Web Components](https://developer.mozilla.org/en-US/doc
 
 Our goal is to support the latest version of Chrome, Firefox, Opera and Edge on all mobile and desktop devices.
 
-Note: the `polypad-v3.2.js` script needs to be included in the `<body>`, not the `<head>` of your HTML document.
+Note: the `polypad-v2.3.js` script needs to be included in the `<body>`, not the `<head>` of your HTML document.
 
 
 ## JSON Schema
@@ -131,8 +131,8 @@ interface PolypadInstance {
   serialize: (maxTiles?: number, maxStrokes?: number, maxStrokeLength?: number) => PolypadData;
   unSerialize: (data: PolypadData) => void;
 
-  // Create a PNG image of a given size. This asynchronous function returns a Data URI string.
-  pngImage: (width: number, height: number) => Promise<string>;
+  // Create an image of a given size. This asynchronous function returns a Data URI string.
+  image: (width: number, height: number, type?: 'png'|'jpg'|'svg') => Promise<string>;
 
   // Add, update or delete a tile or stroke. .add() returns the ID of the new item. Note that
   // you cannot update strokes, or update the 'name' property of a tile once created.

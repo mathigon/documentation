@@ -8,14 +8,36 @@ parent: Polypad API Docs
 
 ## Future
 
-* [ ] __v3.3__ Support non-English languages.
 * [ ] __v4.0__ Break up the `.options` string for tiles into typed, self-documenting objects with
   multiple different properties.
+* [ ] __v4.0__ Support non-English languages.
 * [ ] __v4.0__ Refactored change/undo/redo handling with many bug fixes.
 * [ ] Animate the position of tiles in `.update()`, rather than changing the position instantly, and animate the drawing of strokes in `.add()`.
 * [ ] Customise the maximum zoom/pan limits
 * [ ] Switch colour scheme (light/dark)
 * [ ] Support including the script in the `<head>`. Currently, it accesses `document.body`, so it needs to be included in the `<body>`.
+
+
+## v3.3 (24 February 2022)
+
+### Breaking Changes
+
+* The `.pngImage()` method has been renamed to `.image()` and accepts and additional `type` argument
+  that can be PNG, JPG or SVG. PNG exports now have a transparent background, rather than white.
+* Reorganised "polygons" section in the sidebar, with new tools. Hide 10 and 12-sided regular
+  polygons (these can be created manually using the new generic "regular polygon" tile).
+
+### New Features
+
+* New "rectangle" and "regular polygon" tiles that can be customised.
+* New gemetry tool for drawing angles.
+* Ability to add labels to dynamic geometry elements (including their current value)
+* Export canvas as JPG or SVG, in addition to PNG.
+
+### Fixes
+
+* Lots of dynamic geometry fixes when deleting, snapping, or undo/redoing.
+* Hide "flip" button for symmetric polygons that are not rotated.
 
 
 ## v3.2 (17 February 2022)
