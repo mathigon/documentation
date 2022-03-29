@@ -18,6 +18,28 @@ parent: Polypad API Docs
 * [ ] Support including the script in the `<head>`. Currently, it accesses `document.body`, so it needs to be included in the `<body>`.
 
 
+## v3.4 (29 March 2022)
+
+### New Features
+
+* Ten-sided dice
+* Sound effects, binary display and metronome input for logic gates.
+* Keyboard shortcut for selecting _all_ tiles and deleting tiles.
+* Show radians labels as multiples of _π_ when relevant.
+
+### Fixes
+
+* Allow hiding the "customise" panel in the settings bar.
+* Fix the knight moves on the chessboard.
+* Correctly plot tabular data with numbers containing units or ,s.
+* Keep focus on pasted tiles.
+* Fix clicking on colour picker RGB fields.
+* Don't preload sound effects.
+* Fix copy+paste for dynamic geometry tiles.
+* Fix action bar positioning for dynamic geometry tiles.
+* Fix keyboard shortcuts for toolbar buttons.
+
+
 ## v3.3 (24 February 2022)
 
 ### Breaking Changes
