@@ -8,7 +8,7 @@ parent: Fermat.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L12">xnumber.ts#L12</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L16">xnumber.ts#L16</a></div>
 
 ## <span class="pill">Class</span> XNumber
 
@@ -16,20 +16,20 @@ Extended Number class.
 
 <div class="docs-item" markdown="1">
 
-### constructor <span class="signature">(num: number, den: number, unit: %|π): XNumber</span>
+### constructor <span class="signature">(num: number, den: number, unit: Suffix): XNumber</span>
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | `num` | number |  |  |
 | `den` | number |  |  |
-| `unit` | %|π |  |  |
+| `unit` | Suffix |  |  |
 
 
 </div>
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L14">xnumber.ts#L14</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L18">xnumber.ts#L18</a></div>
 
 ### <span class="pill">Property</span> .den
 
@@ -37,7 +37,7 @@ Extended Number class.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L13">xnumber.ts#L13</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L17">xnumber.ts#L17</a></div>
 
 ### <span class="pill">Property</span> .num <span class="signature">: number</span>
 
@@ -45,7 +45,7 @@ Extended Number class.
 
 <div class="docs-item" markdown="1">
 
-### <span class="pill">Property</span> .unit
+### <span class="pill">Property</span> .unit <span class="signature">?: Suffix</span>
 
 </div>
 
@@ -89,7 +89,7 @@ Simplifies fractions, e.g. 4/8 would become 1/2.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L50">xnumber.ts#L50</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L52">xnumber.ts#L52</a></div>
 
 ### <span class="pill">Accessor</span> .value <span class="signature">: number</span>
 
@@ -100,7 +100,7 @@ would both return 0.4.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L132">xnumber.ts#L132</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L150">xnumber.ts#L150</a></div>
 
 ### <span class="pill">Method</span> .add <span class="signature">(a: number|XNumber): XNumber</span>
 
@@ -113,7 +113,21 @@ would both return 0.4.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L144">xnumber.ts#L144</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L143">xnumber.ts#L143</a></div>
+
+### <span class="pill">Method</span> .clamp <span class="signature">(min: number, max: number): XNumber</span>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `min` | number |  |  |
+| `max` | number |  |  |
+
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L162">xnumber.ts#L162</a></div>
 
 ### <span class="pill">Method</span> .divide <span class="signature">(a: number|XNumber): XNumber</span>
 
@@ -126,7 +140,7 @@ would both return 0.4.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L140">xnumber.ts#L140</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L158">xnumber.ts#L158</a></div>
 
 ### <span class="pill">Method</span> .multiply <span class="signature">(a: number|XNumber): XNumber</span>
 
@@ -139,7 +153,7 @@ would both return 0.4.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L136">xnumber.ts#L136</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L154">xnumber.ts#L154</a></div>
 
 ### <span class="pill">Method</span> .subtract <span class="signature">(a: number|XNumber): XNumber</span>
 
@@ -152,7 +166,7 @@ would both return 0.4.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L37">xnumber.ts#L37</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L39">xnumber.ts#L39</a></div>
 
 ### <span class="pill">Method</span> .toMathML <span class="signature">(): string</span>
 
@@ -160,15 +174,20 @@ would both return 0.4.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L26">xnumber.ts#L26</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L30">xnumber.ts#L30</a></div>
 
-### <span class="pill">Method</span> .toString <span class="signature">(): string</span>
+### <span class="pill">Method</span> .toString <span class="signature">(precision: number): string</span>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `precision` | number | 4 |  |
+
 
 </div>
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L22">xnumber.ts#L22</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L26">xnumber.ts#L26</a></div>
 
 ### <span class="pill">Method</span> .valueOf <span class="signature">(): number</span>
 
@@ -176,7 +195,7 @@ would both return 0.4.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L170">xnumber.ts#L170</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L189">xnumber.ts#L189</a></div>
 
 ### <span class="pill">static</span> <span class="pill">Method</span> .difference <span class="signature">(a: XNumber, b: number|XNumber): XNumber</span>
 
@@ -192,7 +211,7 @@ Calculates the difference of two numbers a and b.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L99">xnumber.ts#L99</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L110">xnumber.ts#L110</a></div>
 
 ### <span class="pill">static</span> <span class="pill">Method</span> .fractionFromDecimal <span class="signature">(x: number, maxDen: number): XNumber</span>
 
@@ -223,7 +242,7 @@ Parses a number string, e.g. '1/2' or '20.7%'.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L176">xnumber.ts#L176</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L195">xnumber.ts#L195</a></div>
 
 ### <span class="pill">static</span> <span class="pill">Method</span> .product <span class="signature">(a: XNumber, b: number|XNumber): XNumber</span>
 
@@ -239,7 +258,7 @@ Calculates the product of two numbers a and b.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L192">xnumber.ts#L192</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L211">xnumber.ts#L211</a></div>
 
 ### <span class="pill">static</span> <span class="pill">Method</span> .quotient <span class="signature">(a: XNumber, b: number|XNumber): XNumber</span>
 
@@ -255,7 +274,7 @@ Calculates the quotient of two fractions a and b.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L149">xnumber.ts#L149</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/xnumber.ts#L167">xnumber.ts#L167</a></div>
 
 ### <span class="pill">static</span> <span class="pill">Method</span> .sum <span class="signature">(a: XNumber, b: number|XNumber): XNumber</span>
 

@@ -8,7 +8,7 @@ parent: Core.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/iterable.ts#L59">iterable.ts#L59</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/iterable.ts#L68">iterable.ts#L68</a></div>
 
 ## <span class="pill">Class</span> Itarray
 
@@ -27,7 +27,7 @@ Implements Iterable&lt;T&gt;
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/iterable.ts#L60">iterable.ts#L60</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/iterable.ts#L69">iterable.ts#L69</a></div>
 
 ### <span class="pill">readonly</span> <span class="pill">Property</span> .values
 
@@ -35,7 +35,7 @@ Implements Iterable&lt;T&gt;
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/iterable.ts#L132">iterable.ts#L132</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/iterable.ts#L141">iterable.ts#L141</a></div>
 
 ### <span class="pill">Method</span> .[Symbol.iterator] <span class="signature">(): Generator&lt;T, void, unknown&gt;</span>
 
@@ -43,7 +43,7 @@ Implements Iterable&lt;T&gt;
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/iterable.ts#L128">iterable.ts#L128</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/iterable.ts#L137">iterable.ts#L137</a></div>
 
 ### <span class="pill">Method</span> .concat <span class="signature">(newValues: Iterable&lt;T&gt;): void</span>
 
@@ -56,7 +56,7 @@ Implements Iterable&lt;T&gt;
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/iterable.ts#L79">iterable.ts#L79</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/iterable.ts#L88">iterable.ts#L88</a></div>
 
 ### <span class="pill">Method</span> .every <span class="signature">(fn: (t: T, i: number): boolean): boolean</span>
 
@@ -69,7 +69,7 @@ Implements Iterable&lt;T&gt;
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/iterable.ts#L115">iterable.ts#L115</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/iterable.ts#L124">iterable.ts#L124</a></div>
 
 ### <span class="pill">Method</span> .filter <span class="signature">(fn: (t: T, i: number): unknown): Itarray&lt;T&gt;</span>
 
@@ -82,7 +82,7 @@ Implements Iterable&lt;T&gt;
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/iterable.ts#L66">iterable.ts#L66</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/iterable.ts#L75">iterable.ts#L75</a></div>
 
 ### <span class="pill">Method</span> .map <span class="signature">(fn: (t: T, i: number): S): Itarray&lt;S&gt;</span>
 
@@ -95,7 +95,7 @@ Implements Iterable&lt;T&gt;
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/iterable.ts#L101">iterable.ts#L101</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/iterable.ts#L110">iterable.ts#L110</a></div>
 
 ### <span class="pill">Method</span> .slice <span class="signature">(from: number, to: number): Itarray&lt;T&gt;</span>
 
@@ -109,7 +109,7 @@ Implements Iterable&lt;T&gt;
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/iterable.ts#L90">iterable.ts#L90</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/iterable.ts#L99">iterable.ts#L99</a></div>
 
 ### <span class="pill">Method</span> .some <span class="signature">(fn: (t: T, i: number): boolean): boolean</span>
 
@@ -122,7 +122,7 @@ Implements Iterable&lt;T&gt;
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/iterable.ts#L143">iterable.ts#L143</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/iterable.ts#L152">iterable.ts#L152</a></div>
 
 ### <span class="pill">static</span> <span class="pill">Method</span> .make <span class="signature">(fn: (i: number): T, max: number): Itarray&lt;T&gt;</span>
 
@@ -152,7 +152,7 @@ Implements Iterable&lt;T&gt;
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/iterable.ts#L42">iterable.ts#L42</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/iterable.ts#L51">iterable.ts#L51</a></div>
 
 ## findMin <span class="signature">(items: Iterable&lt;T&gt;, value: (item: T): number, max: number, min: number): undefined|T</span>
 
@@ -197,9 +197,22 @@ Find the item in an iterable for which value() returns the smallest value.
 
 <div class="docs-item" markdown="1">
 
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/iterable.ts#L41">iterable.ts#L41</a></div>
+
+## listPairs <span class="signature">(list: Array&lt;T&gt;): Iterable&lt;[T, T]&gt;</span>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `list` | Array&lt;T&gt; |  |  |
+
+
+</div>
+
+<div class="docs-item" markdown="1">
+
 <div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/iterable.ts#L33">iterable.ts#L33</a></div>
 
-## pairs <span class="signature">(a: Iterable&lt;S&gt;, b: Iterable&lt;T&gt;): Generator&lt;Array&lt;S|T&gt;, void, unknown&gt;</span>
+## pairs <span class="signature">(a: Iterable&lt;S&gt;, b: Iterable&lt;T&gt;): Iterable&lt;[S, T]&gt;</span>
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |

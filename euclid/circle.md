@@ -110,7 +110,7 @@ The length of the circumference of this circle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/circle.ts#L62">circle.ts#L62</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/circle.ts#L66">circle.ts#L66</a></div>
 
 ### <span class="pill">Method</span> .contains <span class="signature">(p: Point): boolean</span>
 
@@ -123,7 +123,7 @@ The length of the circumference of this circle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/circle.ts#L94">circle.ts#L94</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/circle.ts#L98">circle.ts#L98</a></div>
 
 ### <span class="pill">Method</span> .equals <span class="signature">(other: Circle, tolerance: number): boolean</span>
 
@@ -131,6 +131,19 @@ The length of the circumference of this circle.
 | --- | --- | --- | --- |
 | `other` | Circle |  |  |
 | `tolerance` | number |  |  |
+
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/circle.ts#L62">circle.ts#L62</a></div>
+
+### <span class="pill">Method</span> .offset <span class="signature">(p: Point): number</span>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `p` | Point |  |  |
 
 
 </div>
@@ -150,7 +163,7 @@ The length of the circumference of this circle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/circle.ts#L78">circle.ts#L78</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/circle.ts#L82">circle.ts#L82</a></div>
 
 ### <span class="pill">Method</span> .reflect <span class="signature">(l: Line): Circle</span>
 
@@ -163,7 +176,7 @@ The length of the circumference of this circle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/circle.ts#L73">circle.ts#L73</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/circle.ts#L77">circle.ts#L77</a></div>
 
 ### <span class="pill">Method</span> .rotate <span class="signature">(a: number, c: Point): Circle</span>
 
@@ -177,7 +190,7 @@ The length of the circumference of this circle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/circle.ts#L82">circle.ts#L82</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/circle.ts#L86">circle.ts#L86</a></div>
 
 ### <span class="pill">Method</span> .scale <span class="signature">(sx: number, sy: number): Circle</span>
 
@@ -191,7 +204,7 @@ The length of the circumference of this circle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/circle.ts#L86">circle.ts#L86</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/circle.ts#L90">circle.ts#L90</a></div>
 
 ### <span class="pill">Method</span> .shift <span class="signature">(x: number, y: number): Circle</span>
 
@@ -218,7 +231,7 @@ The length of the circumference of this circle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/circle.ts#L98">circle.ts#L98</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/circle.ts#L102">circle.ts#L102</a></div>
 
 ### <span class="pill">Method</span> .toString <span class="signature">(): string</span>
 
@@ -226,7 +239,7 @@ The length of the circumference of this circle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/circle.ts#L68">circle.ts#L68</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/circle.ts#L72">circle.ts#L72</a></div>
 
 ### <span class="pill">Method</span> .transform <span class="signature">(m: TransformMatrix): Circle</span>
 
@@ -239,13 +252,13 @@ The length of the circumference of this circle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/circle.ts#L90">circle.ts#L90</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/circle.ts#L94">circle.ts#L94</a></div>
 
-### <span class="pill">Method</span> .translate <span class="signature">(p: Point): Circle</span>
+### <span class="pill">Method</span> .translate <span class="signature">(p: SimplePoint): Circle</span>
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `p` | Point |  |  |
+| `p` | SimplePoint |  |  |
 
 
 </div>

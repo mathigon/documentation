@@ -8,7 +8,7 @@ parent: Euclid.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L29">angle.ts#L29</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L30">angle.ts#L30</a></div>
 
 ## <span class="pill">Class</span> Angle
 
@@ -49,7 +49,7 @@ Implements GeoShape
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L30">angle.ts#L30</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L31">angle.ts#L31</a></div>
 
 ### <span class="pill">readonly</span> <span class="pill">Property</span> .type
 
@@ -59,7 +59,7 @@ Default value: `'angle'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L88">angle.ts#L88</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L89">angle.ts#L89</a></div>
 
 ### <span class="pill">Accessor</span> .arc <span class="signature">: Arc</span>
 
@@ -69,7 +69,7 @@ Returns the Arc element corresponding to this angle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L66">angle.ts#L66</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L67">angle.ts#L67</a></div>
 
 ### <span class="pill">Accessor</span> .bisector
 
@@ -79,7 +79,7 @@ The bisector of this angle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L55">angle.ts#L55</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L56">angle.ts#L56</a></div>
 
 ### <span class="pill">Accessor</span> .deg <span class="signature">: number</span>
 
@@ -89,7 +89,7 @@ The size, in degrees, of this angle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L60">angle.ts#L60</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L61">angle.ts#L61</a></div>
 
 ### <span class="pill">Accessor</span> .isRight <span class="signature">: boolean</span>
 
@@ -99,7 +99,7 @@ Checks if this angle is right-angled.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L45">angle.ts#L45</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L46">angle.ts#L46</a></div>
 
 ### <span class="pill">Accessor</span> .rad <span class="signature">: number</span>
 
@@ -109,7 +109,17 @@ The size, in radians, of this angle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L83">angle.ts#L83</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L96">angle.ts#L96</a></div>
+
+### <span class="pill">Accessor</span> .radius <span class="signature">: number</span>
+
+Radius of the arc or sector representing this angle.
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L84">angle.ts#L84</a></div>
 
 ### <span class="pill">Accessor</span> .sup <span class="signature">: Angle</span>
 
@@ -119,7 +129,7 @@ Returns the smaller one of this and its supplementary angle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L99">angle.ts#L99</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L128">angle.ts#L128</a></div>
 
 ### <span class="pill">Method</span> .at <span class="signature">(): Point</span>
 
@@ -127,15 +137,20 @@ Returns the smaller one of this and its supplementary angle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L103">angle.ts#L103</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L136">angle.ts#L136</a></div>
 
-### <span class="pill">Method</span> .contains <span class="signature">(): boolean</span>
+### <span class="pill">Method</span> .contains <span class="signature">(p: Point): boolean</span>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `p` | Point |  |  |
+
 
 </div>
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L134">angle.ts#L134</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L167">angle.ts#L167</a></div>
 
 ### <span class="pill">Method</span> .equals <span class="signature">(_a: Angle): boolean</span>
 
@@ -148,15 +163,28 @@ Returns the smaller one of this and its supplementary angle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L95">angle.ts#L95</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L132">angle.ts#L132</a></div>
 
-### <span class="pill">Method</span> .project <span class="signature">(): Point</span>
+### <span class="pill">Method</span> .offset <span class="signature">(): number</span>
 
 </div>
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L118">angle.ts#L118</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L124">angle.ts#L124</a></div>
+
+### <span class="pill">Method</span> .project <span class="signature">(p: Point): Point</span>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `p` | Point |  |  |
+
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L151">angle.ts#L151</a></div>
 
 ### <span class="pill">Method</span> .reflect <span class="signature">(l: Line): Angle</span>
 
@@ -169,7 +197,7 @@ Returns the smaller one of this and its supplementary angle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L113">angle.ts#L113</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L146">angle.ts#L146</a></div>
 
 ### <span class="pill">Method</span> .rotate <span class="signature">(a: number, c: SimplePoint): Angle</span>
 
@@ -183,7 +211,7 @@ Returns the smaller one of this and its supplementary angle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L122">angle.ts#L122</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L155">angle.ts#L155</a></div>
 
 ### <span class="pill">Method</span> .scale <span class="signature">(sx: number, sy: number): Angle</span>
 
@@ -197,7 +225,24 @@ Returns the smaller one of this and its supplementary angle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L126">angle.ts#L126</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L101">angle.ts#L101</a></div>
+
+### <span class="pill">Method</span> .shape <span class="signature">(filled: boolean, radius: number, round: boolean): Arc|Polygon</span>
+
+Shape object that can be used to draw this angle.
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `filled` | boolean | true |  |
+| `radius` | number |  |  |
+| `round` | boolean |  |  |
+
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L159">angle.ts#L159</a></div>
 
 ### <span class="pill">Method</span> .shift <span class="signature">(x: number, y: number): Angle</span>
 
@@ -211,7 +256,15 @@ Returns the smaller one of this and its supplementary angle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L109">angle.ts#L109</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L172">angle.ts#L172</a></div>
+
+### <span class="pill">Method</span> .toString <span class="signature">(): string</span>
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L142">angle.ts#L142</a></div>
 
 ### <span class="pill">Method</span> .transform <span class="signature">(m: TransformMatrix): Angle</span>
 
@@ -224,20 +277,20 @@ Returns the smaller one of this and its supplementary angle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L130">angle.ts#L130</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L163">angle.ts#L163</a></div>
 
-### <span class="pill">Method</span> .translate <span class="signature">(p: Point): Angle</span>
+### <span class="pill">Method</span> .translate <span class="signature">(p: SimplePoint): Angle</span>
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `p` | Point |  |  |
+| `p` | SimplePoint |  |  |
 
 
 </div>
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L34">angle.ts#L34</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L35">angle.ts#L35</a></div>
 
 ### <span class="pill">static</span> <span class="pill">Method</span> .fromDegrees <span class="signature">(val: number): Angle</span>
 
@@ -250,7 +303,7 @@ Returns the smaller one of this and its supplementary angle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L38">angle.ts#L38</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L39">angle.ts#L39</a></div>
 
 ### <span class="pill">static</span> <span class="pill">Method</span> .fromRadians <span class="signature">(val: number): Angle</span>
 
@@ -265,7 +318,7 @@ Returns the smaller one of this and its supplementary angle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L18">angle.ts#L18</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L19">angle.ts#L19</a></div>
 
 ## toDeg <span class="signature">(n: number): number</span>
 
@@ -280,7 +333,7 @@ Convert angles in radians to degrees.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L23">angle.ts#L23</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/angle.ts#L24">angle.ts#L24</a></div>
 
 ## toRad <span class="signature">(n: number): number</span>
 

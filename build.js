@@ -138,7 +138,7 @@ const REPOS = {
 (async () => {
   for (const [repo, options] of Object.entries(REPOS)) {
     const dir = path.join(__dirname, '../', repo);
-    const files = glob.sync(`${options.base}/**/*.ts`, {cwd: dir});
+    const files = glob.sync(`${options.base}/*.ts`, {cwd: dir});
 
     for (const [i, f] of files.entries()) {
       await exec(`npx typedoc ${dir}/${f} --tsconfig ${dir}/tsconfig.json --json .tmp.json`);

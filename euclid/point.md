@@ -335,11 +335,11 @@ Transforms this point using a 2x3 matrix m.
 
 <div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/point.ts#L209">point.ts#L209</a></div>
 
-### <span class="pill">Method</span> .translate <span class="signature">(p: Point): Point</span>
+### <span class="pill">Method</span> .translate <span class="signature">(p: SimplePoint): Point</span>
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `p` | Point |  |  |
+| `p` | SimplePoint |  |  |
 
 
 </div>

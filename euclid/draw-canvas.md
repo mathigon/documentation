@@ -8,13 +8,13 @@ parent: Euclid.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/draw-canvas.ts#L12">draw-canvas.ts#L12</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/draw-canvas.ts#L11">draw-canvas.ts#L11</a></div>
 
 ## <span class="pill">Interface</span> CanvasDrawingOptions
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/draw-canvas.ts#L13">draw-canvas.ts#L13</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/draw-canvas.ts#L12">draw-canvas.ts#L12</a></div>
 
 ### <span class="pill">Property</span> .fill
 
@@ -22,7 +22,7 @@ parent: Euclid.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/draw-canvas.ts#L17">draw-canvas.ts#L17</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/draw-canvas.ts#L16">draw-canvas.ts#L16</a></div>
 
 ### <span class="pill">Property</span> .lineCap
 
@@ -30,7 +30,7 @@ parent: Euclid.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/draw-canvas.ts#L18">draw-canvas.ts#L18</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/draw-canvas.ts#L17">draw-canvas.ts#L17</a></div>
 
 ### <span class="pill">Property</span> .lineJoin
 
@@ -38,7 +38,7 @@ parent: Euclid.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/draw-canvas.ts#L14">draw-canvas.ts#L14</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/draw-canvas.ts#L13">draw-canvas.ts#L13</a></div>
 
 ### <span class="pill">Property</span> .opacity
 
@@ -46,7 +46,7 @@ parent: Euclid.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/draw-canvas.ts#L15">draw-canvas.ts#L15</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/draw-canvas.ts#L14">draw-canvas.ts#L14</a></div>
 
 ### <span class="pill">Property</span> .stroke
 
@@ -54,7 +54,7 @@ parent: Euclid.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/draw-canvas.ts#L16">draw-canvas.ts#L16</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/draw-canvas.ts#L15">draw-canvas.ts#L15</a></div>
 
 ### <span class="pill">Property</span> .strokeWidth
 
@@ -64,7 +64,7 @@ parent: Euclid.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/draw-canvas.ts#L25">draw-canvas.ts#L25</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/draw-canvas.ts#L24">draw-canvas.ts#L24</a></div>
 
 ## drawCanvas <span class="signature">(ctx: CanvasRenderingContext2D, obj: GeoElement, options: CanvasDrawingOptions): void</span>
 

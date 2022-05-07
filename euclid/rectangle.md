@@ -121,13 +121,13 @@ A polygon class representing this rectangle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L94">rectangle.ts#L94</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L98">rectangle.ts#L98</a></div>
 
-### <span class="pill">Method</span> .at <span class="signature">(_t: number): Point</span>
+### <span class="pill">Method</span> .at <span class="signature">(t: number): Point</span>
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `_t` | number |  |  |
+| `t` | number |  |  |
 
 
 </div>
@@ -147,7 +147,7 @@ A polygon class representing this rectangle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L78">rectangle.ts#L78</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L82">rectangle.ts#L82</a></div>
 
 ### <span class="pill">Method</span> .contains <span class="signature">(p: Point, tolerance: number): boolean</span>
 
@@ -161,7 +161,7 @@ A polygon class representing this rectangle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L127">rectangle.ts#L127</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L134">rectangle.ts#L134</a></div>
 
 ### <span class="pill">Method</span> .equals <span class="signature">(_other: Polygon): boolean</span>
 
@@ -174,7 +174,36 @@ A polygon class representing this rectangle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L83">rectangle.ts#L83</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L102">rectangle.ts#L102</a></div>
+
+### <span class="pill">Method</span> .offset <span class="signature">(p: Point): number</span>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `p` | Point |  |  |
+
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L76">rectangle.ts#L76</a></div>
+
+### <span class="pill">Method</span> .padding <span class="signature">(top: number, right: number, bottom: number, left: number): Rectangle</span>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `top` | number |  |  |
+| `right` | number |  |  |
+| `bottom` | number |  |  |
+| `left` | number |  |  |
+
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L87">rectangle.ts#L87</a></div>
 
 ### <span class="pill">Method</span> .project <span class="signature">(p: SimplePoint): Point</span>
 
@@ -187,7 +216,7 @@ A polygon class representing this rectangle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L111">rectangle.ts#L111</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L118">rectangle.ts#L118</a></div>
 
 ### <span class="pill">Method</span> .reflect <span class="signature">(l: Line): Polygon</span>
 
@@ -200,7 +229,7 @@ A polygon class representing this rectangle.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L106">rectangle.ts#L106</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L113">rectangle.ts#L113</a></div>
 
 ### <span class="pill">Method</span> .rotate <span class="signature">(a: number, c: Point): Rectangle|Polygon</span>
 
@@ -216,7 +245,7 @@ Rotates this rectangle by a given angle (in radians), optionally around point `c
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L115">rectangle.ts#L115</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L122">rectangle.ts#L122</a></div>
 
 ### <span class="pill">Method</span> .scale <span class="signature">(sx: number, sy: number): Rectangle</span>
 
@@ -230,7 +259,7 @@ Rotates this rectangle by a given angle (in radians), optionally around point `c
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L119">rectangle.ts#L119</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L126">rectangle.ts#L126</a></div>
 
 ### <span class="pill">Method</span> .shift <span class="signature">(x: number, y: number): Rectangle</span>
 
@@ -244,7 +273,7 @@ Rotates this rectangle by a given angle (in radians), optionally around point `c
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L132">rectangle.ts#L132</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L139">rectangle.ts#L139</a></div>
 
 ### <span class="pill">Method</span> .toString <span class="signature">(): string</span>
 
@@ -252,7 +281,7 @@ Rotates this rectangle by a given angle (in radians), optionally around point `c
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L101">rectangle.ts#L101</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L108">rectangle.ts#L108</a></div>
 
 ### <span class="pill">Method</span> .transform <span class="signature">(m: TransformMatrix): Polygon</span>
 
@@ -265,13 +294,13 @@ Rotates this rectangle by a given angle (in radians), optionally around point `c
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L123">rectangle.ts#L123</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/rectangle.ts#L130">rectangle.ts#L130</a></div>
 
-### <span class="pill">Method</span> .translate <span class="signature">(p: Point): Rectangle</span>
+### <span class="pill">Method</span> .translate <span class="signature">(p: SimplePoint): Rectangle</span>
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `p` | Point |  |  |
+| `p` | SimplePoint |  |  |
 
 
 </div>

@@ -1,6 +1,6 @@
 ---
 layout: page
-nav_order: 7
+nav_order: 8
 parent: Boost.js
 ---
 
@@ -8,9 +8,9 @@ parent: Boost.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/eval.ts#L470">eval.ts#L470</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/eval.ts#L473">eval.ts#L473</a></div>
 
-## compile <span class="signature">(expr: string): (context: {}): undefined|T</span>
+## compile <span class="signature">(expr: string): (context: {}, local: {}): undefined|T</span>
 
 Compiles a JS expression into a function that can be evaluated with context.
 
@@ -23,7 +23,7 @@ Compiles a JS expression into a function that can be evaluated with context.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/eval.ts#L486">eval.ts#L486</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/eval.ts#L489">eval.ts#L489</a></div>
 
 ## compileString <span class="signature">(expr: string): (vars: any): string</span>
 

@@ -376,11 +376,11 @@ Returns which side of this line a point p is on (or 0 on the line).
 
 <div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/line.ts#L143">line.ts#L143</a></div>
 
-### <span class="pill">Method</span> .translate <span class="signature">(p: Point): Line</span>
+### <span class="pill">Method</span> .translate <span class="signature">(p: SimplePoint): Line</span>
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `p` | Point |  |  |
+| `p` | SimplePoint |  |  |
 
 
 </div>
@@ -404,6 +404,20 @@ Extends Line
 ### <span class="pill">readonly</span> <span class="pill">Property</span> .type
 
 Default value: `'ray'`
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/line.ts#L172">line.ts#L172</a></div>
+
+### <span class="pill">Method</span> .contains <span class="signature">(p: Point, tolerance: number): boolean</span>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `p` | Point |  |  |
+| `tolerance` | number |  |  |
+
 
 </div>
 
@@ -437,7 +451,7 @@ Default value: `'ray'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/line.ts#L172">line.ts#L172</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/line.ts#L178">line.ts#L178</a></div>
 
 ### <span class="pill">Method</span> .toString <span class="signature">(): string</span>
 
@@ -447,7 +461,7 @@ Default value: `'ray'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/line.ts#L179">line.ts#L179</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/line.ts#L185">line.ts#L185</a></div>
 
 ## <span class="pill">Class</span> Segment
 
@@ -457,7 +471,7 @@ Extends Line
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/line.ts#L180">line.ts#L180</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/line.ts#L186">line.ts#L186</a></div>
 
 ### <span class="pill">readonly</span> <span class="pill">Property</span> .type
 
@@ -467,7 +481,7 @@ Default value: `'segment'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/line.ts#L182">line.ts#L182</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/line.ts#L188">line.ts#L188</a></div>
 
 ### <span class="pill">Method</span> .contains <span class="signature">(p: Point, tolerance: number): boolean</span>
 
@@ -481,7 +495,7 @@ Default value: `'segment'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/line.ts#L205">line.ts#L205</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/line.ts#L211">line.ts#L211</a></div>
 
 ### <span class="pill">Method</span> .contract <span class="signature">(x: number): Segment</span>
 
@@ -496,7 +510,7 @@ Contracts (or expands) a line by a specific ratio.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/line.ts#L209">line.ts#L209</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/line.ts#L215">line.ts#L215</a></div>
 
 ### <span class="pill">Method</span> .equals <span class="signature">(other: Segment, tolerance: number, oriented: boolean): boolean</span>
 
@@ -511,7 +525,7 @@ Contracts (or expands) a line by a specific ratio.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/line.ts#L192">line.ts#L192</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/line.ts#L198">line.ts#L198</a></div>
 
 ### <span class="pill">Method</span> .make <span class="signature">(p1: Point, p2: Point): Segment</span>
 
@@ -525,7 +539,7 @@ Contracts (or expands) a line by a specific ratio.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/line.ts#L196">line.ts#L196</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/line.ts#L202">line.ts#L202</a></div>
 
 ### <span class="pill">Method</span> .project <span class="signature">(p: SimplePoint): Point</span>
 
@@ -538,7 +552,7 @@ Contracts (or expands) a line by a specific ratio.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/line.ts#L216">line.ts#L216</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/line.ts#L222">line.ts#L222</a></div>
 
 ### <span class="pill">Method</span> .toString <span class="signature">(): string</span>
 

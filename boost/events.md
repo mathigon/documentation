@@ -1,6 +1,6 @@
 ---
 layout: page
-nav_order: 8
+nav_order: 9
 parent: Boost.js
 ---
 
@@ -32,7 +32,7 @@ parent: Boost.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/events.ts#L587">events.ts#L587</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/events.ts#L596">events.ts#L596</a></div>
 
 ## bindEvent <span class="signature">($el: ElementView, event: string, fn: EventCallback, options: EventListenerOptions): void</span>
 
@@ -81,7 +81,7 @@ that started on a different element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/events.ts#L339">events.ts#L339</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/events.ts#L345">events.ts#L345</a></div>
 
 ## hover <span class="signature">($el: ElementView, options: HoverEventOptions): void</span>
 
@@ -95,7 +95,7 @@ that started on a different element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/events.ts#L248">events.ts#L248</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/events.ts#L254">events.ts#L254</a></div>
 
 ## pointerOver <span class="signature">($el: ElementView, fns: OverEventOptions): void</span>
 
@@ -124,7 +124,7 @@ Gets the pointer position from an event.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/events.ts#L140">events.ts#L140</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/events.ts#L146">events.ts#L146</a></div>
 
 ## slide <span class="signature">($el: ElementView, fns: SlideEventOptions): void</span>
 
@@ -155,7 +155,7 @@ the coordinate system of the `<svg>` element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/events.ts#L600">events.ts#L600</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/events.ts#L609">events.ts#L609</a></div>
 
 ## unbindEvent <span class="signature">($el: ElementView, event: string, fn: EventCallback): void</span>
 

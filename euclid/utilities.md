@@ -82,6 +82,12 @@ parent: Euclid.js
 
 <div class="docs-item" markdown="1">
 
+### <span class="pill">Method</span> .toString <span class="signature">(): string</span>
+
+</div>
+
+<div class="docs-item" markdown="1">
+
 ### <span class="pill">Method</span> .transform <span class="signature">(matrix: TransformMatrix): GeoElement</span>
 
 | Name | Type | Default | Description |
@@ -106,7 +112,7 @@ parent: Euclid.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/utilities.ts#L27">utilities.ts#L27</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/utilities.ts#L28">utilities.ts#L28</a></div>
 
 ## <span class="pill">Interface</span> GeoShape
 
@@ -131,6 +137,17 @@ Extends GeoElement
 | --- | --- | --- | --- |
 | `p` | Point |  |  |
 | `tolerance` | number |  |  |
+
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+### <span class="pill">Method</span> .offset <span class="signature">(p: Point): number</span>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `p` | Point |  |  |
 
 
 </div>
@@ -195,11 +212,11 @@ Extends GeoElement
 
 <div class="docs-item" markdown="1">
 
-### <span class="pill">Method</span> .translate <span class="signature">(p: Point): GeoShape</span>
+### <span class="pill">Method</span> .translate <span class="signature">(p: SimplePoint): GeoShape</span>
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `p` | Point |  |  |
+| `p` | SimplePoint |  |  |
 
 
 </div>
@@ -224,7 +241,7 @@ Extends GeoElement
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/utilities.ts#L39">utilities.ts#L39</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/utilities.ts#L41">utilities.ts#L41</a></div>
 
 ## TWO_PI <span class="signature">: number</span>
 
@@ -234,7 +251,21 @@ Default value: `...`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/utilities.ts#L41">utilities.ts#L41</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/utilities.ts#L49">utilities.ts#L49</a></div>
+
+## findClosest <span class="signature">(p: Point, items: Array&lt;GeoShape&gt;): undefined|[Point, number]</span>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `p` | Point |  |  |
+| `items` | Array&lt;GeoShape&gt; |  |  |
+
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/utilities.ts#L43">utilities.ts#L43</a></div>
 
 ## rad <span class="signature">(p: SimplePoint, c: SimplePoint): number</span>
 

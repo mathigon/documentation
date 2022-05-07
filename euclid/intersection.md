@@ -8,7 +8,7 @@ parent: Euclid.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/intersection.ts#L120">intersection.ts#L120</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/intersection.ts#L134">intersection.ts#L134</a></div>
 
 ## intersections <span class="signature">(elements: Array&lt;GeoShape&gt;): Array&lt;Point&gt;</span>
 

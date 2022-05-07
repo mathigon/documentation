@@ -42,7 +42,7 @@ Default value: `...`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L94">functions.ts#L94</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L107">functions.ts#L107</a></div>
 
 ### <span class="pill">Accessor</span> .functions
 
@@ -50,7 +50,7 @@ Default value: `...`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L85">functions.ts#L85</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L98">functions.ts#L98</a></div>
 
 ### <span class="pill">Accessor</span> .simplified <span class="signature">: this</span>
 
@@ -68,7 +68,7 @@ Returns a list of all variables used in the expression (excluding defined consta
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L90">functions.ts#L90</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L103">functions.ts#L103</a></div>
 
 ### <span class="pill">Accessor</span> .variables
 
@@ -76,7 +76,7 @@ Returns a list of all variables used in the expression (excluding defined consta
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L80">functions.ts#L80</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L93">functions.ts#L93</a></div>
 
 ### <span class="pill">Method</span> .collapse <span class="signature">(): ExprFunction|ExprElement</span>
 
@@ -97,7 +97,7 @@ Returns a list of all variables used in the expression (excluding defined consta
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L62">functions.ts#L62</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L68">functions.ts#L68</a></div>
 
 ### <span class="pill">Method</span> .interval <span class="signature">(vars: VarMap): Interval</span>
 
@@ -127,7 +127,7 @@ lead to an infinite loop. You have to manually validate expressions first!
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L76">functions.ts#L76</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L89">functions.ts#L89</a></div>
 
 ### <span class="pill">Method</span> .substitute <span class="signature">(vars: ExprMap): ExprFunction</span>
 
@@ -140,7 +140,7 @@ lead to an infinite loop. You have to manually validate expressions first!
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L123">functions.ts#L123</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L136">functions.ts#L136</a></div>
 
 ### <span class="pill">Method</span> .toMathML <span class="signature">(custom: MathMLMap): string</span>
 
@@ -153,7 +153,7 @@ lead to an infinite loop. You have to manually validate expressions first!
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L98">functions.ts#L98</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L111">functions.ts#L111</a></div>
 
 ### <span class="pill">Method</span> .toString <span class="signature">(): string</span>
 
@@ -161,7 +161,7 @@ lead to an infinite loop. You have to manually validate expressions first!
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L203">functions.ts#L203</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L216">functions.ts#L216</a></div>
 
 ### <span class="pill">Method</span> .toVoice <span class="signature">(custom: MathMLMap): string</span>
 
@@ -176,7 +176,7 @@ lead to an infinite loop. You have to manually validate expressions first!
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L238">functions.ts#L238</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L251">functions.ts#L251</a></div>
 
 ## <span class="pill">Class</span> ExprTerm
 
@@ -201,7 +201,7 @@ Extends ExprElement
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L264">functions.ts#L264</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L277">functions.ts#L277</a></div>
 
 ### <span class="pill">Accessor</span> .functions
 
@@ -209,7 +209,7 @@ Extends ExprElement
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L256">functions.ts#L256</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L269">functions.ts#L269</a></div>
 
 ### <span class="pill">Accessor</span> .simplified <span class="signature">: ExprElement</span>
 
@@ -227,7 +227,7 @@ Returns a list of all variables used in the expression (excluding defined consta
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L260">functions.ts#L260</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L273">functions.ts#L273</a></div>
 
 ### <span class="pill">Accessor</span> .variables
 
@@ -235,7 +235,7 @@ Returns a list of all variables used in the expression (excluding defined consta
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L280">functions.ts#L280</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L293">functions.ts#L293</a></div>
 
 ### <span class="pill">Method</span> .collapse <span class="signature">(): ExprElement</span>
 
@@ -243,7 +243,7 @@ Returns a list of all variables used in the expression (excluding defined consta
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L244">functions.ts#L244</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L257">functions.ts#L257</a></div>
 
 ### <span class="pill">Method</span> .evaluate <span class="signature">(vars: VarMap): number</span>
 
@@ -256,7 +256,7 @@ Returns a list of all variables used in the expression (excluding defined consta
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L248">functions.ts#L248</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L261">functions.ts#L261</a></div>
 
 ### <span class="pill">Method</span> .interval <span class="signature">(vars: VarMap): Interval</span>
 
@@ -286,7 +286,7 @@ lead to an infinite loop. You have to manually validate expressions first!
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L252">functions.ts#L252</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L265">functions.ts#L265</a></div>
 
 ### <span class="pill">Method</span> .substitute <span class="signature">(vars: ExprMap): ExprElement</span>
 
@@ -299,7 +299,7 @@ lead to an infinite loop. You have to manually validate expressions first!
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L272">functions.ts#L272</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L285">functions.ts#L285</a></div>
 
 ### <span class="pill">Method</span> .toMathML <span class="signature">(custom: MathMLMap): string</span>
 
@@ -312,7 +312,7 @@ lead to an infinite loop. You have to manually validate expressions first!
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L268">functions.ts#L268</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L281">functions.ts#L281</a></div>
 
 ### <span class="pill">Method</span> .toString <span class="signature">(): string</span>
 
@@ -320,7 +320,7 @@ lead to an infinite loop. You have to manually validate expressions first!
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L276">functions.ts#L276</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/functions.ts#L289">functions.ts#L289</a></div>
 
 ### <span class="pill">Method</span> .toVoice <span class="signature">(custom: MathMLMap): string</span>
 
