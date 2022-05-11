@@ -141,6 +141,7 @@ const REPOS = {
     const files = glob.sync(`${options.base}/*.ts`, {cwd: dir});
 
     for (const [i, f] of files.entries()) {
+      if (path.basename(f) === 'index') continue;
       await exec(`npx typedoc ${dir}/${f} --tsconfig ${dir}/tsconfig.json --json .tmp.json`);
       const json = JSON.parse(await fs.readFile('./.tmp.json', 'utf8'));
 
