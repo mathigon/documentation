@@ -18,6 +18,34 @@ parent: Polypad API Docs
 * [ ] Support including the script in the `<head>`. Currently, it accesses `document.body`, so it needs to be included in the `<body>`.
 
 
+## v3.5 (12 May 2022)
+
+### New Features
+
+* Coin tiles for USD, EUR and GBP.
+* Support fraction, percentage and π multiple labels for number lines and coordinate axes.
+* New random number generator tiles with many different discrete and continuous distributions.
+* New `.paste()` utility for Polypad instances. Unlike `.add()`, this de-dupes any tile IDs, dynamic
+  geometry keys and connection cables, so that the same data can be pasted multiple times.
+* Width and height labels for number tiles.
+* New `.isTeacher` property when setting up a new canvas, which allows users to add editable question fields to the canvas.
+* New "fill" button for number frames.
+
+### Breaking Changes
+
+* The size of `number-card` tiles has been reduced from 75x75 px to 50x50 px, to be more consistent
+  with other tiles and the grid background.
+
+### Fixes
+
+* Hide question field answers when generating thumbnails.
+* Many bug fixes with copy+paste (including cables and dynamic geometry tiles).
+* Improved point ordering for un-sorted line/area chart series.
+* Center new tiles that are being dragged from the sidebar.
+* Fix bug with storing the active side of some polyhedral dice.
+* Reduced API file size!
+
+
 ## v3.4 (29 March 2022)
 
 ### New Features
