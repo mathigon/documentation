@@ -18,6 +18,13 @@ parent: Polypad API Docs
 * [ ] Support including the script in the `<head>`. Currently, it accesses `document.body`, so it needs to be included in the `<body>`.
 
 
+## v3.6 (13 May 2022)
+
+### Fixes
+
+* Fix loading error when `teacherMode` is not enabled.
+
+
 ## v3.5 (12 May 2022)
 
 ### New Features
