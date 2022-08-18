@@ -8,14 +8,87 @@ parent: Polypad API Docs
 
 ## Future
 
-* [ ] __v4.0__ Break up the `.options` string for tiles into typed, self-documenting objects with
-  multiple different properties.
-* [ ] __v4.0__ Support non-English languages.
-* [ ] __v4.0__ Refactored change/undo/redo handling with many bug fixes.
 * [ ] Animate the position of tiles in `.update()`, rather than changing the position instantly, and animate the drawing of strokes in `.add()`.
 * [ ] Customise the maximum zoom/pan limits
 * [ ] Switch colour scheme (light/dark)
 * [ ] Support including the script in the `<head>`. Currently, it accesses `document.body`, so it needs to be included in the `<body>`.
+
+
+## v4.1.0 (18 August 2022)
+
+### New Features
+
+* The API is not available in __Spanish__ using a separate bundle URL. Please note that the
+  this and future English JS bundles now also include a `-en` in their file name.
+* Light mode for a white/grey-coloured user interface (sidebar, toolbar and actionbar).
+* New input field to specify a scale factor for polygon tiles.
+* "cm" and "in" labels for the ruler tile. Option to hide all labels for the ruler.
+
+### Bug Fixes
+
+* Many bug fixes related to multiple Polypad instances on the same page.
+* Many bug fixes for Safari browsers.
+
+
+## v4.0 (12 July 2022)
+
+This is a significant and backwards-compatibility-breaking change to the Polypad API. We have
+significantly the internal change tracking and storage modal for Polypad tiles. There are three
+important differences:
+
+* Tiles and strokes are now stored in a map/object keyed by their ID, rather than in an array. This
+  applies to both the serialized Polypad JSON, and the data passed to change events.
+* The `options` of a tile are now broken up into multiple, typed properties, rather than a single
+  string. More details about these new properties can be found at https://mathigon.io/polypad/tiles.
+* The `colour` property of tiles or strokes has been renamed to `color`, the `order` property has
+  been renamed to `layer`, and the `flipped` property has been renamed to `isFlipped`. The `hidden`,
+  `locked` and `fixed` properties have been combined into a single `status` property.
+* Some tile names have changed from `algebra-tile` to `algebra` and from `pentomino` to `polyomino`.
+  The `grid` tile is no longer supported, and the `pentagon` tile is now just a normal `polygon` tile.
+* Change events are much more granular, returning only the tile properties that have changed, rather than the whole object.
+
+Together, these changes allow us to make very significant performance improvements, and enable a
+number of upcoming features. We have a [migration script](https://static.mathigon.org/api/migration.js)
+that can be used to update any existing, stored Polypad data. The updated data will have a
+`version: 2` property for identification.
+
+### Breaking Changes
+
+* The structure of the `TileData`, `StrokeData` and `PolypadData` interfaces, `.paste()` arguments
+  and `.on('change')` callback arguments have changed. See above for details.
+* Updated colour scheme for number cards and number tiles, to be more consistent across tile types.
+* Keyboard events (e.g. CTRL+Z to undo) are now bound just to the Polypad instance, rather than
+  `document` and won't be triggered unless Polypad is focussed. Losing focus also clears the
+  currentl selection. We have enabled many additional keyboard events that previously were not
+  available in the API. They are now enabled using a new `.bindKeyboardEvents()` method, rather
+  than a `bindKeyboardEvents?: boolean` property during setup (which has been removed). You can
+  even customise some of the key bindings.
+
+### New Features
+
+* Ability to "tabulate" probability tiles (e.g. dice) and show their data in a table.
+* Ability to resize the "x" and "y" values for algebra tiles, using sliders in the sidebar.
+* Merge action for number bars.
+* Split actions for number cards.
+* Actions to quickly create charts linked to tables.
+* Degree label while rotating tiles.
+* Temporarily enable the "pan" tool while holding the spacebar.
+
+* New `PolypadInstance.destroy()` method to clean up and remove a Polypad instance.
+* New `Polypad.toImage()` method that converts JSON to PNG, JPG or SVG without having to create
+  a Polypad instance.
+* New `Polypad.getCustomiseOptions()` method that returns lists of all available options to
+  customise the UI of Polypad.
+* New `Polypad.translate()` method that can be used to update text boxes, equations or image URLs
+  within Polypad.
+
+### Bug Fixes
+
+* Don't allow students to move, copy or delete question input boxes.
+* Correctly compute quartiles and median in box plots with decimal data.
+* Hide action bar for question builder tiles (in student mode).
+* Fix issues with playing cards and coins in exported SVG files.
+* Correctly set focus on the Polypad DOM element when clicking the canvas.
 
 
 ## v3.6 (13 May 2022)

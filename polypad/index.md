@@ -11,7 +11,7 @@ has_children: true
 Our JavaScript API allows you to add interactive Polypad canvases to any website. You simply need to include our JS source file, create a parent element for Polypad, and then call `Polypad.create()`:
 
 ```html
-<script src="https://static.mathigon.org/api/polypad-v3.6.js"></script>
+<script src="https://static.mathigon.org/api/polypad-en-v4.1.0.js"></script>
 <div id="polypad" style="width: 800px; height: 500px;"></div>
 <script>Polypad.create(document.querySelector('#polypad'), {apiKey: 'test'})</script>
 ```
@@ -20,7 +20,7 @@ Polypad requires [Custom Web Components](https://developer.mozilla.org/en-US/doc
 
 Our goal is to support the latest version of Chrome, Firefox, Opera and Edge on all mobile and desktop devices.
 
-Note: the `polypad-v3.6.js` script needs to be included in the `<body>`, not the `<head>` of your HTML document.
+Note: the `polypad-en-v4.x.x.js` script needs to be included in the `<body>`, not the `<head>` of your HTML document.
 
 
 ## JSON Schema
@@ -30,25 +30,20 @@ Every Polypad canvas consists of a collection of __tiles__ and __strokes__. The 
 ```ts
 interface TileData {
   name: string,       // The tile type (since 'type' is a reserved field in many databases)
-  options?: string,   // Parameters for this tile
-  id?: string;        // Unique identifier
   x?: number,         // X-position
   y?: number,         // Y-position
   rot?: number,       // Rotation (in degrees)
-  size?: number;      // Used for some resizable tiles like images or text boxes
-  colour?: string;    // HEX colour (e.g. "#ff0044")
-  flipped?: boolean;
-  locked?: boolean;
-  fixed?: boolean;
-  hidden?: boolean;
+  color?: string;     // HEX colour (e.g. "#ff0044")
+  isFlipped?: boolean;
+  status?: 'locked'|'fixed'|'hidden';
   hideHandles?: boolean;
-  order?: 'front'|'back'
+  layer?: 'front'|'normal'|'back'
   labels?: 'fraction'|'percentage'|'decimal'|'hidden';
   cables?: {fromPort?: string, toPort?: string, toTileId: string}[];
+  // Many other tile-specific options, as listed at https://mathigon.io/polypad/tiles
 }
 
 interface StrokeData {
-  id?: string;         // Unique identifier
   points: string;      // SVG path, or geometric expression
   colour?: string;     // HEX colour
   brush: 'pen'|'marker'|'highlighter'
@@ -77,9 +72,10 @@ interface PolypadOptions {
 
 interface PolypadData {
   title?: string;
+  version?: number;
   options?: PolypadOptions;
-  tiles?: TileData[];
-  strokes?: StrokeData[];
+  tiles?: Record<string, TileData>;
+  strokes?: Record<string, StrokeData>;
 }
 ```
 
@@ -102,6 +98,7 @@ interface Polypad {
     settings?: boolean;     // Whether to show the settings bar
 
     initial?: PolypadData;  // Initial data to show
+    isTeacher?: boolean;    // Whether to show editable question fields
 
     // Whether to show a second, custom sidebar tab
     sidebarTab?: {title: string, icon: string};
@@ -109,13 +106,20 @@ interface Polypad {
     // Override the default theme colours 'red', 'blue', 'green', ...
     themeColours?: Record<string, string>;
 
-    // Whether to bind keyboard events for undo/redo and cut/copy/paste. Default is false.
-    bindKeyboardEvents?: boolean;
-
     // Provide a way to upload image files: you need to upload the file object to a storage
     // backend and return a promise that resolves with the URL of the uploaded file.
     imageUpload?: (file: File) => Promise<string>;
   }) => PolypadInstance;
+
+  // Get a static image corresponding to a Polypad data object.
+  toImage: (data: PolypadData, type?: 'png'|'svg'|'jpg', width?: number, height?: number) => string;
+
+  // Get lists of all available Polypad customisation options.
+  getCustomiseOptions: (data) => {sidebar: string[], toolbar: string[], actions: string[], features: string[], settings: string[]};
+
+  // Translates a textbox, equation and image URL instances in a Polypad data object. This function
+  // modifies the first argument, and uses the second argument to generate translations.
+  translate: (data: PolypadData, translate: (value: string, type: 'html'|'url'|'expr') => string) => string;
 }
 ```
 
@@ -137,8 +141,12 @@ interface PolypadInstance {
   // Add, update or delete a tile or stroke. .add() returns the ID of the new item. Note that
   // you cannot update strokes, or update the 'name' property of a tile once created.
   add: (data: TileData|StrokeData) => string;
-  update: (id: string, properties: TileData) => void;
+  update: (id: string, properties: Partial<TileData>) => void;
   delete: (...ids: string[]) => void;
+
+  // Paste new tile data. Unlilke the "add" function, this de-dupes any tile IDs, dynamic geometry
+  // keys and connection cables, so that the same data can be pasted multiple times.
+  paste: (data: Record<string, TileData>) => void;
 
   // Get the current user selection, or programmatically select multiple existing tiles.
   getSelection: () => string[];
@@ -159,10 +167,21 @@ interface PolypadInstance {
   setViewport: (x: number, y: number, zoom: number) => void;
   resetViewport: () => void;
 
+  // Call this function to manually trigger a resize of the Polypad container. We are already
+  // using window.resize() and the ResizeObserver API (if available in the Browser).
+  resize: () => void;
+  
   // Show a floating hand gesture that animates either clicking on a DOM element (no slide)
   // or dragging a DOM element by a certain distance (with slide). The gesture disappears as
   // soon as the target is interacted with.
   showGesture: (selector: string, slide?: {x: number, y: number}) => void;
+
+  // Enable keyboard and accessibility shortcuts. See below for details
+  bindKeyboardEvents: (keys?: KeyboardShortcuts) => void;
+  
+  // Remove and clean up this Polypad instance. This action is irreversible, and any further
+  // interaction with the instance class may throw undefined Errors.
+  destroy(): void;
 
   // Expand, collapase or toggle the sidebar on the left. With no arguments, the current state
   // is flipped, or you can explicitly specify and expanded or collapsed state.
@@ -174,6 +193,44 @@ interface PolypadInstance {
 }
 ```
 
+## Keyboard Events
+
+Using the `.bindKeyboardEvents()` method, you can enable a large number of built-in keyboard
+shortcuts. You can always also use the `META/CMD` key instead of `CTRL`. Events are bound just to
+the Polypad instance, and won't be triggered unless Polypad is focussed. Events always include:
+
+* Press `SPACE` or `ENTER` to "click" the currently focussed button (for accessibility).
+* `CTRL+Z` to undo (or redo if `SHIFT` is also pressed) and `CTRL+Y` to redo.
+* `BACKSPACE`, `CLEAR` or `DELETE` to delete all currently selected tiles.
+* `C` to create a copy of all currently selected tiles.
+* `CTRL+A` to select all tiles.
+* Default browser `CUT`, `COPY` and `PASTE` events (e.g. using `CTRL+C`).
+* Hold `SPACE` to temporarily switch to the pan tool.
+* `R` to rotate the current selection (reverse rotation of `SHIFT` is also pressed).
+* `ARROW` keys to move the currently selected tiles up, down left or right.
+
+In addition, you can pass a parameter to enable some additional shortcuts when specific letter
+keys are pressed. To prevent this, pass `{}` as an argument. If you do not pass an arguments, these
+defaults will be used:
+
+```ts
+type ToolShortcut = ['tool', 'move'|'pen'|'eraser'|'text'|'pan'|'geo'|'equation'];
+type FocusShortcut = ['focus', 'sidebar'|'toolbar'|'canvas'|'actionbar'];
+type KeyboardShortcuts = Record<string, ToolShortcut|FocusShortcut>;
+
+const KEYBOARD_SHORTCUTS: KeyboardShortcuts = {
+  v: ['tool', 'move'],
+  p: ['tool', 'pen'],
+  g: ['tool', 'geo'],
+  t: ['tool', 'text'],
+  q: ['tool', 'equation'],
+  e: ['tool', 'eraser'],
+  s: ['focus', 'sidebar'],
+  d: ['focus', 'toolbar'],
+  f: ['focus', 'canvas'],
+  a: ['focus', 'actionbar']
+};
+```
 
 ## UI Customisation
 
@@ -227,11 +284,14 @@ This event is triggered whenever the state of the Polypad changes because the us
 updated or deleted a stroke or tile. Note that multiple different tiles can change at once, but the
 event is only triggered once at the _end_ of a move or rotate action.
 
-The `.change()` event returns an array with the `[pevious, updated]` state of every tile that was
-changed. This can be useful for maintaining your own undo/redo stacks. Note that strokes cannot
-change, only be created or deleted.
+__Callback Options__: `Record<string, [TileData|StrokeData|undefined, TileData|StrokeData|undefined]>`
 
-__Callback Options__: `{added: (TileData|StrokeData)[], changed: [TileData, TileData][], deleted: (TileData|StrokeData)[]}`
+The callback options is a map of every added, deleted or modified tile or stroke, keyed by their
+IDs. Every value is an array of the `[pevious, updated]` state of the corresponding tile or stroke.
+For example, added items are of the form `[undefined, TileData|StrokeData]`, deleted items are of
+the form `[TileData|StrokeData, undefined]`, and modified tiles are of the form
+`[Partial<TileData>, Partial<TileData>]` containing just the changed properties. This is useful for
+maintaining your own undo/redo stacks. Note that strokes cannot be modified – only created or deleted.
 
 ### `.on('viewport')`
 
@@ -270,3 +330,13 @@ This event is triggered continuously while users are moving one or more tiles. T
 contains the ID and the current position of all currently selected tiles.
 
 __Callback Options__: `{tiles: {id: string, x: number, y: number}[]}`
+
+
+## Internationalisation
+
+The Polypad API is currently available in two different languages, each ith separate JS bundles:
+
+* `polypad-en-v4.x.x.js` – English
+* `polypad-es-v4.x.x.js` – Spanish
+
+Additional languages will be added in the future.

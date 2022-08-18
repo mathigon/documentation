@@ -6,161 +6,434 @@ parent: Polypad API Docs
 
 # Polypad Tile Types
 
-Polypad supports a large number of different tile types. Each of these can be customised using an
-`options` string. The options can vary from very simple (e.g. a number) to much more complex (e.g.
-stringified JSON):
+## Algebra
 
+### Algebra Tile
 
-## Geometry
+* `name: 'algebra'`
+* `expr: string`
 
-### Polygons `polygon`
-Either a named polygon like `square`, `reg-hexagon` or `kite`, or a string of vertex coordinates, e.g. `0 0,1 0,1 1,0 1`
+### Coordinate Axes
 
-### Custom Polygons  `custom-polygon`
-_Same as for Polygon_
+* `name: 'axes'`
+* `xMin: number`
+* `xMax: number`
+* `yMin: number`
+* `yMax: number`
+* `xStep: string` – Pattern: `/^[-–]?[0-9,./]*[π%]?$/`.
+* `yStep: string` – Pattern: `/^[-–]?[0-9,./]*[π%]?$/`.
 
-### Polyominoes `pentomino`
-Index from `0` to `11` for pentominoes and `12` to `16` for tetrominoes
+### Balance
 
-### Tangram `tangram`
-Index from `0` to `6`
+* `name: 'balance'`
+* `level: number`
+* `size: number`
 
-### Tangram Egg `egg`
-Index from `0` to `8`
+### Logarithm Bar
 
-### Penrose Tiles `penrose`
-Either `0` or `1`
+* `name: 'log-bar'`
+* `value: number`
 
-### Penrose Nature `garden`
-Index from `0` to `7`
+### Slider Tile
 
-### Pentagon Tile `pentagon`
-Index from `0` to `17`
+* `name: 'slider'`
+* `variable: string` – Pattern: `/^\w+$/`.
+* `min: number`
+* `max: number`
+* `stepN: number`
+* `playback: 'bounce' | 'loop' | 'once'`
+* `duration: number`
+* `value: number`
 
-### Fractals `fractal`
-Index from `0` (large) to `4` (small)
+### Algebra Token
 
-### Kolam Tiles `kolam`
-Index from `0` to `5`
+* `name: 'token'`
+* `shape: string` – Can be 'circle', 'square', 'cross', 'weight', 'star' or 'heart'
 
-### Tantrix Tiles `tantrix`
-Index from `0` to `13`
+## Applications
 
-### Ruler `ruler`
-Width, e.g. `400`
+### Chess Board Tile
 
-### Protractor `protractor`
-Width, e.g. `200`
+* `name: 'chess-board'`
+* `highlight: 'danger' | 'moves' | 'off'`
 
+### Chess Piece Tile
 
-## Numbers
+* `name: 'chess-piece'`
+* `piece: 'b' | 'k' | 'n' | 'p' | 'q' | 'r'`
+* `dark: boolean`
 
-### Number Tiles `number-tile`
-`${width}:${count}`, e.g. `10:100` for a 10x10 block of tiles
+### Clock
 
-### Number Bars `number-bar`
-Width from `1` to `10`
+* `name: 'clock'`
+* `clock: 'live'`
+* `showSeconds: boolean`
+* `clock: 'geared'`
+* `ms: number`
+* `showSeconds: boolean`
+* `clock: 'free'`
+* `h: number`
+* `m: number`
+* `s: number`
+* `showSeconds: boolean`
 
-### Number Frame `number-frame`
-TODO
+### Currency Tile
 
-### Number Card `number-card`
-TODO
+* `name: 'currency'`
+* `value: number`
+* `currency: 'EUR' | 'GBP' | 'USD'`
 
-### Prime Circle `prime-disk`
-TODO
+### Logic Gate
 
-### Dot Arrangement `number-dot`
-TODO
+* `name: 'logic-gate'`
+* `gate: 'and' | 'buffer' | 'd' | 'jk' | 'nand' | 'nor' | 'not' | 'or' | 'sr' | 't' | 'xnor' | 'xor'`
 
-### Number Grid `number-grid`
-TODO
+### Logic Speaker
 
-### Multiplication Grid `decimal-grid`
-TODO
+* `name: 'logic-speaker'`
+* `sound: 'clap' | 'closedHat' | 'kick' | 'openHat' | 'perc' | 'snare' | 'tomHigh' | 'tomLow'`
 
-### Abacus `abacus`
-TODO
+### Logic Metronome
 
-### Exploding Dot `dot`
-TODO
+* `name: 'logic-metronome'`
+* `bpm: number`
+* `running: boolean`
 
-### Dot Machine `dot-machine`
-TODO
+### Button Tile
 
-### Bucket of Zero `bucket`
-TODO
+* `name: 'logic-button'`
+
+### Toggle Switch Tile
+
+* `name: 'logic-switch'`
+* `state: boolean`
+
+### Bulb Tile
+
+* `name: 'logic-bulb'`
+
+### Logic Display
+
+* `name: 'logic-display'`
 
 ## Fractions
 
-### Fraction Bars `fraction-bar`
-TODO
+### Fraction Bar
 
-### Fraction Circles `fraction-circle`
-TODO
+* `name: 'fraction-bar'`
+* `denominator: number`
+* `count: number`
+* `active: number`
 
+### Fraction Circle
 
-## Algebra
+* `name: 'fraction-circle'`
+* `denominator: number`
 
-### Algebra Tiles `algebra-tile`
-TODO
+## Geometry
 
-### Algebra Grid `grid`
-TODO
+### Custom Polygon Tile
 
-### Balance Scale `balance`
-TODO
+* `name: 'custom-polygon'`
+* `shape: string` – Max length: 10000.
+* `scale: number`
 
-### Balance Tokens `token`
-TODO
+### Egg Tangram
 
+* `name: 'egg'`
+* `index: number` – An integer from 0 to 8.
 
-## Probability
+### Fractal Tile
 
-### Dice `dice`
-TODO
+* `name: 'fractal'`
+* `index: number` – An integer from 0 to 4.
 
-### Coin `coin`
-TODO
+### Garden Tile
 
-### Spinner `spinner`
-TODO
+* `name: 'garden'`
+* `index: number` – An integer from 0 to 7.
 
-### Custom Spinner `custom-spinner`
-TODO
+### Kolam Tile
 
-### Playing Card `card`
-TODO
+* `name: 'kolam'`
+* `index: number` – An integer from 0 to 5.
 
-### Polyhedral Dice `polyhedral-dice`
-TODO
+### Penrose
 
-### Domino `domino`
-TODO
+* `name: 'penrose'`
+* `index: number` – An integer from 0 to 1.
 
+### Polyomino
 
-## Tools
+* `name: 'polyomino'`
+* `index: number` – An integer from 0 to 11 for pentominoes, and from 12 to 16 for tetroninoes.
 
-### Number Line `number-line`
-TODO
+### Polygon Tile
 
-### Coordinate Axes `axes`
-TODO
+* `name: 'polygon'`
+* `shape: string` – Either a named polygon like 'square', 'reg-hexagon' or 'kite', or a string of vertex coordinates like `0 0,1 0,1 1,0 1`. Max length: 10000.
+* `scale: number`
 
+### Polyhedron Tile
+
+* `name: 'polyhedron'`
+* `net: string` – Max length: 10000.
+* `hinge: number`
+* `rotation: string` – Pattern: `/^([0-9.-]+,?){3}$/`.
+
+### Rectangle Tile
+
+* `name: 'rectangle'`
+* `width: number`
+* `height: number`
+
+### Regular Polygon Tile
+
+* `name: 'reg-polygon'`
+* `sides: number`
+* `scale: number`
+
+### Tangram
+
+* `name: 'tangram'`
+* `index: number` – An integer from 0 to 6.
+
+### Tantrix Tile
+
+* `name: 'tantrix'`
+* `index: number` – An integer from 0 to 13.
+
+### Ruler
+
+* `name: 'ruler'`
+* `width: number`
+* `isFixed: boolean`
+
+### Protractor
+
+* `name: 'protractor'`
+* `width: number`
+
+### Set Triangle
+
+* `name: 'set-triangle'`
+* `width: number`
+
+### Compass
+
+* `name: 'compass'`
+* `width: number`
+
+## Numbers
+
+### Abacus
+
+* `name: 'abacus'`
+* `positions: string` – Pattern: `/^[0-9.,-]+$/`. Max length: 50.
+
+### Zero Bucket
+
+* `name: 'bucket'`
+
+### Decimal Grid
+
+* `name: 'decimal-grid'`
+* `width: number`
+* `height: number`
+* `base: number`
+
+### Dot Machine
+
+* `name: 'dot-machine'`
+* `base: number`
+* `boxes: number`
+
+### Dot Tile
+
+* `name: 'dot'`
+* `value: number`
+
+### Multi Jump Tile
+
+* `name: 'multi-jump'`
+* `jumpSize: number`
+* `jumps: number`
+
+### Number Bar
+
+* `name: 'number-bar'`
+* `value: number`
+
+### Number Card
+
+* `name: 'number-card'`
+* `value: number`
+
+### Number Dot
+
+* `name: 'number-dot'`
+* `factors: string` – Pattern: `/^[0-9-]+$/`.
+
+### Number Frame Tile
+
+* `name: 'number-frame'`
+* `value: number`
+
+### Number Grid Tile
+
+* `name: 'number-grid'`
+* `kind: 'addition' | 'multiplication' | 'number'`
+* `cols: number`
+* `rows: number`
+* `colors: string` – Max length: 5000.
+
+### Number Line
+
+* `name: 'number-line'`
+* `start: string` – Pattern: `/^[-–]?[0-9,./]*[π%]?$/`.
+* `step: string` – Pattern: `/^[-–]?[0-9,./]*[π%]?$/`.
+* `width: number`
+* `size: number`
+* `minor: number`
+
+### Number Tile
+
+* `name: 'number-tile'`
+* `width: number`
+* `value: number`
+
+### Prime Disk
+
+* `name: 'prime-disk'`
+* `value: number`
+
+### Ten Frame Tile
+
+* `name: 'ten-frame'`
+* `cols: number`
+* `rows: number`
+
+### Ten Frame Counter
+
+* `name: 'ten-frame-counter'`
+* `value: number`
 
 ## Others
 
-### Table `table`
-TODO
+### Equation Tile
 
-### Image `image`
-The URL of the image, which should be returned by the `imageUpload()` config function.
+* `name: 'equation'`
+* `expr: string` – An ASCII-Math expressions. Max length: 1000.
+* `fontSize: number`
 
-### Text `text`
-:warning: The rich text HTML of the string. Remember to do XSS sanitisation before saving this in a DB.
+### Geo Tile
 
-### Equation `equation`
-The ASCII-Math expressions
+* `name: 'geo'`
+* `key: string` – All dynamic geometry objects have a unique key prefixed with '_x'. Pattern: `/^_x[0-9]+$/`.
+* `expr: string` – A geometric expression like `point(10,20)` or `segment(_x1,_x2).` Max length: 100.
+* `label: string` – Max length: 100.
 
-### Geometry `geo`
-A geometric expression, e.g. `a=point(10,20)` or `c=segment(a,b)`
+### Image Tile
+
+* `name: 'image'`
+* `href: string` – The URL of the image, which should be returned by the `imageUpload()` config function. Max length: 100.
+* `width: number`
+
+### Blank Question Tile
+
+* `name: 'question-blank'`
+* `solution: string` – Max length: 50.
+* `submitted: string` – Max length: 50.
+* `attempts: number`
+* `width: number`
+
+### Text Tile
+
+* `name: 'text'`
+* `html: string` – The rich text HTML of the string. :warning: Remember to do XSS sanitisation before saving this in a DB. Max length: 10000.
+* `fontSize: number`
+* `width: number`
+
+## Probability
+
+### Playing Card
+
+* `name: 'card'`
+* `cards: string` – Pattern: `/^\w\wf?(:\w\wf?)*$/`. Max length: 1000.
+
+### Coin
+
+* `name: 'coin'`
+* `value: 0 | 1`
+
+### Dice
+
+* `name: 'dice'`
+* `value: number`
+* `faces: string` – Pattern: `/^[0-9,]+$/`.
+
+### Domino Tile
+
+* `name: 'domino'`
+* `a: number`
+* `b: number`
+
+### Polyhedral Dice
+
+* `name: 'polyhedral-dice'`
+* `value: number`
+* `faceCount: number`
+
+### Random Number
+
+* `name: 'random'`
+* `value: number`
+* `dist: 'bernoulli' | 'binomial' | 'cauchy' | 'continuous' | 'discrete' | 'exponential' | 'geometric' | 'normal' | 'poisson'`
+* `p1: number`
+* `p2: number`
+
+### Regular Spinner
+
+* `name: 'spinner'`
+* `sectorCount: number`
+* `angle: number`
+
+### Custom Spinner
+
+* `name: 'custom-spinner'`
+* `sectorSizes: string` – Pattern: `/^[0-9,]+$/`. Max length: 100.
+* `angle: number`
+
+## Statistics
+
+### Box Whisker Tile
+
+* `name: 'box-whisker'`
+* `kind: 'area' | 'box-whisker' | 'column' | 'donut' | 'line' | 'pie' | 'row'`
+* `layout: 'grouped' | 'outliers' | 'percentage' | 'stacked'`
+* `width: number`
+* `height: number`
+* `colors: string` – Max length: 200.
+
+### Chart Tile
+
+* `name: 'chart'`
+* `kind: 'area' | 'box-whisker' | 'column' | 'donut' | 'line' | 'pie' | 'row'`
+* `layout: 'grouped' | 'outliers' | 'percentage' | 'stacked'`
+* `width: number`
+* `height: number`
+* `colors: string` – Max length: 200.
+
+### Pie Chart Tile
+
+* `name: 'pie-chart'`
+* `kind: 'area' | 'box-whisker' | 'column' | 'donut' | 'line' | 'pie' | 'row'`
+* `width: number`
+* `colors: string` – Max length: 200.
+
+### Table Tile
+
+* `name: 'table'`
+* `data: string` – Max length: 10000.
+* `aggregation: 'cumulative' | 'replace' | 'timeseries'`
+* `links: string` – Max length: 2000.
