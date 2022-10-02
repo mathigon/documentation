@@ -14,6 +14,26 @@ parent: Polypad API Docs
 * [ ] Support including the script in the `<head>`. Currently, it accesses `document.body`, so it needs to be included in the `<body>`.
 
 
+## v4.2.0 (2 October 2022)
+
+### New Features
+* Sonification! Many types of polygons, number bars and fraction bars now have a play button together with detailed audio configuration and animation tools to represent their value or shape using music. This is useful for accessibility, and students can also create entire songs using Polypad.
+* 3D Number cubes for customisable size, which can be used to learn about place value or to create 3D shapes.
+* Slider to subdivide number bars into their factors, and the to split them into individual tiles.
+* New "Clone when moving" interactivity type for tiles, that creates a copy when moving it.
+* Canadian currency option for coins.
+* New arrow options for number lines and coordinate axes.
+* Hold shift key to resize rectangles as squares.
+* Label option for individual sectors in Prime Factor Circles.
+
+### Bug Fixes
+* Updated Spanish translations.
+* Scale polygons from their centroid, not their local origin.
+* Don't show the evaluation result of equations if they are single negative numbers.
+* Various bug fixes related to undo/redo.
+* Fix bugs with playing card collisions.
+
+
 ## v4.1.0 (18 August 2022)
 
 ### New Features
