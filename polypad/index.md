@@ -11,7 +11,7 @@ has_children: true
 Our JavaScript API allows you to add interactive Polypad canvases to any website. You simply need to include our JS source file, create a parent element for Polypad, and then call `Polypad.create()`:
 
 ```html
-<script src="https://static.mathigon.org/api/polypad-en-v4.1.0.js"></script>
+<script src="https://static.mathigon.org/api/polypad-en-v4.3.0.js"></script>
 <div id="polypad" style="width: 800px; height: 500px;"></div>
 <script>Polypad.create(document.querySelector('#polypad'), {apiKey: 'test'})</script>
 ```
@@ -40,12 +40,12 @@ interface TileData {
   layer?: 'front'|'normal'|'back'
   labels?: 'fraction'|'percentage'|'decimal'|'hidden';
   cables?: {fromPort?: string, toPort?: string, toTileId: string}[];
-  // Many other tile-specific options, as listed at https://mathigon.io/polypad/tiles
+  // Many other tile-specific options, as described in tiles.md
 }
 
 interface StrokeData {
   points: string;      // SVG path, or geometric expression
-  colour?: string;     // HEX colour
+  color?: string;      // HEX colour
   brush: 'pen'|'marker'|'highlighter'
 }
 
@@ -55,19 +55,25 @@ interface PolypadOptions {
   sidebar?: string;     // Comma-separated list of sidebar sections to show
   actionbar?: string;   // Comma-separated list of actionbar items to show
 
+  uiPreset?: 'simple'|'default'|'advanced'|'custom';
   grid?: 'none'|'square2-grid'|'square-dots'|'square-grid'|'tri-dots'|'tri-grid'|'tri2-dots'|'tri2-grid';
+
   altColors?: boolean;      // Alternate colour scheme for polygons and number bars
   mergeTiles?: boolean;     // Merge number cards or prime factor circles when hovering
   evalEquations?: boolean;  // Evaluate equations
   tileWeights?: string;     // Used for balance scales
+  algebraXSize?: number;
+  algebraYSize?: number;
 
   noCopyPaste?: boolean;
   noUndoRedo?: boolean;
   noPinchPan?: boolean;
   noDeleting?: boolean;
   noAudio?: boolean;        // Disable sound effects
+  noMusic?: boolean;        // Disable sonification tools
   noRotating?: boolean;
   noSnapping?: boolean;
+  highContrast?: boolean;
 }
 
 interface PolypadData {
@@ -90,18 +96,19 @@ The `Polypad.create()` function takes an options argument with many ways to cust
 ```ts
 interface Polypad {
   create: (options: {
-    apiKey?: string;        // Mathigon-issued API key
-    userKey?: string;       // Unique identifier for the current user
+    apiKey?: string;            // Mathigon-issued API key
+    userKey?: string;           // Unique identifier for the current user
 
-    sidebar?: boolean;      // Whether to show the sidebar
-    toolbar?: boolean;      // Whether to show the toolbar
-    settings?: boolean;     // Whether to show the settings bar
+    sidebarTiles?: boolean;     // Whether to show the tiles sidebar
+    sidebarSettings?: boolean;  // Whether to show the settings sidebar
+    toolbar?: boolean;          // Whether to show the toolbar
+    settings?: boolean;         // Whether to show the settings bar
 
-    initial?: PolypadData;  // Initial data to show
-    isTeacher?: boolean;    // Whether to show editable question fields
+    initial?: PolypadData;      // Initial data to show
+    isTeacher?: boolean;        // Whether to show editable question fields
 
-    // Whether to show a second, custom sidebar tab
-    sidebarTab?: {title: string, icon: string};
+    // Whether to show a second sidebar tab, or a custom tiles sidebar panel
+    customSidebar?: {title: string, tiles: TileData[]};
 
     // Override the default theme colours 'red', 'blue', 'green', ...
     themeColours?: Record<string, string>;
@@ -113,9 +120,6 @@ interface Polypad {
 
   // Get a static image corresponding to a Polypad data object.
   toImage: (data: PolypadData, type?: 'png'|'svg'|'jpg', width?: number, height?: number) => string;
-
-  // Get lists of all available Polypad customisation options.
-  getCustomiseOptions: (data) => {sidebar: string[], toolbar: string[], actions: string[], features: string[], settings: string[]};
 
   // Translates a textbox, equation and image URL instances in a Polypad data object. This function
   // modifies the first argument, and uses the second argument to generate translations.
@@ -261,16 +265,6 @@ Options include `geometry`, `polygons`, `polyominoes`, `tangram`, `penrose`, `pe
 
 Many options, that are simply the label/tooltip of each item, in lowercase and kebab-case. Examples
 include `copy`, `delete` or `split-tiles`.
-
-
-## Custom Sidebar Tab
-
-Using the `sidebarTab` property, you can enable a second, custom tab for the sidebar, similar to
-Mathigon's version of Polypad. You need to specify a title, as well as an icon ID.
-
-The content of the sidebar can be simply added into the `<div></div>` that the Polypad instance is
-attached to. It will be automatically shown in the correct place using the `<slot></slot>`
-element. See [example.html](example.html) for an example!
 
 
 ## Events

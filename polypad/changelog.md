@@ -14,6 +14,31 @@ parent: Polypad API Docs
 * [ ] Support including the script in the `<head>`. Currently, it accesses `document.body`, so it needs to be included in the `<body>`.
 
 
+## v4.3.0 (2 November 2022)
+
+### Breaking Changes
+* The `sidebar` property when setting up a new canvas has been replaced by two `sidebarTiles` and `sidebarSettings` properties.
+* The "Customise UI" popup has been replaced by a new tab in the sidebar with all settings for customising the UI and featurs of Polypad.
+* The `getCustomiseOptions` method and  `sidebarTab` propetry have been removed.
+* Updated UI for editing hidden or locked tiles on the canvas.
+
+### New Feature
+* Toggle to enable "high contract mode" for a canvas.
+
+### Bug Fixes
+* Better UI when just a single section of tiles is selected in the sidebar.
+
+
+## v4.2.1 (22 October 2022)
+
+### New Features
+* Many new accessibility labels
+
+### Bug Fixes
+* Fixed some accessibility labels for tiles in the sidebar
+* Make actions work correctly in non-English versions
+
+
 ## v4.2.0 (2 October 2022)
 
 ### New Features

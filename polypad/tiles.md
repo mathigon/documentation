@@ -20,8 +20,9 @@ parent: Polypad API Docs
 * `xMax: number`
 * `yMin: number`
 * `yMax: number`
-* `xStep: string` – Pattern: `/^[-–]?[0-9,./]*[π%]?$/`.
-* `yStep: string` – Pattern: `/^[-–]?[0-9,./]*[π%]?$/`.
+* `xStep: string` – Pattern: `/^[-–]?[0-9,./]*[kmbtq]?[π%]?$/`.
+* `yStep: string` – Pattern: `/^[-–]?[0-9,./]*[kmbtq]?[π%]?$/`.
+* `arrows: 'both' | 'none' | 'positive'`
 
 ### Balance
 
@@ -81,7 +82,7 @@ parent: Polypad API Docs
 
 * `name: 'currency'`
 * `value: number`
-* `currency: 'EUR' | 'GBP' | 'USD'`
+* `currency: 'CAD' | 'EUR' | 'GBP' | 'USD'`
 
 ### Logic Gate
 
@@ -91,7 +92,6 @@ parent: Polypad API Docs
 ### Logic Speaker
 
 * `name: 'logic-speaker'`
-* `sound: 'clap' | 'closedHat' | 'kick' | 'openHat' | 'perc' | 'snare' | 'tomHigh' | 'tomLow'`
 
 ### Logic Metronome
 
@@ -263,11 +263,19 @@ parent: Polypad API Docs
 
 * `name: 'number-bar'`
 * `value: number`
+* `denominator: number`
 
 ### Number Card
 
 * `name: 'number-card'`
 * `value: number`
+
+### Number Cube
+
+* `name: 'number-cube'`
+* `vx: number`
+* `vy: number`
+* `vz: number`
 
 ### Number Dot
 
@@ -290,11 +298,12 @@ parent: Polypad API Docs
 ### Number Line
 
 * `name: 'number-line'`
-* `start: string` – Pattern: `/^[-–]?[0-9,./]*[π%]?$/`.
-* `step: string` – Pattern: `/^[-–]?[0-9,./]*[π%]?$/`.
+* `start: string` – Pattern: `/^[-–]?[0-9,./]*[kmbtq]?[π%]?$/`.
+* `step: string` – Pattern: `/^[-–]?[0-9,./]*[kmbtq]?[π%]?$/`.
 * `width: number`
 * `size: number`
 * `minor: number`
+* `arrows: 'both' | 'none' | 'positive'`
 
 ### Number Tile
 
