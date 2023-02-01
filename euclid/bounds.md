@@ -14,7 +14,10 @@ parent: Euclid.js
 
 <div class="docs-item" markdown="1">
 
-### constructor <span class="signature">(xMin: number, xMax: number, yMin: number, yMax: number): Bounds</span>
+### constructor <span class="signature">(xMin: number, xMax: number, yMin: number, yMax: number, errorHandling: swap|center): Bounds</span>
+
+Use the `errorHandling` option to decide how to deal with cases where the
+min and max values are in the wrong order.
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -22,6 +25,7 @@ parent: Euclid.js
 | `xMax` | number |  |  |
 | `yMin` | number |  |  |
 | `yMax` | number |  |  |
+| `errorHandling` | swap|center |  |  |
 
 
 </div>
@@ -52,7 +56,7 @@ parent: Euclid.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/bounds.ts#L54">bounds.ts#L54</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/bounds.ts#L69">bounds.ts#L69</a></div>
 
 ### <span class="pill">Accessor</span> .center <span class="signature">: Point</span>
 
@@ -60,7 +64,7 @@ parent: Euclid.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/bounds.ts#L34">bounds.ts#L34</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/bounds.ts#L45">bounds.ts#L45</a></div>
 
 ### <span class="pill">Accessor</span> .dx <span class="signature">: number</span>
 
@@ -68,7 +72,7 @@ parent: Euclid.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/bounds.ts#L38">bounds.ts#L38</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/bounds.ts#L49">bounds.ts#L49</a></div>
 
 ### <span class="pill">Accessor</span> .dy <span class="signature">: number</span>
 
@@ -76,7 +80,7 @@ parent: Euclid.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/bounds.ts#L58">bounds.ts#L58</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/bounds.ts#L73">bounds.ts#L73</a></div>
 
 ### <span class="pill">Accessor</span> .flip <span class="signature">: Bounds</span>
 
@@ -84,7 +88,7 @@ parent: Euclid.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/bounds.ts#L50">bounds.ts#L50</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/bounds.ts#L65">bounds.ts#L65</a></div>
 
 ### <span class="pill">Accessor</span> .rect <span class="signature">: Rectangle</span>
 
@@ -92,7 +96,7 @@ parent: Euclid.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/bounds.ts#L42">bounds.ts#L42</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/bounds.ts#L53">bounds.ts#L53</a></div>
 
 ### <span class="pill">Accessor</span> .xRange
 
@@ -100,7 +104,7 @@ parent: Euclid.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/bounds.ts#L46">bounds.ts#L46</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/bounds.ts#L57">bounds.ts#L57</a></div>
 
 ### <span class="pill">Accessor</span> .yRange
 
@@ -108,7 +112,7 @@ parent: Euclid.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/bounds.ts#L18">bounds.ts#L18</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/bounds.ts#L29">bounds.ts#L29</a></div>
 
 ### <span class="pill">Method</span> .contains <span class="signature">(p: Point): boolean</span>
 
@@ -121,7 +125,7 @@ parent: Euclid.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/bounds.ts#L22">bounds.ts#L22</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/bounds.ts#L33">bounds.ts#L33</a></div>
 
 ### <span class="pill">Method</span> .containsX <span class="signature">(p: Point): boolean</span>
 
@@ -134,7 +138,7 @@ parent: Euclid.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/bounds.ts#L26">bounds.ts#L26</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/bounds.ts#L37">bounds.ts#L37</a></div>
 
 ### <span class="pill">Method</span> .containsY <span class="signature">(p: Point): boolean</span>
 
@@ -147,7 +151,23 @@ parent: Euclid.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/bounds.ts#L30">bounds.ts#L30</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/bounds.ts#L61">bounds.ts#L61</a></div>
+
+### <span class="pill">Method</span> .extend <span class="signature">(top: number, right: number, bottom: number, left: number): Bounds</span>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `top` | number |  |  |
+| `right` | number | ... |  |
+| `bottom` | number | ... |  |
+| `left` | number | ... |  |
+
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/euclid.js/tree/master/src/bounds.ts#L41">bounds.ts#L41</a></div>
 
 ### <span class="pill">Method</span> .resize <span class="signature">(dx: number, dy: number): Bounds</span>
 

@@ -6,12 +6,83 @@ parent: Polypad API Docs
 
 # Polypad Changelog
 
-## Future
+## v4.5.0 (1 February 2023)
 
-* [ ] Animate the position of tiles in `.update()`, rather than changing the position instantly, and animate the drawing of strokes in `.add()`.
-* [ ] Customise the maximum zoom/pan limits
-* [ ] Switch colour scheme (light/dark)
-* [ ] Support including the script in the `<head>`. Currently, it accesses `document.body`, so it needs to be included in the `<body>`.
+### Breaking Changes
+* The "Evaluate expression" option for the entire canvas has been removed. Instead individual equation tiles now have a toggle to tun on evaluating (which is disabled by default).
+
+### New Features
+* Group and ungroup tiles, and tabulate the sum of groups of dice or the sequence of groups of coins.
+* Split algebra tiles into fractional tiles, horizontally or vertically.
+* Improved actionbar UI. The actionbar will now always stay within the visible canvas area. New `.pinActionbar()` method to customise the actionbar position in the API.
+* Arrows, decorations and display types (line/ray/segment) for dynamic geometry lines.
+* Flip and rotate number line jumps.
+* Custom accessible text for all tiles.
+* Add option to "Hide handles" for fraction circles.
+* Add scaling for custom rectangles.
+
+### Bug Fixes
+* Fix a number of undo/redo issues with geometric construction tiles. Fux a bug which caused some constructions to disappear when “merging” points.
+* Fix some bugs with merging number tiles and splitting number cards. Better support for number cards with very large values or decimal values.
+* Fix some audio playback bugs that could cause certain steps or animations to be skipped.
+
+
+## v4.4.1 (12 January 2023)
+
+### New Features
+* Editable accessibility text for all tiles.
+
+### Bug Fixes
+* Fix moving and action bar positioning for exploding dots.
+* Fix angle snapping for fraction circles.
+* Fix textbook shortcut label.
+* Fix music tempo bugs.
+* Update translation strings.
+
+
+## v4.4.0
+
+### New Features
+* Ability to switch between "fixed", "notebook" and "infinite" viewport modes. The infinite version is now _truly_ infinite, and expands dynamically based on the content. A new `canvasMargin` settings defines the minimum margins around the fixed or notebook canvas.
+* Ability to set the canvas background colour.
+
+### Bug Fixes
+* Enable all Polypad features by default (rather than just the "common" ones).
+* Fix a bug with Algebra tile collision testing when negating tiles.
+* Fix bugs that allowed users to bypass certain disabled features (e.g. panning, deleting tiles, or switching tools).
+* Don't allow users to scale polygons when set to "Cannot Move".
+* Collapse the sidebar when dragging tiles onto the canvas, if the canvas size is small.
+
+
+## v4.3.4 (18 November 2022)
+
+### Breaking Changes
+* Removed the fullscreen and download image buttons from the API.
+
+### New Featurs
+* New Piano and Song tiles for creating music.
+* Ability to load external webfonts using `Polypad.loadFonts()`.
+* Portuguese translations.
+
+### Bug Fixes
+* Many customisation and light-mode UI bug fixes.
+
+
+## v4.3.2 (8 November 2022)
+
+### New Features
+* Translations for 8 additional languages.
+* Significantly updated fraction circles, with ability to resize, rename, split and merge.
+* New resizable circle tile.
+* Ability to change the colour of individual spinner regions.
+* Animation and sound effect for random number generators.
+* The default multiplication symbol is now a dot.
+
+
+## v4.3.1 (5 November 2022)
+
+### Bug Fixes
+* Pointer positions are now constrained to within the visible canvas area, so that users cannot drag tiles outside.
 
 
 ## v4.3.0 (2 November 2022)

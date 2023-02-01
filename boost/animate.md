@@ -91,7 +91,7 @@ Applies an easing function to a number `t` between 0 and 1. Options include
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/animate.ts#L236">animate.ts#L236</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/animate.ts#L239">animate.ts#L239</a></div>
 
 ## enter <span class="signature">($el: ElementView, effect: string, duration: number, _delay: number): AnimationResponse</span>
 
@@ -107,7 +107,7 @@ Applies an easing function to a number `t` between 0 and 1. Options include
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/animate.ts#L288">animate.ts#L288</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/animate.ts#L291">animate.ts#L291</a></div>
 
 ## exit <span class="signature">($el: ElementView, effect: string, duration: number, delay: number, remove: boolean): AnimationResponse</span>
 

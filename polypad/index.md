@@ -11,7 +11,7 @@ has_children: true
 Our JavaScript API allows you to add interactive Polypad canvases to any website. You simply need to include our JS source file, create a parent element for Polypad, and then call `Polypad.create()`:
 
 ```html
-<script src="https://static.mathigon.org/api/polypad-en-v4.3.0.js"></script>
+<script src="https://static.mathigon.org/api/polypad-en-v4.3.4.js"></script>
 <div id="polypad" style="width: 800px; height: 500px;"></div>
 <script>Polypad.create(document.querySelector('#polypad'), {apiKey: 'test'})</script>
 ```
@@ -36,6 +36,7 @@ interface TileData {
   color?: string;     // HEX colour (e.g. "#ff0044")
   isFlipped?: boolean;
   status?: 'locked'|'fixed'|'hidden';
+  altText?: string;
   hideHandles?: boolean;
   layer?: 'front'|'normal'|'back'
   labels?: 'fraction'|'percentage'|'decimal'|'hidden';
@@ -57,10 +58,14 @@ interface PolypadOptions {
 
   uiPreset?: 'simple'|'default'|'advanced'|'custom';
   grid?: 'none'|'square2-grid'|'square-dots'|'square-grid'|'tri-dots'|'tri-grid'|'tri2-dots'|'tri2-grid';
+  background?: string;
+
+  canvas?: 'infinite'|'notebook'|'fixed';
+  canvasX?: number;         // Canvas width (for fixed and notebook view)
+  canvasY?: number;         // Canvas height (for fixed view)
 
   altColors?: boolean;      // Alternate colour scheme for polygons and number bars
   mergeTiles?: boolean;     // Merge number cards or prime factor circles when hovering
-  evalEquations?: boolean;  // Evaluate equations
   tileWeights?: string;     // Used for balance scales
   algebraXSize?: number;
   algebraYSize?: number;
@@ -103,6 +108,7 @@ interface Polypad {
     sidebarSettings?: boolean;  // Whether to show the settings sidebar
     toolbar?: boolean;          // Whether to show the toolbar
     settings?: boolean;         // Whether to show the settings bar
+    canvasMargin?: number;      // The margin around fixed size canvases (default 40px)
 
     initial?: PolypadData;      // Initial data to show
     isTeacher?: boolean;        // Whether to show editable question fields
@@ -118,6 +124,9 @@ interface Polypad {
     imageUpload?: (file: File) => Promise<string>;
   }) => PolypadInstance;
 
+  // Load custom WebFonts (Source Sans Pro) from Google Fonts
+  loadFonts: () => string;
+  
   // Get a static image corresponding to a Polypad data object.
   toImage: (data: PolypadData, type?: 'png'|'svg'|'jpg', width?: number, height?: number) => string;
 
@@ -180,6 +189,10 @@ interface PolypadInstance {
   // soon as the target is interacted with.
   showGesture: (selector: string, slide?: {x: number, y: number}) => void;
 
+  // Pin or unpin the actionbar programatically. Note that the actionbar is always pinned for
+  // screen widths smaller than 600px.
+  pinActionbar: (pin: boolean) => void;
+  
   // Enable keyboard and accessibility shortcuts. See below for details
   bindKeyboardEvents: (keys?: KeyboardShortcuts) => void;
   
@@ -328,9 +341,18 @@ __Callback Options__: `{tiles: {id: string, x: number, y: number}[]}`
 
 ## Internationalisation
 
-The Polypad API is currently available in two different languages, each ith separate JS bundles:
+The Polypad API is available in many different languages, each with a separate JS bundle. For
+example, the Spanish version is `polypad-es-v4.x.x.js`.
 
-* `polypad-en-v4.x.x.js` – English
-* `polypad-es-v4.x.x.js` – Spanish
-
-Additional languages will be added in the future.
+Available locales include:
+* `cn`: Chinese
+* `en`: English
+* `es`: Spanish
+* `et`: Estonian
+* `fr`: French
+* `id`: Indonesian
+* `it`: Italian
+* `ko`: Korean
+* `nl`: Dutch
+* `pt`: Portuguese
+* `ru`: Russian

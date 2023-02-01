@@ -12,6 +12,8 @@ parent: Polypad API Docs
 
 * `name: 'algebra'`
 * `expr: string`
+* `splitH: number`
+* `splitV: number`
 
 ### Coordinate Axes
 
@@ -116,6 +118,23 @@ parent: Polypad API Docs
 
 * `name: 'logic-display'`
 
+### Piano
+
+* `name: 'piano'`
+* `width: number`
+* `startNote: number`
+* `musicScale: 'blues' | 'chromatic' | 'major' | 'minor' | 'pentatonic'`
+
+### Song
+
+* `name: 'song'`
+* `width: number`
+* `height: number`
+* `loops: number`
+* `musicScale: 'blues' | 'chromatic' | 'major' | 'minor' | 'none' | 'pentatonic'`
+* `startNote: number`
+* `playbackType: 'sequence' | 'timeline'`
+
 ## Fractions
 
 ### Fraction Bar
@@ -129,8 +148,15 @@ parent: Polypad API Docs
 
 * `name: 'fraction-circle'`
 * `denominator: number`
+* `count: number`
+* `active: number`
 
 ## Geometry
+
+### Circle Tile
+
+* `name: 'circle'`
+* `radius: number`
 
 ### Custom Polygon Tile
 
@@ -186,6 +212,7 @@ parent: Polypad API Docs
 * `name: 'rectangle'`
 * `width: number`
 * `height: number`
+* `scale: number`
 
 ### Regular Polygon Tile
 
@@ -253,12 +280,6 @@ parent: Polypad API Docs
 * `name: 'dot'`
 * `value: number`
 
-### Multi Jump Tile
-
-* `name: 'multi-jump'`
-* `jumpSize: number`
-* `jumps: number`
-
 ### Number Bar
 
 * `name: 'number-bar'`
@@ -294,6 +315,13 @@ parent: Polypad API Docs
 * `cols: number`
 * `rows: number`
 * `colors: string` – Max length: 5000.
+
+### Jump Tile
+
+* `name: 'multi-jump'`
+* `jumpSize: number`
+* `jumps: number`
+* `single: boolean`
 
 ### Number Line
 
@@ -333,6 +361,7 @@ parent: Polypad API Docs
 
 * `name: 'equation'`
 * `expr: string` – An ASCII-Math expressions. Max length: 1000.
+* `evaluate: boolean`
 * `fontSize: number`
 
 ### Geo Tile
@@ -341,6 +370,13 @@ parent: Polypad API Docs
 * `key: string` – All dynamic geometry objects have a unique key prefixed with '_x'. Pattern: `/^_x[0-9]+$/`.
 * `expr: string` – A geometric expression like `point(10,20)` or `segment(_x1,_x2).` Max length: 100.
 * `label: string` – Max length: 100.
+* `arrows: 'both' | 'end' | 'start'`
+* `marks: 'arrow' | 'arrow2' | 'bar' | 'bar2'`
+
+### Group
+
+* `name: 'group'`
+* `children: string` – Max length: 1000.
 
 ### Image Tile
 
@@ -406,12 +442,14 @@ parent: Polypad API Docs
 * `name: 'spinner'`
 * `sectorCount: number`
 * `angle: number`
+* `colors: string` – Max length: 200.
 
 ### Custom Spinner
 
 * `name: 'custom-spinner'`
 * `sectorSizes: string` – Pattern: `/^[0-9,]+$/`. Max length: 100.
 * `angle: number`
+* `colors: string` – Max length: 200.
 
 ## Statistics
 

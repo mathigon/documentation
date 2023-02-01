@@ -1,6 +1,6 @@
 {
   "name": "@mathigon/documentation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Discover the open source JavaScript libraries that power Mathigon. Combining functions for DOM manipulation, animations, events handling, UI elements and mathematics, they make web development for modern browsers fun and easy.",
   "scripts": {
     "start": "bundle exec jekyll serve",

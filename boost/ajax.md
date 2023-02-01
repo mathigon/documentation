@@ -8,7 +8,7 @@ parent: Boost.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/ajax.ts#L141">ajax.ts#L141</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/ajax.ts#L149">ajax.ts#L149</a></div>
 
 ## deferredPost <span class="signature">(url: string, data: PostData): void</span>
 
@@ -26,7 +26,7 @@ be deep-merged.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/ajax.ts#L45">ajax.ts#L45</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/ajax.ts#L46">ajax.ts#L46</a></div>
 
 ## fromQueryString <span class="signature">(str: string): Obj&lt;string&gt;</span>
 
@@ -41,7 +41,7 @@ Converts an HTML query string to JSON object.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/ajax.ts#L93">ajax.ts#L93</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/ajax.ts#L94">ajax.ts#L94</a></div>
 
 ## loadImage <span class="signature">(url: string, credentials: boolean): Promise&lt;HTMLImageElement&gt;</span>
 
@@ -57,7 +57,20 @@ Asynchronously loads an Image.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/ajax.ts#L82">ajax.ts#L82</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/ajax.ts#L103">ajax.ts#L103</a></div>
+
+## loadImageDataURI <span class="signature">(args: []): Promise&lt;string&gt;</span>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `args` | [] |  |  |
+
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/ajax.ts#L83">ajax.ts#L83</a></div>
 
 ## loadScript <span class="signature">(src: string): Promise&lt;unknown&gt;</span>
 
@@ -72,7 +85,7 @@ Asynchronously loads and executes a JS script.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/ajax.ts#L64">ajax.ts#L64</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/ajax.ts#L65">ajax.ts#L65</a></div>
 
 ## post <span class="signature">(url: string, data: PostData|FormData): Promise&lt;string&gt;</span>
 
@@ -89,7 +102,7 @@ automatically form-encodes JSON data and adds a CSRF header.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/ajax.ts#L22">ajax.ts#L22</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/ajax.ts#L23">ajax.ts#L23</a></div>
 
 ## toQueryString <span class="signature">(data: PostData): string</span>
 

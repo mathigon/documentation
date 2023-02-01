@@ -135,7 +135,7 @@ Returns an array of all children of this element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L760">elements.ts#L760</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L768">elements.ts#L768</a></div>
 
 ### <span class="pill">Accessor</span> .height <span class="signature">: number</span>
 
@@ -161,7 +161,7 @@ Returns this element's height, including border and padding.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L772">elements.ts#L772</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L780">elements.ts#L780</a></div>
 
 ### <span class="pill">Accessor</span> .innerHeight <span class="signature">: number</span>
 
@@ -171,7 +171,7 @@ Returns this element's height, excluding border and padding.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L765">elements.ts#L765</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L773">elements.ts#L773</a></div>
 
 ### <span class="pill">Accessor</span> .innerWidth <span class="signature">: number</span>
 
@@ -201,7 +201,7 @@ Returns this element's next sibling, or undefined.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L746">elements.ts#L746</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L754">elements.ts#L754</a></div>
 
 ### <span class="pill">Accessor</span> .offsetLeft <span class="signature">: number</span>
 
@@ -209,7 +209,7 @@ Returns this element's next sibling, or undefined.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L750">elements.ts#L750</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L758">elements.ts#L758</a></div>
 
 ### <span class="pill">Accessor</span> .offsetParent <span class="signature">: ElementView</span>
 
@@ -217,7 +217,7 @@ Returns this element's next sibling, or undefined.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L742">elements.ts#L742</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L750">elements.ts#L750</a></div>
 
 ### <span class="pill">Accessor</span> .offsetTop <span class="signature">: number</span>
 
@@ -225,7 +225,7 @@ Returns this element's next sibling, or undefined.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L786">elements.ts#L786</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L794">elements.ts#L794</a></div>
 
 ### <span class="pill">Accessor</span> .outerHeight <span class="signature">: number</span>
 
@@ -235,7 +235,7 @@ Returns this element's height, including margins.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L779">elements.ts#L779</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L787">elements.ts#L787</a></div>
 
 ### <span class="pill">Accessor</span> .outerWidth <span class="signature">: number</span>
 
@@ -255,7 +255,7 @@ Returns this element's parent, or undefined.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L806">elements.ts#L806</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L814">elements.ts#L814</a></div>
 
 ### <span class="pill">Accessor</span> .positionLeft <span class="signature">: number</span>
 
@@ -263,7 +263,7 @@ Returns this element's parent, or undefined.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L793">elements.ts#L793</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L801">elements.ts#L801</a></div>
 
 ### <span class="pill">Accessor</span> .positionTop <span class="signature">: number</span>
 
@@ -373,7 +373,7 @@ Shortcut for getting the CSS transform style of an element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L755">elements.ts#L755</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L763">elements.ts#L763</a></div>
 
 ### <span class="pill">Accessor</span> .width <span class="signature">: number</span>
 
@@ -428,7 +428,7 @@ Adds one or more space-separated classes to this element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L701">elements.ts#L701</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L709">elements.ts#L709</a></div>
 
 ### <span class="pill">Method</span> .animate <span class="signature">(rules: AnimationProperties, duration: number, delay: number, easing: string): AnimationResponse</span>
 
@@ -578,7 +578,7 @@ Detaches an element from the DOM.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L728">elements.ts#L728</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L736">elements.ts#L736</a></div>
 
 ### <span class="pill">Method</span> .effect <span class="signature">(className: string): void</span>
 
@@ -594,7 +594,7 @@ after the `animationEnd` event.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L713">elements.ts#L713</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L721">elements.ts#L721</a></div>
 
 ### <span class="pill">Method</span> .enter <span class="signature">(effect: string, duration: number, delay: number): AnimationResponse</span>
 
@@ -628,7 +628,7 @@ Runs an enter animation on this element. Valid effect names are
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L720">elements.ts#L720</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L728">elements.ts#L728</a></div>
 
 ### <span class="pill">Method</span> .exit <span class="signature">(effect: string, duration: number, delay: number, remove: boolean): AnimationResponse</span>
 
@@ -788,7 +788,7 @@ removes all event listeners for this event.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L819">elements.ts#L819</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L827">elements.ts#L827</a></div>
 
 ### <span class="pill">Method</span> .offset <span class="signature">(parent: HTMLView): {bottom: number, left: number, right: number, top: number}</span>
 
@@ -820,7 +820,7 @@ Binds one ore more space-separated event listeners on this element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L672">elements.ts#L672</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L680">elements.ts#L680</a></div>
 
 ### <span class="pill">Method</span> .onAttr <span class="signature">(name: string, callback: (value: string, initial: boolean): void): void</span>
 
@@ -836,7 +836,7 @@ Binds one ore more space-separated event listeners on this element.
 
 <div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L665">elements.ts#L665</a></div>
 
-### <span class="pill">Method</span> .onKeyDown <span class="signature">(keys: string, callback: (e: KeyboardEvent): void): void</span>
+### <span class="pill">Method</span> .onKey <span class="signature">(keys: string, callback: (e: KeyboardEvent, key: string): void, options: {meta?: undefined|boolean, up?: undefined|boolean}): void</span>
 
 Binds an event listener for a specific key that is pressed while this
 element is in focus.
@@ -844,14 +844,15 @@ element is in focus.
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | `keys` | string |  |  |
-| `callback` | (e: KeyboardEvent): void |  |  |
+| `callback` | (e: KeyboardEvent, key: string): void |  |  |
+| `options` | {meta?: undefined|boolean, up?: undefined|boolean} |  |  |
 
 
 </div>
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L688">elements.ts#L688</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L696">elements.ts#L696</a></div>
 
 ### <span class="pill">Method</span> .onPromise <span class="signature">(event: string, resolveImmediately: boolean): Promise&lt;void&gt;</span>
 
@@ -1148,7 +1149,17 @@ Triggers a specific event on this element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/webcomponents.ts#L113">webcomponents.ts#L113</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/webcomponents.ts#L109">webcomponents.ts#L109</a></div>
+
+## CUSTOM_ELEMENTS <span class="signature">: Map&lt;string, CustomElementConstructor&gt;</span>
+
+Default value: `...`
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/webcomponents.ts#L114">webcomponents.ts#L114</a></div>
 
 ## register <span class="signature">(tagName: string, options: CustomElementOptions): (ElementClass: CustomElementConstructor): void</span>
 

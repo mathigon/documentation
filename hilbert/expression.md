@@ -8,7 +8,7 @@ parent: Hilbert.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/hilbert.js/src/expression.ts#L55">hilbert.js/src/expression.ts#L55</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/hilbert.js/tree/master/src/src/expression.ts#L55">src/expression.ts#L55</a></div>
 
 ## Expression
 

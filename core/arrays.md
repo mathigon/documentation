@@ -8,6 +8,34 @@ parent: Core.js
 
 <div class="docs-item" markdown="1">
 
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L211">arrays.ts#L211</a></div>
+
+## BinarySearchType
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L212">arrays.ts#L212</a></div>
+
+### first
+
+Default value: `0`
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L213">arrays.ts#L213</a></div>
+
+### firstGreater
+
+Default value: `1`
+
+</div>
+
+</div>
+
+<div class="docs-item" markdown="1">
+
 <div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L175">arrays.ts#L175</a></div>
 
 ## <span class="pill">Class</span> LinkedList
@@ -61,6 +89,48 @@ Converts an array to a linked list data structure.
 ### <span class="pill">Method</span> .traverse <span class="signature">(): Generator&lt;LinkedListItem&lt;T&gt;, void, unknown&gt;</span>
 
 </div>
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L216">arrays.ts#L216</a></div>
+
+## <span class="pill">Type alias</span> BinarySearchArray <span class="signature">: Array&lt;{item: T, val: number}&gt;</span>
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L255">arrays.ts#L255</a></div>
+
+## binaryIndexOf <span class="signature">(array: BinarySearchArray&lt;T&gt;, item: T, value: number): number</span>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `array` | BinarySearchArray&lt;T&gt; |  |  |
+| `item` | T |  |  |
+| `value` | number |  |  |
+
+
+</div>
+
+<div class="docs-item" markdown="1">
+
+<div><a class="source" target="_blank" href="https://github.com/mathigon/core.js/tree/master/src/arrays.ts#L223">arrays.ts#L223</a></div>
+
+## binarySearch <span class="signature">(array: BinarySearchArray&lt;T&gt;, value: number, type: BinarySearchType): number</span>
+
+Performs binary search on `array`, finding elements with value `value` based
+on the `type` criteria. The array is assumed to be sorted (small to large)
+in oder of the value returned by the `getValue()` method.
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `array` | BinarySearchArray&lt;T&gt; |  |  |
+| `value` | number |  |  |
+| `type` | BinarySearchType |  |  |
+
 
 </div>
 

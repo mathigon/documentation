@@ -362,7 +362,7 @@ Adds one or more space-separated classes to this element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L701">elements.ts#L701</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L709">elements.ts#L709</a></div>
 
 ### <span class="pill">Method</span> .animate <span class="signature">(rules: AnimationProperties, duration: number, delay: number, easing: string): AnimationResponse</span>
 
@@ -504,7 +504,7 @@ Detaches an element from the DOM.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L728">elements.ts#L728</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L736">elements.ts#L736</a></div>
 
 ### <span class="pill">Method</span> .effect <span class="signature">(className: string): void</span>
 
@@ -520,7 +520,7 @@ after the `animationEnd` event.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L713">elements.ts#L713</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L721">elements.ts#L721</a></div>
 
 ### <span class="pill">Method</span> .enter <span class="signature">(effect: string, duration: number, delay: number): AnimationResponse</span>
 
@@ -554,7 +554,7 @@ Runs an enter animation on this element. Valid effect names are
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L720">elements.ts#L720</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L728">elements.ts#L728</a></div>
 
 ### <span class="pill">Method</span> .exit <span class="signature">(effect: string, duration: number, delay: number, remove: boolean): AnimationResponse</span>
 
@@ -759,7 +759,7 @@ Binds one ore more space-separated event listeners on this element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L672">elements.ts#L672</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L680">elements.ts#L680</a></div>
 
 ### <span class="pill">Method</span> .onAttr <span class="signature">(name: string, callback: (value: string, initial: boolean): void): void</span>
 
@@ -775,7 +775,7 @@ Binds one ore more space-separated event listeners on this element.
 
 <div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L665">elements.ts#L665</a></div>
 
-### <span class="pill">Method</span> .onKeyDown <span class="signature">(keys: string, callback: (e: KeyboardEvent): void): void</span>
+### <span class="pill">Method</span> .onKey <span class="signature">(keys: string, callback: (e: KeyboardEvent, key: string): void, options: {meta?: undefined|boolean, up?: undefined|boolean}): void</span>
 
 Binds an event listener for a specific key that is pressed while this
 element is in focus.
@@ -783,14 +783,15 @@ element is in focus.
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | `keys` | string |  |  |
-| `callback` | (e: KeyboardEvent): void |  |  |
+| `callback` | (e: KeyboardEvent, key: string): void |  |  |
+| `options` | {meta?: undefined|boolean, up?: undefined|boolean} |  |  |
 
 
 </div>
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L688">elements.ts#L688</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L696">elements.ts#L696</a></div>
 
 ### <span class="pill">Method</span> .onPromise <span class="signature">(event: string, resolveImmediately: boolean): Promise&lt;void&gt;</span>
 
@@ -1079,7 +1080,7 @@ Triggers a specific event on this element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1271">elements.ts#L1271</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1285">elements.ts#L1285</a></div>
 
 ## <span class="pill">Class</span> CanvasView
 
@@ -1087,7 +1088,7 @@ Extends HTMLBaseView&lt;HTMLCanvasElement&gt;
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1272">elements.ts#L1272</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1286">elements.ts#L1286</a></div>
 
 ### <span class="pill">Property</span> ._ctx
 
@@ -1095,7 +1096,7 @@ Extends HTMLBaseView&lt;HTMLCanvasElement&gt;
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1273">elements.ts#L1273</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1287">elements.ts#L1287</a></div>
 
 ### <span class="pill">readonly</span> <span class="pill">Property</span> .type
 
@@ -1105,7 +1106,7 @@ Default value: `'canvas'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1291">elements.ts#L1291</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1305">elements.ts#L1305</a></div>
 
 ### <span class="pill">Accessor</span> .canvasHeight <span class="signature">: number</span>
 
@@ -1115,7 +1116,7 @@ Returns the intrinsic pixel height of this `<canvas>` element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1286">elements.ts#L1286</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1300">elements.ts#L1300</a></div>
 
 ### <span class="pill">Accessor</span> .canvasWidth <span class="signature">: number</span>
 
@@ -1125,7 +1126,7 @@ Returns the intrinsic pixel width of this `<canvas>` element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1296">elements.ts#L1296</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1310">elements.ts#L1310</a></div>
 
 ### <span class="pill">Accessor</span> .ctx <span class="signature">: CanvasRenderingContext2D</span>
 
@@ -1135,7 +1136,7 @@ Cached reference to the 2D context for this `<canvas>` element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1309">elements.ts#L1309</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1323">elements.ts#L1323</a></div>
 
 ### <span class="pill">Method</span> .clear <span class="signature">(): void</span>
 
@@ -1145,7 +1146,7 @@ Clears this canvas.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1322">elements.ts#L1322</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1336">elements.ts#L1336</a></div>
 
 ### <span class="pill">Method</span> .clearCircle <span class="signature">(center: Point, radius: number): void</span>
 
@@ -1161,7 +1162,7 @@ Erase a specific circle of the canvas.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1331">elements.ts#L1331</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1345">elements.ts#L1345</a></div>
 
 ### <span class="pill">Method</span> .downloadImage <span class="signature">(fileName: string): void</span>
 
@@ -1174,7 +1175,7 @@ Erase a specific circle of the canvas.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1302">elements.ts#L1302</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1316">elements.ts#L1316</a></div>
 
 ### <span class="pill">Method</span> .draw <span class="signature">(obj: GeoShape, options: CanvasDrawingOptions): void</span>
 
@@ -1190,7 +1191,7 @@ Draws a generic geometry object ont a `<canvas>` element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1314">elements.ts#L1314</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1328">elements.ts#L1328</a></div>
 
 ### <span class="pill">Method</span> .fill <span class="signature">(color: string): void</span>
 
@@ -1205,7 +1206,7 @@ Clears this canvas.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1276">elements.ts#L1276</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1290">elements.ts#L1290</a></div>
 
 ### <span class="pill">Method</span> .getContext <span class="signature">(c: string, options: WebGLContextAttributes): |CanvasRenderingContext2D|ImageBitmapRenderingContext|WebGLRenderingContext|WebGL2RenderingContext</span>
 
@@ -1221,7 +1222,7 @@ Returns the drawing context for a `<canvas>` element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1281">elements.ts#L1281</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1295">elements.ts#L1295</a></div>
 
 ### <span class="pill">Method</span> .image <span class="signature">(type: png|jpg): string</span>
 
@@ -1238,7 +1239,7 @@ Converts a Canvas element into a PNG or JPEG data URI.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1164">elements.ts#L1164</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1167">elements.ts#L1167</a></div>
 
 ## <span class="pill">Class</span> FormView
 
@@ -1246,7 +1247,7 @@ Extends HTMLBaseView&lt;HTMLFormElement&gt;
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1165">elements.ts#L1165</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1168">elements.ts#L1168</a></div>
 
 ### <span class="pill">readonly</span> <span class="pill">Property</span> .type
 
@@ -1256,7 +1257,7 @@ Default value: `'form'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1167">elements.ts#L1167</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1170">elements.ts#L1170</a></div>
 
 ### <span class="pill">Accessor</span> .action <span class="signature">: string</span>
 
@@ -1264,7 +1265,7 @@ Default value: `'form'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1172">elements.ts#L1172</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1175">elements.ts#L1175</a></div>
 
 ### <span class="pill">Accessor</span> .formData <span class="signature">: Obj&lt;string&gt;</span>
 
@@ -1274,7 +1275,7 @@ Summarises the data for an HTML <form> element in an JSON Object.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1181">elements.ts#L1181</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1184">elements.ts#L1184</a></div>
 
 ### <span class="pill">Accessor</span> .isValid <span class="signature">: boolean</span>
 
@@ -1284,7 +1285,7 @@ Summarises the data for an HTML <form> element in an JSON Object.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L740">elements.ts#L740</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L748">elements.ts#L748</a></div>
 
 ## <span class="pill">Class</span> HTMLBaseView
 
@@ -1292,7 +1293,7 @@ Extends BaseView&lt;T&gt;
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L772">elements.ts#L772</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L780">elements.ts#L780</a></div>
 
 ### <span class="pill">Accessor</span> .innerHeight <span class="signature">: number</span>
 
@@ -1302,7 +1303,7 @@ Returns this element's height, excluding border and padding.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L765">elements.ts#L765</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L773">elements.ts#L773</a></div>
 
 ### <span class="pill">Accessor</span> .innerWidth <span class="signature">: number</span>
 
@@ -1312,7 +1313,7 @@ Returns this element's width, excluding border and padding.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L746">elements.ts#L746</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L754">elements.ts#L754</a></div>
 
 ### <span class="pill">Accessor</span> .offsetLeft <span class="signature">: number</span>
 
@@ -1320,7 +1321,7 @@ Returns this element's width, excluding border and padding.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L750">elements.ts#L750</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L758">elements.ts#L758</a></div>
 
 ### <span class="pill">Accessor</span> .offsetParent <span class="signature">: ElementView</span>
 
@@ -1328,7 +1329,7 @@ Returns this element's width, excluding border and padding.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L742">elements.ts#L742</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L750">elements.ts#L750</a></div>
 
 ### <span class="pill">Accessor</span> .offsetTop <span class="signature">: number</span>
 
@@ -1336,7 +1337,7 @@ Returns this element's width, excluding border and padding.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L786">elements.ts#L786</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L794">elements.ts#L794</a></div>
 
 ### <span class="pill">Accessor</span> .outerHeight <span class="signature">: number</span>
 
@@ -1346,7 +1347,7 @@ Returns this element's height, including margins.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L779">elements.ts#L779</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L787">elements.ts#L787</a></div>
 
 ### <span class="pill">Accessor</span> .outerWidth <span class="signature">: number</span>
 
@@ -1356,7 +1357,7 @@ Returns this element's width, including margins.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L819">elements.ts#L819</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L827">elements.ts#L827</a></div>
 
 ### <span class="pill">Method</span> .offset <span class="signature">(parent: HTMLView): {bottom: number, left: number, right: number, top: number}</span>
 
@@ -1373,7 +1374,7 @@ Calculates the element offset relative to any other parent element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1186">elements.ts#L1186</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1189">elements.ts#L1189</a></div>
 
 ## <span class="pill">Class</span> InputView
 
@@ -1381,7 +1382,7 @@ Extends HTMLBaseView&lt;InputFieldElement&gt;
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1187">elements.ts#L1187</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1190">elements.ts#L1190</a></div>
 
 ### <span class="pill">readonly</span> <span class="pill">Property</span> .type
 
@@ -1391,7 +1392,7 @@ Default value: `'input'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1189">elements.ts#L1189</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1192">elements.ts#L1192</a></div>
 
 ### <span class="pill">Accessor</span> .checked <span class="signature">: boolean</span>
 
@@ -1399,7 +1400,7 @@ Default value: `'input'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1262">elements.ts#L1262</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1276">elements.ts#L1276</a></div>
 
 ### <span class="pill">Accessor</span> .isValid <span class="signature">: boolean</span>
 
@@ -1407,7 +1408,7 @@ Default value: `'input'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1197">elements.ts#L1197</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1200">elements.ts#L1200</a></div>
 
 ### <span class="pill">Accessor</span> .value <span class="signature">: string</span>
 
@@ -1415,7 +1416,7 @@ Default value: `'input'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1205">elements.ts#L1205</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1208">elements.ts#L1208</a></div>
 
 ### <span class="pill">Method</span> .bindVariable <span class="signature">(model: any, name: string): void</span>
 
@@ -1429,7 +1430,7 @@ Default value: `'input'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1245">elements.ts#L1245</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1258">elements.ts#L1258</a></div>
 
 ### <span class="pill">Method</span> .change <span class="signature">(callback: (val: string): void): void</span>
 
@@ -1444,7 +1445,7 @@ Binds a change event listener.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1237">elements.ts#L1237</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1250">elements.ts#L1250</a></div>
 
 ### <span class="pill">Method</span> .setInputPattern <span class="signature">(value: string): void</span>
 
@@ -1459,7 +1460,7 @@ Polyfill for type and inputmode attributes.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1258">elements.ts#L1258</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1272">elements.ts#L1272</a></div>
 
 ### <span class="pill">Method</span> .setValidity <span class="signature">(str: string): void</span>
 
@@ -1472,7 +1473,7 @@ Polyfill for type and inputmode attributes.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1254">elements.ts#L1254</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1268">elements.ts#L1268</a></div>
 
 ### <span class="pill">Method</span> .validate <span class="signature">(callback: (value: string): string): void</span>
 
@@ -1487,7 +1488,7 @@ Polyfill for type and inputmode attributes.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1343">elements.ts#L1343</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1357">elements.ts#L1357</a></div>
 
 ## <span class="pill">Class</span> MediaView
 
@@ -1495,7 +1496,7 @@ Extends HTMLBaseView&lt;HTMLMediaElement&gt;
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1351">elements.ts#L1351</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1365">elements.ts#L1365</a></div>
 
 ### <span class="pill">Method</span> .pause <span class="signature">(): void</span>
 
@@ -1505,7 +1506,7 @@ Pauses playback on a media element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1346">elements.ts#L1346</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1360">elements.ts#L1360</a></div>
 
 ### <span class="pill">Method</span> .play <span class="signature">(): Promise&lt;void&gt;</span>
 
@@ -1517,7 +1518,7 @@ Starts playback on a media element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L846">elements.ts#L846</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L854">elements.ts#L854</a></div>
 
 ## <span class="pill">Class</span> SVGBaseView
 
@@ -1525,7 +1526,7 @@ Extends BaseView&lt;T&gt;
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L847">elements.ts#L847</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L855">elements.ts#L855</a></div>
 
 ### <span class="pill">readonly</span> <span class="pill">Property</span> .type
 
@@ -1535,7 +1536,7 @@ Default value: `'svg'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L850">elements.ts#L850</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L858">elements.ts#L858</a></div>
 
 ### <span class="pill">Accessor</span> .$ownerSVG <span class="signature">: SVGParentView</span>
 
@@ -1545,7 +1546,7 @@ Returns the owner `<svg>` which this element is a child of.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L956">elements.ts#L956</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L964">elements.ts#L964</a></div>
 
 ### <span class="pill">Accessor</span> .center <span class="signature">: Point</span>
 
@@ -1555,7 +1556,7 @@ Finds the center of an SVG `<circle>` element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L878">elements.ts#L878</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L886">elements.ts#L886</a></div>
 
 ### <span class="pill">Accessor</span> .inverseTransformMatrix
 
@@ -1563,7 +1564,7 @@ Finds the center of an SVG `<circle>` element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L939">elements.ts#L939</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L947">elements.ts#L947</a></div>
 
 ### <span class="pill">Accessor</span> .points
 
@@ -1573,7 +1574,7 @@ Returns a list of all points along an SVG `<path>` element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L908">elements.ts#L908</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L916">elements.ts#L916</a></div>
 
 ### <span class="pill">Accessor</span> .strokeLength <span class="signature">: number</span>
 
@@ -1584,7 +1585,7 @@ Finds the total stroke length of this element. Similar to the SVG
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L950">elements.ts#L950</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L958">elements.ts#L958</a></div>
 
 ### <span class="pill">Method</span> .addPoint <span class="signature">(p: SimplePoint): void</span>
 
@@ -1599,7 +1600,7 @@ Appends a new point to an SVG `<path>` element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L985">elements.ts#L985</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L993">elements.ts#L993</a></div>
 
 ### <span class="pill">Method</span> .draw <span class="signature">(obj: undefined|GeoShape, options: SVGDrawingOptions): void</span>
 
@@ -1615,7 +1616,7 @@ Draws a generic geometry object onto an SVG `<path>` element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L934">elements.ts#L934</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L942">elements.ts#L942</a></div>
 
 ### <span class="pill">Method</span> .getPointAt <span class="signature">(p: number): Point</span>
 
@@ -1631,7 +1632,7 @@ stroke of this `<path>` element, where `0 ≤ p ≤ 1`.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L921">elements.ts#L921</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L929">elements.ts#L929</a></div>
 
 ### <span class="pill">Method</span> .getPointAtLength <span class="signature">(d: number): Point</span>
 
@@ -1647,7 +1648,7 @@ stroke of this `<path>` element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L963">elements.ts#L963</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L971">elements.ts#L971</a></div>
 
 ### <span class="pill">Method</span> .setCenter <span class="signature">(c: SimplePoint): void</span>
 
@@ -1662,7 +1663,7 @@ Sets the center of an SVG `<circle>` or `<text>` element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L969">elements.ts#L969</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L977">elements.ts#L977</a></div>
 
 ### <span class="pill">Method</span> .setLine <span class="signature">(p: SimplePoint, q: SimplePoint): void</span>
 
@@ -1678,7 +1679,7 @@ Sets the end points of an SVG `<line>` element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L977">elements.ts#L977</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L985">elements.ts#L985</a></div>
 
 ### <span class="pill">Method</span> .setRect <span class="signature">(rect: Rectangle): void</span>
 
@@ -1693,7 +1694,7 @@ Sets the bounds of an SVG `<rectangle>` element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L894">elements.ts#L894</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L902">elements.ts#L902</a></div>
 
 ### <span class="pill">Method</span> .setTransform <span class="signature">(posn: SimplePoint, angle: number, scale: number): void</span>
 
@@ -1710,7 +1711,7 @@ Sets the bounds of an SVG `<rectangle>` element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L998">elements.ts#L998</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1005">elements.ts#L1005</a></div>
 
 ## <span class="pill">Class</span> SVGParentView
 
@@ -1718,7 +1719,7 @@ Extends SVGBaseView&lt;SVGSVGElement&gt;
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1022">elements.ts#L1022</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1029">elements.ts#L1029</a></div>
 
 ### <span class="pill">Accessor</span> .svgHeight <span class="signature">: number</span>
 
@@ -1728,7 +1729,7 @@ Returns the intrinsic height of this `<svg>` element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1017">elements.ts#L1017</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1024">elements.ts#L1024</a></div>
 
 ### <span class="pill">Accessor</span> .svgWidth <span class="signature">: number</span>
 
@@ -1738,7 +1739,7 @@ Returns the intrinsic width of this `<svg>` element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1000">elements.ts#L1000</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1007">elements.ts#L1007</a></div>
 
 ### <span class="pill">Accessor</span> .viewBox <span class="signature">: DOMRect</span>
 
@@ -1748,7 +1749,7 @@ Returns the viewport coordinates of this `<svg>` element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1079">elements.ts#L1079</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1082">elements.ts#L1082</a></div>
 
 ### <span class="pill">Method</span> .downloadImage <span class="signature">(fileName: string, width: number, height: number, viewBox: string): void</span>
 
@@ -1764,7 +1765,7 @@ Returns the viewport coordinates of this `<svg>` element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1027">elements.ts#L1027</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1034">elements.ts#L1034</a></div>
 
 ### <span class="pill">Method</span> .drawPath <span class="signature">(obj: GeoShape, attributes: Obj&lt;any&gt;, options: SVGDrawingOptions): SVGView</span>
 
@@ -1781,7 +1782,7 @@ Create a new `<path>` element child and draw a geometry object onto it.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1034">elements.ts#L1034</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1041">elements.ts#L1041</a></div>
 
 ### <span class="pill">Method</span> .image <span class="signature">(type: svg|png|jpg, width: number, height: number, viewBox: string): Promise&lt;string&gt;</span>
 
@@ -1801,7 +1802,7 @@ Converts an SVG element into a PNG, JPG or SVG data URI.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1104">elements.ts#L1104</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1107">elements.ts#L1107</a></div>
 
 ## <span class="pill">Class</span> WindowView
 
@@ -1809,7 +1810,7 @@ Extends HTMLBaseView&lt;HTMLHtmlElement|HTMLBodyElement&gt;
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1105">elements.ts#L1105</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1108">elements.ts#L1108</a></div>
 
 ### <span class="pill">readonly</span> <span class="pill">Property</span> .type
 
@@ -1821,7 +1822,7 @@ Default value: `'window'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L734">elements.ts#L734</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L742">elements.ts#L742</a></div>
 
 ## <span class="pill">Type alias</span> ElementView <span class="signature">: BaseView&lt;HTMLElement|SVGElement&gt;</span>
 
@@ -1829,7 +1830,7 @@ Default value: `'window'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L840">elements.ts#L840</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L848">elements.ts#L848</a></div>
 
 ## <span class="pill">Type alias</span> HTMLView <span class="signature">: HTMLBaseView&lt;HTMLElement&gt;</span>
 
@@ -1837,7 +1838,7 @@ Default value: `'window'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1098">elements.ts#L1098</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1101">elements.ts#L1101</a></div>
 
 ## <span class="pill">Type alias</span> SVGView <span class="signature">: SVGBaseView&lt;SVGGraphicsElement&gt;</span>
 
@@ -1845,7 +1846,7 @@ Default value: `'window'`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1462">elements.ts#L1462</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1476">elements.ts#L1476</a></div>
 
 ## $body <span class="signature">: WindowView</span>
 
@@ -1855,7 +1856,7 @@ Default value: `...`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1463">elements.ts#L1463</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1477">elements.ts#L1477</a></div>
 
 ## $html <span class="signature">: WindowView</span>
 
@@ -1865,7 +1866,7 @@ Default value: `...`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1397">elements.ts#L1397</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1411">elements.ts#L1411</a></div>
 
 ## $ <span class="signature">(query: T, context: ElementView): QueryResult&lt;T&gt;</span>
 
@@ -1882,7 +1883,7 @@ Element wrapper around a native HTMLElement instance.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1428">elements.ts#L1428</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1442">elements.ts#L1442</a></div>
 
 ## $$ <span class="signature">(selector: T, context: ElementView): QueryResults&lt;T&gt;</span>
 
@@ -1898,7 +1899,7 @@ Finds all elements that match a specific CSS selector.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1436">elements.ts#L1436</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/elements.ts#L1450">elements.ts#L1450</a></div>
 
 ## $N <span class="signature">(tag: T, attributes: Obj&lt;any&gt;, parent: ElementView): CreateResult&lt;T&gt;</span>
 

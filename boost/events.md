@@ -32,7 +32,7 @@ parent: Boost.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/events.ts#L596">events.ts#L596</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/events.ts#L594">events.ts#L594</a></div>
 
 ## bindEvent <span class="signature">($el: ElementView, event: string, fn: EventCallback, options: EventListenerOptions): void</span>
 
@@ -155,7 +155,7 @@ the coordinate system of the `<svg>` element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/events.ts#L609">events.ts#L609</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/events.ts#L607">events.ts#L607</a></div>
 
 ## unbindEvent <span class="signature">($el: ElementView, event: string, fn: EventCallback): void</span>
 

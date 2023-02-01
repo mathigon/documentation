@@ -8,7 +8,7 @@ parent: Fermat.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L217">arithmetic.ts#L217</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L218">arithmetic.ts#L218</a></div>
 
 ## clamp <span class="signature">(x: number, min: number, max: number): number</span>
 
@@ -25,7 +25,7 @@ Bounds a number between a lower and an upper limit.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L232">arithmetic.ts#L232</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L233">arithmetic.ts#L233</a></div>
 
 ## cube <span class="signature">(x: number): number</span>
 
@@ -40,7 +40,7 @@ Cubes a number.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L175">arithmetic.ts#L175</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L176">arithmetic.ts#L176</a></div>
 
 ## digits <span class="signature">(n: number): Array&lt;number&gt;</span>
 
@@ -87,7 +87,7 @@ Checks if a number x is between two numbers a and b.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L222">arithmetic.ts#L222</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L223">arithmetic.ts#L223</a></div>
 
 ## lerp <span class="signature">(a: number, b: number, t: number): number</span>
 
@@ -104,7 +104,7 @@ Linear interpolation
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L246">arithmetic.ts#L246</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L247">arithmetic.ts#L247</a></div>
 
 ## log <span class="signature">(x: number, b: number): number</span>
 
@@ -120,7 +120,7 @@ Calculates the logarithm of `x` with base `b`.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L241">arithmetic.ts#L241</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L242">arithmetic.ts#L242</a></div>
 
 ## mod <span class="signature">(a: number, m: number): number</span>
 
@@ -155,7 +155,7 @@ Checks if two numbers are nearly equals.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L69">arithmetic.ts#L69</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L70">arithmetic.ts#L70</a></div>
 
 ## numberFormat <span class="signature">(n: number, places: number, separators: boolean): string</span>
 
@@ -174,7 +174,7 @@ result.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L89">arithmetic.ts#L89</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L90">arithmetic.ts#L90</a></div>
 
 ## parseNumber <span class="signature">(str: string): number</span>
 
@@ -190,7 +190,7 @@ thousands separators.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L260">arithmetic.ts#L260</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L261">arithmetic.ts#L261</a></div>
 
 ## polynomial <span class="signature">(x: number, coefficients: Array&lt;number&gt;): number</span>
 
@@ -204,7 +204,7 @@ thousands separators.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L251">arithmetic.ts#L251</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L252">arithmetic.ts#L252</a></div>
 
 ## quadratic <span class="signature">(a: number, b: number, c: number): Array&lt;number&gt;</span>
 
@@ -221,7 +221,7 @@ Solves the quadratic equation a x^2 + b x + c = 0
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L181">arithmetic.ts#L181</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L182">arithmetic.ts#L182</a></div>
 
 ## round <span class="signature">(n: number, precision: number): number</span>
 
@@ -237,7 +237,7 @@ Rounds a number `n` to `precision` decimal places.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L187">arithmetic.ts#L187</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L188">arithmetic.ts#L188</a></div>
 
 ## roundTo <span class="signature">(n: number, increment: number): number</span>
 
@@ -269,7 +269,7 @@ Returns the sign of a number x, as +1, 0 or –1.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L227">arithmetic.ts#L227</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L228">arithmetic.ts#L228</a></div>
 
 ## square <span class="signature">(x: number): number</span>
 
@@ -284,7 +284,7 @@ Squares a number.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L195">arithmetic.ts#L195</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L196">arithmetic.ts#L196</a></div>
 
 ## toFraction <span class="signature">(decimal: number, precision: number): Array&lt;number&gt;</span>
 
@@ -301,7 +301,7 @@ Returns an [numerator, denominator] array that approximated a `decimal` to
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L113">arithmetic.ts#L113</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L114">arithmetic.ts#L114</a></div>
 
 ## toOrdinal <span class="signature">(x: number): string</span>
 
@@ -316,7 +316,7 @@ Converts a number to an ordinal.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L152">arithmetic.ts#L152</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/fermat.js/tree/master/src/arithmetic.ts#L153">arithmetic.ts#L153</a></div>
 
 ## toWord <span class="signature">(n: number): string</span>
 
