@@ -4,6 +4,7 @@ footer { display: none; }
 div.highlighter-rouge, code { border: 1px solid rgba(black, 20%); }
 code { padding: 0.2em 0.4em; font-size: 0.8em; }
 pre code { background: none; }
+.highlight pre.highlight { background: none; }
 
 // p { color: rgba(white, 75%); }
 
@@ -35,7 +36,6 @@ table { border-collapse: collapse; }
 th { background: rgba(black, 8%); }
 // td { background: none; }
 
-.highlight .highlight { background: none; }
 .highlight {
  // color: #f8f8f2;
  .hll, .s, .sa, .sb, .sc, .dl, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss { color: #22ab24; }

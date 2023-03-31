@@ -8,7 +8,7 @@ parent: Boost.js
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/src/draggable.ts#L51">src/draggable.ts#L51</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/draggable.ts#L51">boost.js/src/draggable.ts#L51</a></div>
 
 ## <span class="pill">Class</span> Draggable
 
@@ -36,7 +36,7 @@ Extends EventTarget
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/src/draggable.ts#L54">src/draggable.ts#L54</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/draggable.ts#L54">boost.js/src/draggable.ts#L54</a></div>
 
 ### <span class="pill">Property</span> .$over
 
@@ -44,7 +44,7 @@ Extends EventTarget
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/src/draggable.ts#L57">src/draggable.ts#L57</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/draggable.ts#L57">boost.js/src/draggable.ts#L57</a></div>
 
 ### <span class="pill">Property</span> .bounds
 
@@ -52,7 +52,7 @@ Extends EventTarget
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/src/draggable.ts#L56">src/draggable.ts#L56</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/draggable.ts#L56">boost.js/src/draggable.ts#L56</a></div>
 
 ### <span class="pill">Property</span> .disabled <span class="signature">: boolean</span>
 
@@ -62,7 +62,7 @@ Default value: `false`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/src/draggable.ts#L52">src/draggable.ts#L52</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/draggable.ts#L52">boost.js/src/draggable.ts#L52</a></div>
 
 ### <span class="pill">Property</span> .options <span class="signature">: DraggableOptions</span>
 
@@ -70,7 +70,7 @@ Default value: `false`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/src/draggable.ts#L55">src/draggable.ts#L55</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/draggable.ts#L55">boost.js/src/draggable.ts#L55</a></div>
 
 ### <span class="pill">Property</span> .position <span class="signature">: Point</span>
 
@@ -80,7 +80,7 @@ Default value: `...`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/src/draggable.ts#L53">src/draggable.ts#L53</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/draggable.ts#L53">boost.js/src/draggable.ts#L53</a></div>
 
 ### <span class="pill">Property</span> .startPos <span class="signature">: Point</span>
 
@@ -90,7 +90,7 @@ Default value: `...`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/src/draggable.ts#L94">src/draggable.ts#L94</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/draggable.ts#L94">boost.js/src/draggable.ts#L94</a></div>
 
 ### <span class="pill">Method</span> .addTarget <span class="signature">($target: ElementView): void</span>
 
@@ -103,7 +103,7 @@ Default value: `...`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/src/draggable.ts#L104">src/draggable.ts#L104</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/draggable.ts#L104">boost.js/src/draggable.ts#L104</a></div>
 
 ### <span class="pill">Method</span> .checkTarget <span class="signature">(posn: Point): void</span>
 
@@ -116,7 +116,7 @@ Default value: `...`
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/node_modules/@mathigon/core/dist/events.d.ts#L10">node_modules/@mathigon/core/dist/events.d.ts#L10</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/core.js/dist/events.d.ts#L10">core.js/dist/events.d.ts#L10</a></div>
 
 ### <span class="pill">Method</span> .off <span class="signature">(events: string, fn: EventCallback): void</span>
 
@@ -132,7 +132,7 @@ Removes an event listener from one or more events.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/node_modules/@mathigon/core/dist/events.d.ts#L6">node_modules/@mathigon/core/dist/events.d.ts#L6</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/core.js/dist/events.d.ts#L6">core.js/dist/events.d.ts#L6</a></div>
 
 ### <span class="pill">Method</span> .on <span class="signature">(events: string, fn: EventCallback): void</span>
 
@@ -148,7 +148,7 @@ Adds an event listener for one or more events.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/node_modules/@mathigon/core/dist/events.d.ts#L8">node_modules/@mathigon/core/dist/events.d.ts#L8</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/core.js/dist/events.d.ts#L8">core.js/dist/events.d.ts#L8</a></div>
 
 ### <span class="pill">Method</span> .one <span class="signature">(events: string, fn: EventCallback): void</span>
 
@@ -164,7 +164,7 @@ Adds a one-time event listener to one or more events.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/src/draggable.ts#L99">src/draggable.ts#L99</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/draggable.ts#L99">boost.js/src/draggable.ts#L99</a></div>
 
 ### <span class="pill">Method</span> .removeTarget <span class="signature">($target: ElementView): void</span>
 
@@ -177,7 +177,7 @@ Adds a one-time event listener to one or more events.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/src/draggable.ts#L161">src/draggable.ts#L161</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/draggable.ts#L161">boost.js/src/draggable.ts#L161</a></div>
 
 ### <span class="pill">Method</span> .resetPosition <span class="signature">(duration: number): Promise&lt;void&gt;</span>
 
@@ -190,7 +190,7 @@ Adds a one-time event listener to one or more events.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/src/draggable.ts#L142">src/draggable.ts#L142</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/draggable.ts#L142">boost.js/src/draggable.ts#L142</a></div>
 
 ### <span class="pill">Method</span> .setPosition <span class="signature">(x: number, y: number): void</span>
 
@@ -206,7 +206,7 @@ Sets the position of the element.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/node_modules/@mathigon/core/dist/events.d.ts#L12">node_modules/@mathigon/core/dist/events.d.ts#L12</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/core.js/dist/events.d.ts#L12">core.js/dist/events.d.ts#L12</a></div>
 
 ### <span class="pill">Method</span> .trigger <span class="signature">(events: string, arg: unknown): void</span>
 
@@ -222,7 +222,7 @@ Triggers one or more events, and executes all bound event listeners.
 
 <div class="docs-item" markdown="1">
 
-<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/src/draggable.ts#L120">src/draggable.ts#L120</a></div>
+<div><a class="source" target="_blank" href="https://github.com/mathigon/boost.js/tree/master/src/draggable.ts#L120">boost.js/src/draggable.ts#L120</a></div>
 
 ### <span class="pill">Method</span> .updateBounds <span class="signature">(): undefined|Bounds</span>
 
