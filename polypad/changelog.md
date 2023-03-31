@@ -6,6 +6,27 @@ parent: Polypad API Docs
 
 # Polypad Changelog
 
+## v4.5.4 (31 March 2023)
+
+### New Features
+* Option to display fraction bars and fraction circles without unit fraction subdivisions. Resize fraction bars and fraction circles. Increase maximum denominators from 32 to 64.
+* New `setTool()` API method to change the currently enabled tool.
+* Sonification for continuous function plots and for fraction circles. New "angles" and "area" animations for polygons. New instruments and instrument picker.
+* New instruments and multi-page instrument picker.
+* Clickable hyperlinks in text boxes.
+* Tiles now remember the colour of their back side when flipped.
+* Customise the width of "notebook" style canvases.
+* Allow playing/animating grouped tiles.
+
+### Bug Fixes
+* The default aggregation method when tabulating probability tiles is "cumulative".
+* Correctly shade table header background for coloured backgrounds or in dark mode.
+* Prevent collisions for non-movable tiles.
+* Fix infinite line drawing on notebook canvases.
+* Fix label positioning for perimeter animations.
+* Additional bug fixes related to grouping, input fields.
+
+
 ## v4.5.0 (1 February 2023)
 
 ### Breaking Changes

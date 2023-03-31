@@ -11,7 +11,7 @@ has_children: true
 Our JavaScript API allows you to add interactive Polypad canvases to any website. You simply need to include our JS source file, create a parent element for Polypad, and then call `Polypad.create()`:
 
 ```html
-<script src="https://static.mathigon.org/api/polypad-en-v4.3.4.js"></script>
+<script src="https://static.mathigon.org/api/polypad-en-v4.5.4.js"></script>
 <div id="polypad" style="width: 800px; height: 500px;"></div>
 <script>Polypad.create(document.querySelector('#polypad'), {apiKey: 'test'})</script>
 ```
@@ -172,6 +172,9 @@ interface PolypadInstance {
   // Set the background grid or display options. See the `options` event for more details.
   setOptions: (e: Partial<PolypadOptions>) => void;
 
+  // Switch the currently enabled tool
+  setTool: (tool: 'move'|'pen'|'eraser'|'text'|'pan'|'geo', toolOptions?: 'line'|'circle'|'rect'|'angle'|'pen'|'ruler'|'marker'|'highlighter'|'text'|'equation') => void;
+
   // Clear all tiles on the current canvas. Unline .unSerialize({}), this action can be undone.
   clear: () => void;
 
@@ -183,7 +186,7 @@ interface PolypadInstance {
   // Call this function to manually trigger a resize of the Polypad container. We are already
   // using window.resize() and the ResizeObserver API (if available in the Browser).
   resize: () => void;
-  
+
   // Show a floating hand gesture that animates either clicking on a DOM element (no slide)
   // or dragging a DOM element by a certain distance (with slide). The gesture disappears as
   // soon as the target is interacted with.
@@ -192,10 +195,10 @@ interface PolypadInstance {
   // Pin or unpin the actionbar programatically. Note that the actionbar is always pinned for
   // screen widths smaller than 600px.
   pinActionbar: (pin: boolean) => void;
-  
+
   // Enable keyboard and accessibility shortcuts. See below for details
   bindKeyboardEvents: (keys?: KeyboardShortcuts) => void;
-  
+
   // Remove and clean up this Polypad instance. This action is irreversible, and any further
   // interaction with the instance class may throw undefined Errors.
   destroy(): void;

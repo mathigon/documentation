@@ -35,6 +35,7 @@ table { border-collapse: collapse; }
 th { background: rgba(black, 8%); }
 // td { background: none; }
 
+.highlight .highlight { background: none; }
 .highlight {
  // color: #f8f8f2;
  .hll, .s, .sa, .sb, .sc, .dl, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss { color: #22ab24; }
