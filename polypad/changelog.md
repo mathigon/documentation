@@ -6,6 +6,90 @@ parent: Polypad API Docs
 
 # Polypad Changelog
 
+## v4.6.7 (19 July 2023)
+
+### Breaking Changes
+* Disable double-click-to-roll/flip if the corresponding action bar item is disabled
+
+### New Features
+* Alpha and ellipse masking of images
+* A “percussion” version of the Song tile
+* Vertical grid lines for the Song tile
+* Set the starting number for number grids (addition, multiplication, and 100 grid)
+* Option to disable rotating of individual tiles in authoring mode
+* Proxy performance improvements
+
+### Bug Fixes
+* Lots of bug fixes related to the categorizer / drop zone tile, including padding for small zones, issues when resizing zones containing tiles, issues with groups inside zones, and support for narrower zones.
+* Fix tabulating multiple grouped coins in other languages
+* Fix merging grouped number tiles
+
+
+## v4.6.6 (6 July 2023)
+
+### New Features
+* Prefix and suffix options for number line labels
+
+
+## v4.6.3 (25 June 2023)
+
+### Bug Fixes
+* Fix a bug where drop zones (e.g. on the balance scale) were not updated afer some changes (e.g. negating number cards, rolling dice, resizing fractions, or deleting tiles).
+* Fix a bug where no "change" event was triggered after changing UI options (checkboxes in the sidebar, toolbar and actionbar) in authoring mode.
+* Ensure that the instrument picker is always positioned within the visible viewport
+* Increase the limits to resize images
+* Fix a crashing bug when loading some canvases with tile "arpeggiate" options.
+* Always load Google web fonts required by Polypad (Source Sans Pro). The `Polypad.loadFonts()` method is now deprecated.
+
+
+## v4.6.2 (8 June 2023)
+
+### Breaking Changes
+* The `.on('options')` event has been removed. Instead, option changes now trigger a normal `.on('change')` event and are added to Polypad's undo/redo stack.
+
+### Bug Fixes
+* Add Polypad option changes (e.g. grid, background or algebra tile sizes) to the undo/redo stack.
+
+
+## v4.6.1 (8 June 2023)
+
+### Bug Fixes
+* Correctly render fraction circles with degrees label.
+
+
+## v4.6.0 (7 June 2023)
+
+### Breaking Changes
+* A new "Authoring Mode" that combines the previous "edit hidden tiles" and "select tiles and tools"
+  modes. The UI "presets" have been removed. Instead, all options are shown in authoring mode, and
+  there are new buttons to (de)select all features. Some actions (layer, interactivity, etc.) are
+  only visible in authoring mode, and drop zones and input fields can only be added and edited in
+  authoring mode.
+* The "Arpeggiation" music option has been removed for all tiles. Instead, you can now pick from a
+  "Scale" dropdown, including "None" for no arpeggiation.
+
+### Bug Fixes
+* Lots of undo/redo bug fixes (especially for geometry tools and exploding dots).
+* Trigger change events even if undo/redo is disabled in canvas settings.
+* Selection bug with hidden/locked tiles when the browser tab re-gains focus.
+
+### New Features
+* New Drop Zones that can be used to create drag-n-drop interactives.
+* New Einstein Hat monotile.
+* Degrees label option for fraction circles.
+* Fraction simplification options for number line labels.
+* Increment buttons for most number input fields in action bar.
+* Redesigned instrument picker.
+* Change the "width" property of number lines to non-integer values.
+* Input fields to set the x/y position of tiles (available in authoring mode).
+* Set the horizontal and vertical denominator of Algebra tiles to custom values (e.g. to make x/3).
+
+
+## v4.5.6 (8 May 2023)
+
+### Bug Fixes
+* Don't trigger `options` change event when calling `.unSerialize()`.
+
 ## v4.5.4 (31 March 2023)
 
 ### New Features
