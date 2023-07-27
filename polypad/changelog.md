@@ -9,7 +9,7 @@ parent: Polypad API Docs
 ## v4.6.7 (19 July 2023)
 
 ### Breaking Changes
-* Disable double-click-to-roll/flip if the corresponding action bar item is disabled
+* Disable double-click-to-roll/flip if the corresponding action bar item is disabled. This applies to the "flip", "draw" and "randomise" actions. If you want to enable these actions for existing canvases, you can use `if (data.options.actionbar && data.options.actionbar !== 'hidden') data.options.actionbar += ',flip,draw,randomise'`.
 
 ### New Features
 * Alpha and ellipse masking of images
