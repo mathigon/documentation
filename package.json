@@ -17,6 +17,6 @@
     "@mathigon/hilbert": "^1.1.1",
     "glob": "^7.1.6",
     "typedoc": "0.20.9",
-    "typescript": "^4.2.3"
+    "typescript": "^5.0.0"
   }
 }
