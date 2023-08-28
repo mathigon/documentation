@@ -69,16 +69,12 @@ parent: Polypad API Docs
 ### Clock
 
 * `name: 'clock'`
-* `clock: 'live'`
+* `clock: 'free' | 'geared' | 'live'`
 * `showSeconds: boolean`
-* `clock: 'geared'`
 * `ms: number`
-* `showSeconds: boolean`
-* `clock: 'free'`
 * `h: number`
 * `m: number`
 * `s: number`
-* `showSeconds: boolean`
 
 ### Currency Tile
 
@@ -123,7 +119,6 @@ parent: Polypad API Docs
 * `name: 'piano'`
 * `width: number`
 * `startNote: number`
-* `musicScale: 'blues' | 'chromatic' | 'major' | 'minor' | 'pentatonic'`
 
 ### Song
 
@@ -131,9 +126,12 @@ parent: Polypad API Docs
 * `width: number`
 * `height: number`
 * `loops: number`
-* `musicScale: 'blues' | 'chromatic' | 'major' | 'minor' | 'none' | 'pentatonic'`
 * `startNote: number`
 * `playbackType: 'sequence' | 'timeline'`
+* `colSize: number`
+* `rowSize: number`
+* `barLength: number`
+* `showGrid: boolean`
 
 ## Fractions
 
@@ -143,6 +141,8 @@ parent: Polypad API Docs
 * `denominator: number`
 * `count: number`
 * `active: number`
+* `combine: boolean`
+* `size: number`
 
 ### Fraction Circle
 
@@ -150,19 +150,33 @@ parent: Polypad API Docs
 * `denominator: number`
 * `count: number`
 * `active: number`
+* `combine: boolean`
+* `size: number`
 
 ## Geometry
+
+### Aperiodic Hat Tile
+
+* `name: 'aperiodic-hat'`
+* `a: number` – The two side lengths in the construction Tile(a,b)
+* `b: number`
 
 ### Circle Tile
 
 * `name: 'circle'`
 * `radius: number`
+* `textLabel: string` – Max length: 25.
+* `textLabelFontSize: number`
+* `textLabelRotate: boolean`
 
 ### Custom Polygon Tile
 
 * `name: 'custom-polygon'`
 * `shape: string` – Max length: 10000.
 * `scale: number`
+* `textLabel: string` – Max length: 25.
+* `textLabelFontSize: number`
+* `textLabelRotate: boolean`
 
 ### Egg Tangram
 
@@ -199,6 +213,9 @@ parent: Polypad API Docs
 * `name: 'polygon'`
 * `shape: string` – Either a named polygon like 'square', 'reg-hexagon' or 'kite', or a string of vertex coordinates like `0 0,1 0,1 1,0 1`. Max length: 10000.
 * `scale: number`
+* `textLabel: string` – Max length: 25.
+* `textLabelFontSize: number`
+* `textLabelRotate: boolean`
 
 ### Polyhedron Tile
 
@@ -212,13 +229,20 @@ parent: Polypad API Docs
 * `name: 'rectangle'`
 * `width: number`
 * `height: number`
+* `cornerRadius: number`
 * `scale: number`
+* `textLabel: string` – Max length: 25.
+* `textLabelFontSize: number`
+* `textLabelRotate: boolean`
 
 ### Regular Polygon Tile
 
 * `name: 'reg-polygon'`
 * `sides: number`
 * `scale: number`
+* `textLabel: string` – Max length: 25.
+* `textLabelFontSize: number`
+* `textLabelRotate: boolean`
 
 ### Tangram
 
@@ -315,6 +339,8 @@ parent: Polypad API Docs
 * `cols: number`
 * `rows: number`
 * `colors: string` – Max length: 5000.
+* `hStart: number`
+* `vStart: number`
 
 ### Jump Tile
 
@@ -332,6 +358,9 @@ parent: Polypad API Docs
 * `size: number`
 * `minor: number`
 * `arrows: 'both' | 'none' | 'positive'`
+* `simplify: 'all' | 'integers' | 'none'`
+* `prefix: string` – Max length: 10.
+* `suffix: string` – Max length: 10.
 
 ### Number Tile
 
@@ -356,6 +385,16 @@ parent: Polypad API Docs
 * `value: number`
 
 ## Others
+
+### Categorizer Tile
+
+* `name: 'categorizer'`
+* `width: number`
+* `height: number`
+* `layout: 'center' | 'flow' | 'none'`
+* `allowed: string` – Max length: 100.
+* `max: number`
+* `padding: number`
 
 ### Equation Tile
 
@@ -383,6 +422,7 @@ parent: Polypad API Docs
 * `name: 'image'`
 * `href: string` – The URL of the image, which should be returned by the `imageUpload()` config function. Max length: 100.
 * `width: number`
+* `mask: string` – Max length: 5000.
 
 ### Blank Question Tile
 

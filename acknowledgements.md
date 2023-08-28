@@ -1,7 +1,7 @@
 ---
 layout: page
 nav_order: 9
-description: todo
+description: Acknowledgements
 ---
 
 # Acknowledgements

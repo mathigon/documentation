@@ -2,7 +2,7 @@
 layout: page
 nav_order: 2
 has_children: true
-description: todo
+description: Fermat.js API Docs
 ---
 
 # Fermat.js

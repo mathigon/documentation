@@ -2,7 +2,7 @@
 layout: page
 nav_order: 4
 has_children: true
-description: todo
+description: Hilbert.js API Docs
 ---
 
 # Hilbert.js

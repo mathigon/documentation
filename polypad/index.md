@@ -2,6 +2,7 @@
 layout: page
 nav_order: 7
 has_children: true
+description: Polypad API Docs
 ---
 
 # Polypad API Docs
@@ -11,7 +12,7 @@ has_children: true
 Our JavaScript API allows you to add interactive Polypad canvases to any website. You simply need to include our JS source file, create a parent element for Polypad, and then call `Polypad.create()`:
 
 ```html
-<script src="https://static.mathigon.org/api/polypad-en-v4.5.4.js"></script>
+<script src="https://static.mathigon.org/api/polypad-en-v4.7.0.js"></script>
 <div id="polypad" style="width: 800px; height: 500px;"></div>
 <script>Polypad.create(document.querySelector('#polypad'), {apiKey: 'test'})</script>
 ```
@@ -56,7 +57,6 @@ interface PolypadOptions {
   sidebar?: string;     // Comma-separated list of sidebar sections to show
   actionbar?: string;   // Comma-separated list of actionbar items to show
 
-  uiPreset?: 'simple'|'default'|'advanced'|'custom';
   grid?: 'none'|'square2-grid'|'square-dots'|'square-grid'|'tri-dots'|'tri-grid'|'tri2-dots'|'tri2-grid';
   background?: string;
 
@@ -108,10 +108,10 @@ interface Polypad {
     sidebarSettings?: boolean;  // Whether to show the settings sidebar
     toolbar?: boolean;          // Whether to show the toolbar
     settings?: boolean;         // Whether to show the settings bar
+    exportToCL?: boolean;       // Enable value exporting from drop zones
     canvasMargin?: number;      // The margin around fixed size canvases (default 40px)
 
     initial?: PolypadData;      // Initial data to show
-    isTeacher?: boolean;        // Whether to show editable question fields
 
     // Whether to show a second sidebar tab, or a custom tiles sidebar panel
     customSidebar?: {title: string, tiles: TileData[]};
@@ -126,7 +126,10 @@ interface Polypad {
 
   // Load custom WebFonts (Source Sans Pro) from Google Fonts
   loadFonts: () => string;
-  
+
+  // Extract all exported values from a Polypad data instance.
+  getExports: (data: PolypadData) => Record<string, {type: string, value: unknown}|undefined>;
+
   // Get a static image corresponding to a Polypad data object.
   toImage: (data: PolypadData, type?: 'png'|'svg'|'jpg', width?: number, height?: number) => string;
 
@@ -187,6 +190,9 @@ interface PolypadInstance {
   // using window.resize() and the ResizeObserver API (if available in the Browser).
   resize: () => void;
 
+  // Get all exported values from drop zones
+  getExports: () => Record<string, {type: string, value: unknown}|undefined>;
+
   // Show a floating hand gesture that animates either clicking on a DOM element (no slide)
   // or dragging a DOM element by a certain distance (with slide). The gesture disappears as
   // soon as the target is interacted with.
@@ -195,10 +201,10 @@ interface PolypadInstance {
   // Pin or unpin the actionbar programatically. Note that the actionbar is always pinned for
   // screen widths smaller than 600px.
   pinActionbar: (pin: boolean) => void;
-
+  
   // Enable keyboard and accessibility shortcuts. See below for details
   bindKeyboardEvents: (keys?: KeyboardShortcuts) => void;
-
+  
   // Remove and clean up this Polypad instance. This action is irreversible, and any further
   // interaction with the instance class may throw undefined Errors.
   destroy(): void;
@@ -321,11 +327,6 @@ stack of changes.
 
 __Callback Options__: `Event`
 
-### `.on('options')`
-
-Triggered whenever the user changes the canvas options using the settings bar on the left. The
-available options are listed in the `PolypadOptions` object.
-
 __Callback Options__: `Partial<PolypadOptions>`
 
 ### `.on('selection')`
@@ -340,6 +341,13 @@ This event is triggered continuously while users are moving one or more tiles. T
 contains the ID and the current position of all currently selected tiles.
 
 __Callback Options__: `{tiles: {id: string, x: number, y: number}[]}`
+
+### `.on('export')`
+
+Triggered whenever the value of an exported variable changes, when a new export is added or when
+an existing export is deleted (`undefined`).
+
+__Callback Options__: `{[name: string]: {type: string, value: unknown}|undefined}`
 
 
 ## Internationalisation

@@ -2,7 +2,7 @@
 layout: page
 nav_order: 6
 has_children: true
-description: todo
+description: Mathigon Studion API Docs
 ---
 
 # Mathigon Studio

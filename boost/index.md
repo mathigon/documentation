@@ -2,7 +2,7 @@
 layout: page
 nav_order: 5
 has_children: true
-description: todo
+description: Boost.js API Docs
 title: Boost.js
 ---
 

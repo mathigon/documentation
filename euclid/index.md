@@ -2,7 +2,7 @@
 layout: page
 nav_order: 3
 has_children: true
-description: todo
+description: Euclid.js API Docs
 ---
 
 # Euclid.js

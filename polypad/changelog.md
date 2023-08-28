@@ -2,14 +2,34 @@
 layout: page
 nav_order: 2
 parent: Polypad API Docs
+description: Polypad Changelog
 ---
 
 # Polypad Changelog
 
-## v4.6.7 (19 July 2023)
+## v4.7.0 (28 August 2023)
 
-### Breaking Changes
-* Disable double-click-to-roll/flip if the corresponding action bar item is disabled. This applies to the "flip", "draw" and "randomise" actions. If you want to enable these actions for existing canvases, you can use `if (data.options.actionbar && data.options.actionbar !== 'hidden') data.options.actionbar += ',flip,draw,randomise'`.
+### New Features
+* Set `exportToCL: true` to allow exporting of drop zone values. This happens using a new dropdown in the tile action bar to define exports using a list of different functions, and the new `Polypad.getExports()` and `instance.getExports()` methods and the new `instance.on('export')` event.
+* Customisable text labels for polygon tiles (authoring mode).
+* Border radius for rectangle tiles (authoring mode).
+* Input fields for rectangle width/height and circle radius (authoring mode).
+* New instruments and sound samples. The "Song" tile is now called a "Track".
+
+### Bug Fixes
+* Fix an issue that caused "cables" between different tiles to disappear when loading a canvas.
+* Fix undo/redo issues with "colliding" tiles (number cards, prime factor circles, playing cards and number dot arrangements).
+* Fix saving and moving bugs with geometry utensils (ruler, protractor, compass, set triangle).
+* Enforce the "tile limit" of drop zones. Any additional tiles will cause an existing tiles to move out of the drop zone.
+* Only highlight a single dropzone when moving tiles.
+* Fix an issue with detecting loops in expression dependencies.
+* Fix an issue with flipping number jump tiles.
+* Hide the fixed size canvas outline when `canvasMargin: 0`.
+* Fix issues with saving number grid colours.
+* Fix issues with Song tile resizing
+
+
+## v4.6.7 (19 July 2023)
 
 ### New Features
 * Alpha and ellipse masking of images
@@ -21,6 +41,7 @@ parent: Polypad API Docs
 
 ### Bug Fixes
 * Lots of bug fixes related to the categorizer / drop zone tile, including padding for small zones, issues when resizing zones containing tiles, issues with groups inside zones, and support for narrower zones.
+* Disable double-click-to-roll/flip if the corresponding action bar item is disabled
 * Fix tabulating multiple grouped coins in other languages
 * Fix merging grouped number tiles
 
@@ -29,7 +50,6 @@ parent: Polypad API Docs
 
 ### New Features
 * Prefix and suffix options for number line labels
-
 
 ## v4.6.3 (25 June 2023)
 
