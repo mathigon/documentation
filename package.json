@@ -15,8 +15,8 @@
     "@mathigon/euclid": "^1.1.1",
     "@mathigon/fermat": "^1.1.1",
     "@mathigon/hilbert": "^1.1.1",
-    "glob": "^7.1.6",
-    "typedoc": "0.20.9",
+    "glob": "^13.0.6",
+    "typedoc": "0.28.18",
     "typescript": "^4.2.3"
   }
 }
